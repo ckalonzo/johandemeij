@@ -13,6 +13,7 @@ body {
 }
 ul {
     list-style:none; 
+    margin:0;
 }
 .h2, h2 {
     font-size: 2rem;
@@ -39,3 +40,4 @@ ul {
     border: .2rem solid #ececec;
 }
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+@import 'dashboard';  

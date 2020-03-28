@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import SiteRouter from "utils/siteRouter"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "css/main.css"
+import { createBrowserHistory } from "history";
 
-function App() {
+const history = createBrowserHistory();
+class App extends Component {
+  componentDidMount(){
+    //this.props.actions.mainAction(ACTIONS.LOAD_USER_FROM_LOCAL_STORAGE,{})
+  }
+  render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <div history={history}></div>
+    <SiteRouter/>
+    </>
+  )
+  }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+   
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(
+      {
+       
+      },
+      dispatch
+    )
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

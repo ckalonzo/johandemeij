@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css?family=Work+Sans&display=swap");
+html, body {
+  height: 100%; }
+
+body {
+  background: #f8f9fa;
+  font-family: "Work Sans",sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #6f7495;
+  text-align: left;
+  height: 100%; }
+
+ul {
+  list-style: none;
+  margin: 0; }
+
+.h2, h2 {
+  font-size: 2rem; }
+
+.form-control {
+  border-radius: 0; }
+
+#home,
+#sign-in {
+  height: 100%; }
+
+#sign-in,
+#sign-up {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  min-height: 100%; }
+
+#product {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: #FFF;
+  padding: 15px;
+  border: .2rem solid #ececec; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+.navbar {
+  margin: 25px 0; }
+
+.sidebar li {
+  padding: 5px; }
+
+.sidebar a {
+  text-transform: capitalize; }
+
+.post-title {
+  align-items: center; }
+
+.post-actions {
+  width: 150px; }
+
+.post-date {
+  width: 150px; }
+
+table a {
+  color: #687281;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.5; }

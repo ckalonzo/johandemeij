@@ -1,0 +1,33 @@
+ul {
+    margin: 0;
+    padding:0;
+}
+.navbar {
+    margin: 25px 0;
+}
+.sidebar{
+    li {
+        padding: 5px;
+    }
+    a { 
+        text-transform:capitalize;
+    }
+} 
+.post-title {
+    align-items: center;
+}
+.post-actions {
+    width:150px;
+}
+.post-date {
+    width:150px;
+}
+table {
+    a {
+        color: #687281;
+        font-size: 0.85rem;
+        font-weight: 400;
+    line-height: 1.5;
+    }
+    
+}
