@@ -1,5 +1,4 @@
 import { ACTIONS } from 'redux/actions/types.js'
-import { loadPosts } from "API/indexAPI"
 import { mainAction } from "redux/actions/index.actions"
 
 const initialState = {};

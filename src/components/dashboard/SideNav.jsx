@@ -7,7 +7,7 @@ const Navbar = () => {
         <Container>
             <Row>
                 <ul className="sidebar">
-                    <li><Link to="/">news</Link></li>
+                    <li><Link to="/dashboard">news</Link></li>
                     <li><Link to="/">publications</Link></li>
                     <li><Link to="/">cds</Link></li>
                     <li><Link to="/">agenda</Link></li>

@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Container,Row,Col } from "react-bootstrap"
 import { mainAction } from "redux/actions/index.actions"
-import { ACTIONS } from "redux/actions/types"
-import Navbar from "components/dashboard/Navbar"
 import SideNav from "components/dashboard/SideNav"
 import Posts from "components/dashboard/Posts"
 
@@ -18,14 +16,13 @@ const Dashboard = (props) => {
 
     console.log(props)
     return(<>
-    <Navbar />
     <Container id="dashboard">
         <Row>
             <Col lg={{span:2}}>
                <SideNav />
             </Col>
             <Col lg={{span:10}}>
-              <Posts />
+              <Posts {...props} />
             </Col>
         </Row>
     </Container>

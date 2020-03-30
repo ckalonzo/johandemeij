@@ -54,6 +54,26 @@ router.get('/loadPosts', (req, res) => {
   });
 });
 
+router.get('/getPost',(req,res)=>{
+
+  Posts.findOne({_id:req.body._id},(err,post)=>{
+    console.log(res)
+    if(err) throw err;
+    return res.json({success:true,post})
+  })
+
+})
+
+router.post('updatePost',(req,res)=>{
+  const {_id,postDate,postContent,postTitle,postParent,showPost} = req.body;
+  Posts.findOneAndUpdate(
+    {_id:_id},
+    {$set:{postDate,postContent,postTitle,postParent,showPost}},
+    (err,data)=>{
+    if(err) return res.json({success:false,error:err});
+    return res.json({success:true,...data.data})
+  })
+})
 // append /api for our http requests
 app.use('/api', router);
 

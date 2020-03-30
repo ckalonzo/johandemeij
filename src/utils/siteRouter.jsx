@@ -6,6 +6,7 @@ import { withRouter } from "react-router";
 import { bindActionCreators } from "redux";
 import { createBrowserHistory } from "history";
 import dashboard from "components/dashboard/Dashboard";
+import EditPost from "components/dashboard/EditPost";
 
 
 const history = createBrowserHistory();
@@ -14,8 +15,9 @@ const SiteRouter = (props) => {
          return(
             <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
              <Switch>
-                 <Route path="/dashboard/" component={dashboard} />
                  
+                 <Route path="/dashboard/edit" component={EditPost} />
+                 <Route path="/dashboard/" component={dashboard} />
              </Switch>
             </Router>
          )
