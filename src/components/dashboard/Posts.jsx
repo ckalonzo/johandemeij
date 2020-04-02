@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
 import { Button } from "react-bootstrap"
 import { ACTIONS } from "redux/actions/types"
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import EditPost from "components/dashboard/EditPost"
 const Posts = (props) => {
     const [section,setSection] = useState("list")

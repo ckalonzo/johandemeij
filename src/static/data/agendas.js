@@ -134,7 +134,7 @@
         "city": "Montevideo",
         "country": "[Uruguay]",
         "synopsis": "",
-        "day": "02",s
+        "day": "02",
         "month": "10",
         "year": "2015",
         "title": "",

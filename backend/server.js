@@ -4,21 +4,25 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const Posts = require('./posts');
+const PostImages = require('./postImages');
+const Cds = require('./cds');
+const Cdinfo = require('./cdinfo');
+const Musiccatalogue = require('./musiccatalogue');
+const Presentations = require('./presentations')
+const Orders = require('./orders')
 const passwordHash = require('password-hash');
 const BCRYPT_SALT_ROUNDS = 12;
 const jwt = require('jsonwebtoken');  
 const multer = require('multer')
-//const Users = require('./users');
-//const Services = require('./services');
-//const NavItems = require('./navitems');
+
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
   cb(null, __dirname.replace("backend","")+'/public/images/profile')
-},
-filename: function (req, file, cb) {
-  cb(null, Date.now() + '-' +file.originalname )
-}
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' +file.originalname )
+  }
 })
 const upload = multer({ storage: storage }).single('file')
 const API_PORT = 3001;
@@ -54,8 +58,50 @@ router.get('/loadPosts', (req, res) => {
   });
 });
 
-router.get('/getPost',(req,res)=>{
+router.get('/loadOrders', (req, res) => {
+  Orders.find((err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  });
+});
 
+router.get('/loadPostImages', async (req, res) => {
+  PostImages.find((err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  });
+});
+
+router.get('/loadPresentations', async (req, res) => {
+  Presentations.find((err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  });
+});
+router.get('/loadCds', async (req, res) => {
+  Cds.find((err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  });
+});
+router.get('/loadCdinfo', async (req, res) => {
+  try {
+    const cdinfo = await Cdinfo.find()
+    res.json({ success: true, data: cdinfo })
+  } catch (err) {
+    return res.json({ success: false, error: err });
+  }
+});
+
+router.get('/loadMusiccatalogue', (req, res) => {
+  Musiccatalogue.find((err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  });
+
+});
+
+router.get('/getPost',(req,res)=>{
   Posts.findOne({_id:req.body._id},(err,post)=>{
     console.log(res)
     if(err) throw err;
