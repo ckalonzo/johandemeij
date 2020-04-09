@@ -9,7 +9,6 @@ export default function postImagesReducer (state = initialState, action) {
         fetch('http://localhost:3001/api/loadPostImages')
         .then((data) => data.json())
         .then((res) => {
-            console.log(res.data)
           action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_IMAGES_SUCCESS,res.data))
         }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_IMAGES_FAIL,err)))
         return state

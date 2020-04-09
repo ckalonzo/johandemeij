@@ -4,28 +4,21 @@ const Schema = mongoose.Schema;
 
 const PostImagesSchema = new Schema(
   {
-    ID: {
+    id: {
         type: String,
         required: true
     },
-    postContent:{
+    albumID:{
         type: String,
         required: true
     },
-    postTitle: {
+    imageName: {
         type: String,
         required: true
     },
-    postDate: {
+    caption: {
         type: String,
         required: true
-    },
-    postParent: {
-        type: String,
-        required: true
-    },
-    showPost: {
-        type: Boolean
     }
   },
   { timestamps: true }

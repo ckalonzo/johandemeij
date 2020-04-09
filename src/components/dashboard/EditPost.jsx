@@ -8,50 +8,91 @@ import { mainAction } from "redux/actions/index.actions"
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 const EditPost = props => {
-  const {postTitle,postDate,postContent} = props.post
-  const [showPost, setShowPost] = useState(false);
-  const [title, setTitle] = useState();
-  const [date, setDate] = useState();
-  const [content, setContent] = useState();
-  const [postImage, setPostImage] = useState();
-  const [postImageCaption, setPostImageCaption] = useState();
+  const {_id,ID,postTitle,postDate,postContent,showPost} = props.post
+  const [postStatus, setPostStatus] = useState(showPost);
+  const [title, setTitle] = useState(postTitle);
+  const [date, setDate] = useState(postDate);
+  const [content, setContent] = useState(postContent);
   const [validated, setValidated] = useState(false);
-  const [description, setDescription] = useState();
-  const [price, setPrice] = useState();
-  const [type, setType] = useState();
+  const [selectedFile,setSelectedFile] = useState()
+  const [uploadStatus,setUploadStatus] = useState(false)
+  const [file,setFile] = useState()
 
   useEffect(() => {
     // Update the document title using the browser API
     document.title = `Johan De Meij | Edit Post`;
     props.actions.mainAction(ACTIONS.LOAD_POST_IMAGES,[])
+    //if(props.postImages)
+    let image = Object.values(props.postImages).filter(postImage => postImage.albumID === ID)
+    props.actions.mainAction(ACTIONS.LOAD_POST_IMAGE,{image,ID})
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleSubmit = event => {
     event.preventDefault();
-    let product = {
+    
+    let newsItem = {
+      _id,
+      ID,
+      showPost:postStatus,
       title,
-      description,
-      price,
-      productType:type,
-      productOwnerId: props.user._id
+      date,
+      content
     }
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
     setValidated(true);
-    console.log(ACTIONS.ADD_PRODUCT,product)
-    if(Object.values(product).length > 0)
-    props.actions.mainAction(ACTIONS.ADD_PRODUCT,product)
+   props.actions.mainAction(ACTIONS.UPDATE_POST,newsItem)
   };
+  const renderPostImage = () =>{   
+      return (
+        <>
+            <Col lg={{span:4}} className="post-image">
+              <img src={props.postImage.imageName ? "/images/posts/"+props.postImage.imageName:"/images/missing.png"}  onClick={(e)=>selecteImageToUpload(e)} />
+            </Col>
+             <Col lg={{span:4}} className="caption">{props.postImage.caption ? props.postImage.caption:"no-caption"}</Col>
+        </>
+      )
+  }
+  const handleImageSubmit = (e) => {
+
+  }
+  const uploadImage = () => {
+    props.actions.mainAction(ACTIONS.UPLOAD_IMAGE,file)
+    setUploadStatus(true)
+  }
+  const onChangeHandler = (e) => {
+    setSelectedFile(window.URL.createObjectURL(e.targetfiles[0]))
+    setSelectedFile(e.target.files[0])
+  } 
+
+  const renderUploadButtons = () => {
+    if(selectedFile && !uploadStatus)
+    return <Button variant="dark" onClick={()=>uploadImage()}>upload</Button>
+    return <Button variant="primary" onClick={(e)=>selecteImageToUpload(e)}>change image</Button>
+  }
+  const selecteImageToUpload = (e) => {
+    document.querySelector('input#post-image').click()
+  }
   return (
     <>
       <Container>
         <Row>
+          
           <Col lg={{ span: 2 }}>
               <SideNav />
           </Col>
-          <Col lg={{span:"10" }}>
+          <Col lg={{span:"10" }}> 
+          <section id="images">
+          <Form noValidate validated={validated} onSubmit={handleImageSubmit}>
+            <Row>
+            {renderPostImage()}
+              
+  <Col lg={{span:4}}  className="action-button">{renderUploadButtons()}<input type="file" id="post-image" onChange={(e)=>onChangeHandler(e)}/></Col>
+            </Row>
+            </Form>
+          </section>
             <section id="product">
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Row>
@@ -60,10 +101,11 @@ const EditPost = props => {
                               <Form.Control
                                 as="select"
                                 custom
-                                onChange={e => setShowPost(e.target.value)}
+                                onChange={e => setPostStatus(e.target.value)}
                               >
-                                <option value="t">ON</option>
-                                <option>Off</option>
+                                <option value={postStatus}>{postStatus === true ? "ON":"OFF"}</option>
+                                <option value="true">ON</option>
+                                <option value="false">OFF</option>
                               </Form.Control>
                             </Form.Group>
                           </Form.Row>
@@ -85,14 +127,14 @@ const EditPost = props => {
                   </Form.Group>
                   </Form.Row>
                 <Form.Row>
-                  <Form.Group as={Col} controlId="description">
+                  <Form.Group as={Col} controlId="date">
                     <Form.Label>Date</Form.Label>
                     <Form.Control
                       required
                       type="text"
                       placeholder=""
                       defaultValue={postDate}
-                      onChange={e => setDescription(e.target.value)}
+                      onChange={e => setDate(e.target.value)}
                       
                     />
                     <Form.Control.Feedback type="invalid">
@@ -106,7 +148,7 @@ const EditPost = props => {
                   <Form.Group as={Col} controlId="content">
                     <CKEditor
                         editor={ ClassicEditor }
-                        data={postContent ? postContent.replace(/[\r\n]/g, ''):''}
+                        data={content}
                         toolbar= {'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' }
                         onInit={ editor => {
                             // You can store the "editor" and use when it is needed.
@@ -115,9 +157,12 @@ const EditPost = props => {
                         onChange={ ( event, editor ) => {
                             const data = editor.getData();
                             console.log( { event, editor, data } );
+                            setContent(data)
                         } }
                         onBlur={ ( event, editor ) => {
+                          const data = editor.getData();
                             console.log( 'Blur.', editor );
+                            setContent(data)
                         } }
                         onFocus={ ( event, editor ) => {
                             console.log( 'Focus.', editor );
@@ -125,7 +170,7 @@ const EditPost = props => {
                     />
                   </Form.Group>
                   </Form.Row>
-                <Button type="submit">Update Product</Button>
+                <Button type="submit">Update</Button>
               </Form> 
             </section>
           </Col>
@@ -137,7 +182,9 @@ const EditPost = props => {
 function mapStateToProps(state) {
   return {
     post: state.singlePostReducer,
-    postImages:state.postImagesReducer
+    posts:state.postsReducer,
+    postImages:state.postImagesReducer,
+    postImage:state.postImageReducer
   };
 }
 

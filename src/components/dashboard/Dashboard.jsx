@@ -11,7 +11,6 @@ const Dashboard = (props) => {
         // Update the document title using the browser API
         document.title = `Johan De Meij | Dashboard`;
         //if(props.categories.length === 0)
-       
     },[])
 
     console.log(props)
@@ -22,7 +21,7 @@ const Dashboard = (props) => {
                <SideNav />
             </Col>
             <Col lg={{span:10}}>
-              <Posts {...props} />
+              <Posts />
             </Col>
         </Row>
     </Container>

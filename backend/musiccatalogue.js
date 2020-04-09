@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// this will be our Products base's Products structure 
 const MusiccatalogueSchema = new Schema(
   {
     id: {
@@ -44,5 +43,4 @@ const MusiccatalogueSchema = new Schema(
   { timestamps: true }
 );
 
-// export the new Schema so we could modify it using Node.js
 module.exports = musiccatalogue = mongoose.model("Musiccatalogue", MusiccatalogueSchema);

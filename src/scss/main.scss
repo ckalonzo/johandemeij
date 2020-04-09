@@ -15,6 +15,7 @@ ul {
     list-style:none; 
     margin:0;
 }
+
 .h2, h2 {
     font-size: 2rem;
 }
@@ -32,11 +33,42 @@ ul {
    margin-bottom:50px;
     min-height: 100%;
 }
-#product{
+#images,#product{
     margin-bottom:50px;
     background:#FFF;
     padding:25px 35px;
     border: .1rem solid #ececec;
+}
+
+table {
+    th {
+        font-size:.9rem;
+    }
+    .btn {
+        padding:.175rem .475em;
+        font-size:.8rem;
+        text-transform: capitalize;
+    }
+    td {
+        font-size: .8rem;
+    }
+    .post-title{
+        width:33%;
+    }
+}
+#post-image{
+    display:none;
+}
+.action-button,.caption{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.post-image {
+    img {
+         width:100px;
+    }
+   
 }
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 @import 'dashboard';  
