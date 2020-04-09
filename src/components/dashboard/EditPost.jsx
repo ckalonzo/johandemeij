@@ -16,6 +16,7 @@ const EditPost = props => {
   const [validated, setValidated] = useState(false);
   const [selectedFile,setSelectedFile] = useState()
   const [uploadStatus,setUploadStatus] = useState(false)
+  const [caption,setCaption] = useState(props.postImage.caption)
   const [file,setFile] = useState()
 
   useEffect(() => {
@@ -49,9 +50,27 @@ const EditPost = props => {
       return (
         <>
             <Col lg={{span:4}} className="post-image">
-              <img src={props.postImage.imageName ? "/images/posts/"+props.postImage.imageName:"/images/missing.png"}  onClick={(e)=>selecteImageToUpload(e)} />
+              <img src={selectedFile ? selectedFile :"/images/missing.png"}  onClick={(e)=>selecteImageToUpload(e)} />
             </Col>
-             <Col lg={{span:4}} className="caption">{props.postImage.caption ? props.postImage.caption:"no-caption"}</Col>
+             <Col lg={{span:4}} className="caption">
+             <Form.Row>
+                  <Form.Group as={Col}  controlId="caption">
+                    <Form.Label>Caption</Form.Label>
+                    <Form.Control
+                      required
+                      type="text"
+                      placeholder=""
+                      defaultValue={caption}
+                      onChange={e => setCaption(e.target.value)}
+                      
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        Please provide a caption.
+                      </Form.Control.Feedback>
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  </Form.Group>
+                  </Form.Row>
+               </Col>
         </>
       )
   }
@@ -63,8 +82,8 @@ const EditPost = props => {
     setUploadStatus(true)
   }
   const onChangeHandler = (e) => {
-    setSelectedFile(window.URL.createObjectURL(e.targetfiles[0]))
-    setSelectedFile(e.target.files[0])
+    setSelectedFile(window.URL.createObjectURL(e.target.files[0]))
+    setFile(e.target.files[0])
   } 
 
   const renderUploadButtons = () => {

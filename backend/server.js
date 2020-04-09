@@ -19,27 +19,23 @@ const multer = require('multer')
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-  cb(null, __dirname.replace("backend","")+'/public/images/profile')
+  cb(null, __dirname.replace("backend","")+'/public/images/post')
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + '-' +file.originalname )
   }
 })
-const upload = multer({ storage: storage }).single('file')
+const upload = multer({ storage:storage}).single('file')
+
 const API_PORT = 3001;
 const app = express();
 app.use(cors());
 const router = express.Router();
-
 // this is our MongoDB database
-const dbRoute =
-  'mongodb://localhost:27017/johandemeij-db';
-
+const dbRoute ='mongodb://localhost:27017/johandemeij-db';
 // connects our back end code with the database
 mongoose.connect(dbRoute, { useNewUrlParser: true });
-
 let db = mongoose.connection;
-
 db.once('open', () => console.log('connected to the database'));
 
 // checks if connection with the database is successful
@@ -84,6 +80,7 @@ router.get('/loadPublications', async (req, res) => {
     return res.json({ success: true, data: data });
   });
 });
+
 router.get('/loadCds', async (req, res) => {
   Cds.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
@@ -97,6 +94,7 @@ router.get('/loadCdinfo', async (req, res) => {
     return res.json({ success: true, data: data });
   });
 });
+
 router.get('/loadAgendas', async (req, res) => {
   Agendas.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
@@ -127,8 +125,17 @@ router.post('/updatePostImage',(req,res)=>{
       return res.json({success:true,data})
     })
 })
-
-
+ router.post('/uploadPostImage',(req,res)=>{
+  console.log(req,res)
+  upload(req,res, function(err){
+    if(err instanceof multer.MulterError){
+      return res.status(500).json(err)
+    } else if(err){
+      return res.status(500).json(err)
+    }
+    return res.status(200).json(req.file)
+  })
+ })
 router.post('/updatePublications',(req,res)=>{
   const {_id,id,cdName,subTitle,composer,instrumentation,synopsis,totalTime,frontCover,backCover,dateCreated,frontCaption,backCaption,category,codes,duration,grade,cd,otherCd,score,audio,video} = req.body;
   Presentations.findOneAndUpdate({_id:_id},
