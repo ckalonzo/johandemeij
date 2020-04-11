@@ -5,7 +5,7 @@ import SiteRouter from "utils/siteRouter"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "css/main.css"
 import { createBrowserHistory } from "history";
-import Navbar from "components/dashboard/Navbar";
+import Navbar from "components/shared/Navbar";
 const history = createBrowserHistory();
 class App extends Component {
   componentDidMount(){
@@ -14,8 +14,12 @@ class App extends Component {
   render() {
   return (
     <>
-     <Navbar  history={history}/>
+
+    <Navbar  history={history}/>
+    <div className="container">
     <SiteRouter/>
+    </div>
+     
     </>
   )
   }

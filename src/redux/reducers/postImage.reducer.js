@@ -5,9 +5,28 @@ import _ from "lodash"
 const initialState = {};
 export default function postImageReducer (state = initialState, action) {
     switch (action.type) {
+      case ACTIONS.RESET_IMAGE:{
+        let image = [];
+        return image;
+      }
       case ACTIONS.LOAD_POST_IMAGE:{
-          let image = action.payload.image[0]
-          return {...image}
+        let image ='' 
+        Object.values(action.payload.images).map(postImage => {
+          
+        if(postImage.albumID === action.payload.ID){
+          image = postImage;
+          return postImage
+        }
+          return null
+          
+        })
+        console.log(image)
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_IMAGE_SUCCESS,image))
+          return state
+      }
+      case ACTIONS.LOAD_POST_IMAGE_SUCCESS:{
+        console.log(action)
+        return action.payload
       }
       case ACTIONS.UPLOAD_IMAGE:{
         uploadImage(action.payload).then((json)=>{

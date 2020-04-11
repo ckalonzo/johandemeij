@@ -15,6 +15,7 @@ const Posts = (props) => {
         // Update the document title using the browser API
         document.title = `JDM Dashboard | posts`;
         //if(props.categories.length === 0)
+        props.actions.mainAction(ACTIONS.RESET_IMAGE,{})
        props.actions.mainAction(ACTIONS.LOAD_POSTS,[])
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])

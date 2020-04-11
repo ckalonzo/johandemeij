@@ -2,7 +2,8 @@ html,body {
     height: 100%;
 }
 body {
-    background:#f8f9fa;
+    //background:#f8f9fa;
+    background: #242530;
     font-family: "Work Sans",sans-serif;
     font-size: 1rem;
     font-weight: 400;
@@ -68,7 +69,26 @@ table {
     img {
          width:100px;
     }
-   
-}
+}  
+.news-card {
+    width:100%;
+    background:#FFF;
+    border-radius:10px;
+    margin-bottom:25px;
+    .card-title {
+        font-size: 1rem;
+        color:#000;
+        font-weight: 700;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    }
+    .card-text {}
+    .card-link {}
+    .card-body {
+        padding:15px;
+    }
+}  
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
-@import 'dashboard';  
+@import 'navbar';
+@import 'dashboard';   
+@import 'news'

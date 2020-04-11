@@ -1,0 +1,13 @@
+.navbar {
+    background-color: #242530 !important;
+    a {
+        text-transform: capitalize;
+        white-space: nowrap;
+    }
+    .navbar-brand {
+        font-size:2rem;
+    }
+    .navbar-nav {
+        padding-top:10px;
+    }
+}

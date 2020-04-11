@@ -12,7 +12,7 @@ import Publications from "components/dashboard/Publications";
 import Cds from "components/dashboard/Cds";
 import MusicCatalogue from "components/dashboard/MusicCatalogue";
 import Agendas from "components/dashboard/Agendas"
-
+import Home from "components/Home"
 const history = createBrowserHistory();
 const SiteRouter = (props) => {
 
@@ -25,8 +25,8 @@ const SiteRouter = (props) => {
                  <Route path="/dashboard/publications" component={Publications} />
                  <Route path="/dashboard/news/edit/" component={EditPost} />
                  <Route path="/dashboard/news" component={Posts} />
-                 
                  <Route path="/dashboard/" component={dashboard} />
+                 <Route path="/" component={Home} />
              </Switch>
             </Router>
          )

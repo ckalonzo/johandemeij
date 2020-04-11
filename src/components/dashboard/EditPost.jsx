@@ -7,6 +7,8 @@ import SideNav from "components/dashboard/SideNav";
 import { mainAction } from "redux/actions/index.actions"
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import PostImage from "components/dashboard/PostImage"
+
 const EditPost = props => {
   const {_id,ID,postTitle,postDate,postContent,showPost} = props.post
   const [postStatus, setPostStatus] = useState(showPost);
@@ -14,18 +16,12 @@ const EditPost = props => {
   const [date, setDate] = useState(postDate);
   const [content, setContent] = useState(postContent);
   const [validated, setValidated] = useState(false);
-  const [selectedFile,setSelectedFile] = useState()
-  const [uploadStatus,setUploadStatus] = useState(false)
-  const [caption,setCaption] = useState(props.postImage.caption)
-  const [file,setFile] = useState()
+
 
   useEffect(() => {
     // Update the document title using the browser API
     document.title = `Johan De Meij | Edit Post`;
-    props.actions.mainAction(ACTIONS.LOAD_POST_IMAGES,[])
-    //if(props.postImages)
-    let image = Object.values(props.postImages).filter(postImage => postImage.albumID === ID)
-    props.actions.mainAction(ACTIONS.LOAD_POST_IMAGE,{image,ID})
+    props.actions.mainAction(ACTIONS.LOAD_POST_IMAGES,{})
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleSubmit = event => {
@@ -46,54 +42,9 @@ const EditPost = props => {
     setValidated(true);
    props.actions.mainAction(ACTIONS.UPDATE_POST,newsItem)
   };
-  const renderPostImage = () =>{   
-      return (
-        <>
-            <Col lg={{span:4}} className="post-image">
-              <img src={selectedFile ? selectedFile :"/images/missing.png"}  onClick={(e)=>selecteImageToUpload(e)} />
-            </Col>
-             <Col lg={{span:4}} className="caption">
-             <Form.Row>
-                  <Form.Group as={Col}  controlId="caption">
-                    <Form.Label>Caption</Form.Label>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder=""
-                      defaultValue={caption}
-                      onChange={e => setCaption(e.target.value)}
-                      
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a caption.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group>
-                  </Form.Row>
-               </Col>
-        </>
-      )
-  }
-  const handleImageSubmit = (e) => {
 
-  }
-  const uploadImage = () => {
-    props.actions.mainAction(ACTIONS.UPLOAD_IMAGE,file)
-    setUploadStatus(true)
-  }
-  const onChangeHandler = (e) => {
-    setSelectedFile(window.URL.createObjectURL(e.target.files[0]))
-    setFile(e.target.files[0])
-  } 
 
-  const renderUploadButtons = () => {
-    if(selectedFile && !uploadStatus)
-    return <Button variant="dark" onClick={()=>uploadImage()}>upload</Button>
-    return <Button variant="primary" onClick={(e)=>selecteImageToUpload(e)}>change image</Button>
-  }
-  const selecteImageToUpload = (e) => {
-    document.querySelector('input#post-image').click()
-  }
+ 
   return (
     <>
       <Container>
@@ -103,15 +54,7 @@ const EditPost = props => {
               <SideNav />
           </Col>
           <Col lg={{span:"10" }}> 
-          <section id="images">
-          <Form noValidate validated={validated} onSubmit={handleImageSubmit}>
-            <Row>
-            {renderPostImage()}
-              
-  <Col lg={{span:4}}  className="action-button">{renderUploadButtons()}<input type="file" id="post-image" onChange={(e)=>onChangeHandler(e)}/></Col>
-            </Row>
-            </Form>
-          </section>
+            <PostImage ID={ID} images={props.postImages}/>
             <section id="product">
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Row>
@@ -202,8 +145,7 @@ function mapStateToProps(state) {
   return {
     post: state.singlePostReducer,
     posts:state.postsReducer,
-    postImages:state.postImagesReducer,
-    postImage:state.postImageReducer
+    postImages:state.postImagesReducer
   };
 }
 
