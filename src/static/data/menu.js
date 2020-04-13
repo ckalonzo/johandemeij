@@ -1,0 +1,1 @@
+const navItems = ["news","events","agenda","music","biography","rental catalogue","order"];

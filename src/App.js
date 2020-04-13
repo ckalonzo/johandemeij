@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "css/main.css"
 import { createBrowserHistory } from "history";
 import Navbar from "components/shared/Navbar";
+import Footer from "components/shared/Footer"
 const history = createBrowserHistory();
 class App extends Component {
   componentDidMount(){
@@ -16,10 +17,8 @@ class App extends Component {
     <>
 
     <Navbar  history={history}/>
-    <div className="container">
     <SiteRouter/>
-    </div>
-     
+    <Footer />
     </>
   )
   }

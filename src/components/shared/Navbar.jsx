@@ -1,11 +1,13 @@
 import React from "react"
 import Navbar from 'react-bootstrap/Navbar'
-import { Nav,Col,Row,Form} from "react-bootstrap"
+import { Nav,Col,Row} from "react-bootstrap"
+
 const NavigationBar = () => {
-    let navItems = ["news","events","agenda","music","biography","rental catalogue","order"]
+
     const NavList = () => {
+        const navItems = ["news","events","agenda","music","biography","rental catalogue","order"];
        return  navItems.map(item => {
-        return <Nav.Link href={`#${item}`}>{item}</Nav.Link>
+        return <Nav.Link key={item} href={`#${item}`}>{item}</Nav.Link>
     })}
     return (<>
         <Navbar bg="dark" variant="dark">

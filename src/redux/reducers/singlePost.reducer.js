@@ -1,7 +1,6 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { updatePost } from 'API/indexAPI'
 import { mainAction } from "redux/actions/index.actions"
-import _ from 'lodash'
 
 
 const initialState = {};

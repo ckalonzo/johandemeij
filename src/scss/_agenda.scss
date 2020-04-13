@@ -1,0 +1,22 @@
+section.agenda {
+    background: #000;
+    margin:50px 0 0;
+    padding:100px 0;
+    font-size:.8rem; 
+    text-align: left;
+    color: rgba(255, 255, 255, 0.7);
+    .agenda-card{
+        margin:50px 0;
+    }
+    .title {
+        margin-bottom:10px;
+        color:#FFF;
+    }
+    .conductor span {
+        font-style: italic;
+    }
+    .date {
+       
+    }
+    
+}

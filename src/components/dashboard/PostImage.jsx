@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { mainAction } from "redux/actions/index.actions"
-import { Form, Container, Row, Col, Button} from "react-bootstrap";
+import { Form, Row, Col, Button} from "react-bootstrap";
 import { ACTIONS } from "redux/actions/types";
 
 const ProfileImage = (props) => {

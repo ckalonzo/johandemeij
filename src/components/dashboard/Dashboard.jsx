@@ -12,7 +12,7 @@ const Dashboard = (props) => {
         // Update the document title using the browser API
         document.title = `Johan De Meij | Dashboard`;
         props.actions.mainAction(ACTIONS.LOAD_POST_IMAGE,{})
-        //if(props.categories.length === 0)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     console.log(props)

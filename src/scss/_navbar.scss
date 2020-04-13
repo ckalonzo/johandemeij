@@ -1,13 +1,17 @@
 .navbar {
-    background-color: #242530 !important;
+    background-color: #FFF !important;
+    color:#000!important;
     a {
         text-transform: capitalize;
         white-space: nowrap;
+        color:#000!important;
     }
     .navbar-brand {
         font-size:2rem;
+        color:#000;
     }
     .navbar-nav {
         padding-top:10px;
+        color:#000;
     }
 }
