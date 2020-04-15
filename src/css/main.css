@@ -14,8 +14,14 @@ body {
   text-align: left;
   height: 100%; }
 
-a, a:hover {
+a,
+a:hover,
+.card-link {
   color: #9a0000; }
+
+.card-image img:hover,
+.card-link:hover {
+  cursor: pointer; }
 
 ul {
   list-style: none;
@@ -74,44 +80,9 @@ table .post-title {
   white-space: nowrap;
   color: #000 !important; }
 
-footer {
-  padding: 75px 0 0;
-  background-color: #0a0a0a; }
-  footer h5 {
-    margin-bottom: 25px; }
-  footer .social-media ul li {
-    margin: 0;
-    padding: 0;
-    line-height: 1rem;
-    float: left;
-    margin-right: 5px; }
-  footer ul {
-    margin: 0;
-    padding: 0; }
-  footer .fa-facebook {
-    background: #3B5998;
-    color: white; }
-  footer .fa-twitter {
-    background: #55ACEE;
-    color: white; }
-  footer .fa-linkedin {
-    background: #007bb5;
-    color: white; }
-  footer .fa {
-    padding: 5px;
-    font-size: 20px;
-    width: 30px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-    border-radius: 50%; }
-  footer .fa:hover {
-    opacity: 0.7; }
-  footer .footer-copyright {
-    background-color: #000;
-    margin-top: 25px; }
-  footer .nav-link {
-    padding: 0; }
+.jdm-button {
+  background-color: #9a0000;
+  border-color: #9a0000; }
 
 .navbar {
   background-color: #FFF !important;
@@ -158,24 +129,28 @@ table a {
 
 #dashboard .col-lg-10 {
   background: #FFF;
-  outline: 1px solid #d1d1d1; }
+  outline: 1px solid #eaeaea; }
 
 #dashboard h1 {
   margin-top: 25px;
   margin-bottom: 50px; }
 
 section.agenda {
-  background: #000;
+  background: #eaeaea;
   margin: 50px 0 0;
   padding: 100px 0;
-  font-size: .8rem;
+  font-size: .75rem;
   text-align: left;
-  color: rgba(255, 255, 255, 0.7); }
+  color: #000; }
+  section.agenda h3, section.agenda h3 a {
+    color: #fe5c56 !important; }
   section.agenda .agenda-card {
-    margin: 50px 0; }
+    margin: 50px 0;
+    border: 5px solid #fe5c56; }
   section.agenda .title {
+    font-size: 1rem;
     margin-bottom: 10px;
-    color: #FFF; }
+    color: #fe5c56; }
   section.agenda .conductor span {
     font-style: italic; }
 
@@ -184,10 +159,9 @@ section.about {
   background: #FFF; }
   section.about h3 {
     font-size: 2rem !important;
-    color: #000 !important; }
-  section.about .bio-photo {
-    background: #d1d1d1;
-    min-height: 300px; }
+    color: #9a0000 !important; }
+  section.about button {
+    margin: 35px 0 50px; }
 
 section.news {
   padding: 50px 0; }
@@ -214,13 +188,71 @@ section.news {
   background: #FFF;
   margin-bottom: 25px; }
   .news-card .card-body {
-    border: 1px solid #000;
-    border-top: none; }
+    border: 1px solid #eaeaea;
+    border-top: none;
+    min-height: 162px; }
   .news-card .card-title {
     font-size: 1rem;
     color: #000;
     font-weight: 700;
     letter-spacing: .02em;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    margin-bottom: .25px; }
+  .news-card .card-text {
+    min-height: 47px;
+    max-height: 47px;
+    font-size: .8rem; }
+  .news-card .card-date {
+    text-align: center;
+    color: #aeaeae; }
   .news-card .card-body {
     padding: 15px; }
+
+section.events h3 {
+  margin-bottom: 10px;
+  color: #fe5c56; }
+
+footer {
+  padding: 75px 0 0;
+  background-color: #eaeaea;
+  color: #000; }
+  footer h5 {
+    margin-bottom: 25px; }
+  footer .social-media ul li {
+    margin: 0;
+    padding: 0;
+    line-height: 1rem;
+    float: left;
+    margin-right: 5px; }
+  footer ul {
+    margin: 0 0 50px;
+    padding: 0; }
+  footer .fa-facebook {
+    background: #3B5998;
+    color: white; }
+  footer .fa-twitter {
+    background: #55ACEE;
+    color: white; }
+  footer .fa-linkedin {
+    background: #007bb5;
+    color: white; }
+  footer .fa {
+    padding: 5px;
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%; }
+  footer .fa:hover {
+    opacity: 0.7; }
+  footer .footer-copyright {
+    background-color: #FFF;
+    margin-top: 25px; }
+  footer .nav-link {
+    padding: 0; }
+  footer button {
+    margin-bottom: 50px; }
+
+section.article .lead-image {
+  margin-bottom: 50px; }

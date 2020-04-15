@@ -4,10 +4,9 @@ import { bindActionCreators } from "redux";
 import SiteRouter from "utils/siteRouter"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "css/main.css"
-import { createBrowserHistory } from "history";
 import Navbar from "components/shared/Navbar";
 import Footer from "components/shared/Footer"
-const history = createBrowserHistory();
+
 class App extends Component {
   componentDidMount(){
     //this.props.actions.mainAction(ACTIONS.LOAD_USER_FROM_LOCAL_STORAGE,{})
@@ -16,8 +15,8 @@ class App extends Component {
   return (
     <>
 
-    <Navbar  history={history}/>
-    <SiteRouter/>
+    <Navbar  />
+    <SiteRouter />
     <Footer />
     </>
   )

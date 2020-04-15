@@ -11,8 +11,8 @@ const Home = (props) => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
    return (<>
-    <News />
-    <Agenda />
+      <News history={props.history}/>
+      <Agenda />
       <About />
    </>)
 }

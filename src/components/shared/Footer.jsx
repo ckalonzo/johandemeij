@@ -115,7 +115,7 @@ const Footer = () => {
                   
                 </Form.Row>
 
-                <Button variant="danger" type="submit">Send</Button>
+                <Button className="jdm-button" type="submit">Send</Button>
               </Form> 
 
 </Col>

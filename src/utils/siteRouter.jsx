@@ -13,12 +13,20 @@ import Cds from "components/dashboard/Cds";
 import MusicCatalogue from "components/dashboard/MusicCatalogue";
 import Agendas from "components/dashboard/Agendas"
 import Home from "components/Home"
+import Post from "components/Post"
+import Biography from "components/Biography"
+import Music from "components/Music"
+import Events from "components/Events"
+import Order from "components/Order"
+import News from "components/News"
+import RentalCatalogue from "components/RentalCatalogue";
 const history = createBrowserHistory();
-const SiteRouter = (props) => {
+const SiteRouter = () => {
 
          return(
             <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
              <Switch>
+                 
                  <Route path="/dashboard/agenda" component={Agendas} />
                  <Route path="/dashboard/catalogue" component={MusicCatalogue} />
                  <Route path="/dashboard/cds" component={Cds} />
@@ -26,7 +34,14 @@ const SiteRouter = (props) => {
                  <Route path="/dashboard/news/edit/" component={EditPost} />
                  <Route path="/dashboard/news" component={Posts} />
                  <Route path="/dashboard/" component={dashboard} />
-                 <Route path="/" component={Home} />
+                 <Route path="/order" component={Order} />
+                 <Route path="/rentalcatalogue" component={RentalCatalogue} />
+                 <Route path="/biography" component={Biography} />
+                 <Route path="/music" component={Music} />
+                 <Route path="/events" component={Events} />
+                 <Route path="/post/:id" component={Post} />
+                 <Route path="/news" component={News} history={history} />
+                 <Route path="/" component={Home} history={history} />
              </Switch>
             </Router>
          )

@@ -6,6 +6,10 @@ import { mainAction } from "redux/actions/index.actions"
 const initialState = {};
 export default function singlePostReducer (state = initialState, action) {
     switch (action.type) {
+      case ACTIONS.LOAD_ARTICLE:{
+       console.log(action)
+        return action.payload
+      }
       case ACTIONS.LOAD_POST: {
         return action.payload
       }

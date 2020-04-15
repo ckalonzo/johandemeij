@@ -27,8 +27,9 @@ section.news {
 
   margin-bottom:25px;
   .card-body {
-    border:1px solid #000;
+    border:1px solid #eaeaea;
     border-top:none;
+    min-height:162px;
   }
   .card-title {
       font-size: 1rem;
@@ -36,8 +37,17 @@ section.news {
       font-weight: 700;
   letter-spacing: .02em;
   text-transform: uppercase;
+  margin-bottom:.25px;
   }
-  .card-text {}
+  .card-text {
+    min-height: 47px;
+    max-height:47px;
+    font-size:.8rem;
+  }
+  .card-date {
+    text-align: center;
+    color:#aeaeae;
+  }
   .card-link {}
   .card-body {
       padding:15px;

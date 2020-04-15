@@ -7,37 +7,37 @@ import Article from "components/shared/Article"
 import {Row} from "react-bootstrap"
 import { Link } from "react-router-dom"
 import _ from "lodash"
+
 const News  = (props) => {
     useEffect(() => {
         // Update the document title using the browser API
         //props.actions.mainAction(ACTIONS.RESET_IMAGE,{})
         props.actions.mainAction(ACTIONS.LOAD_POSTS,[])
-        props.actions.mainAction(ACTIONS.LOAD_POST_IMAGES,{})
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
     return (<>
     <section className="news">
     <div className="container">
-    <h2 style={{textAlign:'center',fontSize:"3rem",textTransform: "uppercase",color:"#FFF"}}>News</h2>
     <Row>
-        {Object.values(props.posts).map(article => {
+        {Object.values((_.orderBy(props.posts,'postDate','desc'))).map(article => {
 
-          let articleImage =Object.values(props.postImages).filter(image => image.albumID == article.ID).map(image =>{
-            return image
+          let articleImage =Object.values(props.postImages).filter(image => image.albumID == article.ID).map(postImage =>{
+            return postImage
           })
-          
-            return <Article key={article._id} {...article} image={articleImage[0]} />
-
+          if(articleImage[0])
+            return <Article key={article._id} {...props}{...article} image={articleImage[0] ? articleImage[0]:"missing.png"} />
         })}
     </Row>
-    <h3 style={{textAlign:'center',fontSize:"3rem",textTransform: "uppercase",color:"#FFF"}}><Link to="/">view all articles</Link></h3>
     </div>
     </section>
     </>)
 }
 function mapStateToProps(state) {
+
     return {
-      posts:state.postsReducer,
+      posts:_.filter(state.postsReducer,function(post){
+        return post.showPost === true
+      }),
       postImages:state.postImagesReducer
     };
   }

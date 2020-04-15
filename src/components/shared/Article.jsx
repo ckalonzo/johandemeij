@@ -5,38 +5,51 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ACTIONS } from "redux/actions/types"
 import { mainAction } from "redux/actions/index.actions"
+import dayjs from "dayjs"
 const Article = (props) => {
     useEffect(() => {
        
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
     const stripHtml = require("string-strip-html")
-    const {postTitle,postContent} = props
+    const {postTitle,postContent,image,_id,postDate} = props
     const truncateString = (str, num) => {
         if (str.length <= num) {
             return str
           }
-          // Return str truncated with '...' concatenated to the end of str.
           return str.slice(0, num) + '...'
       }
-   let imagePath = props ? "/images/posts/".props.image.imageName:"/images/posts/No.%205%20JPEG.jpg"
-    let styles = {
-        backgroundImage:`url(${imagePath})`,
-        backgrounSize:"cover",
-        minHeight:"150px",
-        backgroundPosition:"50% 10%"
+      const loadPost = (post) => {
+        //Object.values(posts).filter(post => post._id === props.match.params.id)
+        props.actions.mainAction(ACTIONS.LOAD_ARTICLE,post)
+        props.history.push(`/post/${post._id}`)
+      }
+    const renderArticle = () => {
+      let date = dayjs(postDate)
+        let imagePath = Object.keys(image).length > 0 ? "/images/posts/"+image.imageName:"images/missing.png"
+            let styles = {
+            background:`url(${imagePath})`,
+            backgrounSize:"cover",
+            maxHeight:"180px",
+            width:"100%",
+            backgroundPosition:"50% 10%",
+            overflow:"hidden"
+        }
+        return (<><div className="news-card">
+        <div className="card-image" style={styles}><img src={imagePath} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%"}} onClick={()=>loadPost(props)}/></div>
+        <div className="card-body">
+        <div className="card-date">{date.format('MMMM DD YYYY')}</div> 
+        <div className="card-title">{truncateString(postTitle,47)}</div>
+        <div className="card-text">{truncateString(stripHtml(postContent),70)}</div>
+      
+        <div className="card-link" onClick={()=>loadPost(props)}>More...</div>
+        </div>
+        </div></>)
     }
-    console.log(props.image ? props.image.imageName:"")
+    console.log(props)
     return (<>
     <Col lg={{span:"4" }}>
-    <div className="news-card">
-        <div className="card-image" style={styles}></div>
-        <div className="card-body">
-        <div className="card-title">{truncateString(postTitle,30)}</div>
-        <div className="card-text">{truncateString(stripHtml(postContent),50)}</div>
-        <div className="card-link"><Link to="/">...more</Link></div>
-        </div>
-        </div>
+    {renderArticle()}
     </Col>
     </>)
 }
