@@ -1,5 +1,12 @@
-section.article{
+section.article {
+    h1 {
+        color:#9a0000;
+    }
     .lead-image {
         margin-bottom:50px;
+        max-height:250px;
+        width:100%;
+        background-position:10% 50%;
+        overflow:hidden"
     }
 }

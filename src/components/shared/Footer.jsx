@@ -18,11 +18,11 @@ const Footer = () => {
     const handleSubmit = event => {
         event.preventDefault();
         
-        let concertItem = {
-            orchestraEnsemble,
-            conductor,
-            nameOfPiece
-        }
+        // let concertItem = {
+        //     orchestraEnsemble,
+        //     conductor,
+        //     nameOfPiece
+        // }
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
           event.stopPropagation();
@@ -50,7 +50,7 @@ const Footer = () => {
                       required
                       type="text"
                       placeholder="Orchestra, Ensemble:"
-                      defaultValue={""}
+                      defaultValue={orchestraEnsemble}
                       onChange={e => setOrchestraEnsemble(e.target.value)}
                       
                     />
@@ -67,7 +67,7 @@ const Footer = () => {
                       required
                       type="text"
                       placeholder="Conductor"
-                      defaultValue={""}
+                      defaultValue={conductor}
                       onChange={e => setConductor(e.target.value)}
                       
                     />
@@ -85,7 +85,7 @@ const Footer = () => {
                       required
                       type="text"
                       placeholder="Name of Piece:"
-                      defaultValue={""}
+                      defaultValue={nameOfPiece}
                       onChange={e => setNameOfPiece(e.target.value)}
                       
                     />
@@ -126,10 +126,10 @@ const Footer = () => {
 <Col md={4} className="social-media">
 <h5 className="text-uppercase">Social Media</h5>
 <ul>
-    <li><a href="http://www.facebook.com/johan.demeij?sk=wall" className="fa fa-facebook"/>
+    <li><a href="http://www.facebook.com/johan.demeij?sk=wall" className="fa fa-facebook">&nbsp;</a>
 </li>
-<li><a href="http://twitter.com/JohandeMeij?utm_campaign=newfollow20100823&utm_content=profile&utm_medium=email&utm_source=follow" className="fa fa-twitter"/></li>
-<li><a href="http://twitter.com/JohandeMeij?utm_campaign=newfollow20100823&utm_content=profile&utm_medium=email&utm_source=follow" className="fa fa-linkedin"/></li>
+<li><a href="http://twitter.com/JohandeMeij?utm_campaign=newfollow20100823&utm_content=profile&utm_medium=email&utm_source=follow" className="fa fa-twitter">&nbsp;</a></li>
+<li><a href="http://twitter.com/JohandeMeij?utm_campaign=newfollow20100823&utm_content=profile&utm_medium=email&utm_source=follow" className="fa fa-linkedin">&nbsp;</a></li>
 </ul>
 </Col>
     </Row>

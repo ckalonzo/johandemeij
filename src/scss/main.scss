@@ -91,6 +91,11 @@ table {
     background-color: #9a0000;
     border-color: #9a0000;
 }
+.article {
+   h1 {
+    color: #9a0000 !important;
+   }
+}
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -100,5 +105,5 @@ table {
 @import 'about';
 @import 'news';
 @import 'events'; 
-@import 'footer'; 
+@import 'footer';
 @import 'article'

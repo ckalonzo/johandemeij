@@ -1,6 +1,6 @@
 import React from "react";
 import {Row,Col,Button,Container} from "react-bootstrap"
-const About  = () => {
+const About  = (props) => {
     let styles = {
         backgrounSize:"cover",
         maxHeight:"300px",
@@ -19,7 +19,7 @@ const About  = () => {
              <Button className="jdm-button">Read more</Button>
         </Col>
          <Col  lg={{span:5,offset:1}} className="bio-photo" style={styles}>
-         <img src={`/images/albums/pic3_download.jpg`} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%"}} />
+         <img src={`/images/albums/pic3_download.jpg`} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%"}} alt="biogrophy"/>
          
          </Col>
         </Row>

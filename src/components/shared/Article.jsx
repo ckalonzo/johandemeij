@@ -1,6 +1,5 @@
 import React, { useEffect} from "react";
 import {Col} from "react-bootstrap"
-import {Link } from "react-router-dom"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ACTIONS } from "redux/actions/types"
@@ -28,15 +27,14 @@ const Article = (props) => {
       let date = dayjs(postDate)
         let imagePath = Object.keys(image).length > 0 ? "/images/posts/"+image.imageName:"images/missing.png"
             let styles = {
-            background:`url(${imagePath})`,
-            backgrounSize:"cover",
-            maxHeight:"180px",
+            backgrounSize:"contain",
+            maxHeight:"250px",
             width:"100%",
-            backgroundPosition:"50% 10%",
+            backgroundPosition:"50% 50%",
             overflow:"hidden"
         }
         return (<><div className="news-card">
-        <div className="card-image" style={styles}><img src={imagePath} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%"}} onClick={()=>loadPost(props)}/></div>
+        <div className="card-image" style={styles}><img src={imagePath} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 50%"}} onClick={()=>loadPost(props)}/></div>
         <div className="card-body">
         <div className="card-date">{date.format('MMMM DD YYYY')}</div> 
         <div className="card-title">{truncateString(postTitle,47)}</div>
