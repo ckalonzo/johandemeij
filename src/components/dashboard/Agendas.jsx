@@ -26,7 +26,8 @@ const Agendas = (props) => {
       props.actions.mainAction(ACTIONS.EDIT_POST,post)
       props.history.push('/dashboard/edit')
     }
-    const PostList = () => {
+    const PostList = (props) => {
+      
         return Object.values(props.agendas).map(agenda =>{
           return ( <tr key={agenda._id}>
             <td className="post-title" onClick={()=>loadPost(agenda)}>{agenda.orchestra}</td>

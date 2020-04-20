@@ -1,17 +1,18 @@
 section.agenda {
-    background: #eaeaea;
-    margin:50px 0 0;
-    padding:100px 0;
+    padding-top:25px;
+    padding-bottom:25px;
     font-size:.75rem; 
     text-align: left;
-    //color: rgba(255, 255, 255, 0.7);
+    background: rgba(234, 234, 234, .3);
     color:#000;
     h3,h3 a {
         color:#fe5c56!important;
+        margin:50px 0;
     }
     .agenda-card{
-        margin:50px 0;
-        border:5px solid #fe5c56;
+        margin:15px 0;
+        //border:5px solid #fe5c56;
+        background: rgba(234, 234, 234, 0.7);
     }
     .title {
         font-size:1rem; 

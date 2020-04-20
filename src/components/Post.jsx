@@ -6,7 +6,8 @@ import { mainAction } from "redux/actions/index.actions"
 import {Container,Row,Col} from "react-bootstrap"
 import ReactHtmlParser from 'react-html-parser';
 import dayjs from "dayjs"
-
+import ArticleList from "components/shared/ArticleList"
+import _ from "lodash"
 const Post = (props) => {
     const {postTitle,postDate} = props.post
     let date = dayjs(postDate)
@@ -28,14 +29,13 @@ const Post = (props) => {
                 return postImage
               })
         })
-        let mainImage = articleImage[0] ? articleImage[0].imageName:""
         let styles = {
             maxWidth:"100%",
             backgrounSize:"contain",
-            height:"auto",
+            height:"500px",
             backgroundPosition:"50% 50%"
         }
-         return  <div style={{maxHeight:"auto",overflow:"hidden"}}>
+         return  <div style={{maxHeight:"auto",overflow:"hidden",textAlign:"center"}}>
             <img src={articleImage[0] ? "/images/posts/"+articleImage[0].imageName:"/images/missing.png"} style={styles} alt="" />
          </div>
     }
@@ -43,22 +43,30 @@ const Post = (props) => {
     return (<>
         <Container>
             <section className="article">
+                <Row>
+                    <Col>{props.post.length > 0 ? <LeadImage  {...props}/> : ""}
+                    
+                    </Col>
+                </Row>
             <Row>
-                <Col>
+                <Col lg={{span:8}}>
                     <h1 style={{ color: "#9a0000",margin:"50px 0 15px"}}>{Object.keys(props.post).length > 0 ? props.post[0].postTitle : "Title" }</h1>
-                    <p>{Object.keys(props.post).length > 0 ?  dayjs(props.post[0].postDate).format('MMMM DD YYYY') : "Date" }</p>
+                    <p style={{ color: "#000"}}>{Object.keys(props.post).length > 0 ?  dayjs(props.post[0].postDate).format('MMMM DD YYYY') : "Date" }</p>
+                    <div className="conten">{Object.keys(props.post).length > 0 ? ReactHtmlParser(props.post[0].postContent):"content"}</div>
                 </Col>
-            </Row>    
-            <Row>
-                <Col  lg={{span:4}} className="lead-image" >
-                   {props.post.length > 0 ? <LeadImage  {...props}/> : ""}
-                </Col>
-                <Col   lg={{span:8}} >
-    
-    <div className="conten">{Object.keys(props.post).length > 0 ? ReactHtmlParser(props.post[0].postContent):"content"}</div>
+                <Col lg={{span:4}} style={{marginTop:"50px"}}>
+                <Row>
+        {Object.values((_.orderBy(props.posts,'postDate','desc'))).map(article => {
+
+          let articleImage =Object.values(props.postImages).filter(image => image.albumID == article.ID).map(postImage =>{
+            return postImage
+          })
+          if(articleImage[0])
+            return <ArticleList key={article._id} {...props}{...article} image={articleImage[0] ? articleImage[0]:"missing.png"} />
+        })}
+    </Row>
                 </Col>
             </Row>
-            
             </section>
         </Container>
     </>

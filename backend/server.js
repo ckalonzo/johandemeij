@@ -99,7 +99,24 @@ router.get('/loadAgendas', async (req, res) => {
   Agendas.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
-  });
+  })
+});
+
+router.get('/loadfilteredAgendas/:numberToSkip', async (req, res) => {
+  const numberToSkip = parseInt(req.params.numberToSkip,10);
+  
+  Agendas.aggregate([
+      { $match : { 'year' : '2020',
+      "$and":[{"orchestra":{"$ne":""}},{"orchestra":{"$ne":null}}] 
+    }},
+      { $skip: numberToSkip },
+      { $sort: {'month': -1, 'day' : -1} },
+      { $limit: 20 }
+    ],(err,data)=>{
+        if (err) return res.json({ success: false, error: err });
+        //console.log(res.json(data))
+        return res.json({ success: true, data: data });
+    })
 });
 
 router.post('/updatePost',(req,res)=>{

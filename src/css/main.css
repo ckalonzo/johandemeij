@@ -84,6 +84,9 @@ table .post-title {
   background-color: #9a0000;
   border-color: #9a0000; }
 
+.article h1 {
+  color: #9a0000 !important; }
+
 .navbar {
   background-color: #FFF !important;
   color: #000 !important; }
@@ -136,17 +139,18 @@ table a {
   margin-bottom: 50px; }
 
 section.agenda {
-  background: #eaeaea;
-  margin: 50px 0 0;
-  padding: 100px 0;
+  padding-top: 25px;
+  padding-bottom: 25px;
   font-size: .75rem;
   text-align: left;
+  background: rgba(234, 234, 234, 0.3);
   color: #000; }
   section.agenda h3, section.agenda h3 a {
-    color: #fe5c56 !important; }
+    color: #fe5c56 !important;
+    margin: 50px 0; }
   section.agenda .agenda-card {
-    margin: 50px 0;
-    border: 5px solid #fe5c56; }
+    margin: 15px 0;
+    background: rgba(234, 234, 234, 0.7); }
   section.agenda .title {
     font-size: 1rem;
     margin-bottom: 10px;
@@ -164,7 +168,7 @@ section.about {
     margin: 35px 0 50px; }
 
 section.news {
-  padding: 50px 0; }
+  padding: 25px 0 0; }
   section.news h2 {
     color: #000 !important;
     text-align: center;
@@ -208,9 +212,13 @@ section.news {
   .news-card .card-body {
     padding: 15px; }
 
-section.events h3 {
-  margin-bottom: 10px;
-  color: #fe5c56; }
+section.events {
+  font-size: 1rem; }
+  section.events h3 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: #fe5c56;
+    font-size: 1.5rem; }
 
 footer {
   padding: 75px 0 0;
@@ -247,12 +255,20 @@ footer {
   footer .fa:hover {
     opacity: 0.7; }
   footer .footer-copyright {
-    background-color: #FFF;
-    margin-top: 25px; }
+    background-color: #000;
+    margin-top: 25px;
+    color: #FFF; }
   footer .nav-link {
     padding: 0; }
   footer button {
     margin-bottom: 50px; }
 
+section.article h1 {
+  color: #9a0000; }
+
 section.article .lead-image {
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+  max-height: auto;
+  width: 100%;
+  background-position: 10% 50%;
+  overflow: hidden; }

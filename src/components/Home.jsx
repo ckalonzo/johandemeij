@@ -8,6 +8,7 @@ import About from "components/About"
 import { mainAction } from "redux/actions/index.actions"
 const Home = (props) => {
    useEffect(() => { 
+    document.title = "JohanDeMeij.com | Home"
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
    return (<>

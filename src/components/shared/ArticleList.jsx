@@ -19,6 +19,7 @@ const Article = (props) => {
           return str.slice(0, num) + '...'
       }
       const loadPost = (post) => {
+        window.scrollTo(0,0)
         //Object.values(posts).filter(post => post._id === props.match.params.id)
         props.actions.mainAction(ACTIONS.LOAD_ARTICLE,post)
         props.history.push(`/post/${post._id}`)
@@ -36,18 +37,18 @@ const Article = (props) => {
         return (<>
         <div className="news-card">
           <div className="card-image" style={styles}>
-            <img src={imagePath} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 50%"}} onClick={()=>loadPost(props)}/></div>
+            <img src={imagePath} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%"}} onClick={()=>loadPost(props)}/></div>
           <div className="card-body">
             <div className="card-date">{date.format('MMMM DD YYYY')}</div> 
             <div className="card-title">{truncateString(postTitle,47)}</div>
-            <div className="card-text">{truncateString(stripHtml(postContent),70)}</div>
+            <div className="card-text" style={{marginBottom:"10px"}}>{truncateString(stripHtml(postContent),70)}</div>
             <div className="card-link" onClick={()=>loadPost(props)}>More...</div>
           </div>
         </div>
         </>)
     }
     return (<>
-    <Col lg={{span:"4" }}>
+    <Col lg={{span:"12" }}>
     {renderArticle()}
     </Col>
     </>)

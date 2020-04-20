@@ -14,7 +14,7 @@ const Agenda  = () => {
          <AgendaCard />
         </Row>
     </div>
-    <h3 style={{textAlign:'center',fontSize:"1rem",textTransform: "uppercase"}}><Link to="/">view full agenda</Link></h3>
+    <h3 style={{textAlign:'center',fontSize:"1rem",textTransform: "uppercase"}}><Link to="/agenda">view full agenda</Link></h3>
     </section>
     </>)
 }

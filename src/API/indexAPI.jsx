@@ -23,6 +23,13 @@ export function getPost(_id){
   .then((res) => console.log(res.data))
 }
 
+export function loadfilteredAgendas(skip){
+
+  fetch (APIurl + '/loadfilteredAgendas',skip)
+  .then((data)=> data.json())
+  .then((res) => console.log(res.data))
+}
+
 export function uploadImage(image){
   const data = new FormData()
   data.append('file',image)

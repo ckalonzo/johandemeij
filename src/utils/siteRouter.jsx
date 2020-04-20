@@ -20,6 +20,7 @@ import Events from "components/Events"
 import Order from "components/Order"
 import News from "components/News"
 import RentalCatalogue from "components/RentalCatalogue";
+import AgendaList from "components/AgendaList"
 const history = createBrowserHistory();
 const SiteRouter = () => {
 
@@ -40,6 +41,7 @@ const SiteRouter = () => {
                  <Route path="/music" component={Music} />
                  <Route path="/events" component={Events} />
                  <Route path="/post/:id" component={Post} />
+                 <Route path="/agenda" component={AgendaList} />
                  <Route path="/news" component={News} history={history} />
                  <Route path="/" component={Home} history={history} />
              </Switch>
