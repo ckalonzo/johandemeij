@@ -1,32 +1,32 @@
 import React from "react"
 import Navbar from 'react-bootstrap/Navbar'
-import { Nav,Col,Row} from "react-bootstrap"
+import { Container,Nav,Col,Row} from "react-bootstrap"
 
 const NavigationBar = (props) => {
 
     const NavList = () => {
         const navItems = ["home","events","agenda","music","biography","rental catalogue","order"];
        return  navItems.map(item => {
-        return <Nav.Link key={item} href={`/${item.replace(/\s/g, '')}`}>{item}</Nav.Link>
+        return <li key={item}><a href={`/${item.replace(/\s/g, '')}`}>{item}</a></li>
     })}
 
     return (<>
-        <Navbar bg="dark" variant="dark">
-            <div className="container">
-                
+       <div className="navigation"> 
+            <Container> 
                 <Row>
-                    <Col lg={{span:"3"}}>
-                        <Navbar.Brand href="/">JDM |</Navbar.Brand>
-
-                    </Col>
-                    <Col lg={{span:"9" }}>
-                        <Nav className="mr-auto">
-                            <NavList />
-                        </Nav>
+                    <Col lg={{span:"12" }} className="headline">
+                    The music of Johan De Meij
                     </Col>
                 </Row>
-            </div>
-        </Navbar>
+                <Row>
+                    <Col lg={{span:"12" }}>
+                        <ul>
+                            <NavList />
+                        </ul>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
       </>)
 }
 export default NavigationBar

@@ -15,3 +15,24 @@
         color:#000;
     }
 }
+.navigation ul {
+    display:table;
+    margin: 0 auto;
+    li {
+        display: inline;
+        margin-right:25px;
+        text-transform: uppercase;
+    
+    }
+    margin-bottom:50px;
+}
+
+    .headline {
+        text-align:center;
+        margin:65px 0 5px;
+        font-size:2rem;
+        color:#000;
+        text-transform: uppercase;
+        font: 900 18px/20px 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    }

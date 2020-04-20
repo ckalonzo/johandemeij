@@ -110,6 +110,25 @@ table .post-title {
   padding-top: 10px;
   color: #000; }
 
+.navigation ul {
+  display: table;
+  margin: 0 auto;
+  margin-bottom: 50px; }
+
+.navigation ul li {
+  display: inline;
+  margin-right: 25px;
+  text-transform: uppercase; }
+
+.headline {
+  text-align: center;
+  margin: 65px 0 5px;
+  font-size: 2rem;
+  color: #000;
+  text-transform: uppercase;
+  font: 900 18px/20px 'Montserrat', sans-serif;
+  text-transform: uppercase; }
+
 ul {
   margin: 0;
   padding: 0; }
@@ -174,16 +193,29 @@ section.agenda .title {
 section.agenda .conductor span {
   font-style: italic; }
 
-section.about {
+section.about,
+section.about-full {
   padding: 100px 0;
   background: #FFF; }
 
-section.about h3 {
+section.about h3,
+section.about-full h3 {
   font-size: 2rem !important;
   color: #9a0000 !important; }
 
-section.about button {
+section.about button,
+section.about-full button {
   margin: 35px 0 50px; }
+
+section.about-full h5 {
+  font-size: .9rem;
+  text-transform: uppercase;
+  margin-top: 25px;
+  color: #000; }
+
+section.about-full ul li {
+  display: inline;
+  margin-right: 10px; }
 
 section.news {
   padding: 25px 0 0; }
@@ -236,6 +268,9 @@ section.news h3 {
 
 .news-card .card-body {
   padding: 15px; }
+
+.news-card:nth-child(4) {
+  margin-left: 200px; }
 
 section.events {
   font-size: 1rem; }

@@ -1,4 +1,5 @@
-section.about {
+section.about,
+section.about-full {
     padding:100px 0;
     background:#FFF;
     h3 {
@@ -7,5 +8,17 @@ section.about {
     }
     button {
         margin:35px 0 50px;
+    }
+}
+section.about-full {
+    h5 {
+        font-size:.9rem;
+        text-transform: uppercase;
+        margin-top:25px;
+        color:#000;
+    }
+    ul li {
+        display:inline;
+        margin-right:10px;
     }
 }

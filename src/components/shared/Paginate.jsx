@@ -8,6 +8,7 @@ import { ACTIONS } from "redux/actions/types"
 
 const Paginate = (props) => {
     const loadAgendas = (skip) => {
+        window.scrollTo(0,0)
         props.actions.mainAction(ACTIONS.LOAD_AGENDAS,{limit:20,skip}) 
     }
     

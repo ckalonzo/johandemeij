@@ -1,6 +1,6 @@
 import React from "react";
-import {Row,Col,Container} from "react-bootstrap"
-const Biography  = () => {
+import {Row,Col,Button,Container} from "react-bootstrap"
+const About  = (props) => {
     let styles = {
         backgrounSize:"cover",
         maxHeight:"300px",
@@ -9,34 +9,13 @@ const Biography  = () => {
         overflow:"hidden"
     }
     return (<>
-    <section className="about-full">
+    <section className="about">
     
     <Container>
          <Row>
-         <Col  lg={{span:5,offset:1}}>
-        <div className="bio-photo" style={styles}>
- <img src={`/images/albums/pic3_download.jpg`} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%"}} alt="biogrophy"/>
-        </div>
-        
-         <h5>Downloads</h5>
-         <ul>
-             <li><a href="/images/albums/download.php?f=pic2_download.jpg"><img src="/images/albums/pic2.jpg" width="59" height="59" border="0" /></a></li>
-             <li><a href="/images/albums/download.php?f=pic3_download.jpg"><img src="/images/albums/pic3.jpg" width="59" height="59" border="0" /></a></li>
-             <li><a href="/images/albums/download.php?f=pic4_download.jpg"><img src="/images/albums/pic4.jpg" width="59" height="59" border="0" /></a></li>
-             <li><a href=""><img src="/images/albums/pic1.jpg" width="59" height="59" border="0" /></a></li>
-         </ul>
-         <h5>Flyers</h5>
-         <ul>
-             <li><a href="/docs/Music-for-Orchestra-Johan-de-meij-2017.pdf"><img src="/images/albums/music_for_orchestra.png" width="59" height="59" border="0" /></a></li>
-             <li><a href="/docs/Johan-de-Meij-2017.pdf"><img src="/images/albums/pdf2.jpg" width="59" height="59" border="0" /></a></li>
-         </ul>
-         <h5>Biographies</h5>
-         <ul>
-             <li><a href="/docs/english.doc">English</a></li>
-             <li><a href="/docs/dutch.doc">Dutch</a></li>
-             <li><a href="/docs/german.doc">German</a></li>
-             <li><a href="/docs/Bio%20Spanish.doc">Spanish</a></li>
-         </ul>
+         <Col  lg={{span:5,offset:1}} className="bio-photo" style={styles}>
+         <img src={`/images/albums/pic3_download.jpg`} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%"}} alt="biogrophy"/>
+         
          </Col>
          <Col lg={{span:6}}>
              <h3 style={{fontSize:"3rem",textTransform: "uppercase"}}>About</h3>
@@ -92,4 +71,4 @@ const Biography  = () => {
     </section>
     </>)
 }
-export default Biography
+export default About
