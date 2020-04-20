@@ -34,7 +34,7 @@ export default function agendaReducer (state = initialState, action) {
       }
       case ACTIONS.LOAD_AGENDAS: {
 
-        fetch ('http://localhost:3001/api/loadfilteredAgendas/'+action.payload)
+        fetch ('http://localhost:3001/api/loadfilteredAgendas/'+action.payload.skip+"/"+action.payload.limit)
         .then((data)=> data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,res.data))

@@ -21,7 +21,7 @@ const AgendaList  = (props) => {
     useEffect(() => {
         window.scrollTo(0,0)
         document.title = "JohanDeMeij.com | Agenda"
-       props.actions.mainAction(ACTIONS.LOAD_AGENDAS,0)
+       props.actions.mainAction(ACTIONS.LOAD_AGENDAS,{limit:20,skip:0})
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     

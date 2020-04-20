@@ -102,16 +102,17 @@ router.get('/loadAgendas', async (req, res) => {
   })
 });
 
-router.get('/loadfilteredAgendas/:numberToSkip', async (req, res) => {
+router.get('/loadfilteredAgendas/:numberToSkip/:numberToLimit', async (req, res) => {
   const numberToSkip = parseInt(req.params.numberToSkip,10);
-  
+  const numberTolimit = parseInt(req.params.numberToLimit,10);
+  console.log(req.params)
   Agendas.aggregate([
       { $match : { 'year' : '2020',
       "$and":[{"orchestra":{"$ne":""}},{"orchestra":{"$ne":null}}] 
     }},
       { $skip: numberToSkip },
       { $sort: {'month': -1, 'day' : -1} },
-      { $limit: 20 }
+      { $limit: numberTolimit }
     ],(err,data)=>{
         if (err) return res.json({ success: false, error: err });
         //console.log(res.json(data))

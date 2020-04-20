@@ -8,7 +8,7 @@ import { ACTIONS } from "redux/actions/types"
 
 const Paginate = (props) => {
     const loadAgendas = (skip) => {
-        props.actions.mainAction(ACTIONS.LOAD_AGENDAS,skip) 
+        props.actions.mainAction(ACTIONS.LOAD_AGENDAS,{limit:20,skip}) 
     }
     
     const renderPageItems = () => {

@@ -200,6 +200,7 @@ section.agenda h3, section.agenda h3 a {
 section.agenda .agenda-card {
   margin: 15px 0;
   background: rgba(234, 234, 234, 0.7);
+  min-height: 215px;
 }
 
 section.agenda .title {
