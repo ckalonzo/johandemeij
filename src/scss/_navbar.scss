@@ -30,9 +30,13 @@
     .headline {
         text-align:center;
         margin:65px 0 5px;
-        font-size:2rem;
         color:#000;
-        text-transform: uppercase;
+        text-transform: capitalize;
         font: 900 18px/20px 'Montserrat', sans-serif;
-    text-transform: uppercase;
+   
+        span {
+            font: 900 46px/48px 'Montserrat', sans-serif; 
+            margin-bottom:15px;
+            display: block;
+        }
     }

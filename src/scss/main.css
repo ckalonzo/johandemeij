@@ -117,6 +117,29 @@ table .post-title {
   color: #9a0000 !important;
 }
 
+.RentalCatalogue th {
+  color: #000;
+  vertical-align: middle !important;
+  font: 900 14px/16px 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.order .location {
+  font: 400 14px/16px 'Work Sans', sans-serif;
+  padding: 15px;
+  background: rgba(234, 234, 234, 0.3);
+  margin-bottom: 25px;
+}
+
+.order .location li {
+  margin-bottom: 5px;
+}
+
+.order .location .country {
+  color: #000;
+  font-weight: bold;
+}
+
 .navbar {
   background-color: #FFF !important;
   color: #000 !important;
@@ -153,11 +176,15 @@ table .post-title {
 .headline {
   text-align: center;
   margin: 65px 0 5px;
-  font-size: 2rem;
   color: #000;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font: 900 18px/20px 'Montserrat', sans-serif;
-  text-transform: uppercase;
+}
+
+.headline span {
+  font: 900 46px/48px 'Montserrat', sans-serif;
+  margin-bottom: 15px;
+  display: block;
 }
 
 ul {

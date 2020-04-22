@@ -8,7 +8,7 @@ import ReactHtmlParser from 'react-html-parser';
 import SorenHyldgaard from "components/SorenHyldgaard"
 import Cds from "components/Cds"
 const Music  = (props) => {
-    const [categoryID,setCategoryID] = useState(9);
+    const [categoryID,setCategoryID] = useState(7);
     useEffect(() => {
         window.scrollTo(0,0)
         document.title = "JohanDeMeij.com | Music"

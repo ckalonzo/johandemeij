@@ -47,6 +47,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
+router.get('/loadMusicAlbums',(req,res)=>{
+  MusicAlbums.find((err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  });
+});
+
 router.get('/loadMusic', (req, res) => {
   MusicAlbums.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
@@ -73,8 +80,6 @@ router.get('/loadPostImages', async (req, res) => {
     return res.json({ success: true, data: data });
   });
 });
-
-
 
 router.get('/loadPresentations/:numberToSkip/:numberToLimit/', async (req, res) => {
   const pipeline = []

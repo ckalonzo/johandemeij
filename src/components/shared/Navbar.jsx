@@ -15,7 +15,7 @@ const NavigationBar = (props) => {
             <Container> 
                 <Row>
                     <Col lg={{span:"12" }} className="headline">
-                    The music of Johan De Meij
+                    The music of<br /> <span>Johan De Meij</span>
                     </Col>
                 </Row>
                 <Row>
