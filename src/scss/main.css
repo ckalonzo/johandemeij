@@ -33,6 +33,10 @@ ul {
   padding: 0;
 }
 
+h1, h3, h3, h4, h5 {
+  font: 900 18px/20px 'Montserrat', sans-serif;
+}
+
 .h2, h2 {
   font-size: 2rem;
 }
@@ -416,5 +420,82 @@ section.article .lead-image {
   width: 100%;
   background-position: 10% 50%;
   overflow: hidden;
+}
+
+section.music {
+  margin: 0 0 50px;
+}
+
+section.music h3 {
+  font: 900 18px/20px 'Montserrat', sans-serif;
+  margin-bottom: 25px;
+}
+
+section.music li {
+  font: 400 14px/16px 'Work Sans', sans-serif;
+  margin-bottom: 5px;
+}
+
+section.music ul.categories {
+  padding: 0;
+  margin-bottom: 25px;
+  background: rgba(234, 234, 234, 0.3);
+  padding: 15px;
+}
+
+section.music ul.categories li {
+  display: inline;
+  margin-right: 10px;
+  font: 400 12.5px/14px 'Montserrat', sans-serif;
+  padding-right: 10px;
+  border-right: 1px solid #000;
+  color: #a90000;
+}
+
+section.music ul.categories li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+section.music ul.categories li:nth-child(8) {
+  margin-right: 0;
+  border: none;
+}
+
+section.music ul.categories li.active {
+  color: #000;
+  font-weight: bold;
+}
+
+section.music .soren {
+  margin-bottom: 25px;
+}
+
+section.music .cds li {
+  float: left;
+  width: 100px;
+  min-height: 180px;
+  margin-right: 15px;
+  position: relative;
+  margin-bottom: 35px;
+}
+
+section.music .cds li img {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+}
+
+section.music .cds li .title {
+  text-align: center;
+  font: 400 12px/13px 'Work Sans', sans-serif;
+  color: #a90000;
+}
+
+section.music .cds li span {
+  display: block;
+  height: 100px;
+  margin-bottom: 10px;
 }
 /*# sourceMappingURL=main.css.map */

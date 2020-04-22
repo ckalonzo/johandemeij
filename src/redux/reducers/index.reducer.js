@@ -7,6 +7,7 @@ import presentationsReducer from "redux/reducers/presentations.reducer"
 import cdsReducer from "redux/reducers/cds.reducer"
 import catalogueReducer from "redux/reducers/musicCatalogue.reducer"
 import agendaReducer from "redux/reducers/agenda.reducer"
+import musicReducer from "redux/reducers/music.reducer"
 const indexReducer = combineReducers({
   postsReducer,
   singlePostReducer,
@@ -15,7 +16,8 @@ const indexReducer = combineReducers({
   presentationsReducer,
   cdsReducer,
   catalogueReducer,
-  agendaReducer
+  agendaReducer,
+  musicReducer
 });
   
   export default indexReducer;

@@ -6,87 +6,87 @@ const PresentationsSchema = new Schema(
   {
     id: {
         type: String,
-        required: true
+        default:''
     },
     cdName:{
         type: String,
-        required: true
+        default:''
     },
     subTitle: {
         type: String,
-        required: true
+        default:''
     },
     composer: {
         type: String,
-        required: true
+        default:''
     },
     instrumentation: {
         type: String,
-        required: true
+        default:''
     },
     totalTime: {
         type: String,
-        required: true
+        default:''
     },
     synopsis: {
         type: String,
-        required: true
+        default:''
     },
     frontCover: {
         type: String,
-        required: true
+        default:''
     },
     backCover: {
         type: String,
-        required: true
+        default:''
     },
     dateCreated: {
         type: String,
-        required: true
+        default:''
     },
     frontCaption: {
         type: String,
-        required: true
+        default:''
     },
     backCaption: {
         type: String,
-        required: true
+        default:''
     },
     category: {
         type: String,
-        required: true
+        default:''
     },
     codes: {
         type: String,
-        required: true
+        default:''
     },
     duration: {
         type: String,
-        required: true
+        default:''
     },
     grade: {
         type: String,
-        required: true
+        default:''
     },
     cd: {
         type: String,
-        required: true
+        default:''
     },
     otherCd: {
         type: String,
-        required: true
+        default:''
     },
     score: {
         type: String,
-        required: true
+        default:''
     },
     audio: {
         type: String,
-        required: true
+        default:''
     },
     video: {
         type: String,
-        required: true
+        default:''
     }
   },
   { timestamps: true }

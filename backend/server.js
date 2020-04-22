@@ -74,15 +74,51 @@ router.get('/loadPostImages', async (req, res) => {
   });
 });
 
-router.get('/loadPublications', async (req, res) => {
-  Presentations.find((err, data) => {
-    if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true, data: data });
-  });
+
+
+router.get('/loadPresentations/:numberToSkip/:numberToLimit/', async (req, res) => {
+  const pipeline = []
+  if(parseInt(req.params.numberToLimit) === 0)
+  console.log(req.params)
+
+  if(req.params.numberToSkip && parseInt(req.params.numberToSkip) !== 0)
+  pipeline.push({ '$skip': parseInt(req.params.numberToSkip,10) });
+
+  pipeline.push({ '$sort': {'cdName': 1} })
+  
+  if(req.params.numberToLimit && parseInt(req.params.numberToLimit) !== 0)
+  pipeline.push({ '$limit':  parseInt(req.params.numberToLimit,10) });
+  
+  Presentations.aggregate(pipeline,(err,data)=>{
+    console.log(pipeline)
+    if (err) 
+      return res.json({ success: false, error: err });
+      return res.json({ success: true, data: data });
+    })
+});
+
+router.get('/filterPresentationCategory/:category', async (req, res) => {
+  
+  const pipeline = []
+  if(req.params.category > 0){
+  pipeline.push( {$match: {"category":req.params.category}})
+  } else {
+    pipeline.push( {$match: {}} )
+  }
+  pipeline.push({ '$sort': {'cdName': 1} })
+
+  Presentations.aggregate(pipeline,(err,data)=>{
+    if (err) 
+      return res.json({ success: false, error: err });
+      return res.json({ success: true, data: data });
+    })
 });
 
 router.get('/loadCds', async (req, res) => {
-  Cds.find((err, data) => {
+  const pipeline = [{$match: {}}]
+  pipeline.push({ '$sort': {'cd_name': 1} })
+
+  Cds.aggregate(pipeline,(err, data) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
   });
