@@ -198,7 +198,6 @@ section.agenda {
   padding-bottom: 25px;
   font-size: .75rem;
   text-align: left;
-  background: rgba(234, 234, 234, 0.3);
   color: #000; }
 
 section.agenda h3, section.agenda h3 a {
@@ -207,16 +206,43 @@ section.agenda h3, section.agenda h3 a {
 
 section.agenda .agenda-card {
   margin: 15px 0;
-  background: rgba(234, 234, 234, 0.7);
+  background: rgba(234, 234, 234, 0.3);
   min-height: 215px; }
 
 section.agenda .title {
   font-size: 1rem;
-  margin-bottom: 10px;
-  color: #fe5c56; }
+  margin-bottom: 10px; }
 
 section.agenda .conductor span {
   font-style: italic; }
+
+.agenda-list {
+  font-size: .8rem; }
+
+.agenda-list .title {
+  padding-top: 15px;
+  font: 900 14px/16px 'Montserrat', sans-serif; }
+
+.agenda-list .time, .agenda-list .momth {
+  color: #fe5c56; }
+
+.agenda-list .date {
+  padding: 10px 0 5px 0;
+  text-align: center;
+  background: #000;
+  outline: 1px solid #fff;
+  color: #fe5c56; }
+
+.agenda-list .date .day {
+  font: 900 38px/40px 'Montserrat', sans-serif;
+  line-height: 2rem;
+  color: #FFF; }
+
+.agenda-list .date .year {
+  color: #FFF; }
+
+.agenda-list .agenda-info {
+  border-bottom: 1px solid #000; }
 
 section.about,
 section.about-full {
@@ -381,6 +407,13 @@ section.music li {
   font: 400 14px/16px 'Work Sans', sans-serif;
   margin-bottom: 5px; }
 
+section.music li span {
+  color: #a90000; }
+
+section.music li span:hover {
+  text-decoration: underline;
+  cursor: pointer; }
+
 section.music ul.categories {
   padding: 0;
   margin-bottom: 25px;
@@ -433,5 +466,30 @@ section.music .cds li span {
   display: block;
   height: 100px;
   margin-bottom: 10px; }
+
+.music-profile {
+  margin-bottom: 50px; }
+
+.music-profile h1 {
+  font: 400 32px/34px 'Work Sans', sans-serif;
+  color: #000; }
+
+.music-profile h3 {
+  font: 400 22px/24px 'Work Sans', sans-serif;
+  color: #fe5c56; }
+
+.music-profile h5 {
+  font: 400 16px/18px 'Work Sans', sans-serif; }
+
+.details {
+  background: #eaeaea;
+  font: 400 14px/16px 'Work Sans', sans-serif;
+  padding: 15px;
+  margin: 25px 0 25px;
+  width: 100%; }
+
+.details span {
+  color: #000;
+  text-transform: capitalize; }
 
 /*# sourceMappingURL=main.css.map */

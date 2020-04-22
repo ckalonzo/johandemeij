@@ -60,6 +60,28 @@ router.get('/loadMusic', (req, res) => {
     return res.json({ success: true, data: data });
   });
 });
+router.get('/loadMusicProfile/:id', async (req, res) => {
+  const ID = req.params.id;
+
+  presentations.findOne({"_id":ID},
+  (err,data)=>{
+        if (err) return res.json({ success: false, error: err });
+        //console.log(res.json(data))
+        return res.json({ success: true, data: data });
+    })
+});
+router.get('/loadMusicProfileByID/:id', async (req, res) => {
+  const ID = req.params.id;
+
+  presentations.findOne({"id":ID},
+  (err,data)=>{
+        if (err) return res.json({ success: false, error: err });
+        //console.log(res.json(data))
+        return res.json({ success: true, data: data });
+    })
+});
+
+
 router.get('/loadPosts', (req, res) => {
   Posts.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
@@ -143,16 +165,19 @@ router.get('/loadAgendas', async (req, res) => {
   })
 });
 
-router.get('/loadfilteredAgendas/:numberToSkip/:numberToLimit', async (req, res) => {
+router.get('/loadfilteredAgendas/:numberToSkip/:numberToLimit/:year/:month/', async (req, res) => {
   const numberToSkip = parseInt(req.params.numberToSkip,10);
   const numberTolimit = parseInt(req.params.numberToLimit,10);
-  console.log(req.params)
+  const month = req.params.month;
+  const year = req.params.year;
+
   Agendas.aggregate([
-      { $match : { 'year' : '2020',
+      { $match : { 'year' : year,
+      "month":{$gte:month},
       "$and":[{"orchestra":{"$ne":""}},{"orchestra":{"$ne":null}}] 
     }},
       { $skip: numberToSkip },
-      { $sort: {'month': -1, 'day' : -1} },
+      { $sort: {'month': 1, 'day' : 1} },
       { $limit: numberTolimit }
     ],(err,data)=>{
         if (err) return res.json({ success: false, error: err });

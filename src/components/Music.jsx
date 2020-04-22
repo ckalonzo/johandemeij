@@ -19,6 +19,10 @@ const Music  = (props) => {
         props.actions.mainAction(ACTIONS.LOAD_MUSIC_BY_CATEGORY,id)
         setCategoryID(id)
     }
+    const loadProfile = (id) =>{
+        props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE,id)
+        props.history.push('/music/profile/'+id)
+    }
     return (<>
     <section className="music">
     
@@ -40,7 +44,7 @@ const Music  = (props) => {
             <ul>
                 {props.allPresentations.map((presentation ,i)=>{
                     if(i < 77 && presentation.cdName.indexOf("{{") === -1)
-                    return <li key={i}><a href="">{ReactHtmlParser(presentation.cdName)}</a></li>
+                    return <li key={i}><span onClick={()=>loadProfile(presentation._id)}>{ReactHtmlParser(presentation.cdName)}</span></li>
                 })}
             </ul>
             </Col>
@@ -48,7 +52,7 @@ const Music  = (props) => {
             <ul>
                 {props.allPresentations.map((presentation,i)=>{
                     if(i > 77 && presentation.cdName.indexOf("{{") === -1)
-                    return <li  key={i}><a href="">{ReactHtmlParser(presentation.cdName)}</a></li>
+                    return <li  key={i}><span onClick={()=>loadProfile(presentation._id)}>{ReactHtmlParser(presentation.cdName)}</span></li>
                 })}
             </ul>
             </Col>

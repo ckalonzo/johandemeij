@@ -3,7 +3,7 @@ section.agenda {
     padding-bottom:25px;
     font-size:.75rem; 
     text-align: left;
-    background: rgba(234, 234, 234, .3);
+    //background: rgba(234, 234, 234, .3);
     color:#000;
     h3,h3 a {
         color:#fe5c56!important;
@@ -12,13 +12,13 @@ section.agenda {
     .agenda-card{
         margin:15px 0;
         //border:5px solid #fe5c56;
-        background: rgba(234, 234, 234, 0.7);
+        background: rgba(234, 234, 234, 0.3);
         min-height:215px;
     }
     .title {
         font-size:1rem; 
         margin-bottom:10px;
-        color:#fe5c56;
+    
     }
     .conductor span {
         font-style: italic;
@@ -26,5 +26,36 @@ section.agenda {
     .date {
        
     }
+    
+}
+.agenda-list {
+    
+    font-size:.8rem; 
+    .title {
+        padding-top:15px;
+        font: 900 14px/16px 'Montserrat', sans-serif;
+    }
+    .time,.momth {
+        color: #fe5c56;
+    }
+    .date { 
+        padding:10px 0 5px 0; 
+        text-align:center;
+        background:#000;
+        outline:1px solid #fff;
+         color: #fe5c56;
+        .day {
+            font: 900 38px/40px 'Montserrat', sans-serif;
+            line-height: 2rem;
+            color:#FFF;
+        }
+        .year {
+            color:#FFF;
+        }
+    }
+   .agenda-info{
+       border-bottom:1px solid #000;
+   }
+   // margin-bottom:15px;
     
 }

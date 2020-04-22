@@ -8,6 +8,13 @@ section.music {
         
         font: 400 14px/16px 'Work Sans', sans-serif;
         margin-bottom:5px;
+        span {
+            color:#a90000;
+        }
+        span:hover {
+            text-decoration:underline;
+            cursor: pointer;
+        }
     }
    ul.categories {
        padding:0;
@@ -65,4 +72,30 @@ section.music {
            margin-bottom:10px;
        }
    }
+}
+.music-profile {
+    margin-bottom:50px;
+    h1 {
+        font: 400 32px/34px 'Work Sans', sans-serif;
+        color:#000;
+    }
+    h3{
+        font: 400 22px/24px 'Work Sans', sans-serif;
+        color:#fe5c56;
+    }
+    h5{
+        font: 400 16px/18px 'Work Sans', sans-serif;
+        //color:#fe5c56;
+    }
+}
+.details {
+    background:#eaeaea; 
+    font: 400 14px/16px 'Work Sans', sans-serif;
+    padding:15px;
+    margin: 25px 0 25px;
+    width:100%;
+    span{
+        color:#000;
+        text-transform:capitalize;
+    }
 }

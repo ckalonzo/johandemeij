@@ -18,7 +18,7 @@ const News  = (props) => {
     return (<>
     <section className="news">
     <div className="container">
-    <Row>
+    <Row className="d-flex justify-content-center">
         {Object.values((_.orderBy(props.posts,'postDate','desc'))).map(article => {
 
           let articleImage =Object.values(props.postImages).filter(image => image.albumID == article.ID).map(postImage =>{

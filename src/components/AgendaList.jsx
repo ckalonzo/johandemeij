@@ -6,6 +6,7 @@ import { ACTIONS } from "redux/actions/types"
 import {Row} from "react-bootstrap"
 import AgendaCard from "components/shared/AgendaCard"
 import Paginate from "components/shared/Paginate"
+import List from "components/shared/List"
 const Agendas = (props) => {
         const { agendas } = props
         return Object.values(agendas).map(agenda =>{
@@ -25,15 +26,18 @@ const AgendaList  = (props) => {
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     
-
+    let d = new Date();
+    let thisMonth = d.getMonth() + 1
     return (<>
     <section className="agenda">
     <h3 style={{textAlign:'center',fontSize:"2rem",textTransform: "uppercase",color:"#FFF"}}>Agenda</h3>
     <div className="container">
-         <Row>
-             <Agendas {...props}/>
-        </Row>
-        <Paginate  {...props}/>
+        
+    {Object.values(props.agendas).map(agenda => {
+            return <List {...agenda}/>
+        })}
+        
+        {props.length > 20 ? <Paginate  {...props}/>:""}
     </div>
     </section>
     </>)
