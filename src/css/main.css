@@ -270,7 +270,7 @@ section.news h3 {
   margin-bottom: 25px; }
 
 .news-card .card-body {
-  border: 1px solid #eaeaea;
+  background: rgba(234, 234, 234, 0.3);
   border-top: none;
   min-height: 162px; }
 
