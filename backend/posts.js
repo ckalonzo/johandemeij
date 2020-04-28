@@ -5,26 +5,31 @@ const PostsSchema = new Schema(
   {
     ID: {
         type: String,
-        required: true
+        default:''
     },
     postContent:{
         type: String,
-        required: true
+        default:''
     },
     postTitle: {
         type: String,
-        required: true
+        default:''
     },
     postDate: {
         type: String,
-        required: true
+        default:''
     },
     postParent: {
         type: String,
-        required: true
+        default:''
     },
     showPost: {
-        type: Boolean
+        type: String,
+        default:''
+    },
+    postImage: {
+        type: Array,
+        default:[]
     }
   },
   { timestamps: true }

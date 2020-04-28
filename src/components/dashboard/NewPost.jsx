@@ -8,47 +8,48 @@ import { mainAction } from "redux/actions/index.actions"
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import PostImage from "components/dashboard/PostImage"
-
+import _ from "lodash"
 const EditPost = props => {
-  const {_id,ID,postTitle,postDate,postContent,showPost,postImage} = props.post
-  const [postStatus, setPostStatus] = useState(showPost);
-  const [title, setTitle] = useState(postTitle);
-  const [date, setDate] = useState(postDate);
-  const [content, setContent] = useState(postContent);
+  const [postStatus, setPostStatus] = useState(2);
+  const [title, setTitle] = useState();
+  const [date, setDate] = useState();
+  const [content, setContent] = useState();
   const [validated, setValidated] = useState(false);
-  const [postImg,setPostImg] = useState(postImage)
+  const [postImg,setPostImg] = useState()
+  const [lastTotal,setLastTotal] = useState(props.lastItem);
 
 
   useEffect(() => {
     // Update the document title using the browser API
     window.scrollTo(0,0)
     document.title = `Johan De Meij | Edit Post`;
-    props.actions.mainAction(ACTIONS.LOAD_POST,props.match.params.id)
-   // props.actions.mainAction(ACTIONS.LOAD_POST_IMAGES,{})
+    props.actions.mainAction(ACTIONS.LOAD_DASHBOARD_POSTS,{})
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleSubmit = event => {
     event.preventDefault();
     
     let newsItem = {
-      _id,
-      ID,
-      showPost:postStatus ? postStatus:showPost,
-      title:title?title:postTitle,
-      date:date?date:postDate,
-      content,
-      postImage: postImg ? postImg : postImage
+      ID:+props.lastItem,
+      showPost:postStatus,
+      title,
+      date,
+      postContent:content,
+      postImage:[]
     }
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
     setValidated(true);
-   props.actions.mainAction(ACTIONS.UPDATE_POST,newsItem)
-   window.scrollTo(0,0)
+    console.log(newsItem)
+   props.actions.mainAction(ACTIONS.CREATE_NEW_POST,newsItem)
+   props.history.push('/dashboard/news/edit/'+props.lastItem)
   };
   
-  console.log(props)
+  const getLastItem = () => {
+    return
+  }
   return (
     <>
       <Container>
@@ -58,7 +59,6 @@ const EditPost = props => {
               <SideNav />
           </Col>
           <Col lg={{span:"10" }}> 
-            {props.post.postImage ? <PostImage currentPost={props.match.params.id}{...props.post.postImage[0]}/>:""}
             <section id="product">
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Row>
@@ -68,10 +68,8 @@ const EditPost = props => {
                                 as="select"
                                 custom
                                 onChange={e => setPostStatus(e.target.value)}
-                              >
-                                <option value={showPost}>{parseInt(showPost,10) === 1 ? "ON":"OFF"}</option>
+                              ><option value="2">OFF</option>
                                 <option value="1">ON</option>
-                                <option value="2">OFF</option>
                               </Form.Control>
                             </Form.Group>
                           </Form.Row>
@@ -82,7 +80,7 @@ const EditPost = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={postTitle}
+                      //defaultValue={postTitle}
                       onChange={e => setTitle(e.target.value)}
                       
                     />
@@ -99,7 +97,7 @@ const EditPost = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={postDate}
+                      //defaultValue={postDate}
                       onChange={e => setDate(e.target.value)}
                       
                     />
@@ -114,7 +112,7 @@ const EditPost = props => {
                   <Form.Group as={Col} controlId="content">
                     <CKEditor
                         editor={ ClassicEditor }
-                        data={postContent ? postContent:content}
+                        data={content}
                         toolbar= {'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' }
                         onInit={ editor => {
                             // You can store the "editor" and use when it is needed.
@@ -136,7 +134,7 @@ const EditPost = props => {
                     />
                   </Form.Group>
                   </Form.Row>
-                <Button type="submit">Update</Button>
+                <Button type="submit">Create Post</Button>
               </Form> 
             </section>
           </Col>
@@ -146,10 +144,14 @@ const EditPost = props => {
   );
 };
 function mapStateToProps(state) {
+    let lastItem = _.orderBy(state.postsReducer,'ID','desc').map((lastItem,i) =>{
+        return i===0 ? lastItem.ID :""
+    })
   return {
     post: state.singlePostReducer,
     posts:state.postsReducer,
-    postImages:state.postImagesReducer
+    postImages:state.postImagesReducer,
+    lastItem:parseInt(lastItem[0])+1
   };
 }
 

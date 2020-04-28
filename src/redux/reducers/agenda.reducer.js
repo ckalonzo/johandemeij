@@ -49,7 +49,6 @@ export default function agendaReducer (state = initialState, action) {
         let d = new Date();
         let day = d.getDate();
         let stateCopy = []
-        console.log(d.getDate())
         action.payload.map(agenda=>{
           if(agenda.day > day)
           return stateCopy.push(agenda)

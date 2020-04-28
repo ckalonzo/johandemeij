@@ -4,59 +4,100 @@ import { bindActionCreators } from "redux";
 import { mainAction } from "redux/actions/index.actions"
 import { Form, Row, Col, Button} from "react-bootstrap";
 import { ACTIONS } from "redux/actions/types";
+import _ from "lodash"
 
 const ProfileImage = (props) => {
-    const [selectedFile,setSelectedFile] = useState()
+  let mainProps = props
+  
+    const [selectedFile,setSelectedFile] = useState("/images/missing.png")
     const [uploadStatus,setUploadStatus] = useState(false)
-    const [caption,setCaption] = useState(props.postImage.caption)
-    const [disabled,setDisabled] = useState(false)
+    const [caption,setCaption] = useState()
+    const [disabled,setDisabled] = useState(true)
     const [validated, setValidated] = useState(false);
+    const [coverLocation,setCoverLocation]= useState("frontCover")
     const [file,setFile] = useState()
-    const {ID,images} = props
+   //const {ID,images} = props
     useEffect(() => {
-        // Update the document title using the browser API
         document.title = `Johan De Meij | Edit Post`;
-        
-        //if(props.postImages)`
-        //let image = Object.values(props.postImages).filter(postImage => postImage.albumID === ID)
-        props.actions.mainAction(ACTIONS.LOAD_POST_IMAGE,{images,ID})
-        if(ID){
-            setDisabled(true)
-            console.log("************",props.postImage.imageName)
-            setSelectedFile(props.postImage.imageName)
-         }
-        setSelectedFile(props.postImage.imageName)
-            console.log(props)
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
     const handleImageSubmit = (e) => {
-
+      console.log(props)
     }
     const uploadImage = () => {
-        props.actions.mainAction(ACTIONS.UPLOAD_IMAGE,file)
-        setUploadStatus(true)
+    
+      let image = {
+        _id:props._id,
+        image:file,
+        albumID:props.albumID,
+        caption,
+        cover:coverLocation,
+        updatedAt:Date.now()
       }
+     
+       mainProps.actions.mainAction(ACTIONS.UPLOAD_IMAGE,_.cloneDeep(image))
+        // setUploadStatus(true)
+      }
+      
+    const insertImage = () => {
+    
+      let image = {
+        image:file,
+        albumID:props.currentPost,
+        caption,
+        cover:coverLocation
+      }
+       mainProps.actions.mainAction(ACTIONS.UPLOAD_POST_IMAGE,image)
+      }
+      const deletePostImage = (id) => {
+       mainProps.actions.mainAction(ACTIONS.DELETE_POST_IMAGE,{image:id,post:props.currentPost})
+      } 
       const onChangeHandler = (e) => {
         setSelectedFile(window.URL.createObjectURL(e.target.files[0]))
         setFile(e.target.files[0])
+        setUploadStatus(true)
       } 
     
-      const renderUploadButtons = () => {
-        if(selectedFile && !uploadStatus)
+      const renderUploadButtons = (_id) => {
+        if(selectedFile && uploadStatus)
         return <Button variant="dark" onClick={()=>uploadImage()}>upload</Button>
-        return <Button variant="primary" onClick={(e)=>selecteImageToUpload(e)} >change image</Button>
+        return (<>
+        <Button variant="primary" onClick={(e)=>selecteImageToUpload(e)} >Change</Button>
+        <Button variant="danger" onClick={()=>deletePostImage(_id)} >Delete</Button>
+        </>)
       }
+      const renderInsertButtons = () => {
+        if(selectedFile && uploadStatus)
+        return <Button variant="warning" onClick={()=>insertImage()}>upload</Button>
+        return <Button variant="primary" onClick={(e)=>selecteImageToUpload(e)} >Insert image</Button>
+      }
+
       const selecteImageToUpload = (e) => {
         document.querySelector('input#post-image').click()
       }
+      let postImage = Object.values(props.postImage?props.postImage:[]).map(image => {
+        return image
+      })
+      //if(props.length > 0)
     return(
         <section id="images">
           <Form noValidate validated={validated} onSubmit={handleImageSubmit}>
             <Row>
-            <Col lg={{span:4}} className="post-image">
-              <img src={selectedFile ? "/images/posts/"+selectedFile :"/images/missing.png"}  onClick={(e)=>selecteImageToUpload(e)} />
+            <Col lg={{span:2}} className="post-image">
+             <img src={props.postImage.postImage.length > 0 ? "/images/posts/"+props.imageName:selectedFile}  onClick={(e)=>selecteImageToUpload(e)} />
+    <div style={{marginTop:"15px",textAlign:"center",font: "400 8px/10px 'Work Sans', sans-serif"}}>{!uploadStatus ? props.imageName:""}</div>
             </Col>
-             <Col lg={{span:4}} className="caption">
+             <Col lg={{span:6}} className="caption">
+             <div><Form.Row>
+              <Form.Group controlId="showpost">
+                <Form.Label>Front / back cover</Form.Label>
+                <Form.Control as="select" custom onChange={e => setCoverLocation(e.target.value)}>
+                  <option value={props.cover ? props.cover:"frontCover"}>{props.cover ? props.cover:"" ==="frontCover"? "Front Cover":"Back Cover"}</option>
+                  <option value="frontCover">Front Cover</option>
+                  <option value="backCover">Back Cover</option>
+                </Form.Control>
+              </Form.Group>
+            </Form.Row></div>
              <Form.Row>
                   <Form.Group as={Col}  controlId="caption">
                     <Form.Label>Caption</Form.Label>
@@ -64,7 +105,7 @@ const ProfileImage = (props) => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={caption}
+                      defaultValue={props.caption ? props.caption:''}
                       onChange={e => setCaption(e.target.value)}
                       
                     />
@@ -75,15 +116,16 @@ const ProfileImage = (props) => {
                   </Form.Group>
                   </Form.Row>
                </Col>
-               <Col lg={{span:4}}  className="action-button">{disabled ? renderUploadButtons():<Button variant="primary" disabled>change image</Button>}<input type="file" id="post-image" onChange={(e)=>onChangeHandler(e)}/></Col>
+               <Col lg={{span:4}}  className="action-button">{props.postImage.postImage.length > 0 ? renderUploadButtons(props._id):renderInsertButtons()}<input type="file" id="post-image" onChange={(e)=>onChangeHandler(e)}/></Col>
                </Row>
             </Form>
           </section>
     )
+    return (<><div>Loading</div></>)
 }
 function mapStateToProps(state) {
     return {
-      postImage:state.postImageReducer
+      postImage:state.singlePostReducer
     };
   }
   

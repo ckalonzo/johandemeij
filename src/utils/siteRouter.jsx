@@ -22,6 +22,7 @@ import News from "components/News"
 import RentalCatalogue from "components/RentalCatalogue";
 import AgendaList from "components/AgendaList"
 import MusicProfile from "components/MusicProfile"
+import NewPost from "components/dashboard/NewPost"
 const history = createBrowserHistory();
 const SiteRouter = () => {
 
@@ -33,7 +34,8 @@ const SiteRouter = () => {
                  <Route path="/dashboard/catalogue" component={MusicCatalogue} />
                  <Route path="/dashboard/cds" component={Cds} />
                  <Route path="/dashboard/publications" component={Publications} />
-                 <Route path="/dashboard/news/edit/" component={EditPost} />
+                 <Route path="/dashboard/news/new" component={NewPost} />
+                 <Route path="/dashboard/news/edit/:id" component={EditPost} />
                  <Route path="/dashboard/news" component={Posts} />
                  <Route path="/dashboard/" component={dashboard} />
                  <Route path="/order" component={Order} />

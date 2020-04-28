@@ -16,26 +16,37 @@ const Posts = (props) => {
         document.title = `JDM Dashboard | posts`;
         //if(props.categories.length === 0)
         props.actions.mainAction(ACTIONS.RESET_IMAGE,{})
-       props.actions.mainAction(ACTIONS.LOAD_POSTS,[])
+       props.actions.mainAction(ACTIONS.LOAD_DASHBOARD_POSTS,[])
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-
-    const handleClick = () => {
-        setSection("edit")
+    const deletePost = (_id,ID) => {
+     props.actions.mainAction(ACTIONS.DELETE_POST,{image:_id,post:ID})
+    } 
+    const handleClick = (props) => {
+        //setSection("edit")
+        props.history.push('/dashboard/news/new')
     }
     const loadPost = (post) => {
-      props.actions.mainAction(ACTIONS.LOAD_POST,post)
-      props.history.push('/dashboard/news/edit/')
+      props.history.push('/dashboard/news/edit/'+post.ID)
     }
     const PostList = () => {
+      if(Object.keys(props.posts).length > 0){
         return Object.values(props.posts).map(post =>{
           return ( <tr key={post._id}>
-            <td className="post-title" onClick={()=>loadPost(post)}>{post.postTitle}</td>
+            <td className="post-title">{post.postTitle}</td>
             <td style={{"textAlign":"center"}}>{post.postDate}</td>
-            <td className="post-actions"><button className="btn btn-datatable btn-icon btn-transparent-dark mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button> 
-            <button className="btn btn-datatable btn-icon btn-transparent-dark"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button></td>
+            <td className="post-actions">
+              
+              <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2"  onClick={()=>loadPost(post)}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button> 
+
+            <button className="btn btn-datatable btn-icon btn-transparent-dark" onClick={()=>deletePost(post._id,post.ID)}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button></td>
           </tr> )
         })
+      } else {
+        return (<tr>
+          <td  colSpan="3">Loading....</td>
+        </tr>)
+      }
     }
     if(section === "list") {
         return (<>
@@ -50,7 +61,7 @@ const Posts = (props) => {
             <tr>
               <th scope="col" style={{"textAlign":"center"}}>Title</th>
               <th scope="col" style={{"textAlign":"center"}}>Date</th>
-              <th scope="col" style={{"textAlign":"center"}}><Button onClick={()=>handleClick()}>Add News</Button></th>
+              <th scope="col" style={{"textAlign":"center"}}><Button onClick={()=>handleClick(props)}>Add News</Button></th>
             </tr>
           </thead>
           <tbody>

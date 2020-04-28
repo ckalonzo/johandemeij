@@ -17,7 +17,6 @@ const Agenda  = (props) => {
     <div className="container">
          
         {Object.values(props.agendas).map(agenda => {
-          console.log(agenda)
             return <List {...agenda}/>
         })}
         

@@ -64,6 +64,10 @@ h1, h3, h3, h4, h5 {
   border: .1rem solid #ececec;
 }
 
+#images .caption div {
+  width: 100%;
+}
+
 table th {
   font-size: .9rem;
 }
@@ -96,6 +100,10 @@ table .post-title {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.post-image {
+  text-align: "center";
 }
 
 .post-image img {
@@ -228,7 +236,6 @@ table a {
 
 #dashboard .col-lg-10 {
   background: #FFF;
-  outline: 1px solid #eaeaea;
 }
 
 #dashboard h1 {

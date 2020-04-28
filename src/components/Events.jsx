@@ -6,7 +6,6 @@ const Events  = (props) => {
        document.title = "JohanDeMeij.com | Events"
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-	console.log(props)
     return (<>
     <section className="events">
     

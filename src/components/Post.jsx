@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react"
+import React,{useEffect} from "react"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ACTIONS } from "redux/actions/types"
@@ -50,8 +50,8 @@ const Post = (props) => {
                 </Row>
             <Row>
                 <Col lg={{span:8}}>
-                    <h1 style={{ color: "#9a0000",margin:"50px 0 15px"}}>{Object.keys(props.post).length > 0 ? props.post[0].postTitle : "Title" }</h1>
-                    <p style={{ color: "#000"}}>{Object.keys(props.post).length > 0 ?  dayjs(props.post[0].postDate).format('MMMM DD YYYY') : "Date" }</p>
+                    <h1 style={{ color: "#9a0000",margin:"50px 0 15px",textAlign:"center",font: "400 32px/34px 'Work Sans', sans-serif"}}>{Object.keys(props.post).length > 0 ? props.post[0].postTitle : "Title" }</h1>
+                    <p style={{ color: "#000",textAlign:"center"}}>{Object.keys(props.post).length > 0 ?  dayjs(props.post[0].postDate).format('MMMM DD YYYY') : "Date" }</p>
                     <div className="conten">{Object.keys(props.post).length > 0 ? ReactHtmlParser(props.post[0].postContent):"content"}</div>
                 </Col>
                 <Col lg={{span:4}} style={{marginTop:"50px"}}>

@@ -18,7 +18,6 @@ const RentalCatalogue  = (props) => {
       let selectedPresentation =[]
       props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE_BY_ID,id)
       selectedPresentation = props.presentations.filter(presentation => presentation.id === id)
-     console.log(id)
       props.history.push('/music/profile/'+selectedPresentation[0]._id)
   }
   const missingProfile = () => {
@@ -45,7 +44,6 @@ const RentalCatalogue  = (props) => {
   <tbody>
     {Object.values(props.catalogue).map(catalogue=>{
       let _id = catalogue.link.slice(50,54)
-      console.log(!isNaN(_id),_id)
         return (<tr onClick={()=> !isNaN(_id) === true ? loadProfile(_id):missingProfile()}>
             <td>{catalogue.catalogueNumber}</td>
             <td>{catalogue.title}</td>

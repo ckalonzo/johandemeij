@@ -11,7 +11,7 @@ const Dashboard = (props) => {
     useEffect(() => {
         // Update the document title using the browser API
         document.title = `Johan De Meij | Dashboard`;
-        props.actions.mainAction(ACTIONS.LOAD_POST_IMAGE,{})
+       // props.actions.mainAction(ACTIONS.LOAD_POST_IMAGE,{})
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
@@ -23,7 +23,7 @@ const Dashboard = (props) => {
                <SideNav />
             </Col>
             <Col lg={{span:10}}>
-              <Posts />
+              
             </Col>
         </Row>
     </Container>

@@ -51,7 +51,14 @@ h1,h3,h3,h4,h5 {
     padding:25px 35px;
     border: .1rem solid #ececec;
 }
-
+#images {
+    
+    .caption {
+      div {
+        width:100%;
+      }
+    }
+  }
 table {
     th {
         font-size:.9rem;
@@ -77,6 +84,7 @@ table {
     justify-content: center;
 }
 .post-image {
+    text-align: "center"; 
     img {
          width:100px;
     }

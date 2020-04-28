@@ -29,16 +29,40 @@ export function loadfilteredAgendas(skip){
   .then((data)=> data.json())
   .then((res) => console.log(res.data))
 }
+export function deletePostImage(id){
+  return axios.delete(APIurl + '/deletePostImage/' + id ,{data:{id}})
+}
+export function deletePost(id){
+  return axios.delete(APIurl + '/deletePost/' + id ,{data:{id}})
+}
 
-export function uploadImage(image){
+export function uploadPostImage(image){
   const data = new FormData()
   data.append('file',image)
-  return axios.post(APIurl +'/upload',data,{
+  return axios.post(APIurl +'/uploadPostImage',data,{
     headers:{
       'Accept':'application/json',
       'Content-Type':'multipart/form-data'
     }
   })
+  .then((res)=>{return res})
+  .catch((err) => { return err})
+}
+
+
+export function updatePostImage(data){
+  return axios.post(APIurl +'/updatePostImage',data)
+  .then((res)=>{return res})
+  .catch((err) => { return err})
+}
+export function createPostImage(data){
+  return axios.post(APIurl +'/createPostImage',data)
+  .then((res)=>{return res})
+  .catch((err) => { return err})
+}
+
+export function createPost(data){
+  return axios.post(APIurl +'/createPost',data)
   .then((res)=>{return res})
   .catch((err) => { return err})
 }

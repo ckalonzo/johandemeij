@@ -6,23 +6,31 @@ const PostImagesSchema = new Schema(
   {
     id: {
         type: String,
-        required: true
+        default:''
     },
     albumID:{
         type: String,
-        required: true
+        default:''
     },
     imageName: {
         type: String,
-        required: true
+        default:''
+    },
+    dateCreated: {
+        type: String,
+        default:''
     },
     caption: {
         type: String,
-        required: true
+        default:''
+    },
+    cover: {
+        type: String,
+        default:''
     }
   },
   { timestamps: true }
 );
 
 
-module.exports = postImages = mongoose.model("PostImages", PostImagesSchema);
+module.exports = postimages = mongoose.model("PostImages", PostImagesSchema);
