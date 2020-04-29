@@ -91,12 +91,6 @@ router.delete('/deletePostImage/:id', (req, res, next) => {
       res.json({ message: 'Deleted',data });
   }); 
 });
-router.get('/loadAgendas', async (req, res) => {
-  Agendas.find((err, data) => {
-    if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true, data: data });
-  })
-});
 router.get('/filterPresentationCategory/:category', async (req, res) => {
    
   const pipeline = []
@@ -112,6 +106,12 @@ router.get('/filterPresentationCategory/:category', async (req, res) => {
       return res.json({ success: false, error: err });
       return res.json({ success: true, data: data });
     })
+});
+router.get('/loadAgendas', async (req, res) => {
+  Agendas.find((err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  })
 });
 router.get('/loadCds', async (req, res) => {
   const pipeline = [{$match: {}}]
@@ -133,16 +133,15 @@ router.get('/loadfilteredAgendas/:numberToSkip/:numberToLimit/:year/:month/', as
   const numberTolimit = parseInt(req.params.numberToLimit,10);
   const month = req.params.month;
   const year = req.params.year;
-
-  Agendas.aggregate([
-      { $match : { 'year' : year,
-      "month":{$gte:month},
-      "$and":[{"orchestra":{"$ne":""}},{"orchestra":{"$ne":null}}] 
-    }},
-      { $skip: numberToSkip },
-      { $sort: {'month': 1, 'day' : 1} },
-      { $limit: numberTolimit }
-    ],(err,data)=>{
+ //{ $match : { 'year' : year, 
+ // "$and":[{ "month":{$gte:month},"orchestra":{"$ne":""}},{"orchestra":{"$ne":null}}] 
+//}},
+//  { $skip: numberToSkip },
+//  { $sort: {'month': 1, 'day' : 1} },
+//  { $limit: numberTolimit }
+ const pipeline = [{$match: {'year':'2020','month':{$gte:month},"$and":[{ "month":{$gte:month},"orchestra":{"$ne":""}},{"orchestra":{"$ne":null}}]}}]
+ pipeline.push({ '$sort': {'month': 1} })
+ await Agendas.aggregate(pipeline,(err,data)=>{
         if (err) return res.json({ success: false, error: err });
         //console.log(res.json(data))
         return res.json({ success: true, data: data });

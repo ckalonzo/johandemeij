@@ -11,12 +11,14 @@ const Agenda  = (props) => {
        props.actions.mainAction(ACTIONS.LOAD_AGENDAS,{limit:10,skip:0})
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
+    
     return (<>
     <section className="agenda">
     <h3 style={{textAlign:'center',fontSize:"2rem",textTransform: "uppercase",color:"#FFF"}}>Agenda</h3>
     <div className="container">
          
-        {Object.values(props.agendas).map(agenda => {
+        {Object.values(props.agendas).map((agenda,i)=> {
+          if(i<=5)
             return <List {...agenda}/>
         })}
         

@@ -37,9 +37,11 @@ export default function agendaReducer (state = initialState, action) {
         let day = d.getDay();
         let month = d.getMonth() + 1
         let year = d.getFullYear();
+        console.log('http://localhost:3001/api/loadfilteredAgendas/'+action.payload.skip+"/"+action.payload.limit+"/"+year+"/"+month)
         fetch ('http://localhost:3001/api/loadfilteredAgendas/'+action.payload.skip+"/"+action.payload.limit+"/"+year+"/"+month)
         .then((data)=> data.json())
         .then((res) => {
+          console.log(res.data)
           action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,res.data))
         
         }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_FAIL,err)))
@@ -50,7 +52,7 @@ export default function agendaReducer (state = initialState, action) {
         let day = d.getDate();
         let stateCopy = []
         action.payload.map(agenda=>{
-          if(agenda.day > day)
+         // if(agenda.day > day)
           return stateCopy.push(agenda)
         })
         return stateCopy

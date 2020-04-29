@@ -22,12 +22,13 @@ const AgendaList  = (props) => {
     useEffect(() => {
         window.scrollTo(0,0)
         document.title = "JohanDeMeij.com | Agenda"
-       props.actions.mainAction(ACTIONS.LOAD_AGENDAS,{limit:20,skip:0})
+       props.actions.mainAction(ACTIONS.LOAD_AGENDAS,{limit:100,skip:0})
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     
     let d = new Date();
     let thisMonth = d.getMonth() + 1
+    console.log(props)
     return (<>
     <section className="agenda">
     <h3 style={{textAlign:'center',fontSize:"2rem",textTransform: "uppercase",color:"#FFF"}}>Agenda</h3>
