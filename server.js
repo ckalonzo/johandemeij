@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(express.static('johan-app/build'));
 
 app.get('*', (req, res) => {
-	res.sendFile(path.resolve(__dirname, 'cocomatl-app', 'build', 'index.html'));
+	res.sendFile(path.resolve(__dirname, 'johan-app', 'build', 'index.html'));
 });
 
 const port = process.env.PORT || 5020;
