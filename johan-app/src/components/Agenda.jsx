@@ -19,7 +19,7 @@ const Agenda  = (props) => {
          
         {Object.values(props.agendas).map((agenda,i)=> {
           if(i<=5)
-            return <List {...agenda}/>
+            return <List key={i} {...agenda}/>
         })}
         
     </div>

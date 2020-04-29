@@ -41,9 +41,7 @@ export default function agendaReducer (state = initialState, action) {
         fetch ('http://localhost:3001/api/loadfilteredAgendas/'+action.payload.skip+"/"+action.payload.limit+"/"+year+"/"+month)
         .then((data)=> data.json())
         .then((res) => {
-          console.log(res.data)
           action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,res.data))
-        
         }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_FAIL,err)))
         return state
       }

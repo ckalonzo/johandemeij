@@ -48,7 +48,6 @@ const EditPost = props => {
    window.scrollTo(0,0)
   };
   
-  console.log(props)
   return (
     <>
       <Container>

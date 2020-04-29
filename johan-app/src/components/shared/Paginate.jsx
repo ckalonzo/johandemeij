@@ -16,8 +16,7 @@ const Paginate = (props) => {
         let totalPages = props.agendas ? props.agendas.length:""
         let pages = parseInt(totalPages / 11);
 
-        console.log(props.agendas ? props.agendas.length:'')
-        console.log(Math.ceil(pages))
+       
         const Items = []
         for (let i = 0; i < 6; i++) {
            
@@ -27,7 +26,6 @@ const Paginate = (props) => {
         }
         return Items
     }
-    console.log(props)
     return(<Row>
         <Col lg={{span:3,offset:5}} style={{textAlign:"center"}}>
         <Pagination>

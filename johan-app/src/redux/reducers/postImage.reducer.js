@@ -18,7 +18,6 @@ export default function postImageReducer (state = initialState, action) {
           return null
           
         })
-        console.log(image)
         action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_IMAGE_SUCCESS,image))
           return state
       }

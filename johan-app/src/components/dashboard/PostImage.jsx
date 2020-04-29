@@ -22,7 +22,7 @@ const ProfileImage = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
     const handleImageSubmit = (e) => {
-      console.log(props)
+     // console.log(props)
     }
     const uploadImage = () => {
     

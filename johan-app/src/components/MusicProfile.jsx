@@ -40,11 +40,12 @@ const renderProfile = () => {
                         {props.profile.backCover ? renderImage(props.profile.backCover,props.profile.backCaption):""}
                        <Row>
                            <div className="details">
+                               <h2>Details</h2>
                                <ul>
-                                   <li><span>Order numbers:</span> {ReactHtmlParser(props.profile.totalTime)}</li>
-    <li><span>Instrumentation:</span> {props.profile.instrumentation}</li>
-                                   <li><span>Duration:</span>  {props.profile.duration}</li>
-                                   <li><span>cd:</span> </li>
+    {props.profile.totalTime ?  <li><span>Order numbers:</span>  {ReactHtmlParser(props.profile.totalTime)}</li>:""}
+    {props.profile.instrumentation ?  <li><span>Instrumentation:</span>  {ReactHtmlParser(props.profile.instrumentation)}</li>:""}
+    {props.profile.duration ?  <li><span>Duration:</span>  {ReactHtmlParser(props.profile.duration)}</li>:""}
+    {props.profile.cd ?  <li><span>Cd:</span>  {ReactHtmlParser(props.profile.cd)}</li>:""}
                                </ul>
                            </div>
                        </Row>

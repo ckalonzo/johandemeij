@@ -42,7 +42,6 @@ const EditPost = props => {
       event.stopPropagation();
     }
     setValidated(true);
-    console.log(newsItem)
    props.actions.mainAction(ACTIONS.CREATE_NEW_POST,newsItem)
    props.history.push('/dashboard/news/edit/'+props.lastItem)
   };

@@ -18,12 +18,13 @@ const News  = (props) => {
     <div className="container">
     <Row className="d-flex justify-content-center">
         {Object.values(props.posts).map(article => {
-            return <Article key={article._id} {...article} />
+            return <Article key={article._id} {...article} history={props.history} />
         })}
     </Row>
     </div>
     </section>
     </>)
+  
 }
 function mapStateToProps(state) {
 

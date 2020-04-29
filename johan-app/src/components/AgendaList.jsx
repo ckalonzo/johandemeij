@@ -28,7 +28,6 @@ const AgendaList  = (props) => {
     
     let d = new Date();
     let thisMonth = d.getMonth() + 1
-    console.log(props)
     return (<>
     <section className="agenda">
     <h3 style={{textAlign:'center',fontSize:"2rem",textTransform: "uppercase",color:"#FFF"}}>Agenda</h3>
