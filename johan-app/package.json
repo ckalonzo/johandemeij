@@ -1,0 +1,60 @@
+{
+  "name": "johan-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^18.0.0",
+    "@ckeditor/ckeditor5-react": "^2.1.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "concurrently": "^5.1.0",
+    "dayjs": "^1.8.24",
+    "history": "^4.10.1",
+    "html-react-parser": "^0.10.3",
+    "lodash": "^4.17.15",
+    "node-sass": "^4.13.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.0",
+    "react-dom": "^16.13.1",
+    "react-html-parser": "^2.0.2",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "string-strip-html": "^4.3.20"
+  },
+  "scripts": {
+    "start": "concurrently \"mongod\" \" npm run backend\" \"npm run scss\" \"react-scripts start\" ",
+    "backend": "cd backend && nodemon server.js --prefix client",
+    "sass": "node-sass src/scss/main.scss -o src/css",
+    "scss": "node-sass --watch src/scss -o src/css",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@editorjs/editorjs": "^2.17.0",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.2"
+  }
+}
