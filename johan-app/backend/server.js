@@ -244,14 +244,25 @@ router.get('/loadPresentations/:numberToSkip/:numberToLimit/', async (req, res) 
   if(parseInt(req.params.numberToLimit) === 0)
   console.log(req.params)
 
-  if(req.params.numberToSkip && parseInt(req.params.numberToSkip) !== 0)
-  pipeline.push({ '$skip': parseInt(req.params.numberToSkip,10) });
-
+ 
   pipeline.push({ '$sort': {'cdName': 1} })
   
   if(req.params.numberToLimit && parseInt(req.params.numberToLimit) !== 0)
   pipeline.push({ '$limit':  parseInt(req.params.numberToLimit,10) });
+
+  if(req.params.numberToSkip && parseInt(req.params.numberToSkip) !== 0)
+  pipeline.push({ '$skip': parseInt(req.params.numberToSkip,10) });
+
   
+  Presentations.aggregate(pipeline,(err,data)=>{
+    console.log(pipeline)
+    if (err) 
+      return res.json({ success: false, error: err });
+      return res.json({ success: true, data: data });
+    })
+});
+router.get('/loadAllPresentations', async (req, res) => {
+  const pipeline = [{$match: {}}]
   Presentations.aggregate(pipeline,(err,data)=>{
     console.log(pipeline)
     if (err) 

@@ -9,13 +9,15 @@ import Parser from 'html-react-parser';
 import EditPost from "components/dashboard/EditPost"
 import { Container,Row,Col } from "react-bootstrap"
 import SideNav from "components/dashboard/SideNav"
+import Paginate from "components/shared/Paginate"
 const Posts = (props) => {
     const [section,setSection] = useState("list")
     useEffect(() => {
         // Update the document title using the browser API
         document.title = `JDM Dashboard | Presentations`;
         //if(props.categories.length === 0)
-       props.actions.mainAction(ACTIONS.LOAD_PRESENTATIONS,[])
+       props.actions.mainAction(ACTIONS.LOAD_ALL_PRESENTATIONS,[])
+       props.actions.mainAction(ACTIONS.LOAD_PRESENTATIONS,{limit:10,skip:0})
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
@@ -48,7 +50,6 @@ const Posts = (props) => {
                <SideNav />
             </Col>
             <Col lg={{span:10}}>
-            <h1>Publications</h1>
             <table className="table table-hover">
           <thead >
             <tr>
@@ -62,6 +63,7 @@ const Posts = (props) => {
            <PresentationList />
           </tbody>
         </table>
+        <Paginate items={props.allpresentations} limit={10}/>
             </Col>
         </Row>
     </Container>
@@ -78,7 +80,8 @@ const Posts = (props) => {
 function mapStateToProps(state) {
     return {
       posts:state.postsReducer,
-      presentations:state.presentationsReducer
+      presentations:state.presentationsReducer,
+      allpresentations:state.AllPresentationsReducer
     };
   }
   

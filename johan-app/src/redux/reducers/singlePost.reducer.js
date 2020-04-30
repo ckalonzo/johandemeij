@@ -55,9 +55,7 @@ export default function singlePostReducer (state = initialState, action) {
         return stateCopy
       }  
       case ACTIONS.DELETE_POST_SUCCESS:{
-        let stateCopy = _.cloneDeep(state)
-        action.asyncDispatch(mainAction(ACTIONS.LOAD_POST,stateCopy.ID))
-
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_DASHBOARD_POSTS,[]))
         return state
       }  
       case ACTIONS.DELETE_POST_FAIL:{
@@ -99,7 +97,7 @@ export default function singlePostReducer (state = initialState, action) {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_SUCCESS,res.data))
         
         }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_FAIL,err)))
-        return stateCopy
+        return state
       }
       case  ACTIONS.LOAD_POST_SUCCESS:{
         

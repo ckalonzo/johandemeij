@@ -7,37 +7,36 @@ import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
 
 const Paginate = (props) => {
-    const loadAgendas = (skip) => {
+    const loadAgendas = (limit,skip) => {
         window.scrollTo(0,0)
-        props.actions.mainAction(ACTIONS.LOAD_AGENDAS,{limit:20,skip}) 
+        props.actions.mainAction(ACTIONS.LOAD_PRESENTATIONS,{limit,skip})
     }
     
     const renderPageItems = () => {
-        let totalPages = props.agendas ? props.agendas.length:""
-        let pages = parseInt(totalPages / 11);
-
-       
+        let totalPages = Object.keys(props.items).length
+        
+        let pages = parseInt(totalPages / props.limit);
+        console.log({total:totalPages,pages,limit:props.limit})
+        
         const Items = []
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < pages; i++) {
            
-            let pagesToSkip = i === 1 ? 0: parseInt(i * 20)
-           if(i!==0)
-            Items.push(<Pagination.Item  onClick={()=>loadAgendas(pagesToSkip)}>{i}</Pagination.Item> )
+            let skip = i * parseInt(props.limit,10)
+            let limit = i * parseInt(props.limit,10)+10
+            console.log("limit:",limit,"skip:",skip)
+            Items.push(<Pagination.Item   onClick={()=>loadAgendas(limit,skip)}>{i+1}</Pagination.Item> )
         }
         return Items
     }
+    console.log(props)
     return(<Row>
-        <Col lg={{span:3,offset:5}} style={{textAlign:"center"}}>
-        <Pagination>
-  
-  {renderPageItems()}
-
- 
-  {/* {<Pagination.Item disabled>{14}</Pagination.Item>} */}
-
-  {/* {<Pagination.Ellipsis />} */}
- 
-</Pagination>
+        <Col style={{display:"table"}}>
+          <div style={{margin:"50px auto",display:"table"}}>
+        <Pagination >
+        {renderPageItems()}
+        {/* {<Pagination.Item disabled>{14}</Pagination.Item>} */}
+        {/* {<Pagination.Ellipsis />} */}
+        </Pagination></div>
         </Col>
         </Row>)
 }
