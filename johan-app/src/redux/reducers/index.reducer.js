@@ -11,6 +11,8 @@ import musicReducer from "redux/reducers/music.reducer"
 import orderReducer from "redux/reducers/orderLocations.reducer"
 import musicProfileReducer from "redux/reducers/musicProfile.reducer"
 import AllPresentationsReducer from "redux/reducers/allpresentations.reducer"
+import AllAgendasReducer from "redux/reducers/allAgendas.reducer"
+
 const indexReducer = combineReducers({
   postsReducer,
   singlePostReducer,
@@ -23,7 +25,8 @@ const indexReducer = combineReducers({
   musicReducer,
   orderReducer,
   musicProfileReducer,
-  AllPresentationsReducer
+  AllPresentationsReducer,
+  AllAgendasReducer
 });
   
   export default indexReducer;

@@ -130,6 +130,25 @@ table {
         }
     }
 }
+.pagination {
+    .page-link {
+        color: #6f7495!important;
+    }
+    .active-page {
+        .page-link {
+            color:#fff!important;
+        }
+        .page-link,.page-item:hover {
+            background:#9a0000;
+            
+        } 
+        
+        a {
+            color:#fff;
+        }
+    }
+}
+
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');

@@ -113,6 +113,44 @@ router.get('/loadAgendas', async (req, res) => {
     return res.json({ success: true, data: data });
   })
 });
+router.get('/loadAllAgendas', async (req, res) => {
+  const pipeline = [{$match:{}}]
+  Agendas.aggregate(pipeline,(err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  })
+});
+router.get('/loadAgendasByPage/:numberToSkip/:numberToLimit/', async (req, res) => {
+  let d = new Date();
+  const pipeline = [{ 
+    "$match": {
+        "orchestra": { 
+            "$exists": true, 
+            "$ne": null ,
+            "$ne": '' 
+        }
+    }    
+}]
+  if(parseInt(req.params.numberToLimit) === 0)
+  console.log(req.params)
+ // pipeline.push({$match:{},"$and":[{"orchestra":{"$ne":""}},{"orchestra":{"$ne":null}}]})
+ 
+  pipeline.push({ '$sort': {'year': -1,'month':-1,'day':-1} })
+  
+  if(req.params.numberToLimit && parseInt(req.params.numberToLimit) !== 0)
+  pipeline.push({ '$limit':  parseInt(req.params.numberToLimit,10) });
+
+  if(req.params.numberToSkip && parseInt(req.params.numberToSkip) !== 0)
+  pipeline.push({ '$skip': parseInt(req.params.numberToSkip,10) });
+
+  
+  Agendas.aggregate(pipeline,(err,data)=>{
+    console.log(pipeline)
+    if (err) 
+      return res.json({ success: false, error: err });
+      return res.json({ success: true, data: data });
+    })
+});
 router.get('/loadCds', async (req, res) => {
   const pipeline = [{$match: {}}]
   pipeline.push({ '$sort': {'cd_name': 1} })
@@ -129,6 +167,7 @@ router.get('/loadCdinfo', async (req, res) => {
   });
 });
 router.get('/loadfilteredAgendas/:numberToSkip/:numberToLimit/:year/:month/', async (req, res) => {
+  
   const numberToSkip = parseInt(req.params.numberToSkip,10);
   const numberTolimit = parseInt(req.params.numberToLimit,10);
   const month = req.params.month;
@@ -139,7 +178,7 @@ router.get('/loadfilteredAgendas/:numberToSkip/:numberToLimit/:year/:month/', as
 //  { $skip: numberToSkip },
 //  { $sort: {'month': 1, 'day' : 1} },
 //  { $limit: numberTolimit }
- const pipeline = [{$match: {'year':'2020','month':{$gte:month},"$and":[{ "month":{$gte:month},"orchestra":{"$ne":""}},{"orchestra":{"$ne":null}}]}}]
+ const pipeline = [{$match: {'year':req.params.year,'month':{$gte:req.params.month},"$and":[{ "month":{$gte:req.params.month},"orchestra":{"$ne":""}},{"orchestra":{"$ne":null}}]}}]
  pipeline.push({ '$sort': {'month': 1} })
  await Agendas.aggregate(pipeline,(err,data)=>{
         if (err) return res.json({ success: false, error: err });

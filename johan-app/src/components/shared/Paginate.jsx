@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Pagination from 'react-bootstrap/Pagination'
 import {Row,Col} from "react-bootstrap"
 import { connect } from "react-redux";
@@ -7,28 +7,25 @@ import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
 
 const Paginate = (props) => {
+    const [currentPage,setCurrentPage] = useState(0)
     const loadAgendas = (limit,skip) => {
         window.scrollTo(0,0)
-        props.actions.mainAction(ACTIONS.LOAD_PRESENTATIONS,{limit,skip})
+        props.actions.mainAction(ACTIONS[props.action],{limit,skip})
     }
     
     const renderPageItems = () => {
         let totalPages = Object.keys(props.items).length
-        
         let pages = parseInt(totalPages / props.limit);
-        console.log({total:totalPages,pages,limit:props.limit})
-        
         const Items = []
         for (let i = 0; i < pages; i++) {
            
             let skip = i * parseInt(props.limit,10)
             let limit = i * parseInt(props.limit,10)+10
-            console.log("limit:",limit,"skip:",skip)
-            Items.push(<Pagination.Item   onClick={()=>loadAgendas(limit,skip)}>{i+1}</Pagination.Item> )
+
+            Items.push(<Pagination.Item  className={i === currentPage ? "active-page":"page"} onClick={()=>{loadAgendas(limit,skip);setCurrentPage(i)}}>{i+1}</Pagination.Item> )
         }
         return Items
     }
-    console.log(props)
     return(<Row>
         <Col style={{display:"table"}}>
           <div style={{margin:"50px auto",display:"table"}}>

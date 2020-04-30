@@ -8,7 +8,7 @@ export default function agendaReducer (state = initialState, action) {
       
       case ACTIONS.LOAD_CD_AGENDA: {
         let stateCopy = _.cloneDeep(state)
-       fetch('http://localhost:3001/api/loadAgendas')
+       fetch('http://localhost:3001/api/loadAgendasByPage/'+action.payload.skip+"/"+action.payload.limit)
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_SUCCESS,res.data))
@@ -18,15 +18,9 @@ export default function agendaReducer (state = initialState, action) {
         return stateCopy
       }
       case ACTIONS.LOAD_CD_AGENDA_SUCCESS: {
-       let stateCopy = []
-
-       _.orderBy(action.payload,['year','month','day'],['desc','desc','desc']).map((agenda,index)=>{
-         if(index <= 300)
-         return stateCopy.push(agenda)
-       })
-      stateCopy.total = action.payload.length;
+       
       
-        return stateCopy
+        return action.payload
       }
       case ACTIONS.LOAD_CD_AGENDA_FAIL: {
 
@@ -37,8 +31,7 @@ export default function agendaReducer (state = initialState, action) {
         let day = d.getDay();
         let month = d.getMonth() + 1
         let year = d.getFullYear();
-        console.log('http://localhost:3001/api/loadfilteredAgendas/'+action.payload.skip+"/"+action.payload.limit+"/"+year+"/"+month)
-        fetch ('http://localhost:3001/api/loadfilteredAgendas/'+action.payload.skip+"/"+action.payload.limit+"/"+year+"/"+month)
+        fetch ('http://localhost:3001/api/loadfilteredAgendas/'+action.payload.skip+"/"+action.payload.limit+"/"+year+"/" + month )
         .then((data)=> data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,res.data))
