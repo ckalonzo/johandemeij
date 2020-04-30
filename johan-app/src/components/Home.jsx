@@ -14,7 +14,7 @@ const Home = (props) => {
    return (<>
       <News history={props.history}/>
       <Agenda />
-      <About />
+      <About history={props.history}/>
    </>)
 }
 function mapStateToProps(state) {

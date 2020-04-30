@@ -11,6 +11,7 @@ const Presentations = require('./presentations')
 const Orders = require('./orders')
 const MusicAlbums = require('./music')
 const Agendas = require('./agendas')
+const Events = require('./events')
 const passwordHash = require('password-hash');
 const BCRYPT_SALT_ROUNDS = 12;
 const jwt = require('jsonwebtoken');  
@@ -186,6 +187,14 @@ router.get('/loadfilteredAgendas/:numberToSkip/:numberToLimit/:year/:month/', as
         return res.json({ success: true, data: data });
     })
 });
+
+router.get('/loadEvents', (req, res) => {
+ Events.find((err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  });
+});
+
 router.get('/loadMusicAlbums',(req,res)=>{
   MusicAlbums.find((err, data) => {
     if (err) return res.json({ success: false, error: err });

@@ -13,7 +13,7 @@ const Footer = () => {
     const FooterList = () => {
         let navItems = ["news","events","agenda","music","biography","rental catalogue","order"]
        return  navItems.map(item => {
-        return <li key={item}><Nav.Link  href={`#${item}`} style={{textTransform:"capitalize"}}>{item}</Nav.Link></li>
+        return <li key={item}><Nav.Link  href={`/${item.replace(/\s/g, '')}`} style={{textTransform:"capitalize"}}>{item}</Nav.Link></li>
     })}
     const handleSubmit = event => {
         event.preventDefault();

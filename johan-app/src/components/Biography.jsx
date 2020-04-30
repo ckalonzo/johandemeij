@@ -1,6 +1,11 @@
-import React from "react";
+import React,{useEffect} from "react";
 import {Row,Col,Container} from "react-bootstrap"
 const Biography  = () => {
+    useEffect(() => { 
+        window.scrollTo(0,0)
+        document.title = "JohanDeMeij.com | Biograpy"
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []);
     let styles = {
         backgrounSize:"cover",
         maxHeight:"300px",

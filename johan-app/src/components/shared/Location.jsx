@@ -1,6 +1,5 @@
 import React from "react"
 const Location = (props) => {
-    console.log(props)
     return (<>
     <section className="location">
     <ul>
