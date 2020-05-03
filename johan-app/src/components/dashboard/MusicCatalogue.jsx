@@ -45,7 +45,6 @@ const MusicCatalogue = (props) => {
                <SideNav />
             </Col>
             <Col lg={{span:10}}>
-            <h1>Music Catalogue</h1>
             <table className="table table-hover">
           <thead >
             <tr>

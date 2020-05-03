@@ -6,7 +6,6 @@ export default function AllPresentationsReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_ALL_PRESENTATIONS: {
-        console.log(action)
        fetch('http://localhost:3001/api/loadAllPresentations')
         .then((data) => data.json())
         .then((res) => {

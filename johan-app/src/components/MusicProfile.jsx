@@ -35,6 +35,12 @@ const renderProfile = () => {
         <section className="music-profile">
            <Container>
                <Row>
+               <Col lg={{span:8}}>
+        <h1>{props.profile.cdName}</h1>
+        <h3>{props.profile.subTitle}</h3>
+        <h5>{`Composer: ${props.profile.subTitle}`}</h5>
+        <p>{ReactHtmlParser(props.profile.synopsis ? CleanUpSynopsis(props.profile.synopsis):"props.profile.synopsis")}</p>
+                   </Col>
                    <Col lg={{span:4}}>
                         {props.profile.frontCover ? renderImage(props.profile.frontCover,props.profile.frontCaption):""}
                         {props.profile.backCover ? renderImage(props.profile.backCover,props.profile.backCaption):""}
@@ -55,12 +61,7 @@ const renderProfile = () => {
                            </div>
                        </Row>
                    </Col>
-                   <Col lg={{span:8}}>
-        <h1>{props.profile.cdName}</h1>
-        <h3>{props.profile.subTitle}</h3>
-        <h5>{`Composer: ${props.profile.subTitle}`}</h5>
-        <p>{ReactHtmlParser(props.profile.synopsis ? CleanUpSynopsis(props.profile.synopsis):"props.profile.synopsis")}</p>
-                   </Col>
+                   
                </Row>
            </Container>
         </section>

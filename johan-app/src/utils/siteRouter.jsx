@@ -23,6 +23,9 @@ import RentalCatalogue from "components/RentalCatalogue";
 import AgendaList from "components/AgendaList"
 import MusicProfile from "components/MusicProfile"
 import NewPost from "components/dashboard/NewPost"
+import DashboardEvents from "components/dashboard/DashboardEvents"
+import EditEvent from "components/dashboard/EditEvent"
+import NewPublication from "components/dashboard/NewPublication"
 const history = createBrowserHistory();
 const SiteRouter = () => {
 
@@ -30,9 +33,13 @@ const SiteRouter = () => {
             <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
              <Switch>
                  
+                 <Route path="/dashboard/events/edit/:id" component={EditEvent} />
+                 <Route path="/dashboard/events" component={DashboardEvents} />
                  <Route path="/dashboard/agenda" component={Agendas} />
                  <Route path="/dashboard/catalogue" component={MusicCatalogue} />
                  <Route path="/dashboard/cds" component={Cds} />
+                 <Route path="/dashboard/publications/edit/:id" component={NewPublication} />
+                 <Route path="/dashboard/publications/new" component={NewPublication} />
                  <Route path="/dashboard/publications" component={Publications} />
                  <Route path="/dashboard/news/new" component={NewPost} />
                  <Route path="/dashboard/news/edit/:id" component={EditPost} />

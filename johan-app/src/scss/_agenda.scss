@@ -1,13 +1,20 @@
-section.agenda {
-    padding-top:25px;
-    padding-bottom:25px;
+section.agenda{
+     border-top:1px solid #eaeaea;
+     padding-top:25px;
+}
+section.agenda,
+section.agenda-full {
+    
+   // margin-bottom:50px;
     font-size:.75rem; 
     text-align: left;
+   
     //background: rgba(234, 234, 234, .3);
     color:#000;
     h3,h3 a {
-        color:#fe5c56!important;
-        margin:50px 0;
+        font: 900 14px/16px 'Roboto', sans-serif;
+        color:#9a0000!important;
+        margin:0 0 50px 0;
     }
     .agenda-card{
         margin:15px 0;
@@ -41,9 +48,9 @@ section.agenda {
     .date { 
         padding:10px 0 5px 0; 
         text-align:center;
-        background:#000;
+        background:rgb(197, 197, 197);
         outline:1px solid #fff;
-         color: #fe5c56;
+         color: #9a0000;
         .day {
             font: 900 38px/40px 'Montserrat', sans-serif;
             line-height: 2rem;

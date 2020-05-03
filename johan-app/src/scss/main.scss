@@ -75,7 +75,7 @@ table {
         width:33%;
     }
 }
-#post-image{
+#post-image,#post-image2{
     display:none;
 }
 .action-button,.caption{
@@ -161,3 +161,24 @@ table {
 @import 'footer';
 @import 'article';
 @import 'music';
+
+.sidebar {
+    li {
+       padding:0!important; 
+       a {
+           font-size: .8rem;
+           color: #6f7495;
+       }
+       a:hover {
+           color:#9a0000
+       }
+    }
+}
+.btn-primary:hover {
+    background:#000;
+}
+.RentalCatalogue {
+    table tr:hover {
+        color:#9a0000;
+    }
+}

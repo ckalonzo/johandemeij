@@ -1,14 +1,21 @@
+section.about{
+    border-top:1px solid #eaeaea; 
+    padding:100px 0;
+}
 section.about,
 section.about-full {
-    padding:100px 0;
+   
     background:#FFF;
+    color:#000;
     h3 {
         font-size: 2rem !important;
         color: #9a0000 !important;
+        margin-bottom:25px;
     }
     button {
         margin:35px 0 50px;
     }
+    
 }
 section.about-full {
     h5 {
@@ -21,4 +28,5 @@ section.about-full {
         display:inline;
         margin-right:10px;
     }
+    
 }

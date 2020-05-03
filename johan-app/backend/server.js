@@ -74,6 +74,42 @@ try{
 }
     
 })
+router.post('/createPresentation', async (req,res) => {
+  let post = new Presentations()
+  const { id,cdName,subTitle,composer,instrumentation,synopsis,totalTime,category,codes,duration,grade,cd,otherCd,score,audio,video } = req.body
+  console.log(cdName,subTitle,composer,instrumentation,synopsis,totalTime,category,codes,duration,grade,cd,otherCd,score,audio,video)
+  if (!id)
+  return res.json({ success: false, error: 'INVALID INPUTS', });
+  
+  post.id = id;
+  post.cdName=cdName;
+  if(subTitle)post.subTitle=subTitle;
+  if(composer)post.composer=composer;
+  if(instrumentation)post.instrumentation=instrumentation;
+  if(synopsis)post.synopsis=synopsis;
+  if(totalTime)post.totalTime=totalTime;
+  if(category)post.categorypost.codes=codes;
+  if(duration)post.duration=duration;
+  if(grade)post.grade=grade;
+  if(cd)post.cd=cd;
+  if(otherCd)post.otherCd=otherCd;
+  if(score)post.score=score;
+  if(audio)post.audio=audio;
+  if(video)post.video=video;  
+  
+try{
+   post.save((err) => {
+      if (err) return res.json({ success: false, error: err });
+      return res.json({ success: true });
+    });
+
+} catch(err) {
+  console.log('That did not go well.')
+  console.error(error)
+  process.exit(1)
+}
+    
+})
 router.delete('/deletePost/:id',(req,res)=>{
   let id = ObjectId(req.params.id);  
   Posts.remove({  
@@ -187,14 +223,12 @@ router.get('/loadfilteredAgendas/:numberToSkip/:numberToLimit/:year/:month/', as
         return res.json({ success: true, data: data });
     })
 });
-
 router.get('/loadEvents', (req, res) => {
  Events.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
   });
 });
-
 router.get('/loadMusicAlbums',(req,res)=>{
   MusicAlbums.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
@@ -281,6 +315,20 @@ router.get('/loadPostByID/:id', async (req, res) => {
     return res.json({ success: true, data: data });
   });
 });
+router.get('/loadPresentationByID/:id', async (req, res) => {
+  const pipeline = [{$match: {id:req.params.id}}]
+  Presentations.aggregate(pipeline,(err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  });
+});
+router.get('/loadEventByID/:id', async (req, res) => {
+  const pipeline = [{$match: {"id":req.params.id}}] 
+ await Events.aggregate(pipeline,(err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  });
+});
 router.get('/loadPostImages', async (req, res) => {
   PostImages.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
@@ -324,11 +372,33 @@ router.get('/loadOrders', (req, res) => {
     return res.json({ success: true, data: data });
   });
 });
+router.post('/updateEvent',(req,res)=>{
+  const {_id,title,synopsis} = req.body;
+  Events.findOneAndUpdate({_id:_id},
+    { 
+      $set:{title,synopsis}
+    },
+    (err,data)=>{
+      if(err) res.json({success:false,error:err})
+      return res.json({success:true,data})
+    })
+})
 router.post('/updatePost',(req,res)=>{
   const {_id,ID,date,content,title,postParent,showPost} = req.body;
   Posts.findOneAndUpdate({_id:_id},
     { 
       $set:{postDate:date,postContent:content,postTitle:title,showPost}
+    },
+    (err,data)=>{
+      if(err) res.json({success:false,error:err})
+      return res.json({success:true,data})
+    })
+})
+router.post('/updatePresentation',(req,res)=>{
+
+  Presentations.findByIdAndUpdate({_id:req.body._id},
+    { 
+      $set:req.body
     },
     (err,data)=>{
       if(err) res.json({success:false,error:err})
@@ -380,6 +450,30 @@ router.post('/uploadPostImage',(req,res)=>{
     return res.status(200).json(req.file)
   })
  })
+ router.post('/uploadPresentationImage',(req,res)=>{
+  console.log(req,res)
+  upload(req,res, function(err){
+    if(err instanceof multer.MulterError){
+      return res.status(500).json(err)
+    } else if(err){
+      return res.status(500).json(err)
+    }
+    return res.status(200).json(req.file)
+  })
+ })
+ router.post('/updatePresentationImage',(req,res)=>{
+  const {_id,frontCover,frontCaption
+    ,backCover,backCaption} = req.body;
+  Presentations.findByIdAndUpdate({_id:_id},
+    { 
+      $set:{frontCover,frontCaption
+        ,backCover,backCaption}
+    },
+    (err,data)=>{
+      if(err) res.json({success:false,error:err})
+      return res.json({success:true,data})
+    })
+})
 router.post('/updatePublications',(req,res)=>{
   const {_id,id,cdName,subTitle,composer,instrumentation,synopsis,totalTime,frontCover,backCover,dateCreated,frontCaption,backCaption,category,codes,duration,grade,cd,otherCd,score,audio,video} = req.body;
   Presentations.findOneAndUpdate({_id:_id},

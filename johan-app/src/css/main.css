@@ -70,7 +70,7 @@ table td {
 table .post-title {
   width: 33%; }
 
-#post-image {
+#post-image, #post-image2 {
   display: none; }
 
 .action-button, .caption {
@@ -141,7 +141,7 @@ table .post-title {
 .navigation ul {
   display: table;
   margin: 0 auto;
-  margin-bottom: 50px; }
+  margin-bottom: 25px; }
   .navigation ul li {
     display: inline;
     margin-right: 25px;
@@ -195,22 +195,31 @@ table a {
   margin-bottom: 50px; }
 
 section.agenda {
-  padding-top: 25px;
-  padding-bottom: 25px;
+  border-top: 1px solid #eaeaea;
+  padding-top: 25px; }
+
+section.agenda,
+section.agenda-full {
   font-size: .75rem;
   text-align: left;
   color: #000; }
-  section.agenda h3, section.agenda h3 a {
-    color: #fe5c56 !important;
-    margin: 50px 0; }
-  section.agenda .agenda-card {
+  section.agenda h3, section.agenda h3 a,
+  section.agenda-full h3,
+  section.agenda-full h3 a {
+    font: 900 14px/16px 'Roboto', sans-serif;
+    color: #9a0000 !important;
+    margin: 0 0 50px 0; }
+  section.agenda .agenda-card,
+  section.agenda-full .agenda-card {
     margin: 15px 0;
     background: rgba(234, 234, 234, 0.3);
     min-height: 215px; }
-  section.agenda .title {
+  section.agenda .title,
+  section.agenda-full .title {
     font-size: 1rem;
     margin-bottom: 10px; }
-  section.agenda .conductor span {
+  section.agenda .conductor span,
+  section.agenda-full .conductor span {
     font-style: italic; }
 
 .agenda-list {
@@ -223,9 +232,9 @@ section.agenda {
   .agenda-list .date {
     padding: 10px 0 5px 0;
     text-align: center;
-    background: #000;
+    background: #c5c5c5;
     outline: 1px solid #fff;
-    color: #fe5c56; }
+    color: #9a0000; }
     .agenda-list .date .day {
       font: 900 38px/40px 'Montserrat', sans-serif;
       line-height: 2rem;
@@ -235,14 +244,19 @@ section.agenda {
   .agenda-list .agenda-info {
     border-bottom: 1px solid #000; }
 
+section.about {
+  border-top: 1px solid #eaeaea;
+  padding: 100px 0; }
+
 section.about,
 section.about-full {
-  padding: 100px 0;
-  background: #FFF; }
+  background: #FFF;
+  color: #000; }
   section.about h3,
   section.about-full h3 {
     font-size: 2rem !important;
-    color: #9a0000 !important; }
+    color: #9a0000 !important;
+    margin-bottom: 25px; }
   section.about button,
   section.about-full button {
     margin: 35px 0 50px; }
@@ -308,7 +322,6 @@ section.news {
 section.events {
   font-size: 1rem; }
   section.events h3 {
-    margin-top: 25px;
     margin-bottom: 25px;
     color: #fe5c56;
     font-size: 1.5rem; }
@@ -356,15 +369,16 @@ footer {
   footer button {
     margin-bottom: 50px; }
 
-section.article h1 {
-  color: #9a0000; }
-
-section.article .lead-image {
-  margin-bottom: 50px;
-  max-height: auto;
-  width: 100%;
-  background-position: 10% 50%;
-  overflow: hidden; }
+section.article {
+  color: #000; }
+  section.article h1 {
+    color: #9a0000; }
+  section.article .lead-image {
+    margin-bottom: 50px;
+    max-height: auto;
+    width: 100%;
+    background-position: 10% 50%;
+    overflow: hidden; }
 
 section.music {
   margin: 0 0 50px; }
@@ -443,3 +457,17 @@ section.music {
   .details span {
     color: #000;
     text-transform: capitalize; }
+
+.sidebar li {
+  padding: 0 !important; }
+  .sidebar li a {
+    font-size: .8rem;
+    color: #6f7495; }
+  .sidebar li a:hover {
+    color: #9a0000; }
+
+.btn-primary:hover {
+  background: #000; }
+
+.RentalCatalogue table tr:hover {
+  color: #9a0000; }

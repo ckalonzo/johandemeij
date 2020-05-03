@@ -14,7 +14,7 @@ const Agenda  = (props) => {
     
     return (<>
     <section className="agenda">
-    <h3 style={{textAlign:'center',fontSize:"2rem",color:"#FFF"}}>Agenda</h3>
+    <h3 style={{textAlign:'center',fontSize:"2rem"}}>Agenda</h3>
     <div className="container">
          
         {Object.values(props.agendas).map((agenda,i)=> {

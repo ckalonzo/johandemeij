@@ -43,7 +43,6 @@ const Posts = (props) => {
                <SideNav />
             </Col>
             <Col lg={{span:10}}>
-            <h1>CD's</h1>
             <table className="table table-hover">
           <thead >
             <tr>

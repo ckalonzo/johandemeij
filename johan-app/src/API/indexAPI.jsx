@@ -49,14 +49,47 @@ export function uploadPostImage(image){
   .catch((err) => { return err})
 }
 
+export function uploadPresentationImage(image){
+  const data = new FormData()
+  data.append('file',image)
+  return axios.post(APIurl +'/uploadPresentationImage',data,{
+    headers:{
+      'Accept':'application/json',
+      'Content-Type':'multipart/form-data'
+    }
+  })
+  .then((res)=>{return res})
+  .catch((err) => { return err})
+}
+
 
 export function updatePostImage(data){
   return axios.post(APIurl +'/updatePostImage',data)
   .then((res)=>{return res})
   .catch((err) => { return err})
 }
+export function updatePresentation(data){
+  return axios.post(APIurl +'/updatePresentation',data)
+  .then((res)=>{return res})
+  .catch((err) => { return err})
+}
+export function updatePresentationImage(data){
+  return axios.post(APIurl +'/updatePresentationImage',data)
+  .then((res)=>{return res})
+  .catch((err) => { return err})
+}
+export function updateEvent(data){
+  return axios.post(APIurl +'/updateEvent',data)
+  .then((res)=>{return res})
+  .catch((err) => { return err})
+}
 export function createPostImage(data){
   return axios.post(APIurl +'/createPostImage',data)
+  .then((res)=>{return res})
+  .catch((err) => { return err})
+}
+export function createPresentation(data){
+  return axios.post(APIurl +'/createPresentation',data)
   .then((res)=>{return res})
   .catch((err) => { return err})
 }
