@@ -1,0 +1,385 @@
+[{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983c0"
+  },
+  "id": "22",
+  "cd_name": "Casanova",
+  "synopsis": "<p>\\r\\n\t<strong><span style=\"font-size: 16px;\">Casanova</span> &nbsp;</strong><br />\\r\\n\tJohan Willem Friso Military Band &nbsp;<br />\\r\\n\tconductor: Alex Schillings &nbsp;<br />\\r\\n\t<br />\\r\\n\tAmstel Classics CD 2000-01</p>\\r\\n",
+  "totalTime": "{{3}}''{{4}}",
+  "frontCover": "casanova.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd5.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983c1"
+  },
+  "id": "23",
+  "cd_name": "Borealis",
+  "synopsis": "<p>\\r\\n\t<span style=\"font-size: 16px;\"><span style=\"font-family: arial,helvetica,sans-serif;\"><strong>Borealis</strong></span></span><br />\\r\\n\t<em>The Wind Music of S&oslash;ren Hyldgaard</em></p>\\r\\n<p>\\r\\n\tThe Danish Concert Band<br />\\r\\n\tConductor: J&oslash;rgen Jensen<br />\\r\\n\tSoloist: Jesper Juul S&oslash;rensen, trombone &amp; euphonium<br />\\r\\n\t<br />\\r\\n\tAmstel Classics CD 2002 - 01</p>\\r\\n",
+  "totalTime": "{{14}}''{{15}}",
+  "frontCover": "borealiscd.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd6.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983c2"
+  },
+  "id": "21",
+  "cd_name": "Scandinavian Connection",
+  "synopsis": "<p>\\r\\n\t<span style=\"font-size: 16px;\"><font face=\"Palatino Linotype\"><b>The Scandinavian Connection</b></font></span></p>\\r\\n<p>\\r\\n\tThe Danish Concert Band &nbsp;<br />\\r\\n\tConductor: Jorgen Misser Jensen &nbsp;<br />\\r\\n\t&nbsp; &nbsp;<br />\\r\\n\tHarmonie St. Michael Thorn &nbsp;<br />\\r\\n\tConductor: Heinz Friesen &nbsp;<br />\\r\\n\t&nbsp; &nbsp;<br />\\r\\n\tChristian Lindberg, trombone &nbsp;<br />\\r\\n\t&nbsp;<br />\\r\\n\tAmstel Classics CD 9701</p>\\r\\n",
+  "totalTime": "{{25}}''{{26}}",
+  "frontCover": "scandinavian.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd4.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983c3"
+  },
+  "id": "1",
+  "cd_name": "Canticles",
+  "synopsis": "<p>\\r\\n\t<span style=\"font-size: 16px;\"><strong>Orquestra de Vents FILHARMONIA</strong></span><br />\\r\\n\tConductor: Jos&eacute; Pascual-Villaplana<br />\\r\\n\tBen van Dijk and J&ouml;rgen van Rijen, trombone<br />\\r\\n\t<br />\\r\\n\t<strong>The Danish Concert Band</strong><br />\\r\\n\tConductor: Jorgen Misser Jensen<br />\\r\\n\tJesper Juul Sorensen, trombone<br />\\r\\n\t<br />\\r\\n\tAmstel Classics CD 2008-02</p>\\r\\n",
+  "totalTime": "{{36}}''{{37}}",
+  "frontCover": "canticles.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd15.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983c4"
+  },
+  "id": "26",
+  "cd_name": "The Venetian Collection",
+  "synopsis": "<p>\\r\\n\t<span style=\"font-size: 16px;\"><strong>The Venetian Collection</strong></span><br />\\r\\n\tThe Peabody Conservatory Wind Ensemble<br />\\r\\n\tConductor: Harlan D. Parker</p>\\r\\n<p>\\r\\n\tBl&auml;serphilharmonie S&uuml;dwest<br />\\r\\n\tConductor: Johan de Meij &nbsp;<br />\\r\\n\tSoloist: Stefan Faludi, cello<br />\\r\\n\t<br />\\r\\n\tAmstel Classics CD 2002 - 02</p>\\r\\n",
+  "totalTime": "62â€™53",
+  "frontCover": "venetiancd.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd7.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983c5"
+  },
+  "id": "25",
+  "cd_name": "The Wind in the Willows",
+  "synopsis": "<p>\\r\\n\t<span style=\"font-size: 16px;\"><strong>The Wind in the Willows</strong></span></p>\\r\\n<p>\\r\\n\tThe Danish Concert Band<br />\\r\\n\tConductor: J&oslash;rgen Jensen</p>\\r\\n<p>\\r\\n\tThe JWF Military Band<br />\\r\\n\tConductors: Tijmen Botma, Alex Schillings, Jan de Haan<br />\\r\\n\t&nbsp;<br />\\r\\n\tAmstel Classics CD 2002 - 03</p>\\r\\n",
+  "totalTime": "{{57}}''{{58}}",
+  "frontCover": "windwillowscd.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd8.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983c6"
+  },
+  "id": "28",
+  "cd_name": "Dutch Masters",
+  "synopsis": "<p>\\r\\n\t<strong><span style=\"font-size: 16px;\">Dutch Masters &nbsp;</span></strong><br />\\r\\n\tOrquestra de Vents FILHARMONIA &nbsp;<br />\\r\\n\tConductor: Jos&eacute; Pascual-Villaplana<br />\\r\\n\tBen van Dijk and J&ouml;rgen van Rijen, trombone</p>\\r\\n<p>\\r\\n\tAmstel Classics CD 2008-01</p>\\r\\n",
+  "totalTime": "{{68}}''{{69}}",
+  "frontCover": "cd-dutchmasters-72.jpg",
+  "backCover": "bt-dutchmasters-72.jpg",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "Amstel Classics CD 2008-01",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd14.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983c7"
+  },
+  "id": "34",
+  "cd_name": "The Puccini Legacy",
+  "synopsis": "<p>\\r\\n\t<span style=\"font-size: 16px;\"><strong>The Puccini Legacy</strong></span><br />\\r\\n\tWind Orchestra Transcriptions<br />\\r\\n\tby Johan de Meij<br />\\r\\n\t<br />\\r\\n\tAmstel Classics CD 2010-01</p>\\r\\n",
+  "totalTime": "{{79}}''{{80}}",
+  "frontCover": "puccinifront.jpg",
+  "backCover": "pucciniback.jpg",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "Amstel Classics CD 2010-01",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd16.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983c8"
+  },
+  "id": "1002",
+  "cd_name": "Cloud Factory",
+  "synopsis": "",
+  "totalTime": "{{90}}''{{91}}",
+  "frontCover": "cvrcdCloudFactory.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:49:12",
+  "frontCaption": "Amstel Classics CD 2011-01",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd18.jpg"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983c9"
+  },
+  "id": "32",
+  "cd_name": "The Lord of the Rings",
+  "synopsis": "",
+  "totalTime": "",
+  "frontCover": "lother3.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd1.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983ca"
+  },
+  "id": "33",
+  "cd_name": "The Big Apple",
+  "synopsis": "",
+  "totalTime": "",
+  "frontCover": "big_apple.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd2.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983cb"
+  },
+  "id": "20",
+  "cd_name": "Ratatouille",
+  "synopsis": "",
+  "totalTime": "",
+  "frontCover": "Cover 9501.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "Amstel Classics CD 9501",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd3.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983cc"
+  },
+  "id": "29",
+  "cd_name": "Symphony No. 1: The Lord of the Rings",
+  "synopsis": "",
+  "totalTime": "",
+  "frontCover": "",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd9.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983cd"
+  },
+  "id": "30",
+  "cd_name": "Symphony No. 2: The Big Apple",
+  "synopsis": "",
+  "totalTime": "",
+  "frontCover": "",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd10.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983ce"
+  },
+  "id": "31",
+  "cd_name": "Symphony No. 3: Planet Earth",
+  "synopsis": "",
+  "totalTime": "",
+  "frontCover": "planet_earth.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd11.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983cf"
+  },
+  "id": "24",
+  "cd_name": "Klezmer Classics",
+  "synopsis": "",
+  "totalTime": "",
+  "frontCover": "klezmer.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd12.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983d0"
+  },
+  "id": "27",
+  "cd_name": "Planet Earth",
+  "synopsis": "",
+  "totalTime": "",
+  "frontCover": "planet_earth2.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:44:46",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd13.gif"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983d1"
+  },
+  "id": "1009",
+  "cd_name": "Extreme Beethoven",
+  "synopsis": "",
+  "totalTime": "{{181}}''{{182}}",
+  "frontCover": "cdJdMExtremeBeethLR.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:50:11",
+  "frontCaption": "Amstel Classics CD 2013-01",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd19.jpg"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983d2"
+  },
+  "id": "1010",
+  "cd_name": "Symphony No. 1 The Lord of the Rings (World Premiere Recording)",
+  "synopsis": "",
+  "totalTime": "43",
+  "frontCover": "JdM-LotR-CD-cover.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:50:11",
+  "frontCaption": "Amstel Classics 2013-02",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd20.jpg"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983d3"
+  },
+  "id": "1011",
+  "cd_name": "Symphony No. 4 Sinfonie der Lieder (Symphony of Songs)",
+  "synopsis": "",
+  "totalTime": "56.50",
+  "frontCover": "cd30-a.jpg",
+  "backCover": "cd30-b.jpg",
+  "dateCreated": "2015-09-04 13:50:11",
+  "frontCaption": "Amstel Classics 2014-01",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd21.jpg"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983d4"
+  },
+  "id": "1012",
+  "cd_name": "DOWNTOWN DIVERTIMENTO",
+  "synopsis": "",
+  "totalTime": "{{212}}''{{213}}",
+  "frontCover": "CD DowntownDiv LR.jpg",
+  "backCover": "",
+  "dateCreated": "2015-09-04 13:50:11",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd22.jpg"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983d5"
+  },
+  "id": "1014",
+  "cd_name": "Fellini",
+  "synopsis": "",
+  "totalTime": "75.15",
+  "frontCover": "fellini.jpg",
+  "backCover": "",
+  "dateCreated": "2016-08-10 20:35:38",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd23.jpg"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983d6"
+  },
+  "id": "1015",
+  "cd_name": "Two Bone Concerto",
+  "synopsis": "(Online only)",
+  "totalTime": "",
+  "frontCover": "Two-Bone-Cover.jpg",
+  "backCover": "",
+  "dateCreated": "2017-03-15 00:52:49",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd24.jpg"
+},{
+  "_id": {
+    "$oid": "5e85142cb6332c12cba983d7"
+  },
+  "id": "1016",
+  "cd_name": "Symphony No. 5 Return to Middle Earth",
+  "synopsis": "<ol style=\"list-style-type: decimal;margin-bottom:25px;margin-left:25px;\">\\r\\n<li>Miri na F&euml;anor (Jewels of F&euml;anor)</li>\\r\\n<li>Tin&ugrave;viel (Nightingale)</li>\\r\\n<li>Ancalagon i-m&ocirc;r (Ancalagon, the Black)</li>\\r\\n<li> Arwen Und&oacute;miel (Evenstar)</li>\\r\\n<li>Dagor Delothrin (The War of Wrath)</li>\\r\\n<li>Thuringwethil (Woman of Secret Shadow)</li>\\r\\n</ol>\\r\\n<p>St. Michael Thorn Wind Orchestra - Conductor: Ivan Meylemans <br />\\r\\nClaudia Couwenbergh - Soprano<br />\\r\\nBrabant Choir - Louis Buskens, Artistic Director</p>",
+  "totalTime": "",
+  "frontCover": "return2middleEarth.jpg",
+  "backCover": "",
+  "dateCreated": "2019-09-29 12:35:48",
+  "frontCaption": "",
+  "backCaption": "",
+  "category": "0",
+  "add_info": "",
+  "cdImage": "cd25.gif"
+}]

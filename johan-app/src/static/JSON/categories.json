@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "5e851349b6332c12cba9834e"
+  },
+  "term_id": "2",
+  "name": "News",
+  "termGroup": "0"
+},{
+  "_id": {
+    "$oid": "5e851349b6332c12cba9834f"
+  },
+  "term_id": "3",
+  "name": "Photo Gallery",
+  "termGroup": "0"
+},{
+  "_id": {
+    "$oid": "5e851349b6332c12cba98350"
+  },
+  "term_id": "4",
+  "name": "Agenda",
+  "termGroup": "0"
+},{
+  "_id": {
+    "$oid": "5e851349b6332c12cba98351"
+  },
+  "term_id": "5",
+  "name": "Biography",
+  "termGroup": "0"
+},{
+  "_id": {
+    "$oid": "5e851349b6332c12cba98352"
+  },
+  "term_id": "6",
+  "name": "Music",
+  "termGroup": "0"
+},{
+  "_id": {
+    "$oid": "5e851349b6332c12cba98353"
+  },
+  "term_id": "7",
+  "name": "Order",
+  "termGroup": "0"
+}]

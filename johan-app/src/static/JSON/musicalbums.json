@@ -1,0 +1,521 @@
+[{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1916"
+  },
+  "id": "1",
+  "catalogueNumber": "AMR 01 ",
+  "title": "Gandalf (part I from The Lord of the Rings) ",
+  "instrumentation": "Symphony Orchestra ",
+  "composerArranger": "Johan de Meij, Henk de Vlieger",
+  "duration": "{{5}}''{{6}}",
+  "priceInEuros": "150,- ",
+  "priceInDollars": "175.- ",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1917"
+  },
+  "id": "2",
+  "catalogueNumber": "AMR 02",
+  "title": "Lothlorien (part II from The Lord of the Rings)",
+  "instrumentation": "Symphony Orchestra",
+  "composerArranger": "Johan de Meij, Henk de Vlieger",
+  "duration": "{{14}}''{{15}}",
+  "priceInEuros": "150,-",
+  "priceInDollars": "175.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1918"
+  },
+  "id": "3",
+  "catalogueNumber": "AMR 03",
+  "title": "Gollum (part III from The Lord of the Rings)",
+  "instrumentation": "Symphony Orchestra",
+  "composerArranger": "Johan de Meij, Henk de Vlieger",
+  "duration": "{{23}}''{{24}}",
+  "priceInEuros": "150,-",
+  "priceInDollars": "175.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1919"
+  },
+  "id": "4",
+  "catalogueNumber": "AMR 04",
+  "title": "Journey in the Dark (part IV from The Lord of the Rings)",
+  "instrumentation": "Symphony Orchestra",
+  "composerArranger": "Johan de Meij, Henk de Vlieger",
+  "duration": "{{32}}''{{33}}",
+  "priceInEuros": "150,-",
+  "priceInDollars": "175.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f191a"
+  },
+  "id": "5",
+  "catalogueNumber": "AMR 05",
+  "title": "Hobbits (part V from The Lord of the Rings)",
+  "instrumentation": "Symphony Orchestra",
+  "composerArranger": "Johan de Meij, Henk de Vlieger",
+  "duration": "{{41}}''{{42}}",
+  "priceInEuros": "150,-",
+  "priceInDollars": "175.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f191b"
+  },
+  "id": "6",
+  "catalogueNumber": "AMR 06",
+  "title": "The Lord of the Rings (Complete Edition)",
+  "instrumentation": "Symphony Orchestra",
+  "composerArranger": "Johan de Meij, Henk de Vlieger",
+  "duration": "{{50}}''{{51}}",
+  "priceInEuros": "650,-",
+  "priceInDollars": "750.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f191c"
+  },
+  "id": "7",
+  "catalogueNumber": "AMR 07",
+  "title": "Skyline (part I from The Big Apple)",
+  "instrumentation": "Symphony Orchestra",
+  "composerArranger": "Johan de Meij",
+  "duration": "{{59}}''{{60}}",
+  "priceInEuros": "250,-",
+  "priceInDollars": "300.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1009&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f191d"
+  },
+  "id": "9",
+  "catalogueNumber": "AMR 09",
+  "title": "Gotham (part II from The Big Apple)",
+  "instrumentation": "Symphony Orchestra",
+  "composerArranger": "Johan de Meij",
+  "duration": "{{68}}''{{69}}",
+  "priceInEuros": "300,-",
+  "priceInDollars": "350.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1009&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f191e"
+  },
+  "id": "56",
+  "catalogueNumber": "AMR 30",
+  "title": "Two-Bone Concerto\t",
+  "instrumentation": "Two trombones & brass band",
+  "composerArranger": "Johan de Meij, Pierre Volders",
+  "duration": "{{77}}''{{78}}",
+  "priceInEuros": " 350,-\t",
+  "priceInDollars": "400.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1091&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f191f"
+  },
+  "id": "31",
+  "catalogueNumber": "AMR 10",
+  "title": "The Big Apple (Complete Edition) ",
+  "instrumentation": "Symphony Orchestra ",
+  "composerArranger": "Johan de Meij ",
+  "duration": "{{86}}''{{87}}",
+  "priceInEuros": "500,-",
+  "priceInDollars": "575.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1009&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1920"
+  },
+  "id": "32",
+  "catalogueNumber": "AMR 11",
+  "title": "Lonely Planet (part I from Planet Earth) ",
+  "instrumentation": "Symphony Orchestra and Female Choir ",
+  "composerArranger": "Johan de Meij ",
+  "duration": "{{95}}''{{96}}",
+  "priceInEuros": "300,- ",
+  "priceInDollars": "350.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=64&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1921"
+  },
+  "id": "33",
+  "catalogueNumber": "AMR 12",
+  "title": "Planet Earth (part II from Planet Earth) ",
+  "instrumentation": "Symphony Orchestra ",
+  "composerArranger": "Johan de Meij ",
+  "duration": "{{104}}''{{105}}",
+  "priceInEuros": "300,- ",
+  "priceInDollars": "350.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=69&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1922"
+  },
+  "id": "34",
+  "catalogueNumber": "AMR 13",
+  "title": "Mother Earth (part III from Planet Earth) ",
+  "instrumentation": "Symphony Orchestra and Female Choir ",
+  "composerArranger": "Johan de Meij ",
+  "duration": "{{113}}''{{114}}",
+  "priceInEuros": "300,- ",
+  "priceInDollars": "350.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=67&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1923"
+  },
+  "id": "35",
+  "catalogueNumber": "AMR 14",
+  "title": "Symphony no. 3 Planet Earth (Complete Edition) ",
+  "instrumentation": "Symphony Orchestra and Female Choir ",
+  "composerArranger": "Johan de Meij ",
+  "duration": "{{122}}''{{123}}",
+  "priceInEuros": "750,- ",
+  "priceInDollars": "850.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1013&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1924"
+  },
+  "id": "36",
+  "catalogueNumber": "AMR 15",
+  "title": "Casanova ",
+  "instrumentation": "Cello and Symphony Orchestra ",
+  "composerArranger": "Johan de Meij, Ted Ricketts",
+  "duration": "{{131}}''{{132}}",
+  "priceInEuros": "400,- ",
+  "priceInDollars": "450.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1011&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1925"
+  },
+  "id": "37",
+  "catalogueNumber": "AMR 16",
+  "title": "Klezmer Classics ",
+  "instrumentation": "Symphony Orchestra ",
+  "composerArranger": "Johan de Meij ",
+  "duration": "{{140}}''{{141}}",
+  "priceInEuros": "200,- ",
+  "priceInDollars": "235.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1012&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1926"
+  },
+  "id": "38",
+  "catalogueNumber": "AMR 17",
+  "title": "Windy City Overture ",
+  "instrumentation": "Symphony Orchestra ",
+  "composerArranger": "Johan de Meij ",
+  "duration": "{{149}}''{{150}}",
+  "priceInEuros": "150,- ",
+  "priceInDollars": "175.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1010&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1927"
+  },
+  "id": "39",
+  "catalogueNumber": "AMR 18",
+  "title": "UFO Concerto ",
+  "instrumentation": "Euphonium and Symphony Orchestra ",
+  "composerArranger": "Johan de Meij ",
+  "duration": "{{158}}''{{159}}",
+  "priceInEuros": "400,- ",
+  "priceInDollars": "450.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1063&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1928"
+  },
+  "id": "40",
+  "catalogueNumber": "AMR 19",
+  "title": "UFO Concerto - Festival Version (shortened) ",
+  "instrumentation": "Euphonium and Symphony Orchestra ",
+  "composerArranger": "Johan de Meij ",
+  "duration": "{{167}}''{{168}}",
+  "priceInEuros": "300,- ",
+  "priceInDollars": "350.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1063&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1929"
+  },
+  "id": "41",
+  "catalogueNumber": "AMR 20",
+  "title": "Duet from  Don Carlo  ",
+  "instrumentation": "Two Trombones and Brass Band ",
+  "composerArranger": "Guiseppe Verdi, Johan de  Meij ",
+  "duration": "{{176}}''{{177}}",
+  "priceInEuros": "60,- ",
+  "priceInDollars": "70.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1094&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f192a"
+  },
+  "id": "42",
+  "catalogueNumber": "AMR 21",
+  "title": "Pavane pour une Infante DÃ©funte",
+  "instrumentation": "Trombone and Brass Band ",
+  "composerArranger": "Maurice Ravel, Johan de  Meij ",
+  "duration": "{{185}}''{{186}}",
+  "priceInEuros": "70,- ",
+  "priceInDollars": "80.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1096&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f192b"
+  },
+  "id": "43",
+  "catalogueNumber": "AMR 28",
+  "title": "Pavane pour une Infante DÃ©funte",
+  "instrumentation": "Trombone and Fanfare Band ",
+  "composerArranger": "Maurice Ravel, Johan de  Meij ",
+  "duration": "{{194}}''{{195}}",
+  "priceInEuros": "70,-",
+  "priceInDollars": "80.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1064&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f192c"
+  },
+  "id": "44",
+  "catalogueNumber": "AMR 22",
+  "title": "T-Bone Concerto",
+  "instrumentation": "Trombone and Brass Band ",
+  "composerArranger": "Johan de Meij ",
+  "duration": "{{203}}''{{204}}",
+  "priceInEuros": "300,- ",
+  "priceInDollars": "350.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1059&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f192d"
+  },
+  "id": "45",
+  "catalogueNumber": "AMR 23",
+  "title": "Dance of the Elves ",
+  "instrumentation": "Cello and Wind Orchestra (original key) ",
+  "composerArranger": "David Popper, Johan de  Meij ",
+  "duration": "{{212}}''{{213}}",
+  "priceInEuros": "60,- ",
+  "priceInDollars": "70.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1049&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f192e"
+  },
+  "id": "46",
+  "catalogueNumber": "AMR 24",
+  "title": "Dance of the Elves ",
+  "instrumentation": "Flute and Wind Orchestra  ",
+  "composerArranger": "David Popper , Johan de  Meij ",
+  "duration": "{{221}}''{{222}}",
+  "priceInEuros": "60,- ",
+  "priceInDollars": "70.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1049&cat=2"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f192f"
+  },
+  "id": "47",
+  "catalogueNumber": "AMR 25",
+  "title": "Dance of the Elves ",
+  "instrumentation": "Alto Sax and Wind Orchestra  ",
+  "composerArranger": "David Popper, Johan de  Meij ",
+  "duration": "{{230}}''{{231}}",
+  "priceInEuros": "60,- ",
+  "priceInDollars": "70.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1049&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1930"
+  },
+  "id": "48",
+  "catalogueNumber": "AMR 26",
+  "title": "Dance of the Elves ",
+  "instrumentation": "Euphonium and Wind Orchestra  ",
+  "composerArranger": "David Popper, Johan de  Meij ",
+  "duration": "{{239}}''{{240}}",
+  "priceInEuros": "60,- ",
+  "priceInDollars": "70.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1049&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1931"
+  },
+  "id": "49",
+  "catalogueNumber": "AMR 31",
+  "title": "Dance of the Elves ",
+  "instrumentation": "Trumpet-Trombone duet and Wind Orchestra  ",
+  "composerArranger": "David Popper, Johan de  Meij ",
+  "duration": "{{248}}''{{249}}",
+  "priceInEuros": "60 ,-",
+  "priceInDollars": "70.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1049&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1932"
+  },
+  "id": "50",
+  "catalogueNumber": "AMR 33",
+  "title": "Torna a Surriento (Return to Sorento) ",
+  "instrumentation": "Trombone and Wind Orchestra  ",
+  "composerArranger": "Anthony Fiumara, Johan de Meij ",
+  "duration": "{{257}}''{{258}}",
+  "priceInEuros": "60,- ",
+  "priceInDollars": "70.-",
+  "link": "http://johandemeij.com/cd_profile_main.php?id=1092&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1933"
+  },
+  "id": "57",
+  "catalogueNumber": "AMR 34",
+  "title": "Sinfonietta No. 1",
+  "instrumentation": "Symphonic Brass (4.4.4.1.1.) Harp & Percussion",
+  "composerArranger": "Johan de Meij",
+  "duration": "{{266}}''{{267}}",
+  "priceInEuros": "200,-",
+  "priceInDollars": "235.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1093&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1934"
+  },
+  "id": "58",
+  "catalogueNumber": "AMR 06/S",
+  "title": "Symphony No. 1 The Lord of the Rings",
+  "instrumentation": "Study Score  Symphonic Version (sale price)",
+  "composerArranger": "Johan de Meij, Henk de Vlieger",
+  "duration": "{{275}}''{{276}}",
+  "priceInEuros": "55,-",
+  "priceInDollars": "60.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1935"
+  },
+  "id": "59",
+  "catalogueNumber": "AMR 35",
+  "title": "Gandalf (part I from The Lord of the Rings) ",
+  "instrumentation": "Symphonic Brass (4.4.4.1.1.) Piano & Percussion",
+  "composerArranger": "Johan de Meij",
+  "duration": "{{284}}''{{285}}",
+  "priceInEuros": "100,-",
+  "priceInDollars": "115.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1104&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1936"
+  },
+  "id": "60",
+  "catalogueNumber": "AMR 36",
+  "title": "Journey in the Dark (part IV from The Lord of the Rings)",
+  "instrumentation": "Symphonic Brass (4.4.4.1.1.) Piano & Percussion",
+  "composerArranger": "Johan de Meij",
+  "duration": "{{293}}''{{294}}",
+  "priceInEuros": "100,-",
+  "priceInDollars": "115.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1105&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1937"
+  },
+  "id": "61",
+  "catalogueNumber": "AMR 37",
+  "title": "Hobbits (part V from The Lord of the Rings)",
+  "instrumentation": "Symphonic Brass (4.4.4.1.1.) Piano & Percussion",
+  "composerArranger": "Johan de Meij",
+  "duration": "{{302}}''{{303}}",
+  "priceInEuros": "100,-",
+  "priceInDollars": "115.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1106&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1938"
+  },
+  "id": "62",
+  "catalogueNumber": "AMR 38",
+  "title": "Duet from Don Carlo",
+  "instrumentation": "Two solo Trombones, Symphonic Brass & Percussion",
+  "composerArranger": "Giuseppe Verdi, arranged by Johan de Meij",
+  "duration": "{{311}}''{{312}}",
+  "priceInEuros": "50,-",
+  "priceInDollars": "55.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1100&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f1939"
+  },
+  "id": "63",
+  "catalogueNumber": "AMR 27",
+  "title": "Pavane pour une Infante DÃ©funte",
+  "instrumentation": "Trombone, Symphonic Brass, Harp & Timpani",
+  "composerArranger": "Maurice Ravel, Johan de  Meij ",
+  "duration": "{{320}}''{{321}}",
+  "priceInEuros": "50,-",
+  "priceInDollars": "55.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1101&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f193a"
+  },
+  "id": "64",
+  "catalogueNumber": "AMR 39",
+  "title": "William Tell Overture (Finale)",
+  "instrumentation": "Symphonic Brass & Percussion",
+  "composerArranger": "Gioachino Rossini, Johan de  Meij",
+  "duration": "{{329}}''{{330}}",
+  "priceInEuros": "70,-",
+  "priceInDollars": "80.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1102&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f193b"
+  },
+  "id": "65",
+  "catalogueNumber": "AMR 40",
+  "title": "Fanfare pour prÃ©cÃ©der La PÃ©ri",
+  "instrumentation": "Symphonic Brass (4.4.4.1.) ",
+  "composerArranger": "Paul Dukas, Johan de  Meij",
+  "duration": "{{338}}''{{339}}",
+  "priceInEuros": "50,-",
+  "priceInDollars": "55.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1103&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f193c"
+  },
+  "id": "66",
+  "catalogueNumber": "AMR 41",
+  "title": "Canticles",
+  "instrumentation": "Bass trombone & brass band",
+  "composerArranger": "Johan de Meij",
+  "duration": "17",
+  "priceInEuros": "250",
+  "priceInDollars": "300",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1109&cat=9"
+},{
+  "_id": {
+    "$oid": "5e8668a09eede4307d9f193d"
+  },
+  "id": "67",
+  "catalogueNumber": "AMR 42",
+  "title": "Symphony no. 3 Planet Earth (Cine-Symphony Version) ",
+  "instrumentation": "Symphony Orchestra, Female Choir + Film",
+  "composerArranger": "Johan de Meij",
+  "duration": "{{355}}''{{356}}",
+  "priceInEuros": "750,- ",
+  "priceInDollars": "850.-",
+  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1114&cat=9"
+}]
