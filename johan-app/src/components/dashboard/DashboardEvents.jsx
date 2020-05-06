@@ -35,7 +35,6 @@ const DashboardEvents = (props) => {
       if(Object.keys(props.events).length > 0){
         
         return Object.values(props.events).map(post =>{
-          console.log(post._id)
           return ( <tr key={post._id}>
             <td className="post-title">{post.title}</td>
             <td style={{"textAlign":"center"}}></td>

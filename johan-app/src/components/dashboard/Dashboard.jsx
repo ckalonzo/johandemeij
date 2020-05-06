@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Container,Row,Col } from "react-bootstrap"
+import { Container,Row,Col, Card } from "react-bootstrap"
 import { mainAction } from "redux/actions/index.actions"
 import SideNav from "components/dashboard/SideNav"
 import Posts from "components/dashboard/Posts"
@@ -19,11 +19,11 @@ const Dashboard = (props) => {
     return(<>
     <Container id="dashboard">
         <Row>
-            <Col lg={{span:2}}>
+            <Col lg={{span:3}}>
                <SideNav />
             </Col>
-            <Col lg={{span:10}}>
-              
+            <Col lg={{span:9}}>
+              test
             </Col>
         </Row>
     </Container>

@@ -45,7 +45,6 @@ const Posts = (props) => {
         })
     }
     if(section === "list") {
-      console.log(props)
         return (<>
          <Container id="dashboard">
         <Row>

@@ -6,7 +6,6 @@ export default function presentationsReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_PRESENTATIONS: {
-        console.log(action)
        fetch('http://localhost:3001/api/loadPresentations/' + action.payload.skip + '/' + action.payload.limit)
         .then((data) => data.json())
         .then((res) => {

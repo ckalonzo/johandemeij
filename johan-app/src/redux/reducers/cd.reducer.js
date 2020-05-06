@@ -1,76 +1,76 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
 import  _ from "lodash"
-import {createPresentation,updatePresentation,updatePresentationImage,uploadPresentationImage} from "API/indexAPI"
+import {createCd,updateCd,updateCdImage,uploadCDImage} from "API/indexAPI"
 const initialState = {};
-export default function presentationReducer (state = initialState, action) {
+export default function cdReducer (state = initialState, action) {
     switch (action.type) {
   
-        case ACTIONS.CREATE_NEW_PUBLICATION: {
-        createPresentation(action.payload).then(json =>{
-            action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_PUBLICATION_SUCCESS,json))
+        case ACTIONS.CREATE_NEW_CD: {
+        createCd(action.payload).then(json =>{
+            action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_CD_SUCCESS,json))
         }).catch(err => {
             console.log(action,err)
-            action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_PUBLICATION_FAIL,err))
+            action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_CD_FAIL,err))
         })
         return action.payload
         }
-        case ACTIONS.CREATE_NEW_PUBLICATION_SUCCESS: {
+        case ACTIONS.CREATE_NEW_CD_SUCCESS: {
         return action.payload
         }
-        case ACTIONS.CREATE_NEW_PUBLICATION_FAIL: {
+        case ACTIONS.CREATE_NEW_CD_FAIL: {
         return state
         }
-        case ACTIONS.LOAD_PRESENTATION: {
+        case ACTIONS.LOAD_CD: {
         let stateCopy = _.cloneDeep(state)
         stateCopy.currentID = action.payload
-            fetch ('http://localhost:3001/api/loadPresentationByID/'+ action.payload)
+            fetch ('http://localhost:3001/api/loadCDByID/'+ action.payload)
             .then((data)=> data.json())
             .then((res) => {
-            action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION_SUCCESS,res.data))
+            action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_SUCCESS,res.data))
             
-            }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION_FAIL,err)))
+            }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_FAIL,err)))
             return state
         }
-        case  ACTIONS.LOAD_PRESENTATION_SUCCESS:{
+        case  ACTIONS.LOAD_CD_SUCCESS:{
             
             return action.payload.length > 0 ? action.payload[0]:[]
         }
-        case  ACTIONS.LOAD_PRESENTATION_FAIL:{
+        case  ACTIONS.LOAD_CD_FAIL:{
             return state
         }
-        case ACTIONS.UPDATE_PUBLICATION:{
-        updatePresentation(action.payload).then(json=>{
+        case ACTIONS.UPDATE_CD:{
+        updateCd(action.payload).then(json=>{
             console.log(json)
-            action.asyncDispatch(mainAction(ACTIONS.UPDATE_PUBLICATION_SUCCESS,json.data.data))
+            action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_SUCCESS,json.data.data))
         }).catch(err=>{
-            action.asyncDispatch(mainAction(ACTIONS.UPDATE_PUBLICATION_FAIL,err))
+            action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_FAIL,err))
         })
         return state
         }
-        case ACTIONS.UPDATE_PUBLICATION_SUCCESS:{
+        case ACTIONS.UPDATE_CD_SUCCESS:{
         let stateCopy = _.cloneDeep(state)
-        action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION,stateCopy.ID))
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_CD,stateCopy.ID))
         return {state,...action.payload}
         }
-        case ACTIONS.UPDATE_PUBLICATION_FAIL:{
+        case ACTIONS.UPDATE_CD_FAIL:{
         return state
         }
-        case ACTIONS.UPDATE_PRESENTATION_IMAGE:{
+        case ACTIONS.UPDATE_CD_IMAGE:{
             let stateCopy = _.cloneDeep(action.payload)
              let image = stateCopy.image
-             updatePresentationImage(image).then((json)=>{
+             updateCdImage(image).then((json)=>{
     
               if(json.status!==404 || json.status!==500) {
-                action.asyncDispatch(mainAction(ACTIONS.UPDATE_PRESENTATION_IMAGE_SUCCESS,{submitted:stateCopy,json}))
+                action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_IMAGE_SUCCESS,{submitted:stateCopy,json}))
               } else {
-                action.asyncDispatch(mainAction(ACTIONS.UPDATE_PRESENTATION_IMAGE_FAIL,json.response.message))
+                action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_IMAGE_FAIL,json.response.message))
               }
-            }).catch(err => action.asyncDispatch(mainAction(ACTIONS.UPDATE_PRESENTATION_IMAGE_FAIL,err)))
+            }).catch(err => action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_IMAGE_FAIL,err)))
           
             return state
         }
-        case ACTIONS.UPDATE_PRESENTATION_IMAGE_SUCCESS:{
+        case ACTIONS.UPDATE_CD_IMAGE_SUCCESS:{
               let stateCopy = _.cloneDeep(state)
               
               let newImage = {
@@ -85,25 +85,25 @@ export default function presentationReducer (state = initialState, action) {
               action.asyncDispatch(mainAction( ACTIONS.UPDATE_POST_IMAGE,newImage))
             return stateCopy
         }
-        case ACTIONS.UPDATE_PRESENTATION_IMAGE_FAIL:{
+        case ACTIONS.UPDATE_CD_IMAGE_FAIL:{
             return state
         }
-        case ACTIONS.UPLOAD_PRESENTATION_IMAGE:{
+        case ACTIONS.UPLOAD_CD_IMAGE:{
           let stateCopy = _.cloneDeep(action.payload)
            let image = stateCopy.image
            console.log(action)
-           uploadPresentationImage(image).then((json)=>{
+           uploadCDImage(image).then((json)=>{
   
             if(json.status!==404 || json.status!==500) {
-              action.asyncDispatch(mainAction(ACTIONS.UPLOAD_PRESENTATION_IMAGE_SUCCESS,{submitted:stateCopy,json}))
+              action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_SUCCESS,{submitted:stateCopy,json}))
             } else {
-              action.asyncDispatch(mainAction(ACTIONS.UPLOAD_PRESENTATION_IMAGE_FAIL,json.response.message))
+              action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_FAIL,json.response.message))
             }
-          }).catch(err => action.asyncDispatch(mainAction(ACTIONS.UPLOAD_PRESENTATION_IMAGE_FAIL,err)))
+          }).catch(err => action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_FAIL,err)))
         
           return state
         }
-        case ACTIONS.UPLOAD_PRESENTATION_IMAGE_SUCCESS:{
+        case ACTIONS.UPLOAD_CD_IMAGE_SUCCESS:{
           console.log(action)
             let stateCopy = _.cloneDeep(state)
             
@@ -121,13 +121,13 @@ export default function presentationReducer (state = initialState, action) {
               backCaption:action.payload.submitted.caption 
             }
           }
-            action.asyncDispatch(mainAction( ACTIONS.UPDATE_PUBLICATION,image))
+            action.asyncDispatch(mainAction( ACTIONS.UPDATE_CD,image))
           return stateCopy
         }
-        case ACTIONS.UPLOAD_PRESENTATION_IMAGE_FAIL:{
+        case ACTIONS.UPLOAD_CD_IMAGE_FAIL:{
           return state
         }
-        case ACTIONS.UPDATE_PRESENTATION_IMAGE:{
+        case ACTIONS.UPDATE_CD_IMAGE:{
           console.log(action)
           let image = ''
           if(action.submitted.cover === "frontCover") {
@@ -141,7 +141,7 @@ export default function presentationReducer (state = initialState, action) {
               backCaption:action.submitted.caption 
             }
           }
-          action.asyncDispatch(mainAction( ACTIONS.UPDATE_PUBLICATION,image))
+          action.asyncDispatch(mainAction( ACTIONS.UPDATE_CD,image))
           return state
         }
       default: 

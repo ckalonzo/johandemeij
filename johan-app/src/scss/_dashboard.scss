@@ -33,6 +33,7 @@ table {
     
 }
 #dashboard {
+    
     .col-lg-10 {
         background:#FFF;
         //outline: 1px solid #eaeaea;
@@ -42,4 +43,17 @@ table {
         margin-top:25px;
         margin-bottom:50px;
     }
+    ul.sidebar {
+        border:1px solid rgba($color: #6f7495, $alpha: .25);
+        padding:15px 35px 15px 10px;
+        border-radius:  5px;
+        li {
+            white-space: nowrap;
+        }
+        li.active-nav-item {
+            color: #000;
+    font-weight: bold;
+        }
+    }
+     margin-bottom: 100px;
 }

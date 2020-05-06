@@ -163,6 +163,9 @@ table {
 @import 'music';
 
 .sidebar {
+    ul {
+        margin-bottom: 100px;
+    }
     li {
        padding:0!important; 
        a {

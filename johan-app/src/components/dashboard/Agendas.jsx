@@ -31,7 +31,6 @@ const Agendas = (props) => {
       props.history.push('/dashboard/edit')
     }
     const PostList = (props) => {
-       console.log(props)
    return Object.values(props).map(agenda =>{
      if(agenda._id)
           return ( <tr key={agenda._id}>

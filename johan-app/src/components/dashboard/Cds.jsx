@@ -20,7 +20,8 @@ const Posts = (props) => {
     },[])
 
     const handleClick = () => {
-        setSection("edit")
+      props.history.push('/dashboard/cds/new')
+      window.location.reload()
     }
     const loadPost = (post) => {
       props.actions.mainAction(ACTIONS.EDIT_POST,post)

@@ -26,6 +26,7 @@ import NewPost from "components/dashboard/NewPost"
 import DashboardEvents from "components/dashboard/DashboardEvents"
 import EditEvent from "components/dashboard/EditEvent"
 import NewPublication from "components/dashboard/NewPublication"
+import NewCd from "components/dashboard/NewCd"
 const history = createBrowserHistory();
 const SiteRouter = () => {
 
@@ -37,14 +38,21 @@ const SiteRouter = () => {
                  <Route path="/dashboard/events" component={DashboardEvents} />
                  <Route path="/dashboard/agenda" component={Agendas} />
                  <Route path="/dashboard/catalogue" component={MusicCatalogue} />
+                 
+                 <Route path="/dashboard/cds/edit/:id" component={NewCd} />
+                 <Route path="/dashboard/cds/new" component={NewCd} />
                  <Route path="/dashboard/cds" component={Cds} />
+
                  <Route path="/dashboard/publications/edit/:id" component={NewPublication} />
                  <Route path="/dashboard/publications/new" component={NewPublication} />
                  <Route path="/dashboard/publications" component={Publications} />
+
                  <Route path="/dashboard/news/new" component={NewPost} />
                  <Route path="/dashboard/news/edit/:id" component={EditPost} />
                  <Route path="/dashboard/news" component={Posts} />
+
                  <Route path="/dashboard/" component={dashboard} />
+                 
                  <Route path="/order" component={Order} />
                  <Route path="/rentalcatalogue" component={RentalCatalogue} />
                  <Route path="/biography" component={Biography} />

@@ -74,6 +74,42 @@ try{
 }
     
 })
+router.post('/createCd', async (req,res) => {
+  let post = new Cds()
+  const { id,cdName,subTitle,composer,instrumentation,synopsis,totalTime,category,codes,duration,grade,cd,otherCd,score,audio,video } = req.body
+  console.log(cdName,subTitle,composer,instrumentation,synopsis,totalTime,category,codes,duration,grade,cd,otherCd,score,audio,video)
+  if (!id)
+  return res.json({ success: false, error: 'INVALID INPUTS', });
+  
+  post.id = id;
+  post.cdName=cdName;
+  if(subTitle)post.subTitle=subTitle;
+  if(composer)post.composer=composer;
+  if(instrumentation)post.instrumentation=instrumentation;
+  if(synopsis)post.synopsis=synopsis;
+  if(totalTime)post.totalTime=totalTime;
+  if(category)post.categorypost.codes=codes;
+  if(duration)post.duration=duration;
+  if(grade)post.grade=grade;
+  if(cd)post.cd=cd;
+  if(otherCd)post.otherCd=otherCd;
+  if(score)post.score=score;
+  if(audio)post.audio=audio;
+  if(video)post.video=video;  
+  
+try{
+   post.save((err) => {
+      if (err) return res.json({ success: false, error: err });
+      return res.json({ success: true });
+    });
+
+} catch(err) {
+  console.log('That did not go well.')
+  console.error(error)
+  process.exit(1)
+}
+    
+})
 router.post('/createPresentation', async (req,res) => {
   let post = new Presentations()
   const { id,cdName,subTitle,composer,instrumentation,synopsis,totalTime,category,codes,duration,grade,cd,otherCd,score,audio,video } = req.body
@@ -113,6 +149,15 @@ try{
 router.delete('/deletePost/:id',(req,res)=>{
   let id = ObjectId(req.params.id);  
   Posts.remove({  
+      _id: id
+  }, function (err, data) {
+      if (err) return res.send(err);
+      res.json({ message: 'Deleted',data });
+  }); 
+})
+router.delete('/deleteCd/:id',(req,res)=>{
+  let id = ObjectId(req.params.id);  
+  Cds.remove({  
       _id: id
   }, function (err, data) {
       if (err) return res.send(err);
@@ -394,6 +439,17 @@ router.post('/updatePost',(req,res)=>{
       return res.json({success:true,data})
     })
 })
+router.post('/updateCd',(req,res)=>{
+ 
+  Cds.findByIdAndUpdate({_id:req.body._id},
+    { 
+      $set:req.body
+    },
+    (err,data)=>{
+      if(err) res.json({success:false,error:err})
+      return res.json({success:true,data})
+    })
+})
 router.post('/updatePresentation',(req,res)=>{
 
   Presentations.findByIdAndUpdate({_id:req.body._id},
@@ -416,6 +472,19 @@ console.log(_id,imageName,albumID,caption,cover)
     return res.json({ success: true, data: data });
   });
 });
+router.post('/updateCdImage',(req,res)=>{
+  const {_id,frontCover,frontCaption
+    ,backCover,backCaption} = req.body;
+  Cds.findByIdAndUpdate({_id:_id},
+    { 
+      $set:{frontCover,frontCaption
+        ,backCover,backCaption}
+    },
+    (err,data)=>{
+      if(err) res.json({success:false,error:err})
+      return res.json({success:true,data})
+    })
+})
 router.post('/createPostImage',async (req,res)=>{
   
 let image = new PostImages()

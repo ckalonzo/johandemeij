@@ -99,5 +99,20 @@ export function createPost(data){
   .then((res)=>{return res})
   .catch((err) => { return err})
 }
+export function createCd(data){
+  return axios.post(APIurl +'/createCd',data)
+  .then((res)=>{return res})
+  .catch((err) => { return err})
+}
+export function updateCd(data){
+  return axios.post(APIurl +'/updateCd',data)
+  .then((res)=>{return res})
+  .catch((err) => { return err})
+}
+export function updateCdImage(data){
+  return axios.post(APIurl +'/updateCdImage',data)
+  .then((res)=>{return res})
+  .catch((err) => { return err})
+}
 
  
