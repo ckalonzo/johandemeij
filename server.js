@@ -12,7 +12,7 @@ app.get('*', (req, res) => {
 	res.sendFile(path.resolve(__dirname, 'johan-app', 'build', 'index.html'));
 });
 
-const port = process.env.PORT || 5020;
+const port = process.env.PORT || 5021;
 
 app.listen(port, () => {
 	console.log(`Server started on http://localhost:${port}`);
