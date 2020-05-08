@@ -18,11 +18,11 @@ const Footer = () => {
     const handleSubmit = event => {
         event.preventDefault();
         
-        // let concertItem = {
-        //     orchestraEnsemble,
-        //     conductor,
-        //     nameOfPiece
-        // }
+        let concertItem = {
+            orchestraEnsemble,
+            conductor,
+            nameOfPiece
+        }
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
           event.stopPropagation();
