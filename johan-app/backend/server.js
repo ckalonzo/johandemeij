@@ -28,12 +28,12 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage:storage}).single('file')
 
-const API_PORT = 5021; 
+const API_PORT = 5021;
 const app = express();
 app.use(cors());
 const router = express.Router();
 // this is our MongoDB database
-const dbRoute ='mongodb://127.0.0.1:27017/johandemeij-db';
+const dbRoute ='mongodb://localhost:27017/johandemeij-db';
 // connects our back end code with the database
 mongoose.connect(dbRoute, { useUnifiedTopology: true,useNewUrlParser: true });
 let db = mongoose.connection;

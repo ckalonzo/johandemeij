@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "css/main.css"
 import Navbar from "components/shared/Navbar";
 import Footer from "components/shared/Footer"
+import Maintenancce from "components/Maintenance"
 
 class App extends Component {
   componentDidMount(){
@@ -14,10 +15,8 @@ class App extends Component {
   render() {
   return (
     <>
-
-    <Navbar  />
-    <SiteRouter />
-    <Footer />
+<Maintenancce />
+   
     </>
   )
   }
