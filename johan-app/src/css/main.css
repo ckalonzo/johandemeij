@@ -138,24 +138,33 @@ table .post-title {
     padding-top: 10px;
     color: #000; }
 
+.navigation {
+  background-image: url(/images/header.jpg);
+  background-repeat: no-repeat;
+  background-position: right; }
+
 .navigation ul {
   display: table;
-  margin: 0 auto;
-  margin-bottom: 25px; }
+  margin: 15px auto 15px; }
   .navigation ul li {
     display: inline;
     margin-right: 25px;
     text-transform: uppercase; }
+    .navigation ul li a {
+      color: #FFF; }
 
 .headline {
-  text-align: center;
-  margin: 65px 0 5px;
+  text-align: left;
+  margin: 100px 0 100px;
   color: #000;
   font: 900 18px/20px 'Montserrat', sans-serif; }
   .headline span {
     font: 900 46px/48px 'Montserrat', sans-serif;
     margin-bottom: 15px;
     display: block; }
+
+.nav-row {
+  background-color: #a90000; }
 
 ul {
   margin: 0;

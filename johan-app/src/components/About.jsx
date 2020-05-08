@@ -8,7 +8,6 @@ const About  = (props) => {
         backgroundPosition:"50% 10%",
         overflow:"hidden"
     }
-    console.log(props)
     return (<>
     <section className="about">
     

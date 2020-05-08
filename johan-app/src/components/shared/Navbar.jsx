@@ -12,20 +12,21 @@ const NavigationBar = (props) => {
 
     return (<>
        <div className="navigation"> 
-            <Container> 
-                <Row>
+           
+                <Row> <Container> 
                     <Col lg={{span:"12" }} className="headline">
                     The music of<br /> <span>Johan de Meij</span>
-                    </Col>
+                    </Col>  </Container>
                 </Row>
-                <Row>
+                <Row className="nav-row">
+                <Container> 
                     <Col lg={{span:"12" }}>
                         <ul>
                             <NavList />
                         </ul>
-                    </Col>
+                    </Col></Container>
                 </Row>
-            </Container>
+          
         </div>
       </>)
 }

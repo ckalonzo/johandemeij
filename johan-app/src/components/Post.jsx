@@ -47,6 +47,7 @@ const Post = (props) => {
                     <Col>{props.post.length > 0 ? <LeadImage  {...props}/> : ""}
                     
                     </Col>
+                    
                 </Row>
             <Row>
                 <Col lg={{span:8}}>
