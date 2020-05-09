@@ -5,7 +5,7 @@ const Maintenance = () => {
             <div className="row">
                 <div className="col">
                     <div className="maintence-box">
-                        You've reached Johandemeij.com, <br />we are updating the site and will be back up shortly
+                        Thank you for visiting our site, <br />we are doing some maintenance and will be back up shortly!
                     </div>
                     
                 </div>

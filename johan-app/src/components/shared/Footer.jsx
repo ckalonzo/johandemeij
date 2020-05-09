@@ -28,7 +28,7 @@ const Footer = () => {
           event.stopPropagation();
         }
         setValidated(true);
-
+        
       };
     
     const date = new Date();

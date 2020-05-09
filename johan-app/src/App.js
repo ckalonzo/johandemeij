@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import SiteRouter from "utils/siteRouter"
@@ -8,11 +8,11 @@ import Navbar from "components/shared/Navbar";
 import Footer from "components/shared/Footer"
 
 
-class App extends Component {
-  componentDidMount(){
-    //this.props.actions.mainAction(ACTIONS.LOAD_USER_FROM_LOCAL_STORAGE,{})
-  }
-  render() {
+const App = () => {
+  useEffect(() => { 
+    document.title = "JohanDeMeij.com"
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
   return (
     <>
     <Navbar  />
@@ -20,7 +20,6 @@ class App extends Component {
     <Footer />
     </>
   )
-  }
 }
 
 function mapStateToProps(state) {
