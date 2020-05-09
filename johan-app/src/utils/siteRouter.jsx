@@ -54,7 +54,7 @@ const SiteRouter = () => {
 
                  <Route path="/dashboard/" component={dashboard} />
                  
-                 <Route path="/order" component={Order} />
+                 {/* <Route path="/order" component={Order} />
                  <Route path="/rentalcatalogue" component={RentalCatalogue} />
                  <Route path="/biography" component={Biography} />
                  <Route path="/music/profile/:id" component={MusicProfile} />
@@ -62,8 +62,8 @@ const SiteRouter = () => {
                  <Route path="/events" component={Events} />
                  <Route path="/post/:id" component={Post} />
                  <Route path="/agenda" component={AgendaList} />
-                 <Route path="/news" component={News} history={history} />
-                 <Route path="/" component={Home} history={history} />
+                 <Route path="/news" component={News} history={history} /> */}
+                 <Route path="/" component={Maintenance} history={history} />
              </Switch>
             </Router>
          )
