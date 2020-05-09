@@ -8,7 +8,7 @@ export default function agendaReducer (state = initialState, action) {
       
       case ACTIONS.LOAD_CD_AGENDA: {
         let stateCopy = _.cloneDeep(state)
-       fetch('http://localhost:5020/api/loadAgendasByPage/'+action.payload.skip+"/"+action.payload.limit)
+       fetch('http://localhost:5021/api/loadAgendasByPage/'+action.payload.skip+"/"+action.payload.limit)
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_SUCCESS,res.data))
@@ -31,7 +31,7 @@ export default function agendaReducer (state = initialState, action) {
         let day = d.getDay();
         let month = d.getMonth() + 1
         let year = d.getFullYear();
-        fetch ('http://localhost:5020/api/loadfilteredAgendas/'+action.payload.skip+"/"+action.payload.limit+"/"+year+"/" + month )
+        fetch ('http://localhost:5021/api/loadfilteredAgendas/'+action.payload.skip+"/"+action.payload.limit+"/"+year+"/" + month )
         .then((data)=> data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,res.data))
