@@ -6,7 +6,7 @@ export default function cdsReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_CDS: {
-       fetch(' https://johandemeji.com/api/loadCds')
+       fetch(' https://johandemeij.com/api/loadCds')
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_CDS_SUCCESS,res.data))

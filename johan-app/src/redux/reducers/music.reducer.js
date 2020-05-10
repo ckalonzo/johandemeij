@@ -19,7 +19,7 @@ export default function musicReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_MUSIC: {
-       fetch(' https://johandemeji.com/api/loadPresentations/0/0')
+       fetch(' https://johandemeij.com/api/loadPresentations/0/0')
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_SUCCESS,res.data))
@@ -38,7 +38,7 @@ export default function musicReducer (state = initialState, action) {
         return state
       }
       case ACTIONS.LOAD_MUSIC_BY_CATEGORY:{
-        fetch(' https://johandemeji.com/api/filterPresentationCategory/'+action.payload)
+        fetch(' https://johandemeij.com/api/filterPresentationCategory/'+action.payload)
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_BY_CATEGORY_SUCCESS,res.data))
