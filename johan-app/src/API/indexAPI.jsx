@@ -1,5 +1,5 @@
 import axios from 'axios'
-const APIurl = " https://johandemeij.com/api/api"
+const APIurl = " http://127.0.0.1:5021/api/api"
 
 export function updatePost(post){
   return axios.post(APIurl + '/updatePost',post)
