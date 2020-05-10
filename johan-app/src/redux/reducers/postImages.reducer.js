@@ -6,7 +6,7 @@ export default function postImagesReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_POST_IMAGES:{
-        fetch('https://132.148.157.71:5021/api/loadPostImages')
+        fetch('https://johandemeij.com:5021/api/loadPostImages')
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_IMAGES_SUCCESS,res.data))

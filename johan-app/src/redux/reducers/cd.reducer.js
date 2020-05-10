@@ -24,7 +24,7 @@ export default function cdReducer (state = initialState, action) {
         case ACTIONS.LOAD_CD: {
         let stateCopy = _.cloneDeep(state)
         stateCopy.currentID = action.payload
-            fetch ('https://132.148.157.71:5021/api/loadCDByID/'+ action.payload)
+            fetch ('https://johandemeij.com:5021/api/loadCDByID/'+ action.payload)
             .then((data)=> data.json())
             .then((res) => {
             action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_SUCCESS,res.data))

@@ -24,7 +24,7 @@ export default function presentationReducer (state = initialState, action) {
         case ACTIONS.LOAD_PRESENTATION: {
         let stateCopy = _.cloneDeep(state)
         stateCopy.currentID = action.payload
-            fetch ('https://132.148.157.71:5021/api/loadPresentationByID/'+ action.payload)
+            fetch ('https://johandemeij.com:5021/api/loadPresentationByID/'+ action.payload)
             .then((data)=> data.json())
             .then((res) => {
             action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION_SUCCESS,res.data))
