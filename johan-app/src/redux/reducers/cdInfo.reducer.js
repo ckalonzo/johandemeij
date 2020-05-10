@@ -6,7 +6,7 @@ export default function postsReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_POSTS: {
-       fetch('http://127.0.0.1:5021/api/loadPosts')
+       fetch('http://localhost:5021/api/loadPosts')
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_POSTS_SUCCESS,res.data))

@@ -569,15 +569,4 @@ console.log(_id,imageName,caption,cover)
 app.use('/api', router);
 
 // launch our backend into a port
-stream {
-  server {
-  listen  27017;
-  proxy_connect_timeout 1s;
-  proxy_timeout 3s;
-  proxy_pass    stream_mongo_backend;
-}
-
-upstream stream_mongo_backend {
-  server 127.0.0.1:5021;
-}
-}
+app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));

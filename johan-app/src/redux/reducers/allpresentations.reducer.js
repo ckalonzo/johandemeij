@@ -6,7 +6,7 @@ export default function AllPresentationsReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_ALL_PRESENTATIONS: {
-       fetch('http://127.0.0.1:5021/api/loadAllPresentations')
+       fetch('http://localhost:5021/api/loadAllPresentations')
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_ALL_PRESENTATIONS_SUCCESS,res.data))
