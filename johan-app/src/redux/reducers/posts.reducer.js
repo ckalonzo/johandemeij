@@ -7,7 +7,7 @@ export default function postsReducer (state = initialState, action) {
   
       case ACTIONS.LOAD_POSTS: {
         
-       fetch('http://localhost:5021/api/loadPosts')
+       fetch(' https://johandemeji.com/api/loadPosts')
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_POSTS_SUCCESS,res.data))
@@ -18,7 +18,7 @@ export default function postsReducer (state = initialState, action) {
       case ACTIONS.LOAD_POSTS_SUCCESS: {
         let stateCopy = action.payload
         let imageName = []
-        fetch('http://localhost:5021/api/loadPostImages')
+        fetch(' https://johandemeji.com/api/loadPostImages')
             .then((data) => data.json())
             .then((res) => {
               action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_IMAGES_SUCCESS,res.data))
@@ -38,7 +38,7 @@ export default function postsReducer (state = initialState, action) {
       }
       case ACTIONS.LOAD_DASHBOARD_POSTS: {
         
-        fetch('http://localhost:5021/api/loadAllPosts')
+        fetch(' https://johandemeji.com/api/loadAllPosts')
          .then((data) => data.json())
          .then((res) => {
            action.asyncDispatch(mainAction(ACTIONS.LOAD_DASHBOARD_POSTS_SUCCESS,res.data))
@@ -49,7 +49,7 @@ export default function postsReducer (state = initialState, action) {
        case ACTIONS.LOAD_DASHBOARD_POSTS_SUCCESS: {
          let stateCopy = action.payload
          let imageName = []
-         fetch('http://localhost:5021/api/loadPostImages')
+         fetch(' https://johandemeji.com/api/loadPostImages')
              .then((data) => data.json())
              .then((res) => {
                action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_IMAGES_SUCCESS,res.data))

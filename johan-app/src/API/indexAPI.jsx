@@ -1,5 +1,5 @@
 import axios from 'axios'
-const APIurl = "http://localhost:5021/api/api"
+const APIurl = " https://johandemeji.com/api/api"
 
 export function updatePost(post){
   return axios.post(APIurl + '/updatePost',post)
