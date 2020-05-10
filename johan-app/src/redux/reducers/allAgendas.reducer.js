@@ -9,7 +9,7 @@ export default function AllAgendasReducer (state = initialState, action) {
       case ACTIONS.LOAD_ALL_AGENDAS: {
 
         let stateCopy = _.cloneDeep(state)
-       fetch('https://johandemeij.com:5021/api/loadAllAgendas')
+       fetch('https://johandemeij.com/api/loadAllAgendas')
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_ALL_AGENDAS_SUCCESS,res.data))
