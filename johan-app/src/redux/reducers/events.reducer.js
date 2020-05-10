@@ -6,7 +6,7 @@ export default function eventsReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_EVENTS: {
-       fetch('https://johandemeij.com/api/loadEvents')
+       fetch('http://localhost:5021/api/loadEvents')
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_EVENTS_SUCCESS,res.data))
@@ -22,7 +22,7 @@ export default function eventsReducer (state = initialState, action) {
         return state
       }
       case ACTIONS.LOAD_EVENT:{
-        fetch('https://johandemeij.com/api/loadEventByID/'+action.payload)
+        fetch('http://localhost:5021/api/loadEventByID/'+action.payload)
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_EVENT_SUCCESS,res.data))

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
+require('dotenv').config()
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
@@ -32,10 +33,11 @@ const API_PORT = 5021;
 const app = express();
 app.use(cors());
 const router = express.Router();
+const uri = 'mongodb+srv://admin:Harlem1236!@cluster1.so3g2.gcp.mongodb.net/test'
 // this is our MongoDB database
 const dbRoute ='mongodb://127.0.0.1:27017/johandemeij-db';
 // connects our back end code with the database
-mongoose.connect(dbRoute, { useUnifiedTopology: true,useNewUrlParser: true });
+mongoose.connect(uri, { useNewUrlParser: true,useCreateIndex: true });
 let db = mongoose.connection;
 let ObjectId = require('mongodb').ObjectId;
 db.once('open', () => console.log('connected to the database'));
@@ -46,7 +48,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // (optional) only made for logging and
 // bodyParser, parses the request body to be a readable json format
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(logger('dev'));
 
 router.post('/createPost', async (req,res) => {
