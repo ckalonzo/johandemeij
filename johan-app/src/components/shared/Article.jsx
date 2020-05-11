@@ -24,27 +24,27 @@ const Article = (props) => {
       }
       const renderImage = (props) => {
         if(props[0]){
-        return <img src={"/images/posts/"+props[0].imageName} width="100%" max-height="180px" />}
+        return <a href={`/post/${_id}`}><img src={"/images/posts/"+props[0].imageName} width="100%" max-height="180px" /></a>}
         return <img src={loadedImage} width="100%" height="180px" />
       }
     const renderArticle = (props,mainProps) => {
       let date = dayjs(postDate)
         return (<>
         <div className="news-card">
-          <div className="card-image" style={{height:"180px",overflow:"hidden"}} onClick={()=>loadPost(mainProps)}>
+          <div className="card-image" style={{height:"180px",overflow:"hidden",width:"120px",background:`url(/images/posts/${props[0].imageName})`}}>
 {renderImage(props)}
           </div>
           <div className="card-body">
             <div className="card-date">{date.format('MMMM DD YYYY')}</div> 
             <div className="card-title">{truncateString(postTitle,47)}</div>
             <div className="card-text">{truncateString(stripHtml(postContent),70)}</div>
-            <div className="card-link" onClick={()=>loadPost(mainProps)}>More...</div>
+            <div className="card-link"><a href={`/post/${_id}`}>More...</a></div>
           </div>
         </div>
         </>)
     }
     return (<>
-    <Col lg={{span:"4" }} >
+    <Col lg={{span:"6" }} >
     {renderArticle(props.postImage,props)}
     </Col>
     </>)

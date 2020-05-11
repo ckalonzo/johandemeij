@@ -23,6 +23,7 @@ section.news {
 .news-card {
   width:100%;
   background:#FFF;
+  position:relative;
  // border-radius:10px;
 
   margin-bottom:25px;
@@ -50,6 +51,9 @@ section.news {
   }
   .card-link {}
   .card-body {
+    position: absolute;
+    top:0;
+    left:120px;
       padding:15px;
   }  
 }  
