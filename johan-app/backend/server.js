@@ -35,9 +35,9 @@ app.use(cors());
 const router = express.Router();
 const uri = 'mongodb+srv://admin:Harlem1236!@cluster1.so3g2.gcp.mongodb.net/johandemeij-db'
 // this is our MongoDB database
-//const dbRoute ='mongodb://127.0.0.1:27017/johandemeij-db';
+const dbRoute ='mongodb://127.0.0.1:27017/johandemeij-db';
 // connects our back end code with the database
-mongoose.connect(uri, { useNewUrlParser: true,useCreateIndex: true });
+mongoose.connect(dbRoute, { useNewUrlParser: true,useCreateIndex: true });
 let db = mongoose.connection;
 let ObjectId = require('mongodb').ObjectId;
 db.once('open', () => console.log('connected to the database'));
