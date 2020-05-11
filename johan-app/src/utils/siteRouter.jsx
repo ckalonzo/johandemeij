@@ -60,7 +60,7 @@ const SiteRouter = () => {
                  <Route path="/music/profile/:id" component={MusicProfile} />
                  <Route path="/music" component={Music} />
                  <Route path="/events" component={Events} />
-                 <Route path="/post/:id" component={Post} />
+                 <Route path="/post/:id" component={Maintenance} />
                  <Route path="/agenda" component={AgendaList} />
                  <Route path="/news" component={News} history={history} />
                  <Route path="/" component={Home} history={history} />
