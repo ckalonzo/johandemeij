@@ -4,7 +4,7 @@ const path = require('path');
 
 const app = express();
 
-app.use(espress .json());
+app.use(express .json());
 
 app.use(express.static('johan-app/build'));
 
