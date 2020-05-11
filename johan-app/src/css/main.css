@@ -95,11 +95,13 @@ table .post-title {
 .article h1 {
   color: #9a0000 !important; }
 
-.RentalCatalogue th {
-  color: #000;
-  vertical-align: middle !important;
-  font: 900 14px/16px 'Montserrat', sans-serif;
-  text-align: center; }
+.RentalCatalogue {
+  margin-top: 50px; }
+  .RentalCatalogue th {
+    color: #000;
+    vertical-align: middle !important;
+    font: 900 14px/16px 'Montserrat', sans-serif;
+    text-align: center; }
 
 .order .location {
   font: 400 14px/16px 'Work Sans', sans-serif;
@@ -281,15 +283,16 @@ section.about-full {
   section.about-full button {
     margin: 35px 0 50px; }
 
-section.about-full h5 {
-  font-size: .9rem;
-  text-transform: uppercase;
-  margin-top: 25px;
-  color: #000; }
-
-section.about-full ul li {
-  display: inline;
-  margin-right: 10px; }
+section.about-full {
+  margin-top: 50px; }
+  section.about-full h5 {
+    font-size: .9rem;
+    text-transform: uppercase;
+    margin-top: 25px;
+    color: #000; }
+  section.about-full ul li {
+    display: inline;
+    margin-right: 10px; }
 
 section.news {
   padding: 25px 0 0; }
