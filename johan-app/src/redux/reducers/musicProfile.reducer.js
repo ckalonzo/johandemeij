@@ -9,7 +9,7 @@ export default function musicProfileReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_MUSIC_PROFILE: {
-       fetch(' http://127.0.0.1:5021/api/loadMusicProfile/'+action.payload)
+       fetch('https://127.0.0.1:5021/api/loadMusicProfile/'+action.payload)
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_PROFILE_SUCCESS,res.data))
@@ -18,7 +18,7 @@ export default function musicProfileReducer (state = initialState, action) {
         return state
       }
       case ACTIONS.LOAD_MUSIC_PROFILE_BY_ID:{
-        fetch(' http://127.0.0.1:5021/api/loadMusicProfileByID/'+action.payload)
+        fetch('https://127.0.0.1:5021/api/loadMusicProfileByID/'+action.payload)
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_PROFILE_SUCCESS,res.data))

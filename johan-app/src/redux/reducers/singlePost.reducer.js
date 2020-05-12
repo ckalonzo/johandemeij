@@ -91,7 +91,7 @@ export default function singlePostReducer (state = initialState, action) {
       case ACTIONS.LOAD_POST: {
        let stateCopy = _.cloneDeep(state)
        stateCopy.currentID = action.payload
-        fetch (' http://127.0.0.1:5021/api/loadPostByID/'+ action.payload)
+        fetch ('https://127.0.0.1:5021/api/loadPostByID/'+ action.payload)
         .then((data)=> data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_SUCCESS,res.data))

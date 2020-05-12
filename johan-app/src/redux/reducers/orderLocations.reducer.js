@@ -6,7 +6,7 @@ export default function orderReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_ORDER_LOCATIONS: {
-       fetch(' http://127.0.0.1:5021/api/loadOrders')
+       fetch('https://127.0.0.1:5021/api/loadOrders')
         .then((data) => data.json())
         .then((res) => {
           action.asyncDispatch(mainAction(ACTIONS.LOAD_ORDER_LOCATIONS_SUCCESS,res.data))
