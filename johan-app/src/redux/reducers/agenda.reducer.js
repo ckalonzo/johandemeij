@@ -18,8 +18,6 @@ export default function agendaReducer (state = initialState, action) {
         return stateCopy
       }
       case ACTIONS.LOAD_CD_AGENDA_SUCCESS: {
-       
-      
         return action.payload
       }
       case ACTIONS.LOAD_CD_AGENDA_FAIL: {
