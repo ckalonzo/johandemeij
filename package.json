@@ -38,6 +38,11 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "npm run client-install && npm run client-build"
   },
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5021"
+    }
+  },
   "author": "",
   "license": "ISC"
 }
