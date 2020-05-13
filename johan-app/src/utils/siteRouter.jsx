@@ -27,7 +27,7 @@ import DashboardEvents from "components/dashboard/DashboardEvents"
 import EditEvent from "components/dashboard/EditEvent"
 import NewPublication from "components/dashboard/NewPublication"
 import NewCd from "components/dashboard/NewCd"
-import Maintenance from "components/Maintenance"
+//import Maintenance from "components/Maintenance"
 const history = createBrowserHistory();
 const SiteRouter = () => {
 
@@ -60,7 +60,7 @@ const SiteRouter = () => {
                  <Route path="/music/profile/:id" component={MusicProfile} />
                  <Route path="/music" component={Music} />
                  <Route path="/events" component={Events} />
-                 <Route path="/post/:id" component={Maintenance} />
+                 <Route path="/post/:id" component={Post} />
                  <Route path="/agenda" component={AgendaList} />
                  <Route path="/news" component={News} history={history} />
                  <Route path="/" component={Home} history={history} />

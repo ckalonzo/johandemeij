@@ -1,16 +1,19 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
-
+import { db } from "../../firebase";
+import _ from 'lodash'
 const initialState = {};
 export default function catalogueReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_MUSIC_CATALOGUE: {
-       fetch('http://127.0.0.1:5021/api/loadMusicAlbums')
-        .then((data) => data.json())
-        .then((res) => {
-          action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_CATALOGUE_SUCCESS,res.data))
-        }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_CATALOGUE_FAIL,err)))
+      db.collection("musicalbums")
+      .get()
+      .then(querySnapshot => {
+        const data = querySnapshot.docs.map(doc => doc.data());
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_CATALOGUE_SUCCESS,data))
+      });
+
 
         return state
       }

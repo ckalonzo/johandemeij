@@ -1,7 +1,4 @@
 {"posts":[{
-  "_id": {
-    "$oid": "5e8babe09eede4307d9f256c"
-  },
   "ID": "292",
   "postAuthor": "2",
   "postDate": "2014-09-26",
@@ -10,9 +7,6 @@
   "postParent": "2",
   "showPost": "1"
 },{
-  "_id": {
-    "$oid": "5e8babe09eede4307d9f256d"
-  },
   "ID": "298",
   "postAuthor": "2",
   "postDate": "2017-03-09",
@@ -21,9 +15,6 @@
   "postParent": "2",
   "showPost": "1"
 },{
-  "_id": {
-    "$oid": "5e8babe09eede4307d9f256f"
-  },
   "ID": "300",
   "postAuthor": "2",
   "postDate": "2018-06-05",
@@ -32,9 +23,6 @@
   "postParent": "2",
   "showPost": "1"
 },{
-  "_id": {
-    "$oid": "5e8babe09eede4307d9f2570"
-  },
   "ID": "297",
   "postAuthor": "2",
   "postDate": "2017-02-03",
@@ -43,9 +31,6 @@
   "postParent": "2",
   "showPost": "1"
 },{
-  "_id": {
-    "$oid": "5e8babe09eede4307d9f2571"
-  },
   "ID": "301",
   "postAuthor": "2",
   "postDate": "2018-05-18",
@@ -54,9 +39,6 @@
   "postParent": "2",
   "showPost": "2"
 },{
-  "_id": {
-    "$oid": "5ea2454e23849113c077fd47"
-  },
   "ID": "299",
   "postAuthor": "2",
   "postDate": "2019-09-22",
@@ -65,9 +47,6 @@
   "postParent": "2",
   "showPost": "2"
 },{
-  "_id": {
-    "$oid": "5ea499b423849113c077fd4a"
-  },
   "ID": "304",
   "postAuthor": "2",
   "postDate": "2019-10-08",
