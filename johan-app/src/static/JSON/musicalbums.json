@@ -1,4 +1,4 @@
-[{
+{"musicalbums":[{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1916"
   },
@@ -518,4 +518,4 @@
   "priceInEuros": "750,- ",
   "priceInDollars": "850.-",
   "link": "http://www.johandemeij.com/cd_profile_main.php?id=1114&cat=9"
-}]
+}]}

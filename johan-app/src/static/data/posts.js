@@ -1,5 +1,5 @@
 {
-    ck_posts: [
+    posts: [
       {
         "ID": "292",
         "postAuthor": "2",
