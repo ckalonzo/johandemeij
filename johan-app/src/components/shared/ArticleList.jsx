@@ -22,7 +22,7 @@ const Article = (props) => {
         window.scrollTo(0,0)
         //Object.values(posts).filter(post => post._id === props.match.params.id)
         props.actions.mainAction(ACTIONS.LOAD_ARTICLE,post)
-        props.history.push(`/post/${post._id}`)
+        props.history.push(`/post/${post.ID}`)
       }
     const renderArticle = () => {
       let date = dayjs(postDate)
@@ -35,14 +35,14 @@ const Article = (props) => {
             overflow:"hidden"
         }
         return (<>
-        <div className="news-card">
+        <div className="">
           <div className="card-image" style={styles}>
-            <img src={imagePath} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%"}} onClick={()=>loadPost(props)}/></div>
+          <a href={"/post/"+props.ID}><img src={"/images/posts/"+props.image[0].imageName} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%",border:"none"}}/></a></div>
           <div className="card-body">
             <div className="card-date">{date.format('MMMM DD YYYY')}</div> 
             <div className="card-title">{truncateString(postTitle,47)}</div>
             <div className="card-text" style={{marginBottom:"10px"}}>{truncateString(stripHtml(postContent),70)}</div>
-            <div className="card-link" onClick={()=>loadPost(props)}>More...</div>
+            <div className="card-link"><a href={"/post/"+props.ID}>More...</a></div>
           </div>
         </div>
         </>)

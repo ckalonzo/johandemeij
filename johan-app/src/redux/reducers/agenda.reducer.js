@@ -1,6 +1,7 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
-import _ from "lodash"
+import { db } from "../../firebase";
+import _ from 'lodash'
 const initialState = {
 };
 export default function agendaReducer (state = initialState, action) {
@@ -29,11 +30,14 @@ export default function agendaReducer (state = initialState, action) {
         let day = d.getDay();
         let month = d.getMonth() + 1
         let year = d.getFullYear();
-        fetch ('http://127.0.0.1:5021/api/loadfilteredAgendas/'+action.payload.skip+"/"+action.payload.limit+"/"+year+"/" + month )
-        .then((data)=> data.json())
-        .then((res) => {
-          action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,res.data))
-        }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_FAIL,err)))
+        db.collection("agendas")
+       .where("year",'==',"2020")
+       .where("month",'>=',"5")
+         .get()
+         .then(querySnapshot => {
+           const data = querySnapshot.docs.map(doc => doc.data());
+           action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,data))
+         });
         return state
       }
       case ACTIONS.LOAD_AGENDAS_SUCCESS:{

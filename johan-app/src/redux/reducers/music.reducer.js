@@ -1,6 +1,7 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
-import _ from "lodash"
+import { db } from "../../firebase";
+import _ from 'lodash'
 
 const initialState = {
     categories:[
@@ -19,11 +20,18 @@ export default function musicReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_MUSIC: {
-       fetch('http://127.0.0.1:5021/api/loadPresentations/0/0')
-        .then((data) => data.json())
-        .then((res) => {
-          action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_SUCCESS,res.data))
-        }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_FAIL,err)))
+      //  fetch('http://127.0.0.1:5021/api/loadPresentations/0/0')
+      //   .then((data) => data.json())
+      //   .then((res) => {
+      //     action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_SUCCESS,res.data))
+      //   }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_FAIL,err)))
+
+      db.collection("presentations")
+        .get()
+        .then(querySnapshot => {
+          const data = querySnapshot.docs.map(doc => doc.data());
+          action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_SUCCESS,data))
+        });
 
         return state
       }
@@ -38,11 +46,30 @@ export default function musicReducer (state = initialState, action) {
         return state
       }
       case ACTIONS.LOAD_MUSIC_BY_CATEGORY:{
-        fetch('http://127.0.0.1:5021/api/filterPresentationCategory/'+action.payload)
-        .then((data) => data.json())
-        .then((res) => {
-          action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_BY_CATEGORY_SUCCESS,res.data))
-        }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_FAIL,err)))
+ 
+
+        let query =  db.collection("presentations")
+        console.log(query)
+        if(action.payload ===1){
+          query = query.where("category","==", '1')
+        } else if(action.payload ===2){
+          query = query.where("category","==", '2')
+        } else if(action.payload ===3){
+          query = query.where("category","==", '3')
+        } else if(action.payload ===4){
+          query = query.where("category","==", '4')
+        } else if(action.payload ===5){
+          query = query.where("category","==", '5')
+        } else if(action.payload ===6){
+          query = query.where("category","==", '6')
+        }
+        console.log("category","==",action.payload)
+       query.get()
+        .then(querySnapshot => {
+          const data = querySnapshot.docs.map(doc => doc.data());
+          console.log(data)
+          action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_SUCCESS,data))
+        });
          return state 
       }
       case ACTIONS.LOAD_MUSIC_BY_CATEGORY_SUCCESS:{

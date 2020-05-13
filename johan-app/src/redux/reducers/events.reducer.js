@@ -1,6 +1,8 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
 import {updateEvent} from "API/indexAPI"
+import { db } from "../../firebase";
+import _ from 'lodash'
 const initialState = {};
 export default function eventsReducer (state = initialState, action) {
     switch (action.type) {
@@ -22,11 +24,13 @@ export default function eventsReducer (state = initialState, action) {
         return state
       }
       case ACTIONS.LOAD_EVENT:{
-        fetch('http://127.0.0.1:5021/api/loadEventByID/'+action.payload)
-        .then((data) => data.json())
-        .then((res) => {
-          action.asyncDispatch(mainAction(ACTIONS.LOAD_EVENT_SUCCESS,res.data))
-        }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_EVENT_FAIL,err)))
+        db.collection("events")
+       .where("id",'==','53')
+        .get()
+        .then(querySnapshot => {
+          const data = querySnapshot.docs.map(doc => doc.data());
+          action.asyncDispatch(mainAction(ACTIONS.LOAD_EVENT_SUCCESS,data))
+        });
 
         return state
       }

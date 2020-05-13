@@ -22,13 +22,7 @@ const Post = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
 
-    const LeadImage = () => {
-        let articleImage = []
-        props.post.map(post => {
-            articleImage = Object.values(props.postImages).filter(image => image.albumID == post.ID).map(postImage =>{
-                return postImage
-              })
-        })
+    const LeadImage = (props) => {
         let styles = {
             maxWidth:"100%",
             backgrounSize:"contain",
@@ -36,13 +30,13 @@ const Post = (props) => {
             backgroundPosition:"50% 50%"
         }
          return  <div style={{maxHeight:"auto",overflow:"hidden",textAlign:"center"}}>
-            <img src={articleImage[0] ? "/images/posts/"+articleImage[0].imageName:"/images/missing.png"} style={styles} alt="" />
+            <img src={props.post[0] ? "/images/posts/"+props.post[0].image[0].imageName:"/images/missing.png"} style={styles} alt="" />
          </div>
     }
 
     return (<>
         <Container>
-            <section className="article">
+            <section className="article" style={{marginTop:"50px"}}>
                 <Row>
                     <Col>{props.post.length > 0 ? <LeadImage  {...props}/> : ""}
                     
@@ -58,12 +52,7 @@ const Post = (props) => {
                 <Col lg={{span:4}} style={{marginTop:"50px"}}>
                 <Row>
         {Object.values((_.orderBy(props.posts,'postDate','desc'))).map(article => {
-
-          let articleImage =Object.values(props.postImages).filter(image => image.albumID == article.ID).map(postImage =>{
-            return postImage
-          })
-          if(articleImage[0])
-            return <ArticleList key={article._id} {...props}{...article} image={articleImage[0] ? articleImage[0]:"missing.png"} />
+            return <ArticleList key={article._id} {...article} />
         })}
     </Row>
                 </Col>
@@ -76,7 +65,7 @@ const Post = (props) => {
 function mapStateToProps(state,props) {
     let allposts = state.postsReducer
     return {
-      post:Object.values(allposts).filter(post => post._id === props.match.params.id),
+      post:Object.values(allposts).filter(post => post.ID === props.match.params.id),
       posts:state.postsReducer,
       postImages:state.postImagesReducer
     };
