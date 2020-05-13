@@ -1,4 +1,4 @@
-[{
+{"posts":[{
   "_id": {
     "$oid": "5e8babe09eede4307d9f256c"
   },
@@ -75,4 +75,4 @@
   "postTitle": "Symphony No. 5 Return  to Middle Earth published!",
   "postParent": "2",
   "showPost": "1"
-}]
+}]}

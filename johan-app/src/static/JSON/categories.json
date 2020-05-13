@@ -1,4 +1,4 @@
-[{
+{"categories":[{
   "_id": {
     "$oid": "5e851349b6332c12cba9834e"
   },
@@ -40,4 +40,4 @@
   "term_id": "7",
   "name": "Order",
   "termGroup": "0"
-}]
+}]}

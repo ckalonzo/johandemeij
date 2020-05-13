@@ -6,10 +6,10 @@ import { mainAction } from "redux/actions/index.actions"
 import Article from "components/shared/Article"
 import {Row} from "react-bootstrap"
 import _ from "lodash"
-
+import { db } from "../firebase";
 const News  = (props) => {
     useEffect(() => {
-
+      
         props.actions.mainAction(ACTIONS.LOAD_POSTS,[])
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);

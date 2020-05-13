@@ -1,4 +1,4 @@
-[{
+{"albums":[{
   "_id": {
     "$oid": "5e8512f9b6332c12cba98349"
   },
@@ -26,4 +26,4 @@
   "id": "19",
   "albumName": "The Making of UFO CONCERTO",
   "dateCreated": "2012-02-11 10:55:33"
-}]
+}]}
