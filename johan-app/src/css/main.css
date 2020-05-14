@@ -102,6 +102,14 @@ table .post-title {
     vertical-align: middle !important;
     font: 900 14px/16px 'Montserrat', sans-serif;
     text-align: center; }
+  .RentalCatalogue td {
+    color: #9a0000; }
+  .RentalCatalogue tr:hover {
+    text-decoration: underline;
+    cursor: pointer; }
+  .RentalCatalogue thead tr:hover {
+    text-decoration: none;
+    cursor: auto; }
 
 .order .location {
   font: 400 14px/16px 'Work Sans', sans-serif;

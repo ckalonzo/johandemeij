@@ -27,6 +27,7 @@ export default function musicReducer (state = initialState, action) {
       //   }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_FAIL,err)))
 
       db.collection("presentations")
+      .orderBy('cdName', 'asc')
         .get()
         .then(querySnapshot => {
           const data = querySnapshot.docs.map(doc => doc.data());
