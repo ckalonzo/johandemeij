@@ -114,7 +114,17 @@ table {
         font: 900 14px/16px 'Montserrat', sans-serif;
         text-align: center;
     }
-    
+    td {
+        color:#9a0000;
+    }
+    tr:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    thead tr:hover {
+        text-decoration: none;
+        cursor: auto;
+    }
 }
 .order {
     .location {

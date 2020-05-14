@@ -5,13 +5,22 @@ import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
 import {Row,Container,Col} from "react-bootstrap"
 import ReactHtmlParser from 'react-html-parser';
+
 const MusicProfile= (props)=>{
     useEffect(() => {
         window.scrollTo(0,0)
         document.title = "JohanDeMeij.com | Music Profile"
-        props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE,props.match.params.id)
+        props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
+     //  let profile = props.allPresentations.filter(music => music.id === props.match.params.id)
+      
+      
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
+
+const loadProfile = (profile) => {
+    props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE,profile)
+}
+    
 const CleanUpSynopsis = (text)  => {
     return text.replace(/(\r\n|\n|\r)/gm, "")
 }
@@ -32,7 +41,7 @@ const renderMissingProfile = () => {
 }
 const renderProfile = () => {
     return(<>
-        <section className="music-profile">
+        <section className="music-profile" style={{marginTop:"50px"}}>
            <Container>
                <Row>
                <Col lg={{span:8}}>
@@ -73,8 +82,11 @@ const renderProfile = () => {
  </>)
 }
 function mapStateToProps(state) {
+    let allMusic = state.musicReducer.allPresentations;
+   // console.log(allMusic.filter(music => music.id ==='1060'))
     return {
-        profile:state.musicProfileReducer
+        profile:state.musicProfileReducer,
+        allPresentations:state.musicReducer.allPresentations
     };
   }
   
