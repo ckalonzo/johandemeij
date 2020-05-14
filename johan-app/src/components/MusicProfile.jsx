@@ -5,6 +5,7 @@ import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
 import {Row,Container,Col} from "react-bootstrap"
 import ReactHtmlParser from 'react-html-parser';
+import { loadfilteredAgendas } from "API/indexAPI";
 
 const MusicProfile= (props)=>{
     useEffect(() => {
@@ -12,7 +13,7 @@ const MusicProfile= (props)=>{
         document.title = "JohanDeMeij.com | Music Profile"
         props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
      //  let profile = props.allPresentations.filter(music => music.id === props.match.params.id)
-      
+     props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE,props.match.params.id)
       
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
@@ -30,15 +31,7 @@ const renderImage = (image,caption) => {
         <div  style={{fontSize:".9rem",margin:"15px 0"}}>{caption}</div></Row>
     </>)
 }
-const renderMissingProfile = () => {
-    return(<>
-    <Container>
-        <Row>
-            <Col lg={{span:12}} style={{margin:"150px 0",textAlign:"center",font: "400 42.5px/44px 'Montserrat', sans-serif"}}>No profile found!</Col>
-        </Row>
-    </Container>
-    </>)
-}
+
 const renderProfile = () => {
     return(<>
         <section className="music-profile" style={{marginTop:"50px"}}>
@@ -78,12 +71,10 @@ const renderProfile = () => {
 }
 
  return(<>
-{ props.profile !== null ? renderProfile():renderMissingProfile()}
+{ props.profile ? renderProfile():<div style={{margin:"100px",textAlign:"center"}}><Container>Loading...</Container></div>}
  </>)
 }
 function mapStateToProps(state) {
-    let allMusic = state.musicReducer.allPresentations;
-   // console.log(allMusic.filter(music => music.id ==='1060'))
     return {
         profile:state.musicProfileReducer,
         allPresentations:state.musicReducer.allPresentations

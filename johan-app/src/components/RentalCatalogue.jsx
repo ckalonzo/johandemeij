@@ -15,14 +15,7 @@ const RentalCatalogue  = (props) => {
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     const loadProfile = (id) =>{
-      let selectedPresentation =[]
-      props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE_BY_ID,id)
-      selectedPresentation = props.presentations.filter(presentation => presentation.id === id)
-      //props.history.push('/music/profile/'+selectedPresentation[0]._id)
-      console.log(selectedPresentation[0]._id)
-  }
-  const missingProfile = () => {
-    alert("profile not yet linked")
+      props.history.push('/music/profile/'+id)
   }
     return (<>
     <section className="RentalCatalogue">
@@ -44,8 +37,7 @@ const RentalCatalogue  = (props) => {
   </thead>
   <tbody>
     {Object.values(props.catalogue).map(catalogue=>{
-      let _id = catalogue.link.slice(50,54)
-        return (<tr onClick={()=> !isNaN(_id) === true ? loadProfile(_id):missingProfile()}>
+        return (<tr onClick={()=>loadProfile(catalogue.link)}>
             <td>{catalogue.catalogueNumber}</td>
             <td>{catalogue.title}</td>
             <td>{catalogue.instrumentation}</td>

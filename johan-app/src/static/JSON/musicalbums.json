@@ -10,7 +10,7 @@
   "duration": "5''6",
   "priceInEuros": "150,- ",
   "priceInDollars": "175.- ",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+  "link": "1008"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1917"
@@ -23,7 +23,7 @@
   "duration": "14''15",
   "priceInEuros": "150,-",
   "priceInDollars": "175.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+  "link": "1008"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1918"
@@ -36,7 +36,7 @@
   "duration": "23''24",
   "priceInEuros": "150,-",
   "priceInDollars": "175.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+  "link": "1008"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1919"
@@ -49,7 +49,7 @@
   "duration": "32''33",
   "priceInEuros": "150,-",
   "priceInDollars": "175.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+  "link": "1008"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f191a"
@@ -62,7 +62,7 @@
   "duration": "41''42",
   "priceInEuros": "150,-",
   "priceInDollars": "175.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+  "link": "1008"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f191b"
@@ -75,7 +75,7 @@
   "duration": "50''51",
   "priceInEuros": "650,-",
   "priceInDollars": "750.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+  "link": "1008"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f191c"
@@ -88,7 +88,7 @@
   "duration": "59''60",
   "priceInEuros": "250,-",
   "priceInDollars": "300.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1009&cat=9"
+  "link": "1009"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f191d"
@@ -101,7 +101,7 @@
   "duration": "68''69",
   "priceInEuros": "300,-",
   "priceInDollars": "350.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1009&cat=9"
+  "link": "1009"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f191e"
@@ -114,7 +114,7 @@
   "duration": "77''78",
   "priceInEuros": " 350,-\t",
   "priceInDollars": "400.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1091&cat=9"
+  "link": "1091"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f191f"
@@ -127,7 +127,7 @@
   "duration": "86''87",
   "priceInEuros": "500,-",
   "priceInDollars": "575.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1009&cat=9"
+  "link": "1009"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1920"
@@ -140,7 +140,7 @@
   "duration": "95''96",
   "priceInEuros": "300,- ",
   "priceInDollars": "350.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=64&cat=9"
+  "link": "64"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1921"
@@ -153,7 +153,7 @@
   "duration": "104''105",
   "priceInEuros": "300,- ",
   "priceInDollars": "350.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=69&cat=9"
+  "link": "69"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1922"
@@ -166,7 +166,7 @@
   "duration": "113''114",
   "priceInEuros": "300,- ",
   "priceInDollars": "350.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=67&cat=9"
+  "link": "67"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1923"
@@ -179,7 +179,7 @@
   "duration": "122''123",
   "priceInEuros": "750,- ",
   "priceInDollars": "850.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1013&cat=9"
+  "link": "1013"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1924"
@@ -192,7 +192,7 @@
   "duration": "131''132",
   "priceInEuros": "400,- ",
   "priceInDollars": "450.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1011&cat=9"
+  "link": "1011"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1925"
@@ -205,7 +205,7 @@
   "duration": "140''141",
   "priceInEuros": "200,- ",
   "priceInDollars": "235.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1012&cat=9"
+  "link": "1012"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1926"
@@ -218,7 +218,7 @@
   "duration": "149''150",
   "priceInEuros": "150,- ",
   "priceInDollars": "175.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1010&cat=9"
+  "link": "1010"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1927"
@@ -231,7 +231,7 @@
   "duration": "158''159",
   "priceInEuros": "400,- ",
   "priceInDollars": "450.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1063&cat=9"
+  "link": "1063"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1928"
@@ -244,7 +244,7 @@
   "duration": "167''168",
   "priceInEuros": "300,- ",
   "priceInDollars": "350.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1063&cat=9"
+  "link": "1063"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1929"
@@ -257,7 +257,7 @@
   "duration": "176''177",
   "priceInEuros": "60,- ",
   "priceInDollars": "70.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1094&cat=9"
+  "link": "1094"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f192a"
@@ -270,7 +270,7 @@
   "duration": "185''186",
   "priceInEuros": "70,- ",
   "priceInDollars": "80.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1096&cat=9"
+  "link": "1096"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f192b"
@@ -283,7 +283,7 @@
   "duration": "194''195",
   "priceInEuros": "70,-",
   "priceInDollars": "80.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1064&cat=9"
+  "link": "1064"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f192c"
@@ -296,7 +296,7 @@
   "duration": "203''204",
   "priceInEuros": "300,- ",
   "priceInDollars": "350.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1059&cat=9"
+  "link": "1059"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f192d"
@@ -309,7 +309,7 @@
   "duration": "212''213",
   "priceInEuros": "60,- ",
   "priceInDollars": "70.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1049&cat=9"
+  "link": "1049"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f192e"
@@ -322,7 +322,7 @@
   "duration": "221''222",
   "priceInEuros": "60,- ",
   "priceInDollars": "70.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1049&cat=2"
+  "link": "1049&cat=2"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f192f"
@@ -335,7 +335,7 @@
   "duration": "230''231",
   "priceInEuros": "60,- ",
   "priceInDollars": "70.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1049&cat=9"
+  "link": "1049"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1930"
@@ -348,7 +348,7 @@
   "duration": "239''240",
   "priceInEuros": "60,- ",
   "priceInDollars": "70.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1049&cat=9"
+  "link": "1049"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1931"
@@ -361,7 +361,7 @@
   "duration": "248''249",
   "priceInEuros": "60 ,-",
   "priceInDollars": "70.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1049&cat=9"
+  "link": "1049"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1932"
@@ -374,7 +374,7 @@
   "duration": "257''258",
   "priceInEuros": "60,- ",
   "priceInDollars": "70.-",
-  "link": "http://johandemeij.com/cd_profile_main.php?id=1092&cat=9"
+  "link": "1092"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1933"
@@ -387,7 +387,7 @@
   "duration": "266''267",
   "priceInEuros": "200,-",
   "priceInDollars": "235.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1093&cat=9"
+  "link": "1093"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1934"
@@ -400,7 +400,7 @@
   "duration": "275''276",
   "priceInEuros": "55,-",
   "priceInDollars": "60.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1008&cat=9"
+  "link": "1008"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1935"
@@ -413,7 +413,7 @@
   "duration": "284''285",
   "priceInEuros": "100,-",
   "priceInDollars": "115.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1104&cat=9"
+  "link": "1104"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1936"
@@ -426,7 +426,7 @@
   "duration": "293''294",
   "priceInEuros": "100,-",
   "priceInDollars": "115.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1105&cat=9"
+  "link": "1105"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1937"
@@ -439,7 +439,7 @@
   "duration": "302''303",
   "priceInEuros": "100,-",
   "priceInDollars": "115.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1106&cat=9"
+  "link": "1106"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1938"
@@ -452,7 +452,7 @@
   "duration": "311''312",
   "priceInEuros": "50,-",
   "priceInDollars": "55.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1100&cat=9"
+  "link": "1100"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f1939"
@@ -465,7 +465,7 @@
   "duration": "320''321",
   "priceInEuros": "50,-",
   "priceInDollars": "55.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1101&cat=9"
+  "link": "1101"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f193a"
@@ -478,7 +478,7 @@
   "duration": "329''330",
   "priceInEuros": "70,-",
   "priceInDollars": "80.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1102&cat=9"
+  "link": "1102"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f193b"
@@ -491,7 +491,7 @@
   "duration": "338''339",
   "priceInEuros": "50,-",
   "priceInDollars": "55.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1103&cat=9"
+  "link": "1103"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f193c"
@@ -504,7 +504,7 @@
   "duration": "17",
   "priceInEuros": "250",
   "priceInDollars": "300",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1109&cat=9"
+  "link": "1109"
 },{
   "_id": {
     "$oid": "5e8668a09eede4307d9f193d"
@@ -517,5 +517,5 @@
   "duration": "355''356",
   "priceInEuros": "750,- ",
   "priceInDollars": "850.-",
-  "link": "http://www.johandemeij.com/cd_profile_main.php?id=1114&cat=9"
+  "link": "1114"
 }]}

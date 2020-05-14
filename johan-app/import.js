@@ -10,7 +10,7 @@ const jsonToFirestore = async () => {
     await firestoreService.initializeApp(serviceAccount, firebaseConfig.databaseURL);
     console.log('Firebase Initialized');
 
-    await firestoreService.restore('/Applications/MAMP/htdocs/websites/johan-de-meij/johan-app/src/static/JSON/posts.json');
+    await firestoreService.restore('/Applications/MAMP/htdocs/websites/johan-de-meij/johan-app/src/static/JSON/musicalbums.json');
     console.log('Upload Success');
   }
   catch (error) {

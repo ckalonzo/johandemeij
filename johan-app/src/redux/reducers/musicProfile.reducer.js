@@ -10,19 +10,15 @@ export default function musicProfileReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_MUSIC_PROFILE: {
-      //  fetch('http://127.0.0.1:5021/api/loadMusicProfile/'+action.payload)
-      //   .then((data) => data.json())
-      //   .then((res) => {
-      //     action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_PROFILE_SUCCESS,res.data))
-      //   }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_PROFILE_FAIL,err)))
-      // db.collection("presentations")
-      //  .where("id",'==',"1050")
-      //    .get()
-      //    .then(querySnapshot => {
-      //      const data = querySnapshot.docs.map(doc => doc.data());
-      //      action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_PROFILE_SUCCESS,action.payload))
-      //    });
-      action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_PROFILE_SUCCESS,action.payload))
+console.log(action)
+      db.collection("presentations")
+       .where("id",'==',action.payload)
+         .get()
+         .then(querySnapshot => {
+           const data = querySnapshot.docs.map(doc => doc.data());
+           action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_PROFILE_SUCCESS,...data))
+         });
+     
         return action.payload
       }
       case ACTIONS.LOAD_MUSIC_PROFILE_BY_ID:{
