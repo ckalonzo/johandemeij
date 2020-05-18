@@ -10,13 +10,13 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import PostImage from "components/dashboard/PostImage"
 
 const EditPost = props => {
-  const {_id,ID,postTitle,postDate,postContent,showPost,postImage} = props.post
+  const {_id,ID,postTitle,postDate,postContent,showPost,image} = props.post
   const [postStatus, setPostStatus] = useState(showPost);
   const [title, setTitle] = useState(postTitle);
   const [date, setDate] = useState(postDate);
   const [content, setContent] = useState(postContent);
   const [validated, setValidated] = useState(false);
-  const [postImg,setPostImg] = useState(postImage)
+  const [postImg,setPostImg] = useState(image)
 
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const EditPost = props => {
     window.scrollTo(0,0)
     document.title = `Johan De Meij | Edit Post`;
     props.actions.mainAction(ACTIONS.LOAD_POST,props.match.params.id)
-   // props.actions.mainAction(ACTIONS.LOAD_POST_IMAGES,{})
+  // props.actions.mainAction(ACTIONS.LOAD_POSTS,{})
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleSubmit = event => {
@@ -34,10 +34,10 @@ const EditPost = props => {
       _id,
       ID,
       showPost:postStatus ? postStatus:showPost,
-      title:title?title:postTitle,
-      date:date?date:postDate,
-      content,
-      postImage: postImg ? postImg : postImage
+      postTitle:title?title:postTitle,
+      postDate:date?date:postDate,
+      postContent:content,
+      image: postImg ? postImg : image
     }
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -47,17 +47,18 @@ const EditPost = props => {
    props.actions.mainAction(ACTIONS.UPDATE_POST,newsItem)
    window.scrollTo(0,0)
   };
-  
+  console.log(props)
   return (
     <>
-      <Container>
+    <Container className="dashboard">
         <Row>
           
-          <Col lg={{ span: 2 }}>
+          <Col lg={{ span: 2 }} >
               <SideNav />
           </Col>
           <Col lg={{span:"10" }}> 
-            {props.post.postImage ? <PostImage currentPost={props.match.params.id}{...props.post.postImage[0]}/>:""}
+        
+            {props.post.image ? <PostImage currentPost={props.match.params.id}{...props.post.image[0]}/>:""}
             <section id="product">
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Row>

@@ -26,7 +26,7 @@ const Article = (props) => {
       }
     const renderArticle = () => {
       let date = dayjs(postDate)
-        let imagePath = Object.keys(image).length > 0 ? "/images/posts/"+image.imageName:"images/missing.png"
+        let imagePath = Object.keys(image).length > 0 ? "https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F"+image.imageName+"?alt=media":"images/missing.png"
             let styles = {
             backgrounSize:"contain",
             maxHeight:"180px",
@@ -37,7 +37,7 @@ const Article = (props) => {
         return (<>
         <div className="">
           <div className="card-image" style={styles}>
-          <a href={"/post/"+props.ID}><img src={"/images/posts/"+props.image[0].imageName} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%",border:"none"}}/></a></div>
+          <a href={"/post/"+props.ID}><img src={"https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F"+props.image[0].imageName+"?alt=media"} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%",border:"none"}}/></a></div>
           <div className="card-body">
             <div className="card-date">{date.format('MMMM DD YYYY')}</div> 
             <div className="card-title">{truncateString(postTitle,47)}</div>

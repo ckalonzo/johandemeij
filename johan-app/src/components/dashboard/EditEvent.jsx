@@ -26,7 +26,6 @@ const EditEvent = props => {
     event.preventDefault();
     
     let eventItem = {
-    _id:props.event._id,
      title,
      synopsis:content
     }
@@ -35,7 +34,7 @@ const EditEvent = props => {
       event.stopPropagation();
     }
     setValidated(true);
-
+console.log(eventItem)
    props.actions.mainAction(ACTIONS.UPDATE_EVENT,eventItem)
    window.scrollTo(0,0)
   };

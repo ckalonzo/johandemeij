@@ -14,7 +14,7 @@ const About  = (props) => {
     <Container>
          <Row>
          <Col  lg={{span:5,offset:1}} className="bio-photo" style={styles}>
-         <img src={`/images/albums/pic3_download.jpg`} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%"}} alt="biogrophy"/>
+         <img src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/albums%2Fpic3_download.jpg?alt=media&token=d614fdfc-9b10-4644-8fc0-99b999aacf43`} style={{width:"100%",backgrounSize:"cover",backgroundPosition:"50% 10%"}} alt="biogrophy"/>
          
          </Col>
          <Col lg={{span:6}}>

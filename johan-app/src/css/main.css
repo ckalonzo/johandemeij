@@ -51,7 +51,7 @@ h1, h3, h3, h4, h5 {
   margin-bottom: 50px;
   background: #FFF;
   padding: 25px 35px;
-  border: .1rem solid #ececec; }
+  border: 1px solid rgba(111, 116, 149, 0.25); }
 
 #images .caption div {
   width: 100%; }
@@ -220,6 +220,18 @@ table a {
     #dashboard ul.sidebar li {
       white-space: nowrap; }
     #dashboard ul.sidebar li.active-nav-item {
+      color: #000;
+      font-weight: bold; }
+
+.dashboard {
+  padding: 50px 0; }
+  .dashboard ul.sidebar {
+    background: #fff;
+    border: 1px solid rgba(111, 116, 149, 0.25);
+    padding: 15px 35px 15px 10px; }
+    .dashboard ul.sidebar li {
+      white-space: nowrap; }
+    .dashboard ul.sidebar li.active-nav-item {
       color: #000;
       font-weight: bold; }
 

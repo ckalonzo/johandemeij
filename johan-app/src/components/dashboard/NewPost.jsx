@@ -7,7 +7,6 @@ import SideNav from "components/dashboard/SideNav";
 import { mainAction } from "redux/actions/index.actions"
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import PostImage from "components/dashboard/PostImage"
 import _ from "lodash"
 const EditPost = props => {
   const [postStatus, setPostStatus] = useState(2);
@@ -30,18 +29,20 @@ const EditPost = props => {
     event.preventDefault();
     
     let newsItem = {
-      ID:+props.lastItem,
-      showPost:postStatus,
-      title,
-      date,
-      postContent:content,
-      postImage:[]
+        ID:props.lastItem.toString(),
+        postContent:content,
+        postDate:date,
+        postTitle:title,
+        image:[],
+        showPost:postStatus,
+        dateCreated: Date.now()
     }
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
     setValidated(true);
+    console.log(newsItem)
    props.actions.mainAction(ACTIONS.CREATE_NEW_POST,newsItem)
    props.history.push('/dashboard/news/edit/'+props.lastItem)
   };
@@ -50,8 +51,8 @@ const EditPost = props => {
     return
   }
   return (
-    <>
-      <Container>
+    <> 
+      <Container  className="dashboard">
         <Row>
           
           <Col lg={{ span: 2 }}>

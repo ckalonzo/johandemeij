@@ -8,12 +8,13 @@ export default function eventsReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_EVENTS: {
-       fetch('http://127.0.0.1:5021/api/loadEvents')
-        .then((data) => data.json())
-        .then((res) => {
-          action.asyncDispatch(mainAction(ACTIONS.LOAD_EVENTS_SUCCESS,res.data))
-        }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_EVENTS_FAIL,err)))
-
+        db.collection("events")
+       .where("id",'==','53')
+        .get()
+        .then(querySnapshot => {
+          const data = querySnapshot.docs.map(doc => doc.data());
+          action.asyncDispatch(mainAction(ACTIONS.LOAD_EVENT_SUCCESS,data))
+        });
         return state
       }
       case ACTIONS.LOAD_EVENTS_SUCCESS: {
@@ -41,14 +42,10 @@ export default function eventsReducer (state = initialState, action) {
         return state
       }
       case ACTIONS.UPDATE_EVENT: {
-        console.log(action)
-        updateEvent(action.payload).then(json=>{
-          console.log(json)
-          action.asyncDispatch(mainAction(ACTIONS.UPDATE_EVENT_SUCCESS,json.data.data))
-        }).catch(err=>{
-         // action.asyncDispatch(mainAction(ACTIONS.UPDATE_EVENT_FAIL,err))
-        })
-
+        db.collection("events").doc("aa193720-9482-11ea-9b06-bd9ba17d908b")
+        .update(action.payload).then(()=>{
+           action.asyncDispatch(mainAction(ACTIONS.UPDATE_EVENT_SUCCESS,action.payload))
+        });
         return state
       }
       case ACTIONS.UPDATE_EVENT_SUCCESS: {

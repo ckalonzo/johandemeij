@@ -40,13 +40,30 @@ export default function postsReducer (state = initialState, action) {
         return state
       }
       case ACTIONS.LOAD_DASHBOARD_POSTS: {
-        
-        fetch('http://127.0.0.1:5021/api/loadAllPosts')
-         .then((data) => data.json())
-         .then((res) => {
-           action.asyncDispatch(mainAction(ACTIONS.LOAD_DASHBOARD_POSTS_SUCCESS,res.data))
-         }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_DASHBOARD_POSTS_FAIL,err)))
-        
+
+        let stateCopy = ''
+        let _id = ''
+        db.collection("posts")
+      .orderBy('postDate','desc')
+      .get()
+      .then(snapshotChanges => {
+        const data = snapshotChanges.docs.map(doc => {
+          _id=doc.id
+          return doc.data()});
+        stateCopy = data;
+
+        //=======================================================
+          db.collection("postimages")
+          .get()
+          .then(querySnapshot => {
+            const data = querySnapshot.docs.map(doc => doc.data());
+            stateCopy.map((post,i)=>{
+            return stateCopy[i].image = data.filter(image => image.albumID === stateCopy[i].ID)
+            })
+            action.asyncDispatch(mainAction(ACTIONS.LOAD_DASHBOARD_POSTS_SUCCESS,stateCopy))
+          });
+        //========================================================
+      });
          return state
        }
        case ACTIONS.LOAD_DASHBOARD_POSTS_SUCCESS: {

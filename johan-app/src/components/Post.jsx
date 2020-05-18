@@ -30,7 +30,7 @@ const Post = (props) => {
             backgroundPosition:"50% 50%"
         }
          return  <div style={{maxHeight:"auto",overflow:"hidden",textAlign:"center"}}>
-            <img src={props.post[0] ? "/images/posts/"+props.post[0].image[0].imageName:"/images/missing.png"} style={styles} alt="" />
+            <img src={props.post[0] ? "https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F"+props.post[0].image[0].imageName+"?alt=media":"/images/missing.png"} style={styles} alt="" />
          </div>
     }
 

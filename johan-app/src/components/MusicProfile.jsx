@@ -12,9 +12,7 @@ const MusicProfile= (props)=>{
         window.scrollTo(0,0)
         document.title = "JohanDeMeij.com | Music Profile"
         props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
-     //  let profile = props.allPresentations.filter(music => music.id === props.match.params.id)
-     props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE,props.match.params.id)
-      
+        props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE,props.match.params.id)
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
@@ -31,6 +29,7 @@ const renderImage = (image,caption) => {
         <div  style={{fontSize:".9rem",margin:"15px 0"}}>{caption}</div></Row>
     </>)
 }
+
 
 const renderProfile = () => {
     return(<>
@@ -69,7 +68,7 @@ const renderProfile = () => {
         </section>
         </>)
 }
-
+console.log(props.profile)
  return(<>
 { props.profile ? renderProfile():<div style={{margin:"100px",textAlign:"center"}}><Container>Loading...</Container></div>}
  </>)

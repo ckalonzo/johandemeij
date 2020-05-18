@@ -57,3 +57,19 @@ table {
     }
      margin-bottom: 100px;
 }
+.dashboard {
+    padding:50px 0;
+   // background-color: rgba($color: #6f7495, $alpha: .25);
+    ul.sidebar {
+        background:#fff;
+        border:1px solid rgba($color: #6f7495, $alpha: .25);
+        padding:15px 35px 15px 10px;
+        li {
+            white-space: nowrap;
+        }
+        li.active-nav-item {
+            color: #000;
+    font-weight: bold;
+        }
+    }
+}

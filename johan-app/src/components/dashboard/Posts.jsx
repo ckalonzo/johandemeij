@@ -20,9 +20,9 @@ const Posts = (props) => {
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     const deletePost = (_id,ID,imageID) => {
-     
-     props.actions.mainAction(ACTIONS.DELETE_POST_IMAGE,{image:imageID,post:ID})
-     props.actions.mainAction(ACTIONS.DELETE_POST,{image:_id,post:ID})
+     console.log(_id,ID,imageID)
+    // props.actions.mainAction(ACTIONS.DELETE_POST_IMAGE,{image:imageID,post:ID})
+    // props.actions.mainAction(ACTIONS.DELETE_POST,{image:_id,post:ID})
     } 
     const handleClick = (props) => {
         //setSection("edit")
@@ -57,7 +57,7 @@ const Posts = (props) => {
     
     if(section === "list") {
         return (<>
-        <Container id="dashboard">
+        <Container  className="dashboard">
         <Row>
             <Col lg={{span:2}}>
                <SideNav />

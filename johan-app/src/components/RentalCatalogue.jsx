@@ -36,7 +36,7 @@ const RentalCatalogue  = (props) => {
     </tr>
   </thead>
   <tbody>
-    {Object.values(props.catalogue).map(catalogue=>{
+    {props.catalogue ? Object.values(props.catalogue).map(catalogue=>{
         return (<tr onClick={()=>loadProfile(catalogue.link)}>
             <td>{catalogue.catalogueNumber}</td>
             <td>{catalogue.title}</td>
@@ -46,7 +46,7 @@ const RentalCatalogue  = (props) => {
             <td>{catalogue.priceInEuros}</td>
             <td>{catalogue.priceInDollars}</td>
             </tr>)
-    })}
+    }) :"Loading..."}
   </tbody>
 </Table>  
         </Col>

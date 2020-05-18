@@ -38,7 +38,7 @@ const Posts = (props) => {
     }
     if(section === "list") {
         return (<>
-        <Container id="dashboard">
+        <Container   className="dashboard">
         <Row>
             <Col lg={{span:2}}>
                <SideNav />

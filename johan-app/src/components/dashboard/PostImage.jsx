@@ -34,8 +34,8 @@ const ProfileImage = (props) => {
         cover:coverLocation,
         updatedAt:Date.now()
       }
-     
-       mainProps.actions.mainAction(ACTIONS.UPLOAD_IMAGE,_.cloneDeep(image))
+     console.log(image)
+     //  mainProps.actions.mainAction(ACTIONS.UPLOAD_IMAGE,_.cloneDeep(image))
         // setUploadStatus(true)
       }
       
@@ -47,7 +47,8 @@ const ProfileImage = (props) => {
         caption,
         cover:coverLocation
       }
-       mainProps.actions.mainAction(ACTIONS.UPLOAD_POST_IMAGE,image)
+      console.log(image)
+      // mainProps.actions.mainAction(ACTIONS.UPLOAD_POST_IMAGE,image)
       }
       const deletePostImage = (id) => {
        mainProps.actions.mainAction(ACTIONS.DELETE_POST_IMAGE,{image:id,post:props.currentPost})
@@ -57,7 +58,6 @@ const ProfileImage = (props) => {
         setFile(e.target.files[0])
         setUploadStatus(true)
       } 
-    
       const renderUploadButtons = (_id) => {
         if(selectedFile && uploadStatus)
         return <Button variant="dark" onClick={()=>uploadImage()}>upload</Button>
@@ -71,20 +71,18 @@ const ProfileImage = (props) => {
         return <Button variant="warning" onClick={()=>insertImage()}>upload</Button>
         return <Button variant="primary" onClick={(e)=>selecteImageToUpload(e)} >Insert image</Button>
       }
-
       const selecteImageToUpload = (e) => {
         document.querySelector('input#post-image').click()
       }
       let postImage = Object.values(props.postImage?props.postImage:[]).map(image => {
         return image
       })
-      //if(props.length > 0)
     return(
         <section id="images">
           <Form noValidate validated={validated} onSubmit={handleImageSubmit}>
             <Row>
             <Col lg={{span:2}} className="post-image">
-             <img src={props.postImage.postImage.length > 0 ? "/images/posts/"+props.imageName:selectedFile}  onClick={(e)=>selecteImageToUpload(e)} />
+             <img src={props.imageName ? "/images/posts/"+props.imageName:selectedFile}  onClick={(e)=>selecteImageToUpload(e)} />
     <div style={{marginTop:"15px",textAlign:"center",font: "400 8px/10px 'Work Sans', sans-serif"}}>{!uploadStatus ? props.imageName:""}</div>
             </Col>
              <Col lg={{span:6}} className="caption">
@@ -116,7 +114,7 @@ const ProfileImage = (props) => {
                   </Form.Group>
                   </Form.Row>
                </Col>
-               <Col lg={{span:4}}  className="action-button">{props.postImage.postImage.length > 0 ? renderUploadButtons(props._id):renderInsertButtons()}<input type="file" id="post-image" onChange={(e)=>onChangeHandler(e)}/></Col>
+               <Col lg={{span:4}}  className="action-button">{props.imageName ? renderUploadButtons(props._id):renderInsertButtons()}<input type="file" id="post-image" onChange={(e)=>onChangeHandler(e)}/></Col>
                </Row>
             </Form>
           </section>

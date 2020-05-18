@@ -15,15 +15,14 @@ const Dashboard = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
-    console.log(props)
     return(<>
-    <Container id="dashboard">
+    <Container className="dashboard">
         <Row>
-            <Col lg={{span:3}}>
+            <Col lg={{span:2}}>
                <SideNav />
             </Col>
             <Col lg={{span:9}}>
-              test
+             
             </Col>
         </Row>
     </Container>
