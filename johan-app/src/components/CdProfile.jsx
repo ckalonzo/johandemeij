@@ -11,8 +11,8 @@ const CdProfile= (props)=>{
     useEffect(() => {
         window.scrollTo(0,0)
         document.title = "JohanDeMeij.com | Music Profile"
-        props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
-        props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE,props.match.params.id)
+       // props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
+        props.actions.mainAction(ACTIONS.LOAD_CD,props.match.params.id)
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
@@ -37,10 +37,8 @@ const renderProfile = () => {
            <Container>
                <Row>
                <Col lg={{span:8}}>
-        <h1>{props.profile.cdName}</h1>
-        <h3>{props.profile.subTitle}</h3>
-        <h5>{`Composer: ${props.profile.subTitle}`}</h5>
-        <p>{ReactHtmlParser(props.profile.synopsis ? CleanUpSynopsis(props.profile.synopsis):"props.profile.synopsis")}</p>
+        <h1>{props.profile.cd_name}</h1>
+        <p>{ReactHtmlParser(props.profile.synopsis ? CleanUpSynopsis(props.profile.synopsis):"")}</p>
                    </Col>
                    <Col lg={{span:4}}>
                         {props.profile.frontCover ? renderImage(props.profile.frontCover,props.profile.frontCaption):""}
@@ -75,7 +73,7 @@ console.log(props.profile)
 }
 function mapStateToProps(state) {
     return {
-        profile:state.CdProfileReducer,
+        profile:state.cdReducer,
         allPresentations:state.musicReducer.allPresentations
     };
   }

@@ -31,6 +31,7 @@ export default function cdReducer (state = initialState, action) {
             .get()
             .then(querySnapshot => {
               const data = querySnapshot.docs.map(doc => doc.data());
+              console.log(data)
               action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_SUCCESS,data))
             });
             return state
@@ -60,16 +61,16 @@ export default function cdReducer (state = initialState, action) {
         return state
         }
         case ACTIONS.UPDATE_CD_IMAGE:{
-            let stateCopy = _.cloneDeep(action.payload)
-             let image = stateCopy.image
-             updateCdImage(image).then((json)=>{
+            // let stateCopy = _.cloneDeep(action.payload)
+            //  let image = stateCopy.image
+            //  updateCdImage(image).then((json)=>{
     
-              if(json.status!==404 || json.status!==500) {
-                action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_IMAGE_SUCCESS,{submitted:stateCopy,json}))
-              } else {
-                action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_IMAGE_FAIL,json.response.message))
-              }
-            }).catch(err => action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_IMAGE_FAIL,err)))
+            //   if(json.status!==404 || json.status!==500) {
+            //     action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_IMAGE_SUCCESS,{submitted:stateCopy,json}))
+            //   } else {
+            //     action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_IMAGE_FAIL,json.response.message))
+            //   }
+            // }).catch(err => action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_IMAGE_FAIL,err)))
           
             return state
         }
@@ -92,17 +93,17 @@ export default function cdReducer (state = initialState, action) {
             return state
         }
         case ACTIONS.UPLOAD_CD_IMAGE:{
-          let stateCopy = _.cloneDeep(action.payload)
-           let image = stateCopy.image
-           console.log(action)
-           uploadCDImage(image).then((json)=>{
+          // let stateCopy = _.cloneDeep(action.payload)
+          //  let image = stateCopy.image
+          //  console.log(action)
+          //  uploadCDImage(image).then((json)=>{
   
-            if(json.status!==404 || json.status!==500) {
-              action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_SUCCESS,{submitted:stateCopy,json}))
-            } else {
-              action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_FAIL,json.response.message))
-            }
-          }).catch(err => action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_FAIL,err)))
+          //   if(json.status!==404 || json.status!==500) {
+          //     action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_SUCCESS,{submitted:stateCopy,json}))
+          //   } else {
+          //     action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_FAIL,json.response.message))
+          //   }
+          // }).catch(err => action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_FAIL,err)))
         
           return state
         }

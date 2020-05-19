@@ -23,6 +23,9 @@ const Music  = (props) => {
         props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE,profile)
         props.history.push('/music/profile/'+id)
     }
+    const reloadPage = ()=>{
+        props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
+    }
     return (<>
     <section className="music">
     <Container>
@@ -36,7 +39,7 @@ const Music  = (props) => {
             </ul>
         </Col>
         </Row>
-        {categoryID === 0 ?  props.history.push('/music') : ""}
+        {categoryID === 0 ?   reloadPage(): ""}
         {categoryID === 5 ? <SorenHyldgaard /> : ""}
         {categoryID === 9 ? <Cds {...props} /> : ""}
         <Row>

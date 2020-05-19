@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
-import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom"
+
 const Cds = (props) => {
     useEffect(() => {
         window.scrollTo(0,0)
@@ -28,7 +29,7 @@ const Cds = (props) => {
             padding:"115px 0 0 0"
         }
             return <li key={cd.id} style={styles} onClick={()=>{loadCdProfile(cd.id)}}>
-                <div className="title">{cd.cd_name}</div>
+                <div className="title"><Link to={`/cd/profile/${cd.id}`}>{cd.cd_name}</Link></div>
             </li>
         })}
         </ul>

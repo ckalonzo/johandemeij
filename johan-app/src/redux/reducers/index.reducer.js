@@ -6,6 +6,7 @@ import postImageReducer from "redux/reducers/postImage.reducer"
 import presentationsReducer from "redux/reducers/presentations.reducer"
 import presentationReducer from "redux/reducers/presentation.reducer"
 import cdsReducer from "redux/reducers/cds.reducer"
+import cdReducer from "redux/reducers/cd.reducer"
 import catalogueReducer from "redux/reducers/musicCatalogue.reducer"
 import agendaReducer from "redux/reducers/agenda.reducer"
 import musicReducer from "redux/reducers/music.reducer"
@@ -21,6 +22,7 @@ const indexReducer = combineReducers({
   AllAgendasReducer,
   catalogueReducer,
   cdsReducer,
+  cdReducer,
   eventsReducer,
   orderReducer, 
   musicReducer,
