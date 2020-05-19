@@ -256,10 +256,12 @@ section.agenda-full {
     margin: 15px 0;
     background: rgba(234, 234, 234, 0.3);
     min-height: 215px; }
+  section.agenda .orchestra,
+  section.agenda-full .orchestra {
+    font-size: 1rem; }
   section.agenda .title,
   section.agenda-full .title {
-    font-size: 1rem;
-    margin-bottom: 10px; }
+    font-size: .75rem; }
   section.agenda .conductor span,
   section.agenda-full .conductor span {
     font-style: italic; }
@@ -267,24 +269,26 @@ section.agenda-full {
 .agenda-list {
   font-size: .8rem; }
   .agenda-list .title {
-    padding-top: 15px;
     font: 900 14px/16px 'Montserrat', sans-serif; }
   .agenda-list .time, .agenda-list .momth {
     color: #fe5c56; }
   .agenda-list .date {
     padding: 10px 0 5px 0;
     text-align: center;
-    background: #c5c5c5;
+    background: rgba(174, 174, 162, 0.3);
     outline: 1px solid #fff;
     color: #9a0000; }
     .agenda-list .date .day {
       font: 900 38px/40px 'Montserrat', sans-serif;
       line-height: 2rem;
-      color: #FFF; }
+      color: #000; }
     .agenda-list .date .year {
-      color: #FFF; }
+      color: #000;
+      font-size: 1rem; }
   .agenda-list .agenda-info {
-    border-bottom: 1px solid #000; }
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(174, 174, 162, 0.3); }
 
 section.about {
   border-top: 1px solid #eaeaea;
