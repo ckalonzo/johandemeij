@@ -102,14 +102,20 @@ table .post-title {
     vertical-align: middle !important;
     font: 900 14px/16px 'Montserrat', sans-serif;
     text-align: center; }
-  .RentalCatalogue td {
+  .RentalCatalogue td.catalogue-title,
+  .RentalCatalogue td.catalogue-number,
+  .RentalCatalogue td.catalogue-composer a {
     color: #9a0000; }
-  .RentalCatalogue tr:hover {
+  .RentalCatalogue td.catalogue-title:hover,
+  .RentalCatalogue td.catalogue-number:hover,
+  .RentalCatalogue td.catalogue-composer a :hover {
     text-decoration: underline;
     cursor: pointer; }
-  .RentalCatalogue thead tr:hover {
+  .RentalCatalogue thead tr:hover,
+  .RentalCatalogue tr:hover {
     text-decoration: none;
-    cursor: auto; }
+    cursor: auto;
+    color: #000; }
 
 .order .location {
   font: 400 14px/16px 'Work Sans', sans-serif;
@@ -524,9 +530,6 @@ section.music {
 
 .btn-primary:hover {
   background: #000; }
-
-.RentalCatalogue table tr:hover {
-  color: #9a0000; }
 
 .maintence-box {
   padding: 50px;

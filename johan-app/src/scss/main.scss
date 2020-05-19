@@ -114,16 +114,22 @@ table {
         font: 900 14px/16px 'Montserrat', sans-serif;
         text-align: center;
     }
-    td {
+    td.catalogue-title,
+    td.catalogue-number,
+    td.catalogue-composer a {
         color:#9a0000;
     }
-    tr:hover {
+    td.catalogue-title:hover,
+    td.catalogue-number:hover,
+    td.catalogue-composer a :hover {
         text-decoration: underline;
         cursor: pointer;
     }
-    thead tr:hover {
+    thead tr:hover,
+    tr:hover{
         text-decoration: none;
         cursor: auto;
+        color:#000
     }
 }
 .order {
@@ -191,11 +197,7 @@ table {
 .btn-primary:hover {
     background:#000;
 }
-.RentalCatalogue {
-    table tr:hover {
-        color:#9a0000;
-    }
-}
+
 .maintence-box {
     padding:50px;
     border: 5px solid #aeaeae;

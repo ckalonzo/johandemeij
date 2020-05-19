@@ -17,6 +17,9 @@ const RentalCatalogue  = (props) => {
     const loadProfile = (id) =>{
       props.history.push('/music/profile/'+id)
   }
+  const renderComposerLink = (composer) =>{
+   return  ReactHtmlParser(composer.toLowerCase().replace("johan de meij","<a href='/biography'>Johan de Meij</a>"))
+  } 
     return (<>
     <section className="RentalCatalogue">
     
@@ -37,14 +40,14 @@ const RentalCatalogue  = (props) => {
   </thead>
   <tbody>
     {props.catalogue ? Object.values(props.catalogue).map(catalogue=>{
-        return (<tr onClick={()=>loadProfile(catalogue.link)}>
-            <td>{catalogue.catalogueNumber}</td>
-            <td>{catalogue.title}</td>
-            <td>{catalogue.instrumentation}</td>
-            <td>{catalogue.composerArranger}</td>
-            <td>{catalogue.duration}</td>
-            <td>{catalogue.priceInEuros}</td>
-            <td>{catalogue.priceInDollars}</td>
+        return (<tr>
+            <td className="catalogue-number" onClick={()=>loadProfile(catalogue.link)}>{catalogue.catalogueNumber}</td>
+            <td className="catalogue-title" onClick={()=>loadProfile(catalogue.link)}>{catalogue.title}</td>
+            <td className="catalogue-instrumentation" >{catalogue.instrumentation}</td>
+            <td className="catalogue-composer" >{renderComposerLink(catalogue.composerArranger)}</td>
+            <td className="catalogue-duration" >{catalogue.duration}</td>
+            <td className="catalogue-euros" >{catalogue.priceInEuros}</td>
+            <td className="catalogue-dollars" >{catalogue.priceInDollars}</td>
             </tr>)
     }) :"Loading..."}
   </tbody>
