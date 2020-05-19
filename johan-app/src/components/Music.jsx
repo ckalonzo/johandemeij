@@ -36,8 +36,9 @@ const Music  = (props) => {
             </ul>
         </Col>
         </Row>
+        {categoryID === 0 ?  props.history.push('/music') : ""}
         {categoryID === 5 ? <SorenHyldgaard /> : ""}
-        {categoryID === 9 ? <Cds /> : ""}
+        {categoryID === 9 ? <Cds {...props} /> : ""}
         <Row>
             <Col lg={{span:6}}>
             <ul>

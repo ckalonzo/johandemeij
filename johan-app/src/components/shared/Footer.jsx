@@ -4,6 +4,7 @@ const Footer = () => {
     const [orchestraEnsemble, setOrchestraEnsemble] = useState();
     const [conductor, setConductor] = useState();
     const [nameOfPiece, setNameOfPiece] = useState();
+    const [location, setLocation] = useState();
     const [validated, setValidated] = useState(false);
     useEffect(() => {
         // Update the document title using the browser API
@@ -84,7 +85,7 @@ const Footer = () => {
                     size="sm" 
                       required
                       type="text"
-                      placeholder="Name of Piece:"
+                      placeholder="Name of Piece(s):"
                       defaultValue={nameOfPiece}
                       onChange={e => setNameOfPiece(e.target.value)}
                       
@@ -96,13 +97,14 @@ const Footer = () => {
                   </Form.Group>
                   
                 </Form.Row>
+               
                 <Form.Row>
                   <Form.Group as={Col} controlId="date">
                     <Form.Control
                     size="sm" 
                       required
                       type="text"
-                      placeholder="Date, Time, Location:"
+                      placeholder="Date, Time:"
                       defaultValue={""}
                       onChange={e => setConductor(e.target.value)}
                       
@@ -114,7 +116,24 @@ const Footer = () => {
                   </Form.Group>
                   
                 </Form.Row>
-
+                <Form.Row>
+                  <Form.Group as={Col} controlId="date">
+                    <Form.Control 
+                        size="sm" 
+                      required
+                      type="text"
+                      placeholder="Location"
+                      defaultValue={location}
+                      onChange={e => setLocation(e.target.value)}
+                      
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        Please provide a product location.
+                      </Form.Control.Feedback>
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  </Form.Group>
+                  
+                </Form.Row>
                 <Button className="jdm-button" type="submit">Send</Button>
               </Form> 
 
@@ -126,10 +145,10 @@ const Footer = () => {
 <Col md={4} className="social-media">
 <h5 className="text-uppercase">Social Media</h5>
 <ul>
-    <li><a href="http://www.facebook.com/johan.demeij?sk=wall" className="fa fa-facebook">&nbsp;</a>
+    <li><a href="http://www.facebook.com/johan.demeij?sk=wall" target="_blank" className="fa fa-facebook">&nbsp;</a>
 </li>
-<li><a href="http://twitter.com/JohandeMeij?utm_campaign=newfollow20100823&utm_content=profile&utm_medium=email&utm_source=follow" className="fa fa-twitter">&nbsp;</a></li>
-<li><a href="http://twitter.com/JohandeMeij?utm_campaign=newfollow20100823&utm_content=profile&utm_medium=email&utm_source=follow" className="fa fa-linkedin">&nbsp;</a></li>
+<li><a href="http://twitter.com/JohandeMeij?utm_campaign=newfollow20100823&utm_content=profile&utm_medium=email&utm_source=follow" target="_blank" className="fa fa-twitter">&nbsp;</a></li>
+<li><a href="http://www.linkedin.com/pub/johan-de-meij/3/667/399" target="_blank" className="fa fa-linkedin">&nbsp;</a></li>
 </ul>
 </Col>
     </Row>

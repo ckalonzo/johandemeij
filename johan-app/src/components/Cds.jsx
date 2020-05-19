@@ -11,11 +11,15 @@ const Cds = (props) => {
        props.actions.mainAction(ACTIONS. LOAD_CDS,{})
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-    
+    const loadCdProfile = (id) => {
+      props.history.push('/cd/profile/'+id)
+    }
+    console.log(props)
     return (<>
     <section className="cds">
         <ul>
         {Object.values(props.cds).map((cd)=>{
+          console.log(cd)
             let styles={
                 width:"100px",
             backgroundImage:`url(/images/music_catalogue/${cd.cdImage})`,
@@ -23,7 +27,7 @@ const Cds = (props) => {
             backgroundRepeat: "no-repeat",
             padding:"115px 0 0 0"
         }
-            return <li key={cd._id} style={styles}>
+            return <li key={cd.id} style={styles} onClick={()=>{loadCdProfile(cd.id)}}>
                 <div className="title">{cd.cd_name}</div>
             </li>
         })}

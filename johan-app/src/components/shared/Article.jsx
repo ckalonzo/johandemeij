@@ -25,7 +25,7 @@ const Article = (props) => {
       const renderImage = (props) => {
         if(props.image[0]){
           
-        return <a href={`/post/${props.ID}?alt=media`}><img src={"https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F"+props.image[0].imageName+"?alt=media"} width="100%" max-height="180px" /></a>}
+        return <a href={`/post/${props.ID}`}><img src={"https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F"+props.image[0].imageName+"?alt=media"} width="100%" max-height="180px" /></a>}
         //setLoadeImage("/images/posts/"+props.image[0].imageName)
         return <img src={loadedImage} width="100%" height="180px" />
       }

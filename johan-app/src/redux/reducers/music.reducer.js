@@ -47,28 +47,13 @@ export default function musicReducer (state = initialState, action) {
         return state
       }
       case ACTIONS.LOAD_MUSIC_BY_CATEGORY:{
- 
 
-        let query =  db.collection("presentations")
-        console.log(query)
-        if(action.payload ===1){
-          query = query.where("category","==", '1')
-        } else if(action.payload ===2){
-          query = query.where("category","==", '2')
-        } else if(action.payload ===3){
-          query = query.where("category","==", '3')
-        } else if(action.payload ===4){
-          query = query.where("category","==", '4')
-        } else if(action.payload ===5){
-          query = query.where("category","==", '5')
-        } else if(action.payload ===6){
-          query = query.where("category","==", '6')
-        }
-        console.log("category","==",action.payload)
-       query.get()
+        db.collection("presentations").
+        where("category","==", action.payload.toString()).
+        orderBy('cdName', 'asc').
+        get()
         .then(querySnapshot => {
           const data = querySnapshot.docs.map(doc => doc.data());
-          console.log(data)
           action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_SUCCESS,data))
         });
          return state 

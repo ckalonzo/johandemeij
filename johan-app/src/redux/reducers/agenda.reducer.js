@@ -26,29 +26,77 @@ export default function agendaReducer (state = initialState, action) {
         return state
       }
       case ACTIONS.LOAD_AGENDAS: {
+        let agendas = []
         let d = new Date();
         let day = d.getDay();
-        let month = d.getMonth() + 1
-        let year = d.getFullYear();
-        db.collection("agendas")
-       .where("year",'==',"2020")
-       .where("month",'>=',"5")
-         .get()
-         .then(querySnapshot => {
-           const data = querySnapshot.docs.map(doc => doc.data());
-           action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,data))
-         });
+        let month = (d.getMonth() + 1).toString()
+        let year = d.getFullYear().toString();
+      //   db.collection("agendas")
+      //  .where("year",'==',year)
+      //  .where("month",'>=',month)
+      //    .get()
+      //    .then(querySnapshot => {
+      //      const data = querySnapshot.docs.map(doc => doc.data());
+      //      agendas = data
+      //     action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,data))
+          
+      //    });
+
+
+
+
+
+
+         let stateCopy = ''
+         //=======================================================
+         db.collection("agendas")
+       .where("year",'==',year)
+       .where("month",'>=',month)
+        .get()
+        .then(querySnapshot => {
+          const data = querySnapshot.docs.map(doc => doc.data());
+          stateCopy = data;
+  
+          //=======================================================
+            db.collection("presentations")
+           // .where("id","==",stateCopy.cd.toString())
+           .get()
+            .then(querySnapshot => {
+              const data = querySnapshot.docs.map(doc => doc.data());
+
+              stateCopy.map((post,i)=>{
+
+              let title = data.filter(presentation=>presentation.id===post.cd).map(presentation=>{return presentation.cdName})
+             
+              return post.title = title[0]
+              })
+
+              action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,stateCopy))
+            });
+          //========================================================
+        });
+
+
+
         return state
       }
       case ACTIONS.LOAD_AGENDAS_SUCCESS:{
-        let d = new Date();
-        let day = d.getDate();
-        let stateCopy = []
-        action.payload.map(agenda=>{
-         // if(agenda.day > day)
-          return stateCopy.push(agenda)
+        let stateCopy = _.cloneDeep(action.payload)
+        
+        stateCopy.map((agenda,i)=>{
+          
+          db.collection("presentations")
+          .where("id","==",agenda.cd.toString())
+          .get()
+          .then(querySnapshot => {
+            const data = querySnapshot.docs.map(doc => doc.data());
+            agenda.title=data[0].cdName
+           // action.asyncDispatch(mainAction(ACTIONS.LOAD_ALL_AGENDAS_SUCCESS,data))
+          });
         })
-        return stateCopy
+        console.log(stateCopy)
+
+        return action.payload
       }
       case ACTIONS.LOAD_AGENDAS_FAIL:{
         return state

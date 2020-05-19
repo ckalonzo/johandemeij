@@ -22,6 +22,7 @@ import News from "components/News"
 import RentalCatalogue from "components/RentalCatalogue";
 import AgendaList from "components/AgendaList"
 import MusicProfile from "components/MusicProfile"
+import CdProfile from "components/CdProfile"
 import NewPost from "components/dashboard/NewPost"
 import DashboardEvents from "components/dashboard/DashboardEvents"
 import EditEvent from "components/dashboard/EditEvent"
@@ -63,6 +64,7 @@ const SiteRouter = () => {
                  <Route path="/post/:id" component={Post} />
                  <Route path="/agenda" component={AgendaList} />
                  <Route path="/news" component={News} history={history} />
+                 <Route path="/cd/profile/:id" component={CdProfile} />
                  <Route path="/" component={Home} history={history} />
              </Switch>
             </Router>

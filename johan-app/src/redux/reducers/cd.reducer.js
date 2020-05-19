@@ -1,5 +1,6 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
+import { db } from "../../firebase";
 import  _ from "lodash"
 import {createCd,updateCd,updateCdImage,uploadCDImage} from "API/indexAPI"
 const initialState = {};
@@ -24,12 +25,14 @@ export default function cdReducer (state = initialState, action) {
         case ACTIONS.LOAD_CD: {
         let stateCopy = _.cloneDeep(state)
         stateCopy.currentID = action.payload
-            fetch ('http://127.0.0.1:5021/api/loadCDByID/'+ action.payload)
-            .then((data)=> data.json())
-            .then((res) => {
-            action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_SUCCESS,res.data))
-            
-            }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_FAIL,err)))
+
+            db.collection("cds")
+            .where("id","==",action.payload)
+            .get()
+            .then(querySnapshot => {
+              const data = querySnapshot.docs.map(doc => doc.data());
+              action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_SUCCESS,data))
+            });
             return state
         }
         case  ACTIONS.LOAD_CD_SUCCESS:{
