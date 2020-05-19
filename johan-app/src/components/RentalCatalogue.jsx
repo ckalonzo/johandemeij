@@ -18,7 +18,8 @@ const RentalCatalogue  = (props) => {
       props.history.push('/music/profile/'+id)
   }
   const renderComposerLink = (composer) =>{
-   return  ReactHtmlParser(composer.toLowerCase().replace("johan de meij","<a href='/biography'>Johan de Meij</a>"))
+  
+    return  ReactHtmlParser(composer.toLowerCase().replace(/johan de meij|johan de  meij/g,"<a href='/biography'>Johan de Meij</a>"))
   } 
     return (<>
     <section className="RentalCatalogue">
