@@ -11,7 +11,7 @@ const List = (props) => {
         <div>
             <div className="orchestra">{props.orchestra}</div>
             <div className="title"><Link to={"/music/profile/"+props.cd}>{props.title}</Link></div>
-            <div className="time">{props.time}</div>
+            <div className="time">{`${dayjs(props.month).format('MMMM')} ${props.day} ${props.year} ${props.time}`}</div>
             <div className="location">{`${props.country}  ${props.city}`}</div>
         </div>
     

@@ -271,7 +271,7 @@ section.agenda-full {
   .agenda-list .title {
     font: 900 14px/16px 'Montserrat', sans-serif; }
   .agenda-list .time, .agenda-list .momth {
-    color: #fe5c56; }
+    color: #aeaeae; }
   .agenda-list .date {
     padding: 10px 0 5px 0;
     text-align: center;
@@ -281,7 +281,8 @@ section.agenda-full {
     .agenda-list .date .day {
       font: 900 38px/40px 'Montserrat', sans-serif;
       line-height: 2rem;
-      color: #000; }
+      color: #000;
+      font-weight: lighter; }
     .agenda-list .date .year {
       color: #000;
       font-size: 1rem; }
