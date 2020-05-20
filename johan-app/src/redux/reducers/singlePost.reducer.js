@@ -45,29 +45,16 @@ export default function singlePostReducer (state = initialState, action) {
         return state
       }
       case ACTIONS.DELETE_POST:{
-        
-        // let stateCopy = _.cloneDeep(state)
-        // deletePost(action.payload.image)
-        // .then((json)=>{
-        //   action.asyncDispatch(mainAction(ACTIONS.DELETE_POST_SUCCESS,json))
-        // })
-        // .catch(err=>{
-        //   action.asyncDispatch(mainAction(ACTIONS.DELETE_POST_FAIL,err))
-        // })
-        // stateCopy.currentID = action.payload.post
-         //////====>
+
          db.collection("posts")
-         //.where("ID",'==',action.payload)
          .remove("ID",'==',parseInt(action.payload,10))
           .get()
           .then(querySnapshot => {
             const data = querySnapshot.docs.map(doc => {
-           //  post_id=doc.id
+
              return doc.data()}); 
- 
-          
           });
-           //////====>
+
         return state
       }  
       case ACTIONS.DELETE_POST_SUCCESS:{
@@ -246,7 +233,6 @@ export default function singlePostReducer (state = initialState, action) {
       case ACTIONS.UPLOAD_POST_IMAGE_FAIL:{
         return state
       }
-      
       default: 
         return state
        

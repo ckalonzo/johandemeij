@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Nav,Col,Row,Container,Form,Button} from "react-bootstrap"
-const Footer = () => {
+import { ACTIONS } from "redux/actions/types"
+import { mainAction } from "redux/actions/index.actions"
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+const Footer = (props) => {
     const [orchestraEnsemble, setOrchestraEnsemble] = useState();
     const [conductor, setConductor] = useState();
     const [nameOfPiece, setNameOfPiece] = useState();
     const [location, setLocation] = useState();
+    const [dateTime, setDateTime] = useState();
     const [validated, setValidated] = useState(false);
     useEffect(() => {
         // Update the document title using the browser API
@@ -22,13 +27,16 @@ const Footer = () => {
         let concertItem = {
             orchestraEnsemble,
             conductor,
-            nameOfPiece
+            nameOfPiece,
+            dateTime,
+            location
         }
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
           event.stopPropagation();
         }
         setValidated(true);
+        props.actions.mainAction(ACTIONS.SUBMIT_CONCERT_INFORMATION,concertItem)
         
       };
     
@@ -105,8 +113,8 @@ const Footer = () => {
                       required
                       type="text"
                       placeholder="Date, Time:"
-                      defaultValue={""}
-                      onChange={e => setConductor(e.target.value)}
+                      defaultValue={dateTime}
+                      onChange={e => setDateTime(e.target.value)}
                       
                     />
                     <Form.Control.Feedback type="invalid">
@@ -162,4 +170,17 @@ const Footer = () => {
 
       </>)
 }
-export default Footer
+function mapStateToProps(state) {
+  
+  return {
+   submission:state.concertInformationReducer
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators({mainAction}, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

@@ -15,6 +15,7 @@ import musicProfileReducer from "redux/reducers/musicProfile.reducer"
 import AllPresentationsReducer from "redux/reducers/allpresentations.reducer"
 import AllAgendasReducer from "redux/reducers/allAgendas.reducer"
 import eventsReducer from "redux/reducers/events.reducer"
+import concertInformationReducer from "redux/reducers/concertInfomation.reducer"
 
 const indexReducer = combineReducers({
   agendaReducer,
@@ -23,6 +24,7 @@ const indexReducer = combineReducers({
   catalogueReducer,
   cdsReducer,
   cdReducer,
+  concertInformationReducer,
   eventsReducer,
   orderReducer, 
   musicReducer,

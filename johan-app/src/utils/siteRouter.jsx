@@ -28,6 +28,7 @@ import DashboardEvents from "components/dashboard/DashboardEvents"
 import EditEvent from "components/dashboard/EditEvent"
 import NewPublication from "components/dashboard/NewPublication"
 import NewCd from "components/dashboard/NewCd"
+import Submissions from "components/dashboard/Submissions";
 //import Maintenance from "components/Maintenance"
 const history = createBrowserHistory();
 const SiteRouter = () => {
@@ -53,6 +54,7 @@ const SiteRouter = () => {
                  <Route path="/dashboard/news/edit/:id" component={EditPost} />
                  <Route path="/dashboard/news" component={Posts} />
 
+                 <Route path="/dashboard/submissions" component={Submissions} />
                  <Route path="/dashboard/" component={dashboard} />
                  
                  <Route path="/order" component={Order} />
