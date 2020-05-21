@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
-import ReactHtmlParser from 'react-html-parser';
 import Location from "components/shared/Location"
 const Order  = (props) => {
   useEffect(() => {

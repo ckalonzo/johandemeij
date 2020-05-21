@@ -20,12 +20,6 @@ export default function musicReducer (state = initialState, action) {
     switch (action.type) {
   
       case ACTIONS.LOAD_MUSIC: {
-      //  fetch('http://127.0.0.1:5021/api/loadPresentations/0/0')
-      //   .then((data) => data.json())
-      //   .then((res) => {
-      //     action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_SUCCESS,res.data))
-      //   }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_FAIL,err)))
-
       db.collection("presentations")
       .orderBy('cdName', 'asc')
         .get()
@@ -33,7 +27,6 @@ export default function musicReducer (state = initialState, action) {
           const data = querySnapshot.docs.map(doc => doc.data());
           action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_SUCCESS,data))
         });
-
         return state
       }
       

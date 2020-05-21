@@ -5,6 +5,8 @@ import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
 import ReactHtmlParser from 'react-html-parser';
+import { render } from "@testing-library/react";
+
 const RentalCatalogue  = (props) => {
   //const [selectedPresentation,setSelectedPresentation]= useState()
     useEffect(() => {
@@ -12,6 +14,7 @@ const RentalCatalogue  = (props) => {
         document.title = "JohanDeMeij.com | Music"
        props.actions.mainAction(ACTIONS.LOAD_MUSIC_CATALOGUE,{})
        props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
+       props.actions.mainAction("GET_MISC_ITEMS",{})
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     const loadProfile = (id) =>{
@@ -21,6 +24,7 @@ const RentalCatalogue  = (props) => {
   
     return  ReactHtmlParser(composer.toLowerCase().replace(/johan de meij|johan de  meij/g,"<a href='/biography'>Johan de Meij</a>"))
   } 
+  
     return (<>
     <section className="RentalCatalogue">
     
@@ -55,6 +59,9 @@ const RentalCatalogue  = (props) => {
 </Table>  
         </Col>
         </Row>
+        <Row>
+  <Col>{ReactHtmlParser(props.miscItems.main_text)}</Col>
+        </Row>
     </Container>
     </section> 
     </>)
@@ -62,7 +69,8 @@ const RentalCatalogue  = (props) => {
 function mapStateToProps(state) {
     return {
         catalogue:state.catalogueReducer,
-        presentations:state.musicReducer.allPresentations
+        presentations:state.musicReducer.allPresentations,
+        miscItems:state.miscItemsReducer
     };
   }
   

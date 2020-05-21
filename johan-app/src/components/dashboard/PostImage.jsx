@@ -4,7 +4,6 @@ import { bindActionCreators } from "redux";
 import { mainAction } from "redux/actions/index.actions"
 import { Form, Row, Col, Button} from "react-bootstrap";
 import { ACTIONS } from "redux/actions/types";
-import _ from "lodash"
 
 const ProfileImage = (props) => {
   let mainProps = props
@@ -12,7 +11,6 @@ const ProfileImage = (props) => {
     const [selectedFile,setSelectedFile] = useState("/images/missing.png")
     const [uploadStatus,setUploadStatus] = useState(false)
     const [caption,setCaption] = useState()
-    const [disabled,setDisabled] = useState(true)
     const [validated, setValidated] = useState(false);
     const [coverLocation,setCoverLocation]= useState("frontCover")
     const [file,setFile] = useState()

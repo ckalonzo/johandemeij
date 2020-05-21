@@ -52,7 +52,7 @@ const Biography  = () => {
     <p>
 	When not traveling, Johan divides his time between his Hudson Valley home and Manhattan apartment with his wife and muse Dyan, cats Lenny &amp; Tosca and dog Lucy</p>
 <p>
-	To follow Johan's whereabouts, please click <a href="http://www.johandemeij.com/events.php">EVENTS</a></p>
+	To follow Johan's whereabouts, please click <a href="/events">EVENTS</a></p>
 <p>
 	&nbsp;</p>
 <p>

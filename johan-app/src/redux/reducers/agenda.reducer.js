@@ -31,21 +31,6 @@ export default function agendaReducer (state = initialState, action) {
         let day = d.getDay();
         let month = (d.getMonth() + 1).toString()
         let year = d.getFullYear().toString();
-      //   db.collection("agendas")
-      //  .where("year",'==',year)
-      //  .where("month",'>=',month)
-      //    .get()
-      //    .then(querySnapshot => {
-      //      const data = querySnapshot.docs.map(doc => doc.data());
-      //      agendas = data
-      //     action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,data))
-          
-      //    });
-
-
-
-
-
 
          let stateCopy = ''
          //=======================================================
@@ -91,10 +76,8 @@ export default function agendaReducer (state = initialState, action) {
           .then(querySnapshot => {
             const data = querySnapshot.docs.map(doc => doc.data());
             agenda.title=data[0].cdName
-           // action.asyncDispatch(mainAction(ACTIONS.LOAD_ALL_AGENDAS_SUCCESS,data))
           });
         })
-        console.log(stateCopy)
 
         return action.payload
       }

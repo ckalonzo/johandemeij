@@ -73,7 +73,7 @@ console.log(eventItem)
                     <CKEditor
                         editor={ ClassicEditor }
                         data={props.event ? props.event.synopsis:content}
-                        toolbar= {'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' }
+                        toolbar= {'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList','blockQuote' }
                         onInit={ editor => {
                             // You can store the "editor" and use when it is needed.
                            // console.log( 'Editor is ready to use!', editor );

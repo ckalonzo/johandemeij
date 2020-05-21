@@ -16,6 +16,7 @@ import AllPresentationsReducer from "redux/reducers/allpresentations.reducer"
 import AllAgendasReducer from "redux/reducers/allAgendas.reducer"
 import eventsReducer from "redux/reducers/events.reducer"
 import concertInformationReducer from "redux/reducers/concertInfomation.reducer"
+import miscItemsReducer from "redux/reducers/miscItems.reducer"
 
 const indexReducer = combineReducers({
   agendaReducer,
@@ -34,7 +35,8 @@ const indexReducer = combineReducers({
   postImagesReducer,
   postImageReducer,
   presentationsReducer,
-  singlePostReducer
+  singlePostReducer,
+  miscItemsReducer
 });
   
   export default indexReducer;

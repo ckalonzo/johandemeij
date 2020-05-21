@@ -29,7 +29,8 @@ const Footer = (props) => {
             conductor,
             nameOfPiece,
             dateTime,
-            location
+            location,
+            status:"unread"
         }
         const form = event.currentTarget;
         if (form.checkValidity() === false) {

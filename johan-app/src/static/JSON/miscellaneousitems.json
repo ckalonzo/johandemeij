@@ -1,8 +1,6 @@
-[{
-  "_id": {
-    "$oid": "5e851518b6332c12cba983f1"
-  },
+{"miscellaneousitems":[{
   "id": "1",
   "misc_title": "Symphony Orchestra",
-  "main_text": "<p>\\r\\n\\r\\nThe Amstel Music Rental Catalogue<p>\\r\\nâ„… Hal Leonard MGB Distribution BV<p>\\r\\nAttn. Willy Krol or Hermanda de Haan<p>\\r\\nBusiness Park Friesland West 15<p>\\r\\nNL-8447 SL Heerenveen - The Netherlands<p>\\r\\nTel. +31 513 653053<p>\\r\\nE-mail: rental@halleonardmgb.nl<p>\\r\\n "
+  "main_text": "<ul><li>The Amstel Music Rental Catalogue</li><li>Hal Leonard MGB Distribution BV</li><li>Attn. Willy Krol or Hermanda de Haan<li>Business Park Friesland West 15</li><li>NL-8447 SL Heerenveen - The Netherlands<p>Tel. +31 513 653053<p>E-mail: rental@halleonardmgb.nl</li><ul/> "
 }]
+}

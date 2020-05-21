@@ -2,7 +2,6 @@ import React, { useEffect,useState} from "react";
 import {Col} from "react-bootstrap"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { ACTIONS } from "redux/actions/types"
 import { mainAction } from "redux/actions/index.actions"
 import dayjs from "dayjs"
 const Article = (props) => {
@@ -11,7 +10,7 @@ const Article = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
     const stripHtml = require("string-strip-html")
-    const {postTitle,postContent,image,_id,postDate,postImage} = props
+    const {postTitle,postContent,postDate,_id} = props
     const [loadedImage,setLoadeImage] = useState("/images/missing.png")
     const truncateString = (str, num) => {
         if (str.length <= num) {

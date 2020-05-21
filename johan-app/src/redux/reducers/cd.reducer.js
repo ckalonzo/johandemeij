@@ -2,7 +2,7 @@ import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
 import { db } from "../../firebase";
 import  _ from "lodash"
-import {createCd,updateCd,updateCdImage,uploadCDImage} from "API/indexAPI"
+import {createCd,updateCd} from "API/indexAPI"
 const initialState = {};
 export default function cdReducer (state = initialState, action) {
     switch (action.type) {
