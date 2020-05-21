@@ -102,6 +102,8 @@ table .post-title {
     vertical-align: middle !important;
     font: 900 14px/16px 'Montserrat', sans-serif;
     text-align: center; }
+  .RentalCatalogue td.catalogue-composer {
+    text-transform: capitalize; }
   .RentalCatalogue td.catalogue-title,
   .RentalCatalogue td.catalogue-number,
   .RentalCatalogue td.catalogue-composer a {
@@ -263,15 +265,16 @@ section.agenda-full {
     margin: 15px 0;
     background: rgba(234, 234, 234, 0.3);
     min-height: 215px; }
+  section.agenda .conductor,
+  section.agenda-full .conductor {
+    font-style: italic;
+    font-size: .9rem; }
   section.agenda .orchestra,
   section.agenda-full .orchestra {
-    font-size: 1rem; }
+    font-size: 1.2rem; }
   section.agenda .title,
   section.agenda-full .title {
     font-size: .75rem; }
-  section.agenda .conductor span,
-  section.agenda-full .conductor span {
-    font-style: italic; }
 
 .agenda-list {
   font-size: .8rem; }

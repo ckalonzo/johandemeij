@@ -9,7 +9,7 @@ import dayjs from "dayjs"
 import ArticleList from "components/shared/ArticleList"
 import _ from "lodash"
 const Post = (props) => {
-    const {postTitle,postDate} = props.post
+    const {postDate} = props.post
     let date = dayjs(postDate)
     // const [post,setPosts] =useState();
     // const [image,setImage] = useState()

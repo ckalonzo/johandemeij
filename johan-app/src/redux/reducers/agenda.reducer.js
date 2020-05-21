@@ -36,7 +36,8 @@ export default function agendaReducer (state = initialState, action) {
          //=======================================================
          db.collection("agendas")
        .where("year",'==',year)
-       .where("month",'>=',month)
+      .where("month",'>=',month)
+      .orderBy("month","asc")
         .get()
         .then(querySnapshot => {
           const data = querySnapshot.docs.map(doc => doc.data());
@@ -75,7 +76,7 @@ export default function agendaReducer (state = initialState, action) {
           .get()
           .then(querySnapshot => {
             const data = querySnapshot.docs.map(doc => doc.data());
-            agenda.title=data[0].cdName
+            agenda.title=data[0] ?data[0].cdName:""
           });
         })
 

@@ -29,9 +29,7 @@ const Article = (props) => {
         return <img src={loadedImage} width="100%" height="180px" />
       }
     const renderArticle = (props,mainProps) => {
-      console.log(props)
       let date = dayjs(postDate)
-      console.log(props.image[0].imageName)
         return (<>
         <div className="news-card">
           <div className="card-image" style={{height:"180px",overflow:"hidden",width:"120px",background:`url(https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${props.image[0].imageName})?alt=media`}}>

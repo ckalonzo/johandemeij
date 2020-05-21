@@ -9,7 +9,7 @@ const Location = (props) => {
     <li className="fulladdress">{`${props.city}, ${props.state} ${props.zip} ${props.subCountry}`}</li>
     <li className="tel">{`Tel.${props.tel}`}</li>
     <li className="fax">{`Fax.${props.fax}`}</li>
-    <li className="email">E-mail: <a href={`"mailto:${props.email}"`}>{props.email}</a></li>
+    <li className="email">E-mail: <a href={`mailto:${props.email}`}>{props.email}</a></li>
     {props.website ? <li className="website">website: <a href={props.website}>{props.website}</a></li>:<li>&nbsp;</li>}
     
     </ul>

@@ -10,7 +10,7 @@ section.agenda-full {
     font-size:.75rem; 
     text-align: left;
    
-    //background: rgba(234, 234, 234, .3);
+   
     color:#000;
     h3,h3 a {
         font: 900 14px/16px 'Roboto', sans-serif;
@@ -22,16 +22,19 @@ section.agenda-full {
         //border:5px solid #fe5c56;
         background: rgba(234, 234, 234, 0.3);
         min-height:215px;
-    }
+    } 
+    .conductor {
+            font-style: italic;
+            font-size:.9rem;
+        }
     .orchestra {
-        font-size:1rem;
+        font-size:1.2rem;
+       
     }
     .title {
         font-size:.75rem; 
     }
-    .conductor span {
-        font-style: italic;
-    }
+   
     .date {
        
     }

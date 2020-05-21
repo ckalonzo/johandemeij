@@ -8,7 +8,6 @@ import { Link } from "react-router-dom"
 const Cds = (props) => {
     useEffect(() => {
         window.scrollTo(0,0)
-       
        props.actions.mainAction(ACTIONS. LOAD_CDS,{})
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])

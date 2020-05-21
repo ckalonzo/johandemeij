@@ -114,10 +114,13 @@ table {
         font: 900 14px/16px 'Montserrat', sans-serif;
         text-align: center;
     }
+    td.catalogue-composer  {
+        text-transform: capitalize;
+    }
     td.catalogue-title,
     td.catalogue-number,
     td.catalogue-composer a {
-        color:#9a0000;
+        color:#9a0000; 
     }
     td.catalogue-title:hover,
     td.catalogue-number:hover,
