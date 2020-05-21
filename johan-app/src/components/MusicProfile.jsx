@@ -13,6 +13,7 @@ const MusicProfile= (props)=>{
         document.title = "JohanDeMeij.com | Music Profile"
         props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
         props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE,props.match.params.id)
+        props.actions.mainAction(ACTIONS. LOAD_CDS,{})
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
@@ -25,14 +26,21 @@ const CleanUpSynopsis = (text)  => {
 }
 const renderImage = (image,caption) => {
     return (<>
-    <Row><div style={{backgroundImage:`url(/images/posts/${image !== null ? image:""})`,backgroundSize:"cover",width:"100%",minHeight:"290px"}}></div>
+    <Row><div style={{backgroundImage:`url(https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${image}?alt=media)`,backgroundSize:"cover",width:"100%",minHeight:"290px"}}>
+       
+    </div>
         <div  style={{fontSize:".9rem",margin:"15px 0"}}>{caption}</div></Row>
     </>)
 }
 
+const renderCdTitle = (ID) =>{
+    let cdTitle = Object.values(props.allCds).filter(cd=>cd.id === ID).map(cd=>cd.cd_name)
+    return cdTitle[0]
+}
+
 
 const renderProfile = () => {
-    return(<>
+    return(<>{renderCdTitle()}
         <section className="music-profile" style={{marginTop:"50px"}}>
            <Container>
                <Row>
@@ -49,10 +57,10 @@ const renderProfile = () => {
                            <div className="details">
                                <h2>Details</h2>
                                <ul>
-    {props.profile.totalTime ?  <li><span>Order numbers:</span>  {ReactHtmlParser(props.profile.totalTime)}</li>:""}
+    {props.profile.totalTime ?  <li><span>Duration:</span>  {ReactHtmlParser(props.profile.totalTime)}</li>:""}
     {props.profile.instrumentation ?  <li><span>Instrumentation:</span>  {ReactHtmlParser(props.profile.instrumentation)}</li>:""}
-    {props.profile.duration ?  <li><span>Duration:</span>  {ReactHtmlParser(props.profile.duration)}</li>:""}
-    {props.profile.cd ?  <li><span>Cd:</span>  {ReactHtmlParser(props.profile.cd)}</li>:""}
+    {props.profile.cd ?  <li><span>Cd:</span>  <a href={"/cd/profile/"+props.profile.cd}>{renderCdTitle(props.profile.cd)}</a></li>:""}
+    {props.profile.codes ?  <li><span>Catalogue/Order number:</span>  {ReactHtmlParser(props.profile.codes)}</li>:""}
                                </ul>
                            </div>
                        </Row>
@@ -68,7 +76,6 @@ const renderProfile = () => {
         </section>
         </>)
 }
-console.log(props.profile)
  return(<>
 { props.profile ? renderProfile():<div style={{margin:"100px",textAlign:"center"}}><Container>Loading...</Container></div>}
  </>)
@@ -76,7 +83,8 @@ console.log(props.profile)
 function mapStateToProps(state) {
     return {
         profile:state.musicProfileReducer,
-        allPresentations:state.musicReducer.allPresentations
+        allPresentations:state.musicReducer.allPresentations,
+        allCds:state.cdsReducer
     };
   }
   
