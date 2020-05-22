@@ -12,6 +12,7 @@
     "copy-files": "^0.1.0",
     "download": "^7.1.0",
     "express": "^4.16.4",
+    "forever": "^2.0.0",
     "fs-extra": "^7.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
@@ -37,11 +38,6 @@
     "client": "npm start --prefix cocomatl-app",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "npm run client-install && npm run client-build"
-  },
-  "proxy": {
-    "/api/*": {
-      "target": "http://localhost:5021"
-    }
   },
   "author": "",
   "license": "ISC"
