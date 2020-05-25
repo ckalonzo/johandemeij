@@ -142,6 +142,9 @@ table .post-title {
 .pagination .active-page a {
   color: #fff; }
 
+.cds {
+  clear: both; }
+
 .navbar {
   background-color: #FFF !important;
   color: #000 !important; }

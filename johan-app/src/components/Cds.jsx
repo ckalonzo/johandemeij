@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
 import { Link } from "react-router-dom"
-
+import { Col,Row} from "react-bootstrap"
 const Cds = (props) => {
     useEffect(() => {
         window.scrollTo(0,0)
@@ -17,6 +17,8 @@ const Cds = (props) => {
     console.log(props)
     return (<>
     <section className="cds">
+      <Row>
+        <Col>
         <ul>
         {Object.values(props.cds).map((cd)=>{
           console.log(cd)
@@ -32,6 +34,9 @@ const Cds = (props) => {
             </li>
         })}
         </ul>
+        </Col>
+      </Row>
+        
     </section>
     </>)
 }
