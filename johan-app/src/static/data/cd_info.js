@@ -1,5 +1,5 @@
 {
-    ck_cd_info: [
+    cd_info: [
       {
         "id": "26",
         "cdId": "32",

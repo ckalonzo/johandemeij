@@ -107,7 +107,8 @@ table .post-title {
   .RentalCatalogue td.catalogue-title,
   .RentalCatalogue td.catalogue-number,
   .RentalCatalogue td.catalogue-composer a {
-    color: #9a0000; }
+    color: #9a0000;
+    text-transform: none; }
   .RentalCatalogue td.catalogue-title:hover,
   .RentalCatalogue td.catalogue-number:hover,
   .RentalCatalogue td.catalogue-composer a :hover {

@@ -1,5 +1,5 @@
 {
-    ck_cds: [
+    cds: [
       {
         "id": "22",
         "cdName": "Casanova",

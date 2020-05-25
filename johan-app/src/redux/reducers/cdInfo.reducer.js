@@ -1,23 +1,46 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
-
+import { db } from "../../firebase";
 const initialState = {};
-export default function postsReducer (state = initialState, action) {
+export default function cdInfoReducer (state = initialState, action) {
     switch (action.type) {
   
-      case ACTIONS.LOAD_POSTS: {
-       fetch('http://127.0.0.1:5021/api/loadPosts')
-        .then((data) => data.json())
-        .then((res) => {
-          action.asyncDispatch(mainAction(ACTIONS.LOAD_POSTS_SUCCESS,res.data))
-        }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_POSTS_FAIL,err)))
+      case ACTIONS.LOAD_CD_INFO: {
+
+        let stateCopy = ''
+        //=======================================================
+        db.collection("cd_info")
+        .where("cdId","==",action.payload)
+       .get()
+       .then(querySnapshot => {
+         const data = querySnapshot.docs.map(doc => doc.data());
+         stateCopy = data;
+       
+         //=======================================================
+           db.collection("presentations")
+           .get()
+           .then(querySnapshot => {
+             const data = querySnapshot.docs.map(doc => doc.data());
+
+             stateCopy.map((post,i)=>{
+              
+              console.log(data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.cdName))
+             return stateCopy[i].title = {...data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.cdName)}
+             })
+             action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_INFO_SUCCESS,stateCopy))
+           });
+         //========================================================
+       });
+
+
 
         return state
       }
-      case ACTIONS.LOAD_POSTS_SUCCESS: {
+      case ACTIONS.LOAD_CD_INFO_SUCCESS: {
+        
         return action.payload
       }
-      case ACTIONS.LOAD_POSTS_FAIL: {
+      case ACTIONS.LOAD_CD_INFO_FAIL: {
 
         return state
       }
