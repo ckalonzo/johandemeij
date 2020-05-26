@@ -23,7 +23,7 @@ const NavigationBar = (props) => {
     const handleClick = (location) => {
         props.history.push('/'+location)
     }
-    console.log(props)
+   // console.log(props)
     const renderHeader = () => {
       
         return (<>

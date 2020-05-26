@@ -71,23 +71,10 @@ export default function agendaReducer (state = initialState, action) {
       case ACTIONS.LOAD_AGENDAS_SUCCESS:{
         let stateCopy = _.cloneDeep(action.payload)
         let d = new Date();
-        let day = d.getDate();
-        let month = (d.getMonth() + 1).toString()
         let year = d.getFullYear().toString();
-        let date = year+"-"+month+"-"+day
-        stateCopy.map((agenda,i)=>{
-          
-          db.collection("presentations")
-          .where("id","==",agenda.cd.toString())
-          .get()
-          .then(querySnapshot => {
-            const data = querySnapshot.docs.map(doc => doc.data());
-            agenda.title=data[0] ?data[0].cdName:""
-          });
-        })
-        let filteredSet = stateCopy.filter(agendas=>agendas.year === year)
-        let groupedSet = _.chain(filteredSet)
-        return filteredSet
+        
+       
+        return stateCopy.filter(agendas=>agendas.year === year)
       }
       case ACTIONS.LOAD_AGENDAS_FAIL:{
         return state

@@ -11,7 +11,11 @@ const Agenda  = (props) => {
        props.actions.mainAction(ACTIONS.LOAD_AGENDAS,{limit:10,skip:0})
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-    
+    let d = new Date();
+    let day = d.getDate();
+    let month = (d.getMonth() + 1).toString()
+    let year = d.getFullYear().toString();
+
     return (<>
     { <section className="agenda">
     <h3 style={{textAlign:'center',fontSize:"2rem"}}>Agenda</h3>

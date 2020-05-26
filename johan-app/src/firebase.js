@@ -1,18 +1,15 @@
-import firebase from 'firebase';
-
+import firebase from "firebase/app";
 const firebaseApp = firebase.initializeApp({
   // copy and paste your firebase credential here
-  apiKey: "AIzaSyBGoFfAwHbNQ2byrWAK2rNnRn_qrjv5fdE",
-  authDomain: "johandemeij-513b2.firebaseapp.com",
-  databaseURL: "https://johandemeij-513b2.firebaseio.com",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
   projectId: "johandemeij-513b2",
-  storageBucket: "johandemeij-513b2.appspot.com",
-  messagingSenderId: "973651910793",
-  appId: "1:973651910793:web:9ff2680d5e135ed7db2658",
-  measurementId: "G-HMQKVGGK5S"
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 });
 
 const db = firebaseApp.firestore();
-
-
 export {db};

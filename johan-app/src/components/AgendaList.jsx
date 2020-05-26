@@ -5,7 +5,6 @@ import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
 import Paginate from "components/shared/Paginate"
 import List from "components/shared/List"
-
 const AgendaList  = (props) => {
     
     useEffect(() => {
@@ -16,14 +15,17 @@ const AgendaList  = (props) => {
     },[])
     
     let d = new Date();
-    let thisMonth = d.getMonth() + 1
+    let day = d.getDate();
+    let month = (d.getMonth() + 1).toString()
+    let year = d.getFullYear().toString();
+ 
     return (<>
     <section className="agenda-full">
     <h3 style={{textAlign:'center',fontSize:"2rem",textTransform: "uppercase",color:"#FFF"}}>Agenda</h3>
     <div className="container">
         
     {Object.values(props.agendas).map(agenda => {
-            return <List {...agenda}/>
+            return <List key={agenda.id} {...agenda}/>
         })}
         
         {props.length > 20 ? <Paginate  {...props}/>:""}
