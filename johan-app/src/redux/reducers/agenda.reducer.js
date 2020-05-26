@@ -35,9 +35,10 @@ export default function agendaReducer (state = initialState, action) {
          let stateCopy = ''
          //=======================================================
          db.collection("agendas")
-       .where("year",'==',year)
+       //.where("year",'==',year)
       .where("month",'>=',month)
       .orderBy("month","asc")
+      .orderBy("day","asc")
         .get()
         .then(querySnapshot => {
           const data = querySnapshot.docs.map(doc => doc.data());
@@ -53,8 +54,9 @@ export default function agendaReducer (state = initialState, action) {
               stateCopy.map((post,i)=>{
 
               let title = data.filter(presentation=>presentation.id===post.cd).map(presentation=>{return presentation.cdName})
-             
-              return post.title = title[0]
+              post.title = title[0]; 
+              post.date=`${post.year}-${post.month}-${post.day}`
+              return post
               })
 
               action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,stateCopy))
@@ -68,7 +70,11 @@ export default function agendaReducer (state = initialState, action) {
       }
       case ACTIONS.LOAD_AGENDAS_SUCCESS:{
         let stateCopy = _.cloneDeep(action.payload)
-        
+        let d = new Date();
+        let day = d.getDate();
+        let month = (d.getMonth() + 1).toString()
+        let year = d.getFullYear().toString();
+        let date = year+"-"+month+"-"+day
         stateCopy.map((agenda,i)=>{
           
           db.collection("presentations")
@@ -79,8 +85,9 @@ export default function agendaReducer (state = initialState, action) {
             agenda.title=data[0] ?data[0].cdName:""
           });
         })
-
-        return action.payload
+        let filteredSet = stateCopy.filter(agendas=>agendas.year === year)
+        let groupedSet = _.chain(filteredSet)
+        return filteredSet
       }
       case ACTIONS.LOAD_AGENDAS_FAIL:{
         return state

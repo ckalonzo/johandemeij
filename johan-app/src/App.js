@@ -8,14 +8,14 @@ import Navbar from "components/shared/Navbar";
 import Footer from "components/shared/Footer"
 
 
-const App = () => {
+const App = (props) => {
   useEffect(() => { 
     document.title = "JohanDeMeij.com"
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
   return (
     <>
-    <Navbar  />
+    <Navbar {...props} />
     <SiteRouter />
     <Footer />
     </>
