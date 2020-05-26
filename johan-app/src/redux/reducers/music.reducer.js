@@ -41,10 +41,10 @@ export default function musicReducer (state = initialState, action) {
       }
       case ACTIONS.LOAD_MUSIC_BY_CATEGORY:{
 
-        db.collection("presentations").
-        where("category","==", action.payload.toString()).
-        orderBy('cdName', 'asc').
-        get()
+        db.collection("presentations")
+        .where("category","==", action.payload.toString())
+        .orderBy('cdName', 'asc')
+        .get()
         .then(querySnapshot => {
           const data = querySnapshot.docs.map(doc => doc.data());
           action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_SUCCESS,data))

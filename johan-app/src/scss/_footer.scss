@@ -1,7 +1,6 @@
-footer {
-    padding:75px 0 0;
-    background-color: #eaeaea;
-    color:#000;
+footer {  
+    background-color: #FFF;
+    color:#495057;
     h5 {
         margin-bottom:25px;
     }
@@ -42,9 +41,35 @@ footer {
         opacity: 0.7;
     }
     .footer-copyright {
-        background-color: #000;
-        margin-top:25px;
-        color:#FFF;
+        color:#495057;
+        font-size:.8rem;
+        a {
+            color:#495057;
+        }
+        .fa {
+            margin-right: 10px;
+            color:#FFF;
+        }
+        ul {
+       // display:flex;
+        //justify-content: space-between;
+        margin:0;
+        li {
+            margin-right:10px;
+            font-size:.8rem;
+            white-space: nowrap;
+            text-align: left;
+            }
+        }
+        .bottom-row {
+            padding-top:25px;
+            border-top:1px solid rgba(73, 80, 87, 0.3);
+        }
+        .form-control {
+            background-color: #fff;
+            border-color: #495057;
+            color:#495057;
+        }
     }
     .nav-link {
         padding:0;

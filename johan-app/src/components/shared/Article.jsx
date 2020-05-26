@@ -1,5 +1,5 @@
 import React, { useEffect,useState} from "react";
-import {Col} from "react-bootstrap"
+import {Row,Col} from "react-bootstrap"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { mainAction } from "redux/actions/index.actions"
@@ -31,22 +31,23 @@ const Article = (props) => {
     const renderArticle = (props,mainProps) => {
       let date = dayjs(postDate)
         return (<>
-        <div className="news-card">
-          <div className="card-image" style={{height:"180px",overflow:"hidden",width:"120px",background:`url(https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${props.image[0].imageName})?alt=media`}}>
+        <Row style={{marginBottom:"25px"}}>
+          <Col  lg={{span:"3" }}className="card-image" style={{height:"180px",overflow:"hidden",width:"150px"}}>
 {renderImage(props)}
-          </div>
-          <div className="card-body">
+
+          </Col>
+          <Col  lg={{span:"9" }} className="card-body">
             <div className="card-date">{date.format('MMMM DD YYYY')}</div> 
-            <div className="card-title">{truncateString(postTitle,47)}</div>
+            <div className="card-title">{truncateString(postTitle,147)}</div>
             <div className="card-text">{truncateString(stripHtml(postContent),70)}</div>
             <div className="card-link"><a href={`/post/${props.ID}`}>More...</a></div>
-          </div>
-        </div>
+          </Col>
+        </Row>
         </>)
     }
    // console.log(props)
     return (<>
-    <Col lg={{span:"6" }} >
+    <Col lg={{span:"12" }} >
     {renderArticle(props)}
     </Col>
     </>)

@@ -4,13 +4,31 @@ import { ACTIONS } from "redux/actions/types"
 import { mainAction } from "redux/actions/index.actions"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+
 const Footer = (props) => {
-    const [orchestraEnsemble, setOrchestraEnsemble] = useState();
-    const [conductor, setConductor] = useState();
-    const [nameOfPiece, setNameOfPiece] = useState();
-    const [location, setLocation] = useState();
-    const [dateTime, setDateTime] = useState();
-    const [validated, setValidated] = useState(false);
+  const [contactName,setContactName] = useState()
+  const [contactEmail,setContactEmail] = useState()
+  const [contactSubject,setContactSubject] = useState()
+  const [contactMessage,setContactMessage] = useState()
+  const [validated, setValidated] = useState(false);
+  const handleSubmit = event => {
+    event.preventDefault();
+    
+    let message = {
+      contactName,
+      contactEmail,
+      contactSubject,
+      contactMessage
+    }
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+    }
+
+   props.actions.mainAction(ACTIONS.SUBMIT_CONTACT_INFO,message)
+   setValidated(true);
+    
+  };
     useEffect(() => {
         // Update the document title using the browser API
         
@@ -21,152 +39,82 @@ const Footer = (props) => {
        return  navItems.map(item => {
         return <li key={item}><Nav.Link  href={`/${item.replace(/\s/g, '')}`} style={{textTransform:"capitalize"}}>{item}</Nav.Link></li>
     })}
-    const handleSubmit = event => {
-        event.preventDefault();
-        
-        let concertItem = {
-            orchestraEnsemble,
-            conductor,
-            nameOfPiece,
-            dateTime,
-            location,
-            status:"unread"
-        }
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-          event.stopPropagation();
-        }
-        setValidated(true);
-        props.actions.mainAction(ACTIONS.SUBMIT_CONCERT_INFORMATION,concertItem)
-        
-      };
-    
-    const date = new Date();
-    const Year = date.getFullYear()
-    return (<>
-        
-<footer>
-    <Container>
-    <Row>
-    <Col md={4}>
-
-<h5 className="text-uppercase">Send us your concert information:</h5>
-<Form noValidate validated={validated} onSubmit={handleSubmit}>
-
-                <Form.Row>
-                  <Form.Group as={Col}  controlId="title">
-                    <Form.Control
-                    size="sm" 
-                      required
-                      type="text"
-                      placeholder="Orchestra, Ensemble:"
-                      defaultValue={orchestraEnsemble}
-                      onChange={e => setOrchestraEnsemble(e.target.value)}
-                      
-                    />
+   
+    const renderContactForm = () => {
+      return (<>
+       <h3>Contact</h3>
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form.Row>
+                  <Form.Group as={Col}  controlId="name">
+                  <Form.Control type="text" placeholder="Name" onChange={(e)=> setContactName(e.target.value)}/>
+                    <Form.Control.Feedback type="invalid">
+                        Please provide a title.
+                      </Form.Control.Feedback>
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  </Form.Group>
+                  <Form.Group as={Col}  controlId="email">
+                  <Form.Control type="email" placeholder="Email"  onChange={(e)=> setContactEmail(e.target.value)}/>
+                    <Form.Control.Feedback type="invalid">
+                        Please provide a title.
+                      </Form.Control.Feedback>
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  </Form.Group>
+          </Form.Row>
+          <Form.Row>
+                  <Form.Group as={Col}  controlId="subject">
+                  <Form.Control type="text" placeholder="subject"  onChange={(e)=> setContactSubject(e.target.value)}/>
                     <Form.Control.Feedback type="invalid">
                         Please provide a title.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                   </Form.Group>
                   </Form.Row>
-                <Form.Row>
-                  <Form.Group as={Col} controlId="date">
-                    <Form.Control 
-                        size="sm" 
-                      required
-                      type="text"
-                      placeholder="Conductor"
-                      defaultValue={conductor}
-                      onChange={e => setConductor(e.target.value)}
-                      
-                    />
+          <Form.Row>
+                  <Form.Group as={Col}  controlId="message">
+                  <Form.Control as="textarea" rows="3" placeholder="message"  onChange={(e)=> setContactMessage(e.target.value)} />
                     <Form.Control.Feedback type="invalid">
-                        Please provide a product description.
+                        Please provide a title.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                   </Form.Group>
-                  
-                </Form.Row>
-                <Form.Row>
-                  <Form.Group as={Col} controlId="date">
-                    <Form.Control
-                    size="sm" 
-                      required
-                      type="text"
-                      placeholder="Name of Piece(s):"
-                      defaultValue={nameOfPiece}
-                      onChange={e => setNameOfPiece(e.target.value)}
-                      
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a product description.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  </Form.Row>
+          <Form.Row>
+                  <Form.Group as={Col}  controlId="message">
+                      <Button variant="dark"  type="submit">Submit</Button>
                   </Form.Group>
-                  
-                </Form.Row>
-               
-                <Form.Row>
-                  <Form.Group as={Col} controlId="date">
-                    <Form.Control
-                    size="sm" 
-                      required
-                      type="text"
-                      placeholder="Date, Time:"
-                      defaultValue={dateTime}
-                      onChange={e => setDateTime(e.target.value)}
-                      
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a product description.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group>
-                  
-                </Form.Row>
-                <Form.Row>
-                  <Form.Group as={Col} controlId="date">
-                    <Form.Control 
-                        size="sm" 
-                      required
-                      type="text"
-                      placeholder="Location"
-                      defaultValue={location}
-                      onChange={e => setLocation(e.target.value)}
-                      
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a product location.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group>
-                  
-                </Form.Row>
-                <Button className="jdm-button" type="submit">Send</Button>
-              </Form> 
-
-</Col>
-<Col md={{span:3,offset:1}}>
-<h5 className="text-uppercase">Links</h5>
-    <ul><FooterList /></ul>
-</Col>
-<Col md={4} className="social-media">
-<h5 className="text-uppercase">Social Media</h5>
-<ul>
-    <li><a href="http://www.facebook.com/johan.demeij?sk=wall" target="_blank" className="fa fa-facebook">&nbsp;</a>
-</li>
-<li><a href="http://twitter.com/JohandeMeij?utm_campaign=newfollow20100823&utm_content=profile&utm_medium=email&utm_source=follow" target="_blank" className="fa fa-twitter">&nbsp;</a></li>
-<li><a href="http://www.linkedin.com/pub/johan-de-meij/3/667/399" target="_blank" className="fa fa-linkedin">&nbsp;</a></li>
-</ul>
-</Col>
-    </Row>
-    </Container>
+                  </Form.Row>
+                  </Form>
+      </>)
+    }
+   
+    const date = new Date();
+    const Year = date.getFullYear()
+    const renderSubmitted = () => {
+      return (<h3>Contact submitted!</h3>)
+    }
+    return (<>
+     
+<footer >
+      <Container className="footer-copyright">
     <Row>
-        <Col>
-        <div className="footer-copyright text-center py-3">{`© ${Year} Copyright johandemeij.com`}</div>
-        </Col>
+      <Col   md={{span:4}} style={{marginTop: "50px"}}>
+      <h3>Categories</h3>
+      <ul><FooterList /></ul>
+      </Col>
+      <Col   md={{span:4}} style={{marginTop: "50px"}}>
+      <h3>Social networks</h3>
+        <a href="http://www.facebook.com/johan.demeij?sk=wall" target="_blank" className="fa fa-facebook">&nbsp;</a>
+<a href="http://twitter.com/JohandeMeij?utm_campaign=newfollow20100823&utm_content=profile&utm_medium=email&utm_source=follow" target="_blank" className="fa fa-twitter">&nbsp;</a><a href="http://www.linkedin.com/pub/johan-de-meij/3/667/399" target="_blank" className="fa fa-linkedin">&nbsp;</a></Col>
+      <Col style={{marginTop: "50px"}}>
+       {!validated ? renderContactForm(): renderSubmitted()}
+      </Col>
     </Row>
+    <Row className="bottom-row">
+    
+     <Col style={{alignSelf: "center"}}  md={{span:12}} className="text-center py-3">
+        <div className="copyright-text">{`© ${Year} johandemeij.com. All rights reserved`}</div>
+        </Col> 
+    </Row> </Container>
 </footer>
 
       </>)

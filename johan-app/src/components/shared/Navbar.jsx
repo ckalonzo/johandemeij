@@ -1,8 +1,7 @@
 import React,{useEffect,useState} from "react"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import Navbar from 'react-bootstrap/Navbar'
-import { Container,Nav,Col,Row} from "react-bootstrap"
+import { Container,Col,Row} from "react-bootstrap"
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
 const NavigationBar = (props) => {
@@ -10,6 +9,7 @@ const NavigationBar = (props) => {
     useEffect(() => {
         window.scrollTo(0,0)
         props.actions.mainAction(ACTIONS. LOAD_HEADER,{navLocation})
+        console.log(props)
             // eslint-disable-next-line react-hooks/exhaustive-deps
           }, []);
     
@@ -21,6 +21,7 @@ const NavigationBar = (props) => {
     })}
 
     const handleClick = (location) => {
+        props.actions.mainAction(ACTIONS. LOAD_HEADER,{location})
         props.history.push('/'+location)
     }
    // console.log(props)

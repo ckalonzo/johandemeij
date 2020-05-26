@@ -2,6 +2,7 @@ import React, { useEffect} from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import News from "components/News"
+import RequestConcertInfo from "components/shared/RequestConcertInfo"
 //import { ACTIONS } from "redux/actions/types"
 import { mainAction } from "redux/actions/index.actions"
 const Home = (props) => {
@@ -11,6 +12,7 @@ const Home = (props) => {
     }, []);
    return (<>
       <News history={props.history}/>
+      <RequestConcertInfo />
    </>)
 }
 function mapStateToProps(state) {

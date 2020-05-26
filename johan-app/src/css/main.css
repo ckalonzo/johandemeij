@@ -165,6 +165,11 @@ table .post-title {
   background-repeat: no-repeat;
   background-position: right; }
 
+.events {
+  background-image: url(/images/header-events.jpg);
+  background-repeat: no-repeat;
+  background-position: right; }
+
 .navigation ul {
   display: table;
   margin: 15px auto 15px; }
@@ -334,7 +339,8 @@ section.about-full {
     margin-right: 10px; }
 
 section.news {
-  padding: 25px 0 0; }
+  padding: 25px 0 0;
+  min-height: calc(100vh - 660px); }
   section.news h2 {
     color: #000 !important;
     text-align: center;
@@ -362,28 +368,43 @@ section.news {
     background: rgba(234, 234, 234, 0.3);
     border-top: none;
     min-height: 162px; }
-  .news-card .card-title {
-    font-size: 1rem;
-    color: #000;
-    font-weight: 700;
-    letter-spacing: .02em;
-    text-transform: uppercase;
-    margin-bottom: .25px; }
   .news-card .card-text {
     min-height: 47px;
     max-height: 47px;
     font-size: .8rem; }
-  .news-card .card-date {
-    text-align: center;
-    color: #aeaeae; }
   .news-card .card-body {
     position: absolute;
     top: 0;
-    left: 120px;
+    left: 150px;
     padding: 15px; }
 
-.news-card:nth-child(4) {
-  margin-left: 200px; }
+.card-date {
+  color: #495057; }
+
+.card-title {
+  font-size: 1rem;
+  color: #000;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  margin-bottom: .25px; }
+
+.concert-info {
+  background: rgba(73, 80, 87, 0.1); }
+  .concert-info h4 {
+    font: 400 24px/26px 'Work Sans', sans-serif;
+    color: #000;
+    margin-bottom: 50px; }
+  .concert-info button {
+    margin-top: 50px; }
+  .concert-info .container {
+    padding-top: 100px;
+    margin-top: 50px;
+    padding-bottom: 100px; }
+    .concert-info .container .form-control {
+      background-color: #fff;
+      border-color: rgba(73, 80, 87, 0.1);
+      color: #495057; }
 
 section.events {
   font-size: 1rem; }
@@ -393,9 +414,8 @@ section.events {
     font-size: 1.5rem; }
 
 footer {
-  padding: 75px 0 0;
-  background-color: #eaeaea;
-  color: #000; }
+  background-color: #FFF;
+  color: #495057; }
   footer h5 {
     margin-bottom: 25px; }
   footer .social-media ul li {
@@ -427,9 +447,27 @@ footer {
   footer .fa:hover {
     opacity: 0.7; }
   footer .footer-copyright {
-    background-color: #000;
-    margin-top: 25px;
-    color: #FFF; }
+    color: #495057;
+    font-size: .8rem; }
+    footer .footer-copyright a {
+      color: #495057; }
+    footer .footer-copyright .fa {
+      margin-right: 10px;
+      color: #FFF; }
+    footer .footer-copyright ul {
+      margin: 0; }
+      footer .footer-copyright ul li {
+        margin-right: 10px;
+        font-size: .8rem;
+        white-space: nowrap;
+        text-align: left; }
+    footer .footer-copyright .bottom-row {
+      padding-top: 25px;
+      border-top: 1px solid rgba(73, 80, 87, 0.3); }
+    footer .footer-copyright .form-control {
+      background-color: #fff;
+      border-color: #495057;
+      color: #495057; }
   footer .nav-link {
     padding: 0; }
   footer button {
@@ -523,6 +561,11 @@ section.music {
   .details span {
     color: #000;
     text-transform: capitalize; }
+
+section.contact-us {
+  padding: 100px 0;
+  background: #aeaeae;
+  color: #FFF; }
 
 .sidebar ul {
   margin-bottom: 100px; }

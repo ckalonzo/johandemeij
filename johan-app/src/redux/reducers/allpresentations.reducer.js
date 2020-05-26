@@ -1,6 +1,5 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
-import  _ from "lodash"
 const initialState = {};
 export default function AllPresentationsReducer (state = initialState, action) {
     switch (action.type) {

@@ -5,8 +5,6 @@ import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
 import {Row,Container,Col,Table} from "react-bootstrap"
 import ReactHtmlParser from 'react-html-parser';
-import { loadfilteredAgendas } from "API/indexAPI";
-import {Link} from "react-dom"
 
 const CdProfile= (props)=>{
     const [trackTitle,setTrackTitle]=useState(false)

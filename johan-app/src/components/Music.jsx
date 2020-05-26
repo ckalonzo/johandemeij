@@ -48,6 +48,7 @@ const Music  = (props) => {
                 {props.allPresentations.map((presentation ,i)=>{
                     if(i < 77 && presentation.cdName.indexOf("{{") === -1)
                     return <li key={i}><span onClick={()=>loadProfile(presentation.id,presentation)}>{ReactHtmlParser(presentation.cdName)}</span></li>
+                    return null
                 })}
             </ul>
             </Col>
@@ -56,6 +57,7 @@ const Music  = (props) => {
                 {props.allPresentations.map((presentation,i)=>{
                     if(i > 77 && presentation.cdName.indexOf("{{") === -1)
                     return <li  key={i}><span onClick={()=>loadProfile(presentation.id,presentation)}>{ReactHtmlParser(presentation.cdName)}</span></li>
+                    return null
                 })}
             </ul>
             </Col>

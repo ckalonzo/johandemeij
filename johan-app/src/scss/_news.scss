@@ -1,5 +1,6 @@
 section.news {
   padding: 25px 0 0;
+  min-height: calc(100vh - 660px);
  h2 {
    color:#000!important;
   text-align: center;
@@ -32,32 +33,53 @@ section.news {
     border-top:none;
     min-height:162px;
   }
-  .card-title {
-      font-size: 1rem;
-      color:#000;
-      font-weight: 700;
-  letter-spacing: .02em;
-  text-transform: uppercase;
-  margin-bottom:.25px;
-  }
+  
   .card-text {
     min-height: 47px;
     max-height:47px;
     font-size:.8rem;
   }
-  .card-date {
-    text-align: center;
-    color:#aeaeae;
-  }
+ 
   .card-link {}
   .card-body {
     position: absolute;
     top:0;
-    left:120px;
+    left:150px;
       padding:15px;
   }  
 }  
+ .card-date {
+  color:#495057;
+  }
 
-.news-card:nth-child(4) {  
-  margin-left:200px;
+.card-title {
+  font-size: 1rem;
+  color:#000;
+  font-weight: 700;
+letter-spacing: .02em;
+text-transform: uppercase;
+margin-bottom:.25px;
+}
+.concert-info {
+ background:rgba(73, 80, 87, 0.1);
+ h4 {
+  font: 400 24px/26px 'Work Sans', sans-serif;
+  color:#000;
+   margin-bottom:50px;
+ }
+ button {
+   margin-top:50px;
+ }
+  .container {
+    // border-top:1px solid rgba(73, 80, 87, 0.1);
+    // border-bottom:1px solid rgba(73, 80, 87, 0.1);
+    padding-top:100px;
+    margin-top:50px;
+    padding-bottom:100px;
+    .form-control {
+      background-color: #fff;
+      border-color: rgba(73, 80, 87, 0.1);
+      color:#495057;
+  }
+  }
 }

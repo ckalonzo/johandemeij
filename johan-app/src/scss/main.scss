@@ -96,7 +96,6 @@ table {
     color:#000!important;
 }
 
-
 .jdm-button {
     background-color: #9a0000;
     border-color: #9a0000;
@@ -158,11 +157,11 @@ table {
     .active-page {
         .page-link {
             color:#fff!important;
-        }
+        }  
         .page-link,.page-item:hover {
             background:#9a0000;
             
-        } 
+        }  
         
         a {
             color:#fff;
@@ -184,7 +183,7 @@ table {
 @import 'footer';
 @import 'article';
 @import 'music';
-
+@import 'contactus';   
 .sidebar {
     ul {
         margin-bottom: 100px;

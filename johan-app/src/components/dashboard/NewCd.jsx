@@ -44,10 +44,7 @@ const NewCd = props => {
   const handleSubmit = event => {
     event.preventDefault();
     let testArray = []
-    let lastItem = props.allPresentations.map((item,i) =>{
-       
-        return testArray.push({id:parseInt(item.id,10)})
-    })
+   
     console.log(_.orderBy(testArray,'id','desc')[0].id)
     
     let cdItem = {
