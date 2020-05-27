@@ -24,14 +24,17 @@ export default function cdReducer (state = initialState, action) {
         }
         case ACTIONS.LOAD_CD: {
         let stateCopy = _.cloneDeep(state)
-        stateCopy.currentID = action.payload
-
+        let _id = ''
             db.collection("cds")
             .where("id","==",action.payload)
             .get()
             .then(querySnapshot => {
-              const data = querySnapshot.docs.map(doc => doc.data());
-              action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_SUCCESS,data))
+              const data = querySnapshot.docs.map(doc =>{ 
+                _id = doc.id
+               return  doc.data()});
+               stateCopy = data
+               stateCopy[0]._id = _id
+              action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_SUCCESS,stateCopy))
             });
             return state
         }
@@ -43,17 +46,17 @@ export default function cdReducer (state = initialState, action) {
             return state
         }
         case ACTIONS.UPDATE_CD:{
-        updateCd(action.payload).then(json=>{
-            console.log(json)
-            action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_SUCCESS,json.data.data))
-        }).catch(err=>{
-            action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_FAIL,err))
-        })
+          
+        db.collection("cds").doc(action.payload._id)
+          .update(action.payload).then(()=>{
+            console.log("success")
+          action.asyncDispatch(mainAction(ACTIONS.UPDATE_CD_SUCCESS,action.payload))
+        });
         return state
         }
         case ACTIONS.UPDATE_CD_SUCCESS:{
         let stateCopy = _.cloneDeep(state)
-        action.asyncDispatch(mainAction(ACTIONS.LOAD_CD,stateCopy.ID))
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_CD,stateCopy.id))
         return {state,...action.payload}
         }
         case ACTIONS.UPDATE_CD_FAIL:{

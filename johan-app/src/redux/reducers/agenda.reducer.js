@@ -8,15 +8,48 @@ export default function agendaReducer (state = initialState, action) {
     switch (action.type) {
       
       case ACTIONS.LOAD_CD_AGENDA: {
-        let stateCopy = _.cloneDeep(state)
-       fetch('http://127.0.0.1:5021/api/loadAgendasByPage/'+action.payload.skip+"/"+action.payload.limit)
-        .then((data) => data.json())
-        .then((res) => {
-          action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_SUCCESS,res.data))
-          stateCopy.agendaTotal = res.data.length
-        }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_FAIL,err)))
-        
-        return stateCopy
+      //   let stateCopy = _.cloneDeep(state)
+      //  fetch('http://127.0.0.1:5021/api/loadAgendasByPage/'+action.payload.skip+"/"+action.payload.limit)
+      //   .then((data) => data.json())
+      //   .then((res) => {
+      //     action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_SUCCESS,res.data))
+      //     stateCopy.agendaTotal = res.data.length
+      //   }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_FAIL,err)))
+      db.collection("agendas")
+      .where("year","==","2020")
+      .orderBy('month','asc')
+      .get()
+      .then(querySnapshot => {
+        const data = querySnapshot.docs.map(doc => doc.data());
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_SUCCESS,data))
+      });
+      
+
+      //   let stateCopy = []
+      //   db.collection("agendas")
+      //   .where("year","==","2020")
+      //   .orderBy('month')
+      //  .get()
+      //  .then(querySnapshot => {
+      //    const data = querySnapshot.docs.map(doc => doc.data());
+      //    let x =  action.payload.limit - action.payload.skip;
+      //    console.log(x)
+      //    data.map((newData,i)=>{
+      //      if(i < action.payload.limit && i > action.payload.skip)
+      //      stateCopy.push(newData)
+      //    })
+      //    action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_SUCCESS,stateCopy))
+      //  });
+      // db.collection("agendas")
+      // .where("year","==","2020")
+      // .orderBy('month')
+      // .get()
+      // .then(querySnapshot => {
+      //   const data = querySnapshot.docs.map(doc => doc.data());
+      //   action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_SUCCESS,data))
+      // });
+      
+        return state
       }
       case ACTIONS.LOAD_CD_AGENDA_SUCCESS: {
         return action.payload

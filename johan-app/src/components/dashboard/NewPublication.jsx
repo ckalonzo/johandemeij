@@ -118,7 +118,7 @@ const NewPublication = props => {
     }
     setValidated(true);
     await props.actions.mainAction(ACTIONS.UPDATE_PUBLICATION,publicationItem)
-    window.location.reload();
+    //window.location.reload();
   }
   const renderPublicationImage = () => {
       return (<>

@@ -78,7 +78,6 @@ const PublicationImage = (props) => {
       let postImage = Object.values(props.postImage?props.postImage:[]).map(image => {
         return image
       })
-      console.log(props)
     return(
         <section id="images">
           <Form noValidate validated={validated} onSubmit={handleImageSubmit}>

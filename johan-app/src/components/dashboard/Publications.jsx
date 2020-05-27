@@ -31,7 +31,7 @@ const Posts = (props) => {
     const PresentationList = () => {
       let categoryList = ["","Compositions","Amstel Classics","Music for the Theatre","Symphony Orchestra","The Music of SØren Hyldgaard","Solo Concertos"]
         return Object.values(props.presentations).map(presentation =>{
-          return ( <tr key={presentation._id}>
+          return ( <tr key={presentation.id}>
             <td className="post-title"><a href={`/dashboard/publications/edit/${presentation.id}`} >{presentation.cdName}</a></td>
             <td className="post-date">{Parser(presentation.totalTime)}</td>
             <td className="post-category">{categoryList[presentation.category]}</td>

@@ -14,14 +14,12 @@ const Cds = (props) => {
     const loadCdProfile = (id) => {
       props.history.push('/cd/profile/'+id)
     }
-    console.log(props)
     return (<>
     <section className="cds">
       <Row>
         <Col>
         <ul>
         {Object.values(props.cds).map((cd)=>{
-          console.log(cd)
             let styles={
                 width:"100px",
             backgroundImage:`url(/images/music_catalogue/${cd.cdImage})`,

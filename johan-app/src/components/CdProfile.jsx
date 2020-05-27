@@ -27,21 +27,14 @@ const CleanUpSynopsis = (text)  => {
 }
 const renderImage = (image,caption) => {
     return (<>
-    <Row><div style={{backgroundImage:`url(https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${image}?alt=media)`,backgroundSize:"cover",width:"100%",minHeight:"290px"}}>
-        <img src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${image}?alt=media`} height="300"/>
+    <Row><div>
+        <img src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${image}?alt=media`} width="300" />
     </div>
         <div  style={{fontSize:".9rem",margin:"15px 0"}}>{caption}</div></Row>
     </>)
 }
-const renderTitle = (ID) => {
-    let title = props.allPresentations.filter(title => title.id === ID).map(title=>{
-       
-        return title.cdName
-    })
-    
-}
+
 const renderComposerLink = (composer) =>{
-  
     return  ReactHtmlParser(composer.toLowerCase().replace(/johan de meij|johan de  meij/g,"<a href='/biography'>Johan de Meij</a>"))
   } 
 const renderProfile = () => {

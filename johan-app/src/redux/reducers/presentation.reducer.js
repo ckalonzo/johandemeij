@@ -1,5 +1,6 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
+import { db } from "../../firebase";
 import  _ from "lodash"
 import {createPresentation,updatePresentation,updatePresentationImage,uploadPresentationImage} from "API/indexAPI"
 const initialState = {};
@@ -23,13 +24,18 @@ export default function presentationReducer (state = initialState, action) {
         }
         case ACTIONS.LOAD_PRESENTATION: {
         let stateCopy = _.cloneDeep(state)
-        stateCopy.currentID = action.payload
-            fetch ('http://127.0.0.1:5021/api/loadPresentationByID/'+ action.payload)
-            .then((data)=> data.json())
-            .then((res) => {
-            action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION_SUCCESS,res.data))
-            
-            }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION_FAIL,err)))
+        let _id = ''
+            db.collection("presentations")
+            .where("id","==",action.payload)
+            .get()
+            .then(querySnapshot => {
+              const data = querySnapshot.docs.map(doc => {
+                _id=doc.id
+                return doc.data()});
+              stateCopy = data
+              stateCopy[0]._id = _id
+              action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION_SUCCESS,data))
+            });
             return state
         }
         case  ACTIONS.LOAD_PRESENTATION_SUCCESS:{
@@ -40,17 +46,17 @@ export default function presentationReducer (state = initialState, action) {
             return state
         }
         case ACTIONS.UPDATE_PUBLICATION:{
-        updatePresentation(action.payload).then(json=>{
-            console.log(json)
-            action.asyncDispatch(mainAction(ACTIONS.UPDATE_PUBLICATION_SUCCESS,json.data.data))
-        }).catch(err=>{
-            action.asyncDispatch(mainAction(ACTIONS.UPDATE_PUBLICATION_FAIL,err))
-        })
+      console.log(action)
+        db.collection("presentations")
+        .doc(action.payload._id)
+        .update(action.payload).then(()=>{
+          action.asyncDispatch(mainAction(ACTIONS.UPDATE_PUBLICATION_SUCCESS,action.payload))
+        });
         return state
         }
         case ACTIONS.UPDATE_PUBLICATION_SUCCESS:{
         let stateCopy = _.cloneDeep(state)
-        action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION,stateCopy.ID))
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION,stateCopy.id))
         return {state,...action.payload}
         }
         case ACTIONS.UPDATE_PUBLICATION_FAIL:{

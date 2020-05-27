@@ -22,7 +22,7 @@ const Paginate = (props) => {
             let skip = i * parseInt(props.limit,10)
             let limit = i * parseInt(props.limit,10)+10
 
-            Items.push(<Pagination.Item  className={i === currentPage ? "active-page":"page"} onClick={()=>{loadAgendas(limit,skip);setCurrentPage(i)}}>{i+1}</Pagination.Item> )
+            Items.push(<Pagination.Item key={i} className={i === currentPage ? "active-page":"page"} onClick={()=>{loadAgendas(limit,skip);setCurrentPage(i)}}>{i+1}</Pagination.Item> )
         }
         return Items
     }
