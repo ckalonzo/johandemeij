@@ -1,6 +1,6 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
-import { db } from "../../firebase";
+import { db,storageRef } from "../../firebase";
 const initialState = {};
 export default function postsReducer (state = initialState, action) {
     switch (action.type) {

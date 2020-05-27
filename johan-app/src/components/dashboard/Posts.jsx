@@ -37,7 +37,7 @@ const Posts = (props) => {
           let imageID = Object.values(post.postImage ? post.postImage:[]).map((image,i )=>{
             if(i===0) 
             return image._id})
-          return ( <tr key={post._id}>
+          return ( <tr key={post.id}>
             <td className="post-title">{post.postTitle}</td>
             <td style={{"textAlign":"center"}}>{post.postDate}</td>
             <td className="post-actions">

@@ -2,7 +2,7 @@ import { ACTIONS } from 'redux/actions/types.js'
 import { updatePost } from 'API/indexAPI'
 import { mainAction } from "redux/actions/index.actions"
 import {updatePostImage,createPost,uploadPostImage,createPostImage,deletePostImage,deletePost} from "API/indexAPI"
-import { db } from "../../firebase";
+import { db, storageRef , ref,storage} from "../../firebase";
 import _ from 'lodash'
 import { NavDropdown } from 'react-bootstrap'
 const initialState = {
@@ -63,23 +63,21 @@ export default function singlePostReducer (state = initialState, action) {
         return action.payload
       }  
       case ACTIONS.DELETE_POST_IMAGE:{
-
-        let stateCopy = _.cloneDeep(state)
-        deletePostImage(action.payload.image)
-        .then((json)=>{
-          action.asyncDispatch(mainAction(ACTIONS.DELETE_POST_IMAGE_SUCCESS,json))
-        })
-        .catch(err=>{
-          action.asyncDispatch(mainAction(ACTIONS.DELETE_POST_IMAGE_FAIL,err))
-        })
-        stateCopy.currentID = action.payload.post
-        return stateCopy
+        console.log(action)
+        db.collection("postimages")
+        .where('albumID','==',action.payload.ID)
+         .get()
+         .then((querySnapshot) => {
+           querySnapshot.forEach((doc)=> doc.ref.delete())
+           action.asyncDispatch(mainAction(ACTIONS.DELETE_POST_IMAGE_SUCCESS,action.payload))
+         });
+        return state
       }  
       case ACTIONS.DELETE_POST_IMAGE_SUCCESS:{
 
-        let stateCopy = _.cloneDeep(state)
-        action.asyncDispatch(mainAction(ACTIONS.LOAD_POST,stateCopy.ID))
-
+        let postImageRef = storage.ref('images/posts/'+action.payload.name)
+        postImageRef.delete().then(()=>console.log("file deleted"));
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_POST,action.payload.ID))
         return state
       }  
       case ACTIONS.DELETE_POST_IMAGE_FAIL:{
@@ -206,26 +204,35 @@ export default function singlePostReducer (state = initialState, action) {
         return state
       }
       case ACTIONS.UPLOAD_POST_IMAGE:{
-       db.collection("postimages")
+        let image = {
+          albumID: action.payload.albumID,
+caption: action.payload.caption,
+cover: action.payload.cover,
+imageName:action.payload.image.name
+        }
+      
+      db.collection("postimages")
        .doc()
-       .set(action.payload)
+       .set(image)
        .then(() => {
-         console.log(action.payload)
          action.asyncDispatch(mainAction(ACTIONS.UPLOAD_POST_IMAGE_SUCCESS,action.payload))
        });
+       
        return state
      }
       case ACTIONS.UPLOAD_POST_IMAGE_SUCCESS:{
-        let stateCopy = _.cloneDeep(state)
-         
-         let newImage = {
-           albumID:action.payload.submitted.albumID,
-           caption:action.payload.submitted.caption,
-           cover:action.payload.submitted.cover,
-           imageName:action.payload.json.data.filename
-         }
-         stateCopy.currentID = action.payload.submitted.albumID
-         action.asyncDispatch(mainAction( ACTIONS.CREATE_NEW_POST_IMAGE,newImage))
+        let postImageRef = storage.ref('images/posts/'+action.payload.image.name).put(action.payload.image);
+        postImageRef.on('state_changed',(snapshot)=>{
+          //progress function
+        },(error)=>{
+          //error
+          console.log(error)
+        },()=>{
+          //complete
+          storage.ref('images/posts').child(action.payload.image.name).getDownloadURL().then(url=>{
+            console.log(url)
+          })
+        })
         return state
       }
       case ACTIONS.UPLOAD_POST_IMAGE_FAIL:{

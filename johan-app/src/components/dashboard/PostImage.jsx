@@ -25,12 +25,11 @@ const ProfileImage = (props) => {
     const uploadImage = () => {
     
       let image = {
-        _id:props._id,
         image:file,
-        albumID:props.albumID,
+        path:selectedFile,
+        albumID:props.currentPost,
         caption,
-        cover:coverLocation,
-        updatedAt:Date.now()
+        cover:coverLocation
       }
      console.log(image)
      //  mainProps.actions.mainAction(ACTIONS.UPLOAD_IMAGE,_.cloneDeep(image))
@@ -41,15 +40,21 @@ const ProfileImage = (props) => {
     
       let image = {
         image:file,
+        path:selectedFile,
         albumID:props.currentPost,
         caption,
         cover:coverLocation
       }
-      console.log(image)
-      // mainProps.actions.mainAction(ACTIONS.UPLOAD_POST_IMAGE,image)
+     // console.log(image)
+       mainProps.actions.mainAction(ACTIONS.UPLOAD_POST_IMAGE,image)
       }
-      const deletePostImage = (id) => {
-       mainProps.actions.mainAction(ACTIONS.DELETE_POST_IMAGE,{image:id,post:props.currentPost})
+      const deletePostImage = () => {
+        let image = {
+          name:props.postImage.image[0].imageName,
+          ID:props.postImage.image[0].albumID,
+        }
+
+       mainProps.actions.mainAction(ACTIONS.DELETE_POST_IMAGE,image)
       } 
       const onChangeHandler = (e) => {
         setSelectedFile(window.URL.createObjectURL(e.target.files[0]))
@@ -80,7 +85,7 @@ const ProfileImage = (props) => {
           <Form noValidate validated={validated} onSubmit={handleImageSubmit}>
             <Row>
             <Col lg={{span:2}} className="post-image">
-             <img src={props.imageName ? "/images/posts/"+props.imageName:selectedFile}  onClick={(e)=>selecteImageToUpload(e)} />
+             <img src={props.imageName ? "https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/images%2Fposts%2F"+props.imageName+'?alt=media':selectedFile}  onClick={(e)=>selecteImageToUpload(e)} />
     <div style={{marginTop:"15px",textAlign:"center",font: "400 8px/10px 'Work Sans', sans-serif"}}>{!uploadStatus ? props.imageName:""}</div>
             </Col>
              <Col lg={{span:6}} className="caption">
@@ -121,7 +126,7 @@ const ProfileImage = (props) => {
 }
 function mapStateToProps(state) {
     return {
-      postImage:state.singlePostReducer
+      postImage:state.singlePostReducer,
     };
   }
   
