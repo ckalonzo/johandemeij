@@ -30,7 +30,6 @@ export default function concertInformationReducer (state = initialState, action)
      .get()
      .then(querySnapshot => {
        const data = querySnapshot.docs.map(doc => {doc.data()}); 
-       console.log(data)
         action.asyncDispatch(mainAction(ACTIONS.LOAD_SUBMISSIONS_SUCCESS,data))
      });
 

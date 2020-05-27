@@ -67,18 +67,8 @@ export default function postsReducer (state = initialState, action) {
        }
        case ACTIONS.LOAD_DASHBOARD_POSTS_SUCCESS: {
          let stateCopy = action.payload
-         let imageName = []
-         fetch('http://127.0.0.1:5021/api/loadPostImages')
-             .then((data) => data.json())
-             .then((res) => {
-               action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_IMAGES_SUCCESS,res.data))
-               imageName = stateCopy.map(post => {
-                 post.image = Object.values(res.data).filter(image => image.albumID === post.ID).map(postImage =>{
-                   return postImage
-                 })
-   
-               })
-             }).catch(err => action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_IMAGES_FAIL,err)))
+        
+    
              
          return stateCopy
        }

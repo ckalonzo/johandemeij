@@ -47,14 +47,12 @@ export default function singlePostReducer (state = initialState, action) {
       case ACTIONS.DELETE_POST:{
 
          db.collection("posts")
-         .remove("ID",'==',parseInt(action.payload,10))
+         .where('ID','==',action.payload)
           .get()
-          .then(querySnapshot => {
-            const data = querySnapshot.docs.map(doc => {
-
-             return doc.data()}); 
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc)=> doc.ref.delete())
+            action.asyncDispatch(mainAction(ACTIONS.DELETE_POST_SUCCESS,[]))
           });
-
         return state
       }  
       case ACTIONS.DELETE_POST_SUCCESS:{

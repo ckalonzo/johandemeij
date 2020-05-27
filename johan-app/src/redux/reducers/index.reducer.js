@@ -20,6 +20,7 @@ import miscItemsReducer from "redux/reducers/miscItems.reducer"
 import cdInfoReducer from "redux/reducers/cdInfo.reducer"
 import headerReducer from "redux/reducers/header.reducer"
 import contactUsReducer from "redux/reducers/contactUs.reducer"
+
 const indexReducer = combineReducers({
   agendaReducer,
   AllPresentationsReducer,
@@ -35,13 +36,13 @@ const indexReducer = combineReducers({
   orderReducer, 
   musicReducer,
   musicProfileReducer,
+  miscItemsReducer,
   presentationReducer,
   postsReducer, 
   postImagesReducer,
   postImageReducer,
   presentationsReducer,
-  singlePostReducer,
-  miscItemsReducer
+  singlePostReducer
 });
   
   export default indexReducer;
