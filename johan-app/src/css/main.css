@@ -546,6 +546,8 @@ section.music {
     color: #fe5c56; }
   .music-profile h5 {
     font: 400 16px/18px 'Work Sans', sans-serif; }
+  .music-profile a {
+    color: #a90000; }
 
 .details {
   background: #eaeaea;
