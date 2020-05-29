@@ -17,10 +17,6 @@ const NewPublication = props => {
   const [field_instrumentation,setInstrumentation] = useState()
   const [field_synopsis,setSynopsis] = useState()
   const [field_totalTime,setTotalTime] = useState()
-//   const [field_frontCover,setFrontCover] = useState()
-//   const [field_backCover,setBackCover] = useState()
-//   const [field_frontCaption,setFrontCaption] = useState()
-//   const [field_backCaption,setBackCaption] = useState()
   const [field_category,setCategory] = useState()
   const [field_codes,setCodes] = useState()
   const [field_duration,setDuration] = useState()
@@ -58,10 +54,6 @@ const NewPublication = props => {
         instrumentation:field_instrumentation,
         synopsis:field_synopsis,
         totalTime:field_totalTime,
-        // frontCover:field_frontCover,
-        // backCover:field_backCover,
-        // frontCaption:field_frontCaption,
-        // backCaption:field_backCaption,
         category:field_category,
         codes:field_codes,
         duration:field_duration,
@@ -71,9 +63,7 @@ const NewPublication = props => {
         score:field_score,
         audio:field_audio,
         video:field_video
-        
     }
-    console.log(publicationItem)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
@@ -101,41 +91,35 @@ const NewPublication = props => {
         score:document.getElementById('score').value,
         audio:document.getElementById('audio').value,
         video:document.getElementById('video').value
-        
     }
-    var input = document.querySelector("form:first-child input");
-    var nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+   const input = document.querySelector("form:first-child input");
+   const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
       window.HTMLInputElement.prototype,
       "value"
     ).set;
-    nativeInputValueSetter.call(input, "is working");
+    nativeInputValueSetter.call(input, "");
 
-    var inputEvent = new Event("input", { bubbles: true });
+   const inputEvent = new Event("input", { bubbles: true });
     input.dispatchEvent(inputEvent);
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
     setValidated(true);
-    await props.actions.mainAction(ACTIONS.UPDATE_PUBLICATION,publicationItem)
-    //window.location.reload();
+    props.actions.mainAction(ACTIONS.UPDATE_PUBLICATION,publicationItem)
   }
   const renderPublicationImage = () => {
-      return (<>
-      <PublicationImage ID={props.presentation._id} image={props.presentation.frontCover} caption={props.presentation.frontCaption} type="front" />
-          <PublicationImage ID={props.presentation._id} image={props.presentation.backCover} caption={props.presentation.backCaption} type="back" />
-      </>)
+    return (<>
+    <PublicationImage ID={props.presentation._id} image={props.presentation.frontCover} caption={props.presentation.frontCaption} type="front" />
+    <PublicationImage ID={props.presentation._id} image={props.presentation.backCover} caption={props.presentation.backCaption} type="back" />
+    </>)
   }
   return (
     <>
-      <Container>
+      <Container className="dashboard">
         <Row>
-          
-          <Col lg={{ span: 2 }}>
-              <SideNav />
-          </Col>
+          <Col lg={{ span: 2 }}><SideNav /></Col>
           <Col lg={{span:"10" }}> 
-          
           {Object.keys(props.presentation).length > 0 ? renderPublicationImage():''}
             <section id="product">
               <Form noValidate validated={validated} onSubmit={Object.keys(props.presentation).length > 0 ?handleUpdate :handleSubmit}>

@@ -25,18 +25,21 @@ export default function concertInformationReducer (state = initialState, action)
         return state
       }
       case ACTIONS.LOAD_SUBMISSIONS: {
-
+ let items = ''
     db.collection("concertinformation")
      .get()
      .then(querySnapshot => {
-       const data = querySnapshot.docs.map(doc => {doc.data()}); 
-        action.asyncDispatch(mainAction(ACTIONS.LOAD_SUBMISSIONS_SUCCESS,data))
+       const data = querySnapshot.docs.map(doc => {
+        items = doc.data()
+         return doc.data()});
+      
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_SUBMISSIONS_SUCCESS,items))
      });
 
         return state
       }
       case ACTIONS.LOAD_SUBMISSIONS_SUCCESS: {
-
+        console.log(action.payload)
         return action.payload
       }
       case ACTIONS.LOAD_SUBMISSIONS_FAIL: {

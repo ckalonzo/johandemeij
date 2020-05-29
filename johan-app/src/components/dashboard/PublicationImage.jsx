@@ -66,7 +66,7 @@ const PublicationImage = (props) => {
       const renderInsertButtons = () => {
         if(selectedFile && uploadStatus)
         return <Button variant="warning" onClick={()=>insertImage()}>upload</Button>
-        return <Button variant="primary" onClick={(e)=>selecteImageToUpload(e)} >Insert image</Button>
+        return <Button variant="primary" onClick={(e)=>selecteSecondImageToUpload(e)} >Insert image</Button>
       }
 
       const selecteImageToUpload = (e) => {
@@ -83,7 +83,7 @@ const PublicationImage = (props) => {
           <Form noValidate validated={validated} onSubmit={handleImageSubmit}>
             <Row>
             <Col lg={{span:2}} className="post-image">
-             <img src={props.image ? "/images/posts/"+props.image:props.type==="front"?selectedFile:selectedFile_2}  onClick={(e)=>props.type==="front"?selecteImageToUpload(e):selecteSecondImageToUpload(e)} />
+             <img src={props.image ? "https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F"+props.image+'?alt=media':props.type==="front"?selectedFile:selectedFile_2} onClick={(e)=>props.type==="front"?selecteImageToUpload(e):selecteSecondImageToUpload(e)}/>
     <div style={{marginTop:"15px",textAlign:"center",font: "400 8px/10px 'Work Sans', sans-serif"}}>{!uploadStatus ? props.imageName:""}</div>
             </Col>
              <Col lg={{span:6}} className="caption">

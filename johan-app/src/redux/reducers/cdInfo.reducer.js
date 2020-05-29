@@ -23,9 +23,12 @@ export default function cdInfoReducer (state = initialState, action) {
              const data = querySnapshot.docs.map(doc => doc.data());
 
              stateCopy.map((post,i)=>{
-              
-              console.log(data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.cdName))
-             return stateCopy[i].title = {...data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.cdName)}
+              post.title =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.cdName) 
+              post.duration  =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.duration) 
+              post.codes =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.codes) 
+             // post.grade =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.grade) 
+             
+             return post
              })
              action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_INFO_SUCCESS,stateCopy))
            });

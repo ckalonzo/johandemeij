@@ -7,7 +7,6 @@ import {Row,Container,Col,Table} from "react-bootstrap"
 import ReactHtmlParser from 'react-html-parser';
 
 const CdProfile= (props)=>{
-    const [trackTitle,setTrackTitle]=useState(false)
     useEffect(() => {
         window.scrollTo(0,0)
         document.title = "JohanDeMeij.com | Music Profile"
@@ -51,32 +50,32 @@ const renderProfile = () => {
                 <th>Title</th>
                 <th>Grade</th>
                 <th>Time</th>
+                <th>Codes</th>
                 <th>composer</th>
                 <th>Additional Info</th>
                 </tr>
             </thead>
             <tbody>
-               {
-                   Object.values(props.trackInfo).map(track => {
-                       console.log(track)
-                   return (<tr>
-                       <td><a href={"/music/profile/"+track.track_title}>{track.title[0]}</a></td>
-                       <td>{track.grade}</td>
+               {Object.values(props.tracks).map(track => {
+                   if(track.title.length > 0)
+                   return (<tr key={track.id}>
+                       <td><a href={"/music/profile/"+track.id}>{track.title}</a></td>
+                       <td>{track.grade[0]}</td>
                        <td>{track.time}</td>
+                       <td>{track.codes}</td>
                        <td>{renderComposerLink(track.composer)}</td>
                        <td>{ReactHtmlParser(track.addInfo)}</td>
                        </tr>)
+                       return null
                    })
-               } 
-                
+               }                 
             </tbody>
         </Table>
                    </Col>
                    <Col lg={{span:4}}>
-                        {props.profile.frontCover ? renderImage(props.profile.frontCover,props.profile.frontCaption):""}
-                        {props.profile.backCover ? renderImage(props.profile.backCover,props.profile.backCaption):""}
-                       <Row>
-                           
+                {props.profile.frontCover ? renderImage(props.profile.frontCover,props.profile.frontCaption):""}
+                {props.profile.backCover ? renderImage(props.profile.backCover,props.profile.backCaption):""}
+                       <Row>    
                        </Row>
                        <Row>
                            <div className="video">
@@ -97,8 +96,7 @@ const renderProfile = () => {
 function mapStateToProps(state) {
     return {
         profile:state.cdReducer,
-        allPresentations:state.musicReducer.allPresentations,
-        trackInfo:state.cdInfoReducer
+        tracks:state.cdInfoReducer
     };
   }
   
