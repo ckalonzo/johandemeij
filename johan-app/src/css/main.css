@@ -160,8 +160,43 @@ table .post-title {
     padding-top: 10px;
     color: #000; }
 
-.home {
+.navigation {
+  height: 322px;
+  overflow: hidden; }
+
+header.home {
   background-image: url(/images/header.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-repeat: no-repeat; }
+
+header.events {
+  background-image: url(/images/header-events.jpg);
+  background-repeat: no-repeat;
+  background-position: right; }
+
+header.music {
+  background-image: url(/images/header-music.jpg);
+  background-repeat: no-repeat;
+  background-position: right; }
+
+header.rentalcatalogue {
+  background-image: url(/images/header-rentalcatalogue.jpg);
+  background-repeat: no-repeat;
+  background-position: right; }
+
+header.order {
+  background-image: url(/images/header-order.jpg);
+  background-repeat: no-repeat;
+  background-position: right; }
+
+header.biography {
+  background-image: url(/images/header-biography.jpg);
+  background-repeat: no-repeat;
+  background-position: right; }
+
+header.agenda {
+  background-image: url(/images/header-agenda.jpg);
   background-repeat: no-repeat;
   background-position: right; }
 

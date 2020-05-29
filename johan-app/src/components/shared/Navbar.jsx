@@ -8,8 +8,8 @@ const NavigationBar = (props) => {
     const [navLocation,setNavLocation]=useState("home")
     useEffect(() => {
         window.scrollTo(0,0)
-        props.actions.mainAction(ACTIONS. LOAD_HEADER,{navLocation})
-        console.log(props)
+        props.actions.mainAction(ACTIONS. LOAD_HEADER,props.history.location.pathname.replace('/', ''))
+        console.log(props.history.location.pathname.replace('/', ''))
             // eslint-disable-next-line react-hooks/exhaustive-deps
           }, []);
     
@@ -28,7 +28,7 @@ const NavigationBar = (props) => {
     const renderHeader = () => {
       
         return (<>
-            <div className={props.header.name+" navigation"}> 
+            <header className={props.header.name+" navigation"}> 
                 
                      <Row> <Container> 
                          <Col lg={{span:"12" }} className="headline">
@@ -44,7 +44,7 @@ const NavigationBar = (props) => {
                          </Col></Container>
                      </Row>
                
-             </div>
+             </header>
            </>)
     }
 

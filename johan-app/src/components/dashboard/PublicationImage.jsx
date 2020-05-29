@@ -105,7 +105,9 @@ const PublicationImage = (props) => {
                   </Form.Group>
                   </Form.Row>
                </Col>
-               <Col lg={{span:4}}  className="action-button">{props.image  ? renderUploadButtons(props._id):renderInsertButtons()}<input type="file" id={props.type === "front"?"post-image":"post-image2"} onChange={(e)=>props.type==="front"?onChangeHandler(e):onSecondChangeHandler(e)}/></Col>
+               <Col lg={{span:4}}  className="action-button">
+                 {props.image  ? renderUploadButtons(props._id):renderInsertButtons()}<input type="file" id={props.type === "front"?"post-image":"post-image2"} onChange={(e)=>props.type==="front"?onChangeHandler(e):onSecondChangeHandler(e)}/>
+                 </Col>
                </Row>
             </Form>
           </section>

@@ -22,8 +22,8 @@ window.screenChange = true;
 //config.register().then(() => {
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter history={history}>
-            <App />
+        <BrowserRouter>
+            <App  history={history}/>
         </BrowserRouter>
     </Provider>,
     document.getElementById('root')
