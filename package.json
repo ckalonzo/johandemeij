@@ -31,7 +31,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node server.js",
+    "start": "node server.js &",
     "server": "npm run client-install && npm run client-build && nodemon server.js",
     "client-install": "npm install --prefix johan-app",
     "client-build": "npm run build --prefix johan-app",
