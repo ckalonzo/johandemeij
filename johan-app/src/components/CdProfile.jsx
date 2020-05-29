@@ -59,7 +59,7 @@ const renderProfile = () => {
                {Object.values(props.tracks).map(track => {
                    if(track.title.length > 0)
                    return (<tr key={track.id}>
-                       <td><a href={"/music/profile/"+track.track_title}>{track.title}</a></td>
+                       <td><a href={"/music/profile/"+track.id}>{track.title}</a></td>
                        <td>{track.grade[0]}</td>
                        <td>{track.time}</td>
                        <td>{track.codes}</td>
