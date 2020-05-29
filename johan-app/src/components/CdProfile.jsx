@@ -14,6 +14,7 @@ const CdProfile= (props)=>{
         props.actions.mainAction(ACTIONS.LOAD_CD,props.match.params.id)
         props.actions.mainAction(ACTIONS.LOAD_CD_INFO,props.match.params.id)
         props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
+        props.actions.mainAction(ACTIONS.LOAD_ALL_PRESENTATIONS,{})
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
@@ -61,7 +62,7 @@ const renderProfile = () => {
                    return (<tr key={track.id}>
                        <td><a href={"/music/profile/"+track.track_title}>{track.title}</a></td>
                        <td>{track.grade[0]}</td>
-                       <td>{track.time}</td>
+                       <td>{ReactHtmlParser(track.duration)}</td>
                        <td>{track.codes}</td>
                        <td>{renderComposerLink(track.composer)}</td>
                        <td>{ReactHtmlParser(track.addInfo)}</td>
@@ -96,6 +97,7 @@ const renderProfile = () => {
 function mapStateToProps(state) {
     return {
         profile:state.cdReducer,
+        presentations:state.AllPresentationsReducer,
         tracks:state.cdInfoReducer
     };
   }

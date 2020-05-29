@@ -24,7 +24,7 @@ export default function cdInfoReducer (state = initialState, action) {
 
              stateCopy.map((post,i)=>{
               post.title =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.cdName) 
-              post.duration  =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.duration) 
+              post.duration  =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.totalTime) 
               post.codes =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.codes) 
              // post.grade =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.grade) 
              
