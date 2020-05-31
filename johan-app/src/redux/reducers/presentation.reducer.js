@@ -1,20 +1,70 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
-import { db } from "../../firebase";
+import { db, storageRef , ref,storage} from "../../firebase";
 import  _ from "lodash"
-import {createPresentation,updatePresentation,updatePresentationImage,uploadPresentationImage} from "API/indexAPI"
+import {updatePresentationImage} from "API/indexAPI"
 const initialState = {};
 export default function presentationReducer (state = initialState, action) {
     switch (action.type) {
-  
-        case ACTIONS.CREATE_NEW_PUBLICATION: {
-        createPresentation(action.payload).then(json =>{
-            action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_PUBLICATION_SUCCESS,json))
-        }).catch(err => {
-            console.log(action,err)
-            action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_PUBLICATION_FAIL,err))
-        })
+      case ACTIONS.DELETE_PRESENTATION_IMAGE:{
+        let presentation= {}
+        if(action.payload.imageType === "frontCover"){
+         presentation = {
+           frontCover : "",
+           frontCaption:"",
+         }
+        } else {
+          presentation = {
+            backCover : "",
+            backCaption:"",
+          }
+        }
+
+       db.collection("presentations").doc(action.payload.docId)
+       .update(presentation).then(()=>{   
+
+          db.collection("postimages")
+          .where('albumID','==',action.payload.ID)
+          .where('cover','==',action.payload.imageType)
+           .get()
+           .then((querySnapshot) => {
+            console.log(querySnapshot.docs)
+            querySnapshot.forEach((doc)=>{
+               console.log(doc.ref.id,doc.ref.parent,doc.ref.path)
+               doc.ref.delete()
+              })
+            action.asyncDispatch(mainAction(ACTIONS.DELETE_PRESENTATION_IMAGE_SUCCESS,action.payload))
+           });
+       });
+
+        
+        return state
+      }  
+      case ACTIONS.DELETE_PRESENTATION_IMAGE_SUCCESS:{
+        let postImageRef = storage.ref('posts/'+action.payload.name)
+        postImageRef.delete().then(()=>console.log("file deleted"));
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION,action.payload.ID))
+        return state
+      }  
+      case ACTIONS.DELETE_PRESENTATION_IMAGE_FAIL:{
+        
         return action.payload
+      }  
+        case ACTIONS.CREATE_NEW_PUBLICATION: {
+          let stateCopy = _.cloneDeep(action.payload)
+      
+          db.collection("presentations")
+            .add(stateCopy)
+            .then(function(docRef){
+              stateCopy._id = docRef.id
+              db.collection("presentations")
+              .doc(docRef.id)
+              .update({_id:docRef.id}).then(()=>{
+                action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_PUBLICATION_SUCCESS,stateCopy))
+              });
+             
+            });
+        return stateCopy
         }
         case ACTIONS.CREATE_NEW_PUBLICATION_SUCCESS: {
         return action.payload
@@ -30,10 +80,10 @@ export default function presentationReducer (state = initialState, action) {
             .get()
             .then(querySnapshot => {
               const data = querySnapshot.docs.map(doc => {
-                _id=doc.id
+              //  _id=doc.id
                 return doc.data()});
               stateCopy = data
-              stateCopy[0]._id = _id
+            //  stateCopy[0]._id = _id
               action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION_SUCCESS,data))
             });
             return state
@@ -45,6 +95,7 @@ export default function presentationReducer (state = initialState, action) {
         case  ACTIONS.LOAD_PRESENTATION_FAIL:{
             return state
         }
+        
         case ACTIONS.UPDATE_PUBLICATION:{
       console.log(action)
         db.collection("presentations")
@@ -95,40 +146,57 @@ export default function presentationReducer (state = initialState, action) {
             return state
         }
         case ACTIONS.UPLOAD_PRESENTATION_IMAGE:{
-          let stateCopy = _.cloneDeep(action.payload)
-           let image = stateCopy.image
-           console.log(action)
-           uploadPresentationImage(image).then((json)=>{
-  
-            if(json.status!==404 || json.status!==500) {
-              action.asyncDispatch(mainAction(ACTIONS.UPLOAD_PRESENTATION_IMAGE_SUCCESS,{submitted:stateCopy,json}))
-            } else {
-              action.asyncDispatch(mainAction(ACTIONS.UPLOAD_PRESENTATION_IMAGE_FAIL,json.response.message))
+         console.log(action)
+          let image = {
+            albumID: action.payload.albumID,
+            caption: action.payload.caption ? action.payload.caption :"",
+            cover: action.payload.cover ? action.payload.cover:"",
+            imageName:action.payload.image.name
+          }
+          let presentation= {}
+          if(action.payload.cover === "frontCover"){
+           presentation = {
+             frontCover : action.payload.image.name,
+             frontCaption:action.payload.caption ? action.payload.caption :"",
+           }
+          } else {
+            presentation = {
+              backCover : action.payload.image.name,
+              backCaption:action.payload.caption ? action.payload.caption :"",
             }
-          }).catch(err => action.asyncDispatch(mainAction(ACTIONS.UPLOAD_PRESENTATION_IMAGE_FAIL,err)))
+          }
+
+        db.collection("presentations").doc(action.payload.docId)
+        .update(presentation).then(()=>{   
+            db.collection("postimages")
+            .doc()
+            .set(image)
+            .then(() => {
+              action.asyncDispatch(mainAction(ACTIONS.UPLOAD_PRESENTATION_IMAGE_SUCCESS,action.payload))
+            });
+
+
+        });
+
         
+         
           return state
         }
         case ACTIONS.UPLOAD_PRESENTATION_IMAGE_SUCCESS:{
-          console.log(action)
-            let stateCopy = _.cloneDeep(state)
-            
-            let image = ''
-          if(action.payload.submitted.cover === "frontCover") {
-            image = {
-              _id:action.payload.submitted._id,
-              frontCover:action.payload.json.data.filename,
-              frontCaption:action.payload.submitted.caption 
-            }
-          } else {
-            image = {
-              _id:action.payload.submitted._id,
-              backCover:action.payload.json.data.filename,
-              backCaption:action.payload.submitted.caption 
-            }
-          }
-            action.asyncDispatch(mainAction( ACTIONS.UPDATE_PUBLICATION,image))
-          return stateCopy
+          let postImageRef = storage.ref('posts/'+action.payload.image.name).put(action.payload.image);
+          postImageRef.on('state_changed',(snapshot)=>{
+            //progress function
+          },(error)=>{
+            //error
+            console.log(error)
+          },()=>{
+            //complete
+            storage.ref('/posts').child(action.payload.image.name).getDownloadURL().then(url=>{
+              console.log(url)
+              action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION,action.payload.albumID))
+            })
+          })
+          return state
         }
         case ACTIONS.UPLOAD_PRESENTATION_IMAGE_FAIL:{
           return state

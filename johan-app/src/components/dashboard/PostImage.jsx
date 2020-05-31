@@ -85,7 +85,7 @@ const ProfileImage = (props) => {
           <Form noValidate validated={validated} onSubmit={handleImageSubmit}>
             <Row>
             <Col lg={{span:2}} className="post-image">
-             <img src={props.imageName ? "https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/images%2Fposts%2F"+props.imageName+'?alt=media':selectedFile}  onClick={(e)=>selecteImageToUpload(e)} />
+             <img src={props.imageName ? "https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F"+props.imageName+'?alt=media':selectedFile}  onClick={(e)=>selecteImageToUpload(e)} />
     <div style={{marginTop:"15px",textAlign:"center",font: "400 8px/10px 'Work Sans', sans-serif"}}>{!uploadStatus ? props.imageName:""}</div>
             </Col>
              <Col lg={{span:6}} className="caption">

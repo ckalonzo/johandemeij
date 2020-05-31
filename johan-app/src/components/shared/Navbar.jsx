@@ -9,7 +9,6 @@ const NavigationBar = (props) => {
     useEffect(() => {
         window.scrollTo(0,0)
         props.actions.mainAction(ACTIONS. LOAD_HEADER,props.history.location.pathname.replace('/', ''))
-        console.log(props.history.location.pathname.replace('/', ''))
             // eslint-disable-next-line react-hooks/exhaustive-deps
           }, []);
     

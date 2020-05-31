@@ -9,12 +9,11 @@ export default function presentationsReducer (state = initialState, action) {
       case ACTIONS.LOAD_PRESENTATIONS: {
         let stateCopy = []
          db.collection("presentations")
-         .orderBy('cdName')
+        .orderBy('cdName','asc')
         .get()
         .then(querySnapshot => {
           const data = querySnapshot.docs.map(doc => doc.data());
-          let x =  action.payload.limit - action.payload.skip;
-          console.log(x)
+          console.log(data)
           data.map((newData,i)=>{
             if(i < action.payload.limit && i > action.payload.skip)
             stateCopy.push(newData)
@@ -25,7 +24,7 @@ export default function presentationsReducer (state = initialState, action) {
         return state
       }
       case ACTIONS.LOAD_PRESENTATIONS_SUCCESS: {
-        return _.sortBy(action.payload,['cdName','asc'])
+        return action.payload
       }
       case ACTIONS.LOAD_PRESENTATIONS_FAIL: {
 

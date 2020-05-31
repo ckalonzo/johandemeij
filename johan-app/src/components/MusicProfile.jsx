@@ -26,9 +26,7 @@ const CleanUpSynopsis = (text)  => {
 }
 const renderImage = (image,caption) => {
     return (<>
-    <Row><div style={{backgroundImage:`url(https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${image}?alt=media)`,backgroundSize:"cover",width:"100%",minHeight:"290px"}}>
-       
-    </div>
+    <Row><div style={{backgroundImage:`url(https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${image}?alt=media)`,backgroundPosition:"50% 50%",backgroundSize:"cover",width:"100%",minHeight:"450px",backgroundRepeat:"no-repeat"}} />
         <div  style={{fontSize:".9rem",margin:"15px 0"}}>{caption}</div></Row>
     </>)
 }

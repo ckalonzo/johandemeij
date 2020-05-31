@@ -1,10 +1,8 @@
 import { ACTIONS } from 'redux/actions/types.js'
-import { updatePost } from 'API/indexAPI'
 import { mainAction } from "redux/actions/index.actions"
-import {updatePostImage,createPost,uploadPostImage,createPostImage,deletePostImage,deletePost} from "API/indexAPI"
-import { db, storageRef , ref,storage} from "../../firebase";
+import {updatePostImage,uploadPostImage,createPostImage} from "API/indexAPI"
+import { db,storage} from "../../firebase";
 import _ from 'lodash'
-import { NavDropdown } from 'react-bootstrap'
 const initialState = {
   currentID:''
 };
@@ -206,9 +204,9 @@ export default function singlePostReducer (state = initialState, action) {
       case ACTIONS.UPLOAD_POST_IMAGE:{
         let image = {
           albumID: action.payload.albumID,
-caption: action.payload.caption,
-cover: action.payload.cover,
-imageName:action.payload.image.name
+          caption: action.payload.caption,
+          cover: action.payload.cover,
+          imageName:action.payload.image.name
         }
       
       db.collection("postimages")
@@ -221,7 +219,7 @@ imageName:action.payload.image.name
        return state
      }
       case ACTIONS.UPLOAD_POST_IMAGE_SUCCESS:{
-        let postImageRef = storage.ref('images/posts/'+action.payload.image.name).put(action.payload.image);
+        let postImageRef = storage.ref('posts/'+action.payload.image.name).put(action.payload.image);
         postImageRef.on('state_changed',(snapshot)=>{
           //progress function
         },(error)=>{
@@ -229,7 +227,7 @@ imageName:action.payload.image.name
           console.log(error)
         },()=>{
           //complete
-          storage.ref('images/posts').child(action.payload.image.name).getDownloadURL().then(url=>{
+          storage.ref('posts/').child(action.payload.image.name).getDownloadURL().then(url=>{
             console.log(url)
           })
         })

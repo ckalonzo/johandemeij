@@ -112,6 +112,29 @@ export default function agendaReducer (state = initialState, action) {
       case ACTIONS.LOAD_AGENDAS_FAIL:{
         return state
       }
+      case ACTIONS.LOAD_AGENDA:{
+       
+        db.collection("agendas")
+      .where("id","==",action.payload)
+      .get()
+      .then(querySnapshot => {
+        const data = querySnapshot.docs.map(doc => doc.data());
+        
+        if(data.length > 0){
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA_SUCCESS,data))
+      } else {
+         action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA_FAIL,{error:"Failed to retrieve agenda"}))
+      }
+       
+      });
+      return state
+      }
+      case ACTIONS.LOAD_AGENDA_SUCCESS:{
+        return {...action.payload[0]}
+      }
+      case ACTIONS.LOAD_AGENDA_FAIL:{
+        return state
+      }
       default: 
         return {
           ...state

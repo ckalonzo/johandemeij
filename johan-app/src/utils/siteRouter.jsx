@@ -29,6 +29,7 @@ import EditEvent from "components/dashboard/EditEvent"
 import NewPublication from "components/dashboard/NewPublication"
 import NewCd from "components/dashboard/NewCd"
 import Submissions from "components/dashboard/Submissions";
+import NewAgenda from "components/dashboard/NewAgenda";
 //import Maintenance from "components/Maintenance"
 const history = createBrowserHistory();
 const SiteRouter = () => {
@@ -39,6 +40,7 @@ const SiteRouter = () => {
                  
                  <Route path="/dashboard/events/edit/:id" component={EditEvent} />
                  <Route path="/dashboard/events" component={DashboardEvents} />
+                 <Route path="/dashboard/agenda/:id" component={NewAgenda} />
                  <Route path="/dashboard/agenda" component={Agendas} />
                  <Route path="/dashboard/catalogue" component={MusicCatalogue} />
                  

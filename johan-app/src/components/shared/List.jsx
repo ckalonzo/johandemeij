@@ -6,7 +6,6 @@ import ReactHtmlParser from 'react-html-parser';
 const returnMonth = (month) => {
     month = (month -1);
    let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
-   console.log(month)
     return months[month]
 }
 const List = (props) => {

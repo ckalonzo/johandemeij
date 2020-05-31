@@ -1,6 +1,6 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
-
+import { db} from "../../firebase";
 const initialState = {};
 export default function postImagesReducer (state = initialState, action) {
     switch (action.type) {
@@ -18,6 +18,26 @@ export default function postImagesReducer (state = initialState, action) {
         return {state,...action.payload}
       }
       case ACTIONS.LOAD_POST_IMAGES_FAIL:{
+        return state
+      }
+      case ACTIONS.LOAD_PRESENTATION_IMAGES:{
+
+        db.collection("postimages")
+        .where("albumID",'==',action.payload)
+         .get()
+         .then(querySnapshot => {
+           const data = querySnapshot.docs.map(doc =>doc.data()); 
+           console.log(data)
+            action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION_IMAGES_SUCCESS,data))
+         });
+        
+        return state
+      }
+      case ACTIONS.LOAD_PRESENTATION_IMAGES_SUCCESS:{
+        
+        return {state,...action.payload}
+      }
+      case ACTIONS.LOAD_PRESENTATIONS_IMAGES_FAIL:{
         return state
       }
       default: 
