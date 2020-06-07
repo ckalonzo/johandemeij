@@ -8,21 +8,21 @@ import { ACTIONS } from "redux/actions/types"
 
 const Paginate = (props) => {
     const [currentPage,setCurrentPage] = useState(0)
-    const loadAgendas = (limit,skip) => {
+    const loadAgendas = (limit,skip,year) => {
         window.scrollTo(0,0)
-        props.actions.mainAction(ACTIONS[props.action],{limit,skip})
+        props.actions.mainAction(ACTIONS[props.action],{limit,skip,year})
     }
     
     const renderPageItems = () => {
         let totalPages = Object.keys(props.items).length
-        let pages = parseInt(totalPages / props.limit);
+        let pages = parseInt(totalPages / props.limit)+1;
         const Items = []
         for (let i = 0; i < pages; i++) {
            
             let skip = i * parseInt(props.limit,10)
             let limit = i * parseInt(props.limit,10)+10
-
-            Items.push(<Pagination.Item key={i} className={i === currentPage ? "active-page":"page"} onClick={()=>{loadAgendas(limit,skip);setCurrentPage(i)}}>{i+1}</Pagination.Item> )
+            let year = props.year
+            Items.push(<Pagination.Item key={i} className={i === currentPage ? "active-page":"page"} onClick={()=>{loadAgendas(limit,skip,year);setCurrentPage(i)}}>{i+1}</Pagination.Item> )
         }
         return Items
     }

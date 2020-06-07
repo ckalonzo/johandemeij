@@ -22,7 +22,7 @@ const Cds = (props) => {
         {Object.values(props.cds).map((cd)=>{
             let styles={
                 width:"100px",
-            backgroundImage:`url(/images/music_catalogue/${cd.cdImage})`,
+            backgroundImage:`url(https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/music_catalogue%2F${cd.cdImage}?alt=media)`,
             backgroundSize:"contain",
             backgroundRepeat: "no-repeat",
             padding:"115px 0 0 0"

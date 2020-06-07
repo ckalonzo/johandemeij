@@ -1,19 +1,25 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
-import { db } from "../../firebase";
+import { db,storage} from "../../firebase";
 import  _ from "lodash"
-import {createCd,updateCd} from "API/indexAPI"
 const initialState = {};
 export default function cdReducer (state = initialState, action) {
     switch (action.type) {
   
         case ACTIONS.CREATE_NEW_CD: {
-        createCd(action.payload).then(json =>{
-            action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_CD_SUCCESS,json))
-        }).catch(err => {
-            console.log(action,err)
-            action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_CD_FAIL,err))
-        })
+        let stateCopy = _.cloneDeep(action.payload)
+        console.log(action.payload)
+          db.collection("cds")
+          .add(stateCopy)
+          .then((docRef)=>{
+            stateCopy._id = docRef.id
+            db.collection("cds")
+            .doc(docRef.id)
+            .update({_id:docRef.id}).then(()=>{
+              action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_CD_SUCCESS,stateCopy))
+            });
+           
+          });
         return action.payload
         }
         case ACTIONS.CREATE_NEW_CD_SUCCESS: {
@@ -22,6 +28,71 @@ export default function cdReducer (state = initialState, action) {
         case ACTIONS.CREATE_NEW_CD_FAIL: {
         return state
         }
+        case ACTIONS.DELETE_CD_IMAGE:{
+          let image = {},
+          cd= {}
+      if(action.payload.cover === "main"){
+        image = {
+          albumID: action.payload.albumID,
+          cover: action.payload.cover ? action.payload.cover:"",
+          imageName:action.payload.image.name
+        }
+      } else {
+        image = {
+          albumID: action.payload.albumID,
+          caption: action.payload.caption ? action.payload.caption :"",
+          cover: action.payload.cover ? action.payload.cover:"",
+          imageName:action.payload.image.name
+        }
+      }
+
+
+      if(action.payload.cover === "frontCover"){
+       cd = {
+         frontCover : action.payload.image.name,
+         frontCaption:action.payload.caption ? action.payload.caption :"",
+       }
+      } else  if(action.payload.cover === "backCover"){
+        cd = {
+          backCover : action.payload.image.name,
+          backCaption:action.payload.caption ? action.payload.caption :"",
+        }
+      } else {
+        cd = {
+          cdImage : action.payload.image.name
+        }
+      }
+  
+         db.collection("cds").doc(action.payload.docId)
+         .update(cd).then(()=>{   
+  
+            db.collection("cds")
+            .where('id','==',action.payload.ID)
+            .where('cover','==',action.payload.imageType)
+             .get()
+             .then((querySnapshot) => {
+              console.log(querySnapshot.docs)
+              querySnapshot.forEach((doc)=>{
+                 console.log(doc.ref.id,doc.ref.parent,doc.ref.path)
+                 doc.ref.delete()
+                })
+              action.asyncDispatch(mainAction(ACTIONS.DELETE_CD_IMAGE_SUCCESS,action.payload))
+             });
+         });
+  
+          
+          return state
+        }  
+        case ACTIONS.DELETE_CD_IMAGE_SUCCESS:{
+          let postImageRef = storage.ref('posts/'+action.payload.name)
+          postImageRef.delete().then(()=>console.log("file deleted"));
+          action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION,action.payload.ID))
+          return state
+        }  
+        case ACTIONS.DELETE_CD_IMAGE_FAIL:{
+          
+          return action.payload
+        }  
         case ACTIONS.LOAD_CD: {
         let stateCopy = _.cloneDeep(state)
         let _id = ''
@@ -95,40 +166,74 @@ export default function cdReducer (state = initialState, action) {
             return state
         }
         case ACTIONS.UPLOAD_CD_IMAGE:{
-          // let stateCopy = _.cloneDeep(action.payload)
-          //  let image = stateCopy.image
-          //  console.log(action)
-          //  uploadCDImage(image).then((json)=>{
-  
-          //   if(json.status!==404 || json.status!==500) {
-          //     action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_SUCCESS,{submitted:stateCopy,json}))
-          //   } else {
-          //     action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_FAIL,json.response.message))
-          //   }
-          // }).catch(err => action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_FAIL,err)))
-        
-          return state
-        }
-        case ACTIONS.UPLOAD_CD_IMAGE_SUCCESS:{
-          console.log(action)
-            let stateCopy = _.cloneDeep(state)
-            
-            let image = ''
-          if(action.payload.submitted.cover === "frontCover") {
+          let image = {},
+              cd= {}
+          if(action.payload.cover === "main"){
             image = {
-              _id:action.payload.submitted._id,
-              frontCover:action.payload.json.data.filename,
-              frontCaption:action.payload.submitted.caption 
+              albumID: action.payload.albumID,
+              cover: action.payload.cover ? action.payload.cover:"",
+              imageName:action.payload.image.name
             }
           } else {
             image = {
-              _id:action.payload.submitted._id,
-              backCover:action.payload.json.data.filename,
-              backCaption:action.payload.submitted.caption 
+              albumID: action.payload.albumID,
+              caption: action.payload.caption ? action.payload.caption :"",
+              cover: action.payload.cover ? action.payload.cover:"",
+              imageName:action.payload.image.name
             }
           }
-            action.asyncDispatch(mainAction( ACTIONS.UPDATE_CD,image))
-          return stateCopy
+
+
+          if(action.payload.cover === "frontCover"){
+           cd = {
+             frontCover : action.payload.image.name,
+             frontCaption:action.payload.caption ? action.payload.caption :"",
+           }
+          } else  if(action.payload.cover === "backCover"){
+            cd = {
+              backCover : action.payload.image.name,
+              backCaption:action.payload.caption ? action.payload.caption :"",
+            }
+          } else {
+            cd = {
+              cdImage : action.payload.image.name
+            }
+          }
+        db.collection("cds").doc(action.payload.docId)
+        .update(cd).then(()=>{   
+            db.collection("postimages")
+            .doc()
+            .set(image)
+            .then(() => {
+              action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_SUCCESS,action.payload))
+            });
+         });
+
+        action.asyncDispatch(mainAction(ACTIONS.UPLOAD_CD_IMAGE_SUCCESS,action.payload))
+          return state
+        }
+        case ACTIONS.UPLOAD_CD_IMAGE_SUCCESS:{
+          let path = ''
+          if(action.payload.cover === "main"){
+            path = "music_catalogue/"
+          } else {
+            path = "posts/"
+          }
+
+          let postImageRef = storage.ref(path+action.payload.image.name).put(action.payload.image);
+          postImageRef.on('state_changed',(snapshot)=>{
+            //progress function
+          },(error)=>{
+            //error
+            console.log(error)
+          },()=>{
+            //complete
+            storage.ref(path).child(action.payload.image.name).getDownloadURL().then(url=>{
+              console.log(url)
+              action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION,action.payload.albumID))
+            })
+          })
+          return state
         }
         case ACTIONS.UPLOAD_CD_IMAGE_FAIL:{
           return state

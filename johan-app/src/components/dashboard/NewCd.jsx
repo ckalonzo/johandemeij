@@ -8,7 +8,7 @@ import { mainAction } from "redux/actions/index.actions"
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import _ from "lodash"
-import PublicationImage from "components/dashboard/PublicationImage"
+import CdImage from "components/dashboard/CdImage"
 const NewCd = props => {
   const [validated, setValidated] = useState(false);
   const [field_cd_name,setcd_name] = useState(props.cd.cd_name)
@@ -26,19 +26,21 @@ const NewCd = props => {
    let cdId = props.match.params.id
     if(cdId)
     props.actions.mainAction(ACTIONS.LOAD_CD,cdId)
+    props.actions.mainAction(ACTIONS.LOAD_CDS,[])
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleSubmit = event => {
     event.preventDefault();
     let testArray = []
    
-    console.log(_.orderBy(testArray,'id','desc')[0].id)
-    
+    let id = (+props.lastCdId[0].id+1).toString()
     let cdItem = {
+        id,
         cd_name:field_cd_name,
         synopsis:field_synopsis,
         category:field_category,
-        add_info:field_addInfo
+        add_info:field_addInfo,
+        totalTime:field_totalTime
     }
 
     const form = event.currentTarget;
@@ -46,8 +48,9 @@ const NewCd = props => {
       event.stopPropagation();
     }
     setValidated(true);
-    props.actions.mainAction(ACTIONS.CREATE_NEW_CD,cdItem)
-    props.history.push('/dashboard/publications/edit/'+(_.orderBy(testArray,'id','desc')[0].id + 1))
+   props.actions.mainAction(ACTIONS.CREATE_NEW_CD,cdItem)
+    props.history.push('/dashboard/cds/edit/'+id)
+   console.log(cdItem)
   };
   const handleUpdate = async event => {
     event.preventDefault();
@@ -59,15 +62,7 @@ const NewCd = props => {
         category:document.getElementById('category').value,
         add_info:document.getElementById('add-info').value
     }
-    var input = document.querySelector("form:first-child input");
-    var nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-      window.HTMLInputElement.prototype,
-      "value"
-    ).set;
-    nativeInputValueSetter.call(input, "is working");
 
-    var inputEvent = new Event("input", { bubbles: true });
-    input.dispatchEvent(inputEvent);
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
@@ -77,11 +72,12 @@ const NewCd = props => {
   }
   const renderCdImage = () => {
       return (<>
-      <PublicationImage ID={props.cd._id} image={props.cd.frontCover} caption={props.cd.frontCaption} type="front" />
-      <PublicationImage ID={props.cd._id} image={props.cd.backCover} caption={props.cd.backCaption} type="back" />
+<CdImage docId={props.cd._id} ID={props.cd.id} image={props.cd.cdImage}  caption="" type="main" />
+<CdImage docId={props.cd._id} ID={props.cd.id} image={props.cd.frontCover} caption={props.cd.frontCaption} type="front" />
+<CdImage docId={props.cd._id} ID={props.cd.id} image={props.cd.backCover} caption={props.cd.backCaption} type="back" />
       </>)
   }
-  console.log(props.cd.totalTime)
+
   return (
     <>
       <Container className="dashboard">
@@ -121,9 +117,9 @@ const NewCd = props => {
                       as="select"
                       onChange={e => setCategory(e.target.value)}
                       onBlur={e => setCategory(e.target.value)}
-                      value={props.cd.category}
+                      defaultValue={props.cd.category}
                     >
-                    {props.cd.category > 0 ? <option value={props.cd.category}>{props.categories.filter(category => category.id === parseInt(props.cd.category,10)).map(category => category.name)}</option> : ""}
+                    {props.cd.category > 0 ? <option value={props.cd.category} selected>{props.categories.filter(category => category.id === parseInt(props.cd.category,10)).map(category => category.name)}</option> : ""}
                     {props.categories.map(category=>{
                         return <option value={category.id}>{category.name}</option>
                     })}
@@ -216,7 +212,12 @@ function mapStateToProps(state) {
   return {
     allPresentations:state.AllPresentationsReducer,
     categories:state.musicReducer.categories,
-    cd:state.cdReducer
+    cd:state.cdReducer,
+    allCds:state.cdsReducer,
+    lastCdId:_.orderBy(state.cdsReducer,"id","desc").map((cd,i)=>{
+
+      return i === 0 ? cd:""
+    })
   };
 }
 

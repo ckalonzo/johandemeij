@@ -1,20 +1,28 @@
 import * as firebase from 'firebase'
 import '@firebase/firestore'
 import '@firebase/auth';
-const firebaseApp = firebase.initializeApp({
+
+const config = {
   // copy and paste your firebase credential here
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  apiKey: "AIzaSyBO0PF1ZdM8ZoPu2L1pYgSMyNdTMimNsdA",
+  authDomain: "johandemeij-513b2.firebaseapp.com",
   databaseURL: "https://johandemeij-513b2.firebaseio.com",
   projectId: "johandemeij-513b2",
-  //storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
   storageBucket: "johandemeij-513b2.appspot.com",
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID
-});
+  messagingSenderId: "973651910793",
+  appId: "1:973651910793:web:9ff2680d5e135ed7db2658",
+  measurementId: "G-HMQKVGGK5S"
+}
+const firebaseApp = firebase.initializeApp(config);
+//=======================================================================
+
 const storageRef = firebase.storage().ref();
 const storage = firebase.storage()
 const ref= firebase.database().ref("Uploads");
+
+const database = firebaseApp.database()
 const db = firebaseApp.firestore();
-export {db,storageRef,ref,storage};
+
+
+//=======================================================================
+export {database,db,storageRef,storage};

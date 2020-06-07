@@ -95,7 +95,7 @@ const ProfileImage = (props) => {
        if(props.image){
         return (<img src={!selectedFile ? "https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F"+props.image+'?alt=media':selectedFile} onClick={(e)=>selecteImageToUpload(e)} />)
        } else {
-        return (<img src="/images/missing.png" onClick={(e)=>selecteImageToUpload(e)} />)
+        return (<img src={!selectedFile ? "/images/missing.png":selectedFile} onClick={(e)=>selecteImageToUpload(e)} />)
        }
 
       }

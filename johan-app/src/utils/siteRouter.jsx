@@ -41,6 +41,7 @@ const SiteRouter = () => {
                  <Route path="/dashboard/events/edit/:id" component={EditEvent} />
                  <Route path="/dashboard/events" component={DashboardEvents} />
                  <Route path="/dashboard/agenda/:id" component={NewAgenda} />
+                 <Route path="/dashboard/agenda/new" component={NewAgenda} />
                  <Route path="/dashboard/agenda" component={Agendas} />
                  <Route path="/dashboard/catalogue" component={MusicCatalogue} />
                  

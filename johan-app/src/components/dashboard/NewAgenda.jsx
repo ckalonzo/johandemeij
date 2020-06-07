@@ -7,90 +7,86 @@ import SideNav from "components/dashboard/SideNav";
 import { mainAction } from "redux/actions/index.actions"
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { database} from "../../firebase";
 import _ from "lodash"
-import PublicationImage from "components/dashboard/PublicationImage"
+
 const NewAgenda = props => {
   const [validated, setValidated] = useState(false);
-  const [field_orchestra,setOrchestra] = useState()
-  const [field_conductor,setConductor] = useState()
-  const [field_location,setLocation] = useState()
-  const [field_country,setCountry] = useState()
-  const [field_synopsis,setSynopsis] = useState()
-  const [field_totalTime,setTotalTime] = useState()
-  const [field_category,setCategory] = useState()
-  const [field_codes,setCodes] = useState()
-  const [field_duration,setDuration] = useState()
-  const [field_grade,setGrade] = useState()
-  const [field_cd,setCd] = useState()
-  const [field_otherCd,setOtherCd] = useState()
-  const [field_score,setScore] = useState()
-  const [field_audio,setAudio] = useState()
-  const [field_video,setVideo] = useState()
-
-
+  const [field_orchestra,setOrchestra] = useState("")
+  const [field_conductor,setConductor] = useState("")
+  const [field_country,setCountry] = useState("")
+  const [field_synopsis,setSynopsis] = useState("")
+  const [field_time,setTime] = useState("")
+  const [field_location,setlocation] = useState("")
+  const [field_cd,setCd] = useState("")
+  const [field_city,setCity] = useState("")
+  const [field_showAgenda,setShowAgenda] = useState()
+  const [field_month,setMonth] = useState("12")
+  const [field_day,setDay] = useState("12")
+  const [field_year,setYear] = useState("2020")
+  // const agendaRef = database.ref('agendas').orderByChild('id').limitToFirst()
+  // agendaRef.on('value',(snap)=>{
+  //   const data = snap.val()
+  //   console.log(data)
+  //   return data
+  // })
+  const id = (+Object.keys(props.allAgendas)[Object.keys(props.allAgendas).length-1]+3882).toString()
   useEffect(() => {
     // Update the document title using the browser API
     window.scrollTo(0,0)
     props.actions.mainAction(ACTIONS.LOAD_ALL_PRESENTATIONS,[])
-    let agendaId = props.match.params.id
+    let agendaId = props.match.params.id.toString()
     if(agendaId)
     props.actions.mainAction(ACTIONS.LOAD_AGENDA,agendaId)
+    props.actions.mainAction(ACTIONS.LOAD_ALL_AGENDAS,"2020")
+  
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleSubmit = event => {
     event.preventDefault();
-    let testArray = []
-    let lastItem = props.allPresentations.map((item,i) =>{
-       
-        return testArray.push({id:parseInt(item.id,10)})
-    })
-    console.log(_.orderBy(testArray,'id','desc')[0].id)
-    
-    let publicationItem = {
-        id:(_.orderBy(testArray,'id','desc')[0].id + 1),
-        cdName:field_orchestra,
-        subTitle:field_conductor,
-        composer:field_location,
-        instrumentation:field_country,
+   
+    let agendaItem = {
+        id,
+        conductor:field_conductor,
+        orchestra:field_orchestra,
         synopsis:field_synopsis,
-        totalTime:field_totalTime,
-        category:field_category,
-        codes:field_codes,
-        duration:field_duration,
-        grade:field_grade,
+        time:field_time,
+        country:field_country,
+        location:field_location,
         cd:field_cd,
-        otherCd:field_otherCd,
-        score:field_score,
-        audio:field_audio,
-        video:field_video
+        city:field_city,
+        ON_OFF:field_showAgenda ? field_showAgenda.toString():document.getElementById('showpost').value.toString(),
+        month:field_month,
+        day:field_day,
+        year:field_year,
+        date:`${field_month}-${field_day}-${field_year}`
     }
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
+    console.log(agendaItem)
     setValidated(true);
-    props.actions.mainAction(ACTIONS.CREATE_NEW_PUBLICATION,publicationItem)
-    props.history.push('/dashboard/publications/edit/'+(_.orderBy(testArray,'id','desc')[0].id + 1))
+   props.actions.mainAction(ACTIONS.CREATE_NEW_AGENDA,agendaItem)
+   props.history.push('/dashboard/agenda/edit/'+id)
   };
   const handleUpdate = async event => {
     event.preventDefault();
-    let publicationItem = {
-        _id:props.agenda._id,
-        cdName:document.getElementById('cdName').value,
-        subTitle:document.getElementById('subtitle').value,
-        composer:document.getElementById('composer').value,
-        instrumentation:document.getElementById('instrumentation').value,
+    let agendaItem = {
+        id:props.agenda.id,
+        conductor:document.getElementById('conductor').value,
         synopsis:field_synopsis,
-        totalTime:document.getElementById('totalTime').value,
-        category:document.getElementById('category').value,
-        codes:document.getElementById('codes').value,
-        duration:document.getElementById('duration').value,
-        grade:document.getElementById('grade').value,
+        orchestra:document.getElementById('orchestra').value,
+        time:document.getElementById('time').value,
+        location:document.getElementById('location').value,
+        country:document.getElementById('country').value,
         cd:document.getElementById('cd').value,
-        otherCd:document.getElementById('otherCD').value,
-        score:document.getElementById('score').value,
-        audio:document.getElementById('audio').value,
-        video:document.getElementById('video').value
+        city:document.getElementById('city').value,
+        ON_OFF:document.getElementById('showpost').value,
+        month:document.getElementById('month').value,
+        day:document.getElementById('day').value,
+        year:document.getElementById('year').value,
+        date:`${document.getElementById('month').value}-${document.getElementById('day').value}-${document.getElementById('year').value}`
     }
    const input = document.querySelector("form:first-child input");
    const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
@@ -106,40 +102,50 @@ const NewAgenda = props => {
       event.stopPropagation();
     }
     setValidated(true);
-    props.actions.mainAction(ACTIONS.UPDATE_PUBLICATION,publicationItem)
+    props.actions.mainAction(ACTIONS.UPDATE_AGENDA,agendaItem)
+
   }
-  const renderPublicationImage = () => {
-    return (<>
-    <PublicationImage ID={props.agenda._id} image={props.agenda.frontCover} caption={props.agenda.frontCaption} type="front" />
-    <PublicationImage ID={props.agenda._id} image={props.agenda.backCover} caption={props.agenda.backCaption} type="back" />
-    </>)
+  
+  const renderMonths = () => {
+    const months= ["January","February","March","April","May","June","July",
+    "August","September","October","November","December"]
+   return months.map((month,i)=>{
+      i=i+1;
+    if(i === +props.agenda.month)
+    return <option key={i} value={i} selected>{month}</option>
+    return <option key={i} value={i}>{month}</option>
+    })
   }
+///  console.log(agendaRef)
   return (
     <>
       <Container className="dashboard">
+  
         <Row>
           <Col lg={{ span: 2 }}><SideNav /></Col>
           <Col lg={{span:"10" }}> 
             <section id="product">
+            <Form.Row><Col lg="6" style={{padding:"0 0 30px 20px"}}>id:{id}</Col></Form.Row>
               <Form noValidate validated={validated} onSubmit={Object.keys(props.agenda).length > 0 ?handleUpdate :handleSubmit}>
-              <Form.Row><Col lg="6">
-                  <Form.Group as={Col}  controlId="orchestra">
-                     <Form.Label>Orchestra</Form.Label>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder=""
-                      defaultValue={props.agenda.orchestra}
-                      onChange={e => setOrchestra(e.target.value)}
-                      onBlur={e => setOrchestra(e.target.value)}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a name.
+              <Form.Row><Col lg="6"> 
+                            <Form.Group as={Col} controlId="showpost">
+                              <Form.Label>Show Agenda {props.agenda.ON_OFF}</Form.Label>
+                             
+                              <Form.Control
+                                as="select"
+                                custom
+                                onChange={e => setShowAgenda(e.target.value)}
+                              >
+                                <option value={props.agenda.ON_OFF}>{parseInt(props.agenda.ON_OFF,10) === 1 ? "ON":"OFF"}</option>
+                                <option value="1">ON</option>
+                                <option value="2">OFF</option>
+                              </Form.Control>
+                              <Form.Control.Feedback type="invalid">
+                        Agenda status update.
                       </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                     
-                    
-                  </Form.Group> </Col>
+                      <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </Form.Group>
+                  </Col>
                  <Col lg="6">
                   <Form.Group as={Col}   controlId="conductor">
                   <Form.Label>Conductor</Form.Label>
@@ -166,11 +172,11 @@ const NewAgenda = props => {
                       type="text"
                       placeholder=""
                       defaultValue={props.agenda.location}
-                      onChange={e => setLocation(e.target.value)}
+                      onChange={e => setlocation(e.target.value)}
                       
                     />
                     <Form.Control.Feedback type="invalid">
-                        Please provide a composer.
+                        Please provide a location.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                   </Form.Group></Col>
@@ -191,30 +197,32 @@ const NewAgenda = props => {
                   </Form.Group></Col>
                   </Form.Row>
                 <Form.Row>
-                <Col lg="6"><Form.Group as={Col} controlId="totalTime">
+                <Col lg="6"><Form.Group as={Col}  controlId="orchestra">
+                     <Form.Label>Orchestra</Form.Label>
+                    <Form.Control
+                      required
+                      type="text"
+                      placeholder=""
+                      defaultValue={props.agenda.orchestra}
+                      onChange={e => setOrchestra(e.target.value)}
+                      onBlur={e => setOrchestra(e.target.value)}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        Please provide a name.
+                      </Form.Control.Feedback>
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                     
+                    
+                  </Form.Group> </Col> 
+                <Col lg="6"><Form.Group as={Col} controlId="time">
                     <Form.Label>Time</Form.Label>
                     <Form.Control
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={props.agenda.totalTime}
-                      onChange={e => setTotalTime(e.target.value)}
-                      
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a product time.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group></Col> 
-                <Col lg="6"><Form.Group as={Col} controlId="codes">
-                    <Form.Label>codes</Form.Label>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder=""
-                      defaultValue={props.agenda.codes}
-                      onChange={e => setCodes(e.target.value)}
-                      onBlur={e => setCodes(e.target.value)}
+                      defaultValue={props.agenda.time}
+                      onChange={e => setTime(e.target.value)}
+                      onBlur={e => setTime(e.target.value)}
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a product description.
@@ -224,141 +232,140 @@ const NewAgenda = props => {
                   </Col>
                 </Form.Row>
                 <Form.Row>
-                <Col lg="6"><Form.Group as={Col} controlId="duration">
-                    <Form.Label>Duration</Form.Label>
+                
+                    <Col lg={12}>
+                    <Form.Group as={Col} controlId="city">
+                    <Form.Label>City</Form.Label>
                     <Form.Control
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={props.agenda.duration}
-                      onChange={e => setDuration(e.target.value)}
-                      
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a duration.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group></Col>
-                <Col lg="6"><Form.Group as={Col} controlId="grade">
-                    <Form.Label>Grade</Form.Label>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder=""
-                      defaultValue={props.agenda.grade}
-                      onChange={e => setGrade(e.target.value)}
-                      
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a grade.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group></Col>
-                </Form.Row>
-                <Form.Row>
-                <Col lg="6"> <Form.Group as={Col} controlId="cd">
-                    <Form.Label>CD</Form.Label>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder=""
-                      defaultValue={props.agenda.cd}
-                      onChange={e => setCd(e.target.value)}
-                      
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a CD.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group></Col>
-                <Col lg="6"><Form.Group as={Col} controlId="otherCD">
-                    <Form.Label>otherCD</Form.Label>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder=""
-                      defaultValue={props.agenda.otherCd}
-                      onChange={e => setOtherCd(e.target.value)}
+                      defaultValue={props.agenda.city}
+                      onChange={e => setCity(e.target.value)}
                       
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a cd.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group></Col>
+                  </Form.Group>
+                    </Col>
+                </Form.Row>
+                <Form.Row>
+                <Col lg="12">
+                <Form.Group as={Col} controlId="cd">
+                    <Form.Label>CD</Form.Label>
 
-                </Form.Row>
-                <Form.Row>
-                <Col lg="6"><Form.Group as={Col} controlId="score">
-                    <Form.Label>Score</Form.Label>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder=""
-                      defaultValue={props.agenda.score}
-                      onChange={e => setScore(e.target.value)}
-                      
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a score.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group></Col>
-                <Col lg="6"><Form.Group as={Col} controlId="audio">
-                    <Form.Label>Audio</Form.Label>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder=""
-                      defaultValue={props.agenda.audio}
-                      onChange={e => setAudio(e.target.value)}
-                      
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide audo.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group></Col>
-                </Form.Row>
-                <Form.Row>
-                    <Col lg="6"><Form.Group as={Col} controlId="category">
-                    <Form.Label>Category</Form.Label>
                     <Form.Control
                       required
                       as="select"
-                      onChange={e => setCategory(e.target.value)}
-                      onBlur={e => setCategory(e.target.value)}
-                      value={props.agenda.category}
+                      onChange={e => setCd(e.target.value)}
+                      onBlur={e => setCd(e.target.value)}
+                      defaultValue={props.agenda.cd}
                     >
-                    {props.agenda.category > 0 ? <option value={props.agenda.category}>{props.categories.filter(category => category.id === parseInt(props.agenda.category,10)).map(category => category.name)}</option> : ""}
-                    {props.categories.map(category=>{
-                        return <option value={category.id}>{category.name}</option>
-                    })}
+              {Object.values(_.orderBy(props.allPresentations,"cdName","asc")).map(CD=>{
+              if(CD.id === props.agenda.cd)
+              return <option key={CD.id} value={CD.id} selected>{CD.cdName}</option>
+              return <option key={CD.id} value={CD.id} >{CD.cdName}</option>
+              })}
                         
                     </Form.Control>
                     <Form.Control.Feedback type="invalid">
-                        Please provide a video.
+                        Please provide a CD.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                   </Form.Group></Col>
-                    <Col lg="6"><Form.Group as={Col} controlId="video">
-                    <Form.Label>Video</Form.Label>
-                    <Form.Control
-                      required
-                      as="textarea" rows="3"
-                      onChange={e => setVideo(e.target.value)}
-                      defaultValue={props.agenda.video}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a video.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group></Col>
-                  
-                  
+                <Col lg="6">
+                </Col>
+
                 </Form.Row>
                 <Form.Row>
-                  <Form.Group as={Col} controlId="content">
+                  <Col lg={4}>
+                  <Form.Group as={Col} controlId="month">
+                  <Form.Label>Month</Form.Label>
+                    <Form.Control
+                      required
+                      as="select"
+                      onChange={e => setMonth(e.target.value)}
+                      onBlur={e => setMonth(e.target.value)}
+                      value={props.agenda.category}
+                    >
+                    <option value=''>--Select Month--</option>
+                    {renderMonths()}
+                    </Form.Control>
+                   
+                  </Form.Group>
+                  </Col>
+                  <Col lg={4}>
+                  <Form.Group as={Col} controlId="day">
+                  <Form.Label>Day</Form.Label>
+                    <Form.Control
+                      required
+                      as="select"
+                      onChange={e => setDay(e.target.value)}
+                      onBlur={e => setDay(e.target.value)}
+                      defaultValue={props.agenda.category}
+                    >
+                   <option>-- Day --</option>
+                  <option value={props.agenda.day} selected>{props.agenda.day ? props.agenda.day.replace(/^0+/, ''):''}</option>
+<option value="01">1</option>
+<option value="02">2</option>
+<option value="03">3</option>
+<option value="04">4</option>
+<option value="05">5</option>
+<option value="06">6</option>
+<option value="07">7</option>
+<option value="08">8</option>
+<option value="09">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+                    </Form.Control>
+                   
+                  </Form.Group>
+                  </Col>
+                  <Col lg={4}>
+                  <Form.Group as={Col} controlId="year">
+                  <Form.Label>Year</Form.Label>
+                    <Form.Control
+                      required
+                      as="select"
+                      onChange={e => setYear(e.target.value)}
+                      onBlur={e => setYear(e.target.value)}
+                      defaultValue={props.agenda.category}
+                    >
+                   <option>-- Year --</option>
+                   <option value={props.agenda.year} selected>{props.agenda.year}</option>
+<option value="2020">2020</option>
+<option value="2021">2021</option>
+<option value="2022">2022</option>
+                    </Form.Control>
+                   
+                  </Form.Group>
+                  </Col>
+                </Form.Row>
+                <Form.Row>
+                  <Col lg={12}>
+                  <Form.Group as={Col} controlId="synopsis">
                     <CKEditor
                         editor={ ClassicEditor }
                         data={props.agenda.synopsis ? props.agenda.synopsis: field_synopsis}
@@ -382,8 +389,13 @@ const NewAgenda = props => {
                         } }
                     />
                   </Form.Group>
+                  </Col>
                   </Form.Row>
-                <Button type="submit">{Object.keys(props.agenda).length > 0 ?"Update Publication" :"Create Publication"}</Button>
+                        <Form.Row>
+                        <Col lg={12}>
+                          <Button type="submit">{Object.keys(props.agenda).length > 0 ?"Update Agenda" :"Create Agenda"}</Button>
+                          </Col>
+                        </Form.Row>
               </Form> 
             </section>
           </Col>
@@ -395,10 +407,11 @@ const NewAgenda = props => {
 function mapStateToProps(state) {
     
   return {
-    allPresentations:state.AllPresentationsReducer,
+    allPresentations:_.orderBy(state.AllPresentationsReducer,"id","asc"),
     categories:state.musicReducer.categories,
     presentation:state.presentationReducer,
-    agenda:state.agendaReducer
+    agenda:state.agendaReducer,
+    allAgendas:state.AllAgendasReducer
   };
 }
 

@@ -1,6 +1,6 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
-import { db, storageRef , ref,storage} from "../../firebase";
+import { db,storage} from "../../firebase";
 import  _ from "lodash"
 import {updatePresentationImage} from "API/indexAPI"
 const initialState = {};

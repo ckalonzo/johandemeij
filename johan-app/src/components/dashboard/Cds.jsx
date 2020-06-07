@@ -30,7 +30,7 @@ const Posts = (props) => {
     }
     const PresentationList = () => {
         return Object.values(props.cds).map(cd =>{
-          return ( <tr key={cd._id}>
+          return ( <tr key={cd.id}>
             <td className="post-title">{cd.cd_name}</td>
             <td className="post-date">{Parser(cd.totalTime)}</td>
             <td className="post-actions">

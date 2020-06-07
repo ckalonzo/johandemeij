@@ -34,14 +34,13 @@ const EditEvent = props => {
       event.stopPropagation();
     }
     setValidated(true);
-console.log(eventItem)
    props.actions.mainAction(ACTIONS.UPDATE_EVENT,eventItem)
    window.scrollTo(0,0)
   };
   console.log(props)
   return (
     <>
-      <Container>
+      <Container className="dashboard">
         <Row>
           
           <Col lg={{ span: 2 }}>

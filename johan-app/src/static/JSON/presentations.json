@@ -1,6 +1,6 @@
 {"presentations":[{
   "_id": {
-    "$oid": "5eace417936ccb091d5b98f4"
+    "oid": "5eace417936ccb091d5b98f4"
   },
   "id": "1012",
   "cdName": "Klezmer Classics (Orchestral Version)",
@@ -25,7 +25,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/xEowYmQx1JY\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b98f5"
+    "oid": "5eace417936ccb091d5b98f5"
   },
   "id": "1014",
   "cdName": "Songs from the Catskills",
@@ -50,7 +50,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/Dw97428lsSw\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b98f6"
+    "oid": "5eace417936ccb091d5b98f6"
   },
   "id": "1015",
   "cdName": "Sinfonietta No. 1 (for brass band)",
@@ -75,7 +75,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b98f7"
+    "oid": "5eace417936ccb091d5b98f7"
   },
   "id": "1011",
   "cdName": "Casanova (Orchestral Version)",
@@ -100,7 +100,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b98f8"
+    "oid": "5eace417936ccb091d5b98f8"
   },
   "id": "96",
   "cdName": "The Seville Suite (Highlights from)",
@@ -125,7 +125,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"http://www.youtube.com/embed/ff2atXWeI2Q\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b98f9"
+    "oid": "5eace417936ccb091d5b98f9"
   },
   "id": "1088",
   "cdName": "Fifty Shades of E",
@@ -150,7 +150,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b98fa"
+    "oid": "5eace417936ccb091d5b98fa"
   },
   "id": "75",
   "cdName": "The Lord of the Rings (Excerpts) - for wind orchestra",
@@ -175,7 +175,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b98fb"
+    "oid": "5eace417936ccb091d5b98fb"
   },
   "id": "76",
   "cdName": "The Red Tower",
@@ -200,7 +200,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"//www.youtube.com/embed/l2xIvYPisEc\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b98fc"
+    "oid": "5eace417936ccb091d5b98fc"
   },
   "id": "77",
   "cdName": "The Venetian Collection",
@@ -225,7 +225,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b98fd"
+    "oid": "5eace417936ccb091d5b98fd"
   },
   "id": "78",
   "cdName": "The Wind in the Willows",
@@ -250,7 +250,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/dtLQIJ1YOSY\" frameborder=\"0\" gesture=\"media\" allow=\"encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b98fe"
+    "oid": "5eace417936ccb091d5b98fe"
   },
   "id": "79",
   "cdName": "Voice of Space",
@@ -275,7 +275,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"http://www.youtube.com/embed/-M0kYlrv1tU\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b98ff"
+    "oid": "5eace417936ccb091d5b98ff"
   },
   "id": "80",
   "cdName": "Bagatelle",
@@ -300,7 +300,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9900"
+    "oid": "5eace417936ccb091d5b9900"
   },
   "id": "81",
   "cdName": "Rapsodia Borealis (for  Trombone and Wind Orchestra)",
@@ -325,7 +325,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9901"
+    "oid": "5eace417936ccb091d5b9901"
   },
   "id": "82",
   "cdName": "Hans Christian Andersen Suite",
@@ -350,7 +350,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9902"
+    "oid": "5eace417936ccb091d5b9902"
   },
   "id": "83",
   "cdName": "The King's March",
@@ -375,7 +375,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9903"
+    "oid": "5eace417936ccb091d5b9903"
   },
   "id": "84",
   "cdName": "Marche Americana",
@@ -400,7 +400,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9904"
+    "oid": "5eace417936ccb091d5b9904"
   },
   "id": "85",
   "cdName": "Surround Sound",
@@ -425,7 +425,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9905"
+    "oid": "5eace417936ccb091d5b9905"
   },
   "id": "86",
   "cdName": "Tivoli Festival Overture",
@@ -450,7 +450,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9906"
+    "oid": "5eace417936ccb091d5b9906"
   },
   "id": "100",
   "cdName": "Wind Power",
@@ -475,7 +475,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9907"
+    "oid": "5eace417936ccb091d5b9907"
   },
   "id": "95",
   "cdName": "Angelo del Cielo - Giacomo Puccini",
@@ -500,7 +500,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9908"
+    "oid": "5eace417936ccb091d5b9908"
   },
   "id": "101",
   "cdName": "Extreme Make-Over (for Wind Orchestra)",
@@ -525,7 +525,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/gBW8Dtgkljw\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9909"
+    "oid": "5eace417936ccb091d5b9909"
   },
   "id": "1008",
   "cdName": "Symphony no. 1 The Lord of the Rings (Orchestral Version)",
@@ -550,7 +550,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/eQNmdRiYYLE\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b990a"
+    "oid": "5eace417936ccb091d5b990a"
   },
   "id": "1002",
   "cdName": "Extreme Make-over (Fanfare)",
@@ -575,7 +575,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b990b"
+    "oid": "5eace417936ccb091d5b990b"
   },
   "id": "1003",
   "cdName": "Rare (Movement I from T-bone Concerto)",
@@ -600,7 +600,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b990c"
+    "oid": "5eace417936ccb091d5b990c"
   },
   "id": "1004",
   "cdName": "Medium (Movement II from T-bone Concerto)",
@@ -625,7 +625,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b990d"
+    "oid": "5eace417936ccb091d5b990d"
   },
   "id": "1005",
   "cdName": "Well Done (Movement III from T-bone Concerto)",
@@ -650,7 +650,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b990e"
+    "oid": "5eace417936ccb091d5b990e"
   },
   "id": "1013",
   "cdName": "Symphony no. 3 Planet Earth (Orchestral Version)",
@@ -675,7 +675,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/v1okVbpT2eM\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b990f"
+    "oid": "5eace417936ccb091d5b990f"
   },
   "id": "1009",
   "cdName": "Symphony no. 2 The Big Apple (Orchestral Version)",
@@ -700,7 +700,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9910"
+    "oid": "5eace417936ccb091d5b9910"
   },
   "id": "1010",
   "cdName": "Windy City Overture (Orchestral Version)",
@@ -725,7 +725,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9911"
+    "oid": "5eace417936ccb091d5b9911"
   },
   "id": "37",
   "cdName": "Requiem ã†ternam",
@@ -750,7 +750,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9912"
+    "oid": "5eace417936ccb091d5b9912"
   },
   "id": "38",
   "cdName": "Te Deum - Giacomo Puccini",
@@ -775,7 +775,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9913"
+    "oid": "5eace417936ccb091d5b9913"
   },
   "id": "39",
   "cdName": "{{601}}''{{602}}",
@@ -800,7 +800,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"http://www.youtube.com/embed/I_Dv7U__uB0\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9914"
+    "oid": "5eace417936ccb091d5b9914"
   },
   "id": "40",
   "cdName": "To My Country - Bernard Zweers/Arr. Johan de Meij",
@@ -825,7 +825,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9915"
+    "oid": "5eace417936ccb091d5b9915"
   },
   "id": "41",
   "cdName": "Triumphal March - Modeste Moussorgsky/Arr. Johan de Meij",
@@ -850,7 +850,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9916"
+    "oid": "5eace417936ccb091d5b9916"
   },
   "id": "42",
   "cdName": "Trois Rag-Caprices - Darius Milhaud",
@@ -875,7 +875,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9917"
+    "oid": "5eace417936ccb091d5b9917"
   },
   "id": "43",
   "cdName": "Waltz No. 2 (from Jazz Suite no. 2) - Dmitri Shostakovich",
@@ -900,7 +900,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9918"
+    "oid": "5eace417936ccb091d5b9918"
   },
   "id": "97",
   "cdName": "Spring",
@@ -925,7 +925,7 @@
   "video": "<iframe title=\"YouTube video player\" width=\"250\" height=\"152\" src=\"http://www.youtube.com/embed/I-IPn5TREhE\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9919"
+    "oid": "5eace417936ccb091d5b9919"
   },
   "id": "98",
   "cdName": "At Kitty O'Shea's",
@@ -950,7 +950,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"http://www.youtube.com/embed/ppuOjJ9cGsA\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b991a"
+    "oid": "5eace417936ccb091d5b991a"
   },
   "id": "46",
   "cdName": "T-Bone Concerto (for trombone & wind orchestra)",
@@ -975,7 +975,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b991b"
+    "oid": "5eace417936ccb091d5b991b"
   },
   "id": "1061",
   "cdName": "Sinfonia Espansiva - Carl Nielsen",
@@ -1000,7 +1000,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b991c"
+    "oid": "5eace417936ccb091d5b991c"
   },
   "id": "93",
   "cdName": "Gandalf (part I from Symphony no. 1 The Lord of the Rings)",
@@ -1025,7 +1025,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/9MAf3K0SYfs\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b991d"
+    "oid": "5eace417936ccb091d5b991d"
   },
   "id": "50",
   "cdName": "Ceremonial Fanfare",
@@ -1050,7 +1050,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b991e"
+    "oid": "5eace417936ccb091d5b991e"
   },
   "id": "51",
   "cdName": "Continental Overture",
@@ -1075,7 +1075,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/xEyq-eRCkbs\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b991f"
+    "oid": "5eace417936ccb091d5b991f"
   },
   "id": "52",
   "cdName": "Dutch Masters Suite",
@@ -1100,7 +1100,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/EYjHjnL4npc\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9920"
+    "oid": "5eace417936ccb091d5b9920"
   },
   "id": "53",
   "cdName": "Empire of Light (from The Venetian Collection)",
@@ -1125,7 +1125,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9921"
+    "oid": "5eace417936ccb091d5b9921"
   },
   "id": "54",
   "cdName": "Extreme Make-Over (Brass Band)",
@@ -1150,7 +1150,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9922"
+    "oid": "5eace417936ccb091d5b9922"
   },
   "id": "55",
   "cdName": "Festive Hymn",
@@ -1175,7 +1175,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9923"
+    "oid": "5eace417936ccb091d5b9923"
   },
   "id": "56",
   "cdName": "Gollum (part III from Symphony no. 1 The Lord of the Rings)",
@@ -1200,7 +1200,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/jbptS62Az_c\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9924"
+    "oid": "5eace417936ccb091d5b9924"
   },
   "id": "57",
   "cdName": "Gotham (part II from Symphony no. 2 The Big Apple)",
@@ -1225,7 +1225,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9925"
+    "oid": "5eace417936ccb091d5b9925"
   },
   "id": "59",
   "cdName": "Hobbits Dance & Hymn",
@@ -1250,7 +1250,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9926"
+    "oid": "5eace417936ccb091d5b9926"
   },
   "id": "60",
   "cdName": "Journey in the Dark (part IV from Symphony no. 1 The Lord of the Rings)",
@@ -1275,7 +1275,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/gzyV1sJjDis\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9927"
+    "oid": "5eace417936ccb091d5b9927"
   },
   "id": "62",
   "cdName": "La Quintessenza",
@@ -1300,7 +1300,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/W0aMrEEh3mw\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9928"
+    "oid": "5eace417936ccb091d5b9928"
   },
   "id": "63",
   "cdName": "Loch Ness",
@@ -1325,7 +1325,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9929"
+    "oid": "5eace417936ccb091d5b9929"
   },
   "id": "64",
   "cdName": "Lonely Planet (part I from Symphony no. 3 Planet Earth)",
@@ -1350,7 +1350,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b992a"
+    "oid": "5eace417936ccb091d5b992a"
   },
   "id": "65",
   "cdName": "Lothlorien (part II from The Lord of the Rings)",
@@ -1375,7 +1375,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/060j5MQgv4Y\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b992b"
+    "oid": "5eace417936ccb091d5b992b"
   },
   "id": "66",
   "cdName": "Madurodam",
@@ -1400,7 +1400,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b992c"
+    "oid": "5eace417936ccb091d5b992c"
   },
   "id": "94",
   "cdName": "Magic Garden (from The Venetian Collection)",
@@ -1425,7 +1425,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b992d"
+    "oid": "5eace417936ccb091d5b992d"
   },
   "id": "67",
   "cdName": "Mother Earth (part III from Symphony no. 3 Planet Earth)",
@@ -1450,7 +1450,7 @@
   "video": "<iframe title=\"YouTube video player\" width=\"250\" height=\"152\" src=\"http://www.youtube.com/embed/rKM6XRlHK7E\" frameborder=\"0\" allowfullscreen></iframe>rn<iframe width=\"250\" height=\"152\" src=\"http://www.youtube.com/embed/xMSjy14KIAw\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b992e"
+    "oid": "5eace417936ccb091d5b992e"
   },
   "id": "68",
   "cdName": "Pentagram",
@@ -1475,7 +1475,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"//www.youtube.com/embed/23q2tYNFK8w\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b992f"
+    "oid": "5eace417936ccb091d5b992f"
   },
   "id": "69",
   "cdName": "Planet Earth (part II from Symphony no. 3 Planet Earth)",
@@ -1500,7 +1500,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9930"
+    "oid": "5eace417936ccb091d5b9930"
   },
   "id": "70",
   "cdName": "Polish Christmas Music",
@@ -1525,7 +1525,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9931"
+    "oid": "5eace417936ccb091d5b9931"
   },
   "id": "71",
   "cdName": "Skyline (from Symphony No. 2 The Big Apple)",
@@ -1550,7 +1550,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"//www.youtube.com/embed/mYxJveDgTr0\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9932"
+    "oid": "5eace417936ccb091d5b9932"
   },
   "id": "1",
   "cdName": "Canticles (Bass trombone & wind orchestra)",
@@ -1575,7 +1575,7 @@
   "video": "<iframe title=\"YouTube video player\" width=\"250\" height=\"152\" src=\"http://www.youtube.com/embed/ofwLfe-wO6U\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9933"
+    "oid": "5eace417936ccb091d5b9933"
   },
   "id": "1038",
   "cdName": "Aladdin Suite - Carl Nielsen",
@@ -1600,7 +1600,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/ey4dg_poj18\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9934"
+    "oid": "5eace417936ccb091d5b9934"
   },
   "id": "4",
   "cdName": "Andante & Alla Marcia - Antonãn Dvorák",
@@ -1625,7 +1625,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9935"
+    "oid": "5eace417936ccb091d5b9935"
   },
   "id": "5",
   "cdName": "Aquarium",
@@ -1650,7 +1650,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9936"
+    "oid": "5eace417936ccb091d5b9936"
   },
   "id": "6",
   "cdName": "Elisabeth - the Musical",
@@ -1675,7 +1675,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"//www.youtube.com/embed/f2bi3rJZWMU\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9937"
+    "oid": "5eace417936ccb091d5b9937"
   },
   "id": "7",
   "cdName": "Henry V (Suite from the Movie) ",
@@ -1700,7 +1700,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/LVBXcR_S8Rs?list=PLtCFPxm4i7s-qYeU8pDlo5RTFla4vYM6R\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9938"
+    "oid": "5eace417936ccb091d5b9938"
   },
   "id": "8",
   "cdName": "Tintin - Prisoners of the Sun",
@@ -1725,7 +1725,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9939"
+    "oid": "5eace417936ccb091d5b9939"
   },
   "id": "9",
   "cdName": "The Woman in White",
@@ -1750,7 +1750,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b993a"
+    "oid": "5eace417936ccb091d5b993a"
   },
   "id": "99",
   "cdName": "Cloud Factory",
@@ -1775,7 +1775,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/VdYXEibqSCI\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b993b"
+    "oid": "5eace417936ccb091d5b993b"
   },
   "id": "11",
   "cdName": "Klezmer Classics",
@@ -1800,7 +1800,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/xEowYmQx1JY\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b993c"
+    "oid": "5eace417936ccb091d5b993c"
   },
   "id": "12",
   "cdName": "Symphony No. 1 The Lord of the Rings",
@@ -1825,7 +1825,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/eQNmdRiYYLE\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b993d"
+    "oid": "5eace417936ccb091d5b993d"
   },
   "id": "13",
   "cdName": "Symphony No. 2 The Big Apple",
@@ -1850,7 +1850,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/4J0RWk7Z1sU\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b993e"
+    "oid": "5eace417936ccb091d5b993e"
   },
   "id": "14",
   "cdName": "Symphony No. 3 Planet Earth",
@@ -1875,7 +1875,7 @@
   "video": "<iframe title=\"YouTube video player\" width=\"250\" height=\"152\" src=\"http://www.youtube.com/embed/rKM6XRlHK7E\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b993f"
+    "oid": "5eace417936ccb091d5b993f"
   },
   "id": "15",
   "cdName": "Casanova",
@@ -1900,7 +1900,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/M7NKSf9dLMg\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9940"
+    "oid": "5eace417936ccb091d5b9940"
   },
   "id": "16",
   "cdName": "Windy City Overture",
@@ -1925,7 +1925,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9941"
+    "oid": "5eace417936ccb091d5b9941"
   },
   "id": "20",
   "cdName": "{{1487}}''{{1488}}",
@@ -1950,7 +1950,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/CQXkuh6EZ_I\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9942"
+    "oid": "5eace417936ccb091d5b9942"
   },
   "id": "21",
   "cdName": "Dance I (from Jazz Suite No. 2) - Dmitri Shostakovich",
@@ -1975,7 +1975,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9943"
+    "oid": "5eace417936ccb091d5b9943"
   },
   "id": "22",
   "cdName": "Dance II (from Jazz Suite No. 2) - Dmitri Shostakovich",
@@ -2000,7 +2000,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9944"
+    "oid": "5eace417936ccb091d5b9944"
   },
   "id": "23",
   "cdName": "Dance of the Amazon - Anatoli Liadov",
@@ -2025,7 +2025,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9945"
+    "oid": "5eace417936ccb091d5b9945"
   },
   "id": "24",
   "cdName": "Der Tod und das Mã¤dchen - Franz Schubert ",
@@ -2050,7 +2050,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9946"
+    "oid": "5eace417936ccb091d5b9946"
   },
   "id": "25",
   "cdName": "Duet from Don Carlo (2 solo trombones & wind orchestra) - Giuseppe Verdi",
@@ -2075,7 +2075,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/e-lWGKSq7Ew\" frameborder=\"0\" gesture=\"media\" allow=\"encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9947"
+    "oid": "5eace417936ccb091d5b9947"
   },
   "id": "26",
   "cdName": "Edgar - Giacomo Puccini",
@@ -2100,7 +2100,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9948"
+    "oid": "5eace417936ccb091d5b9948"
   },
   "id": "27",
   "cdName": "Finale (from Jazz Suite no. 2) - Dmitri Shostakovich",
@@ -2125,7 +2125,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9949"
+    "oid": "5eace417936ccb091d5b9949"
   },
   "id": "28",
   "cdName": "Funeral Music - Edvard Grieg",
@@ -2150,7 +2150,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b994a"
+    "oid": "5eace417936ccb091d5b994a"
   },
   "id": "29",
   "cdName": "Jazz Suite No. 2 - Dmitri Shostakovich",
@@ -2175,7 +2175,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b994b"
+    "oid": "5eace417936ccb091d5b994b"
   },
   "id": "30",
   "cdName": "{{1678}}''{{1679}}",
@@ -2200,7 +2200,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/ac69nJ3CMp4\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b994c"
+    "oid": "5eace417936ccb091d5b994c"
   },
   "id": "31",
   "cdName": "Jupiter Hymn - Gustav Holst ",
@@ -2225,7 +2225,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"//www.youtube.com/embed/e94uXypymf8\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b994d"
+    "oid": "5eace417936ccb091d5b994d"
   },
   "id": "32",
   "cdName": "La Fanciulla del West - Giacomo Puccini",
@@ -2250,7 +2250,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b994e"
+    "oid": "5eace417936ccb091d5b994e"
   },
   "id": "33",
   "cdName": "Lyric Waltz (from Jazz Suite no. 2) - Dmitri Shostakovich",
@@ -2275,7 +2275,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b994f"
+    "oid": "5eace417936ccb091d5b994f"
   },
   "id": "34",
   "cdName": "March (from Jazz Suite no. 2) - Dmitri Shostakovich",
@@ -2300,7 +2300,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9950"
+    "oid": "5eace417936ccb091d5b9950"
   },
   "id": "35",
   "cdName": "Oriental Festival March - Carl Nielsen ",
@@ -2325,7 +2325,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9951"
+    "oid": "5eace417936ccb091d5b9951"
   },
   "id": "36",
   "cdName": "Ratatouille Satirique - Erik Satie/arr. Johan de Meij ",
@@ -2350,7 +2350,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9952"
+    "oid": "5eace417936ccb091d5b9952"
   },
   "id": "1032",
   "cdName": "UFO Concerto (euphonium & wind orchestra)",
@@ -2375,7 +2375,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/isUGANLsWpQ?feature=player_detailpage\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9953"
+    "oid": "5eace417936ccb091d5b9953"
   },
   "id": "1033",
   "cdName": "UFO Concerto (euphonium & brass band)",
@@ -2400,7 +2400,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/isUGANLsWpQ?feature=player_detailpage\" frameborder=\"0\" allowfullscreen></iframe>rnrn<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/wPGC0obJ32M\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9954"
+    "oid": "5eace417936ccb091d5b9954"
   },
   "id": "1034",
   "cdName": "T-Bone Concerto (for trombone & piano)",
@@ -2425,7 +2425,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9955"
+    "oid": "5eace417936ccb091d5b9955"
   },
   "id": "1035",
   "cdName": "Canticles (Bass trombone & piano)",
@@ -2450,7 +2450,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9956"
+    "oid": "5eace417936ccb091d5b9956"
   },
   "id": "1036",
   "cdName": "Hobbits (part V from Symphony no. 1 The Lord of the Rings)",
@@ -2475,7 +2475,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/W0KLTU5vrxw\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9957"
+    "oid": "5eace417936ccb091d5b9957"
   },
   "id": "1039",
   "cdName": "Ceremonial Fanfare (for brass band)",
@@ -2500,7 +2500,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9958"
+    "oid": "5eace417936ccb091d5b9958"
   },
   "id": "1042",
   "cdName": "Via Claudia",
@@ -2525,7 +2525,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/AQBTb1Vidrw\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9959"
+    "oid": "5eace417936ccb091d5b9959"
   },
   "id": "1041",
   "cdName": "The Lord of the Rings (Excerpts) for Orchestra",
@@ -2550,7 +2550,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b995a"
+    "oid": "5eace417936ccb091d5b995a"
   },
   "id": "1045",
   "cdName": "Extreme Beethoven",
@@ -2575,7 +2575,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/RApi0450TB8?list=PLjNQEPIR_pvTE1LH-lm2ssLFiBLPzIvQZ\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b995b"
+    "oid": "5eace417936ccb091d5b995b"
   },
   "id": "1048",
   "cdName": "Joropo - Moisés Moleiro",
@@ -2600,7 +2600,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"//www.youtube.com/embed/TRQ9mRXdQFc\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b995c"
+    "oid": "5eace417936ccb091d5b995c"
   },
   "id": "1046",
   "cdName": "Evolution",
@@ -2625,7 +2625,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b995d"
+    "oid": "5eace417936ccb091d5b995d"
   },
   "id": "1047",
   "cdName": "Sinfonietta No. 1 (for wind orchestra)",
@@ -2650,7 +2650,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b995e"
+    "oid": "5eace417936ccb091d5b995e"
   },
   "id": "1049",
   "cdName": "Dance of the Elves - David Popper",
@@ -2675,7 +2675,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b995f"
+    "oid": "5eace417936ccb091d5b995f"
   },
   "id": "1050",
   "cdName": "25 Years Symphony No. 1 The Lord of the Rings",
@@ -2700,7 +2700,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9960"
+    "oid": "5eace417936ccb091d5b9960"
   },
   "id": "1051",
   "cdName": "Basilica Sacra",
@@ -2725,7 +2725,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"//www.youtube.com/embed/UKUD6AbvPAA\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9961"
+    "oid": "5eace417936ccb091d5b9961"
   },
   "id": "1055",
   "cdName": "Summer",
@@ -2750,7 +2750,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"//www.youtube.com/embed/ZnjZgX6tosY\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9962"
+    "oid": "5eace417936ccb091d5b9962"
   },
   "id": "1053",
   "cdName": "Symphony No. 4 Sinfonie der Lieder (Symphony of Songs)",
@@ -2775,7 +2775,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9963"
+    "oid": "5eace417936ccb091d5b9963"
   },
   "id": "1054",
   "cdName": "Riverdance (Highlights from)",
@@ -2800,7 +2800,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9964"
+    "oid": "5eace417936ccb091d5b9964"
   },
   "id": "1056",
   "cdName": "Downtown Divertimento",
@@ -2825,7 +2825,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/WpMm-QYhh0E\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9965"
+    "oid": "5eace417936ccb091d5b9965"
   },
   "id": "1057",
   "cdName": "Symphony No. 4 Sinfonie der Lieder (Piano Reduction)",
@@ -2850,7 +2850,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9966"
+    "oid": "5eace417936ccb091d5b9966"
   },
   "id": "1058",
   "cdName": "UFO Concerto (euphonium & piano)",
@@ -2875,7 +2875,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9967"
+    "oid": "5eace417936ccb091d5b9967"
   },
   "id": "1059",
   "cdName": "T-Bone Concerto (for trombone & brass band)",
@@ -2900,7 +2900,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9968"
+    "oid": "5eace417936ccb091d5b9968"
   },
   "id": "1060",
   "cdName": "American Suite - Antonãn Dvorák",
@@ -2925,7 +2925,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9969"
+    "oid": "5eace417936ccb091d5b9969"
   },
   "id": "1062",
   "cdName": "FELLINI (for alto sax, wind orchestra & circus band)",
@@ -2950,7 +2950,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b996a"
+    "oid": "5eace417936ccb091d5b996a"
   },
   "id": "1063",
   "cdName": "UFO Concerto (Orchestral Version)",
@@ -2975,7 +2975,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b996b"
+    "oid": "5eace417936ccb091d5b996b"
   },
   "id": "1064",
   "cdName": "Pavane pour une Infante Défunte (solo trombone & wind orchestra)",
@@ -3000,7 +3000,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/2A2vv43BjBg\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b996c"
+    "oid": "5eace417936ccb091d5b996c"
   },
   "id": "1065",
   "cdName": "Fantasia Napoletana - Anthony Fiumara",
@@ -3025,7 +3025,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b996d"
+    "oid": "5eace417936ccb091d5b996d"
   },
   "id": "1066",
   "cdName": "Virtual Bones",
@@ -3050,7 +3050,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b996e"
+    "oid": "5eace417936ccb091d5b996e"
   },
   "id": "1067",
   "cdName": "The Lord of the Rings (Excerpts) for Fanfare Band",
@@ -3075,7 +3075,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/BCdl-aYBJZo\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b996f"
+    "oid": "5eace417936ccb091d5b996f"
   },
   "id": "1070",
   "cdName": "Two-Bone Concerto (two solo trombones & wind orchestra)",
@@ -3100,7 +3100,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9970"
+    "oid": "5eace417936ccb091d5b9970"
   },
   "id": "1074",
   "cdName": "Echoes of San Marco",
@@ -3125,7 +3125,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9971"
+    "oid": "5eace417936ccb091d5b9971"
   },
   "id": "1073",
   "cdName": "Ceremonial Fanfare",
@@ -3150,7 +3150,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9972"
+    "oid": "5eace417936ccb091d5b9972"
   },
   "id": "1072",
   "cdName": "Hobbits Dance & Hymn (Fanfare Band)",
@@ -3175,7 +3175,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9973"
+    "oid": "5eace417936ccb091d5b9973"
   },
   "id": "1075",
   "cdName": "La Danza - Rossini/Respighi ",
@@ -3200,7 +3200,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9974"
+    "oid": "5eace417936ccb091d5b9974"
   },
   "id": "1076",
   "cdName": "Two-Bone Concerto (for 2 trombones & piano)",
@@ -3225,7 +3225,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9975"
+    "oid": "5eace417936ccb091d5b9975"
   },
   "id": "1077",
   "cdName": "Circus Band Music [from FELLINI]",
@@ -3250,7 +3250,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9976"
+    "oid": "5eace417936ccb091d5b9976"
   },
   "id": "1099",
   "cdName": "Clair de Lune - Claude Debussy",
@@ -3275,7 +3275,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9977"
+    "oid": "5eace417936ccb091d5b9977"
   },
   "id": "1089",
   "cdName": "Celtic Classics",
@@ -3300,7 +3300,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9978"
+    "oid": "5eace417936ccb091d5b9978"
   },
   "id": "1090",
   "cdName": "African Harmony (Songs from Mama Africa)",
@@ -3325,7 +3325,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9979"
+    "oid": "5eace417936ccb091d5b9979"
   },
   "id": "1091",
   "cdName": "Two-Bone Concerto (two solo trombones & brass band)",
@@ -3350,7 +3350,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b997a"
+    "oid": "5eace417936ccb091d5b997a"
   },
   "id": "1092",
   "cdName": "Torna a Surriento (Return to Sorento)",
@@ -3375,7 +3375,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b997b"
+    "oid": "5eace417936ccb091d5b997b"
   },
   "id": "1093",
   "cdName": "Sinfonietta No. 1 (for symphonic brass, harp & percussion)",
@@ -3400,7 +3400,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b997c"
+    "oid": "5eace417936ccb091d5b997c"
   },
   "id": "1094",
   "cdName": "Duet from Don Carlo (two solo trombones & brass band) - Giuseppe Verdi",
@@ -3425,7 +3425,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/e-lWGKSq7Ew\" frameborder=\"0\" gesture=\"media\" allow=\"encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b997d"
+    "oid": "5eace417936ccb091d5b997d"
   },
   "id": "1096",
   "cdName": "Pavane pour une Infante Défunte (solo trombone & brass band)",
@@ -3450,7 +3450,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b997e"
+    "oid": "5eace417936ccb091d5b997e"
   },
   "id": "1097",
   "cdName": "Pavane pour une Infante Défunte (solo trombone & fanfare)",
@@ -3475,7 +3475,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b997f"
+    "oid": "5eace417936ccb091d5b997f"
   },
   "id": "1098",
   "cdName": "Duet from The Pearl Fishers (two solo trombones & wind orchestra) - Georges Bizet",
@@ -3500,7 +3500,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/kcw9U1AblpY\" frameborder=\"0\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9980"
+    "oid": "5eace417936ccb091d5b9980"
   },
   "id": "1100",
   "cdName": "Duet from Don Carlo (two solo trombones, symphonic brass & percussion) - Giuseppe Verdi",
@@ -3525,7 +3525,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/e-lWGKSq7Ew\" frameborder=\"0\" gesture=\"media\" allow=\"encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9981"
+    "oid": "5eace417936ccb091d5b9981"
   },
   "id": "1101",
   "cdName": "Pavane pour une Infante Défunte (solo trombone, symphonic brass, harp & timpani)",
@@ -3550,7 +3550,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9982"
+    "oid": "5eace417936ccb091d5b9982"
   },
   "id": "1102",
   "cdName": "William Tell Overture (Finale) - Gioachino Rossini",
@@ -3575,7 +3575,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9983"
+    "oid": "5eace417936ccb091d5b9983"
   },
   "id": "1103",
   "cdName": "Fanfare pour précéder La Péri - Paul Dukas",
@@ -3600,7 +3600,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9984"
+    "oid": "5eace417936ccb091d5b9984"
   },
   "id": "1104",
   "cdName": "Gandalf (part I from The Lord of the Rings) for Symphonic Brass, Piano & Percussion",
@@ -3625,7 +3625,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/9MAf3K0SYfs\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9985"
+    "oid": "5eace417936ccb091d5b9985"
   },
   "id": "1105",
   "cdName": "Journey in the Dark (part IV from The Lord of the Rings) for Symphonic Brass, Piano & Percussion",
@@ -3650,7 +3650,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/gzyV1sJjDis\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9986"
+    "oid": "5eace417936ccb091d5b9986"
   },
   "id": "1106",
   "cdName": "Hobbits (part V from The Lord of the Rings) for Symphonic Brass, Piano & Percussion",
@@ -3675,7 +3675,7 @@
   "video": "<iframe width=\"250\" height=\"152\" src=\"https://www.youtube.com/embed/W0KLTU5vrxw\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9987"
+    "oid": "5eace417936ccb091d5b9987"
   },
   "id": "1107",
   "cdName": "Symphony No. 5 Return to Middle Earth",
@@ -3700,7 +3700,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9988"
+    "oid": "5eace417936ccb091d5b9988"
   },
   "id": "1108",
   "cdName": "Pennsylvania Faux Songs",
@@ -3725,7 +3725,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9989"
+    "oid": "5eace417936ccb091d5b9989"
   },
   "id": "1109",
   "cdName": "Canticles (Bass trombone & brass band)",
@@ -3750,7 +3750,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b998a"
+    "oid": "5eace417936ccb091d5b998a"
   },
   "id": "1110",
   "cdName": "Da Vinci (A Study on Ivory Keys)",
@@ -3775,7 +3775,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b998b"
+    "oid": "5eace417936ccb091d5b998b"
   },
   "id": "1111",
   "cdName": "Ancalagon the Black",
@@ -3800,7 +3800,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b998c"
+    "oid": "5eace417936ccb091d5b998c"
   },
   "id": "1113",
   "cdName": "Un Momento Dado - Homenaje en Memoria de Johan Cruijff (1947-2016) For Reed Quintet & Wind Orchestra",
@@ -3825,7 +3825,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b998d"
+    "oid": "5eace417936ccb091d5b998d"
   },
   "id": "1112",
   "cdName": "Korean Navy Fanfare",
@@ -3850,7 +3850,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b998e"
+    "oid": "5eace417936ccb091d5b998e"
   },
   "id": "1114",
   "cdName": "Symphony no. 3 Planet Earth (Cine-Symphony Version) ",
@@ -3875,7 +3875,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b998f"
+    "oid": "5eace417936ccb091d5b998f"
   },
   "id": "1115",
   "cdName": "Rapsodia Borealis (Reduction for Trombone and Piano)",
@@ -3900,7 +3900,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eace417936ccb091d5b9990"
+    "oid": "5eace417936ccb091d5b9990"
   },
   "id": "1116",
   "cdName": "William Tell Overture (Finale) - Gioachino Rossini",
@@ -3925,7 +3925,7 @@
   "video": ""
 },{
   "_id": {
-    "$oid": "5eaced7cd280500d44048104"
+    "oid": "5eaced7cd280500d44048104"
   },
   "id": "1117",
   "cdName": "carl k test",
