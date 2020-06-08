@@ -115,7 +115,7 @@ const NewAgenda = props => {
     return <option key={i} value={i}>{month}</option>
     })
   }
-///  console.log(agendaRef)
+ console.log(props.agenda)
   return (
     <>
       <Container className="dashboard">
@@ -124,7 +124,7 @@ const NewAgenda = props => {
           <Col lg={{ span: 2 }}><SideNav /></Col>
           <Col lg={{span:"10" }}> 
             <section id="product">
-            <Form.Row><Col lg="6" style={{padding:"0 0 30px 20px"}}>id:{id}</Col></Form.Row>
+            <Form.Row><Col lg="6" style={{padding:"0 0 30px 20px"}}>{/*`id:${id}`*/}</Col></Form.Row>
               <Form noValidate validated={validated} onSubmit={Object.keys(props.agenda ? props.agenda:[]).length > 0 ?handleUpdate :handleSubmit}>
               <Form.Row><Col lg="6"> 
                             <Form.Group as={Col} controlId="showpost">
@@ -135,7 +135,7 @@ const NewAgenda = props => {
                                 custom
                                 onChange={e => setShowAgenda(e.target.value)}
                               >
-                                <option value={field_showAgenda}>{parseInt(field_showAgenda,10) === 1 ? "ON":"OFF"}</option>
+                                <option value={props.agenda.ON_OFF}>{parseInt(props.agenda.ON_OFF,10) === 1 ? "ON":"OFF"}</option>
                                 <option value="1">ON</option>
                                 <option value="2">OFF</option>
                               </Form.Control>
@@ -152,7 +152,7 @@ const NewAgenda = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={field_conductor}
+                      defaultValue={props.agenda.conductor}
                       onChange={e => setConductor(e.target.value)}
                       
                     />
@@ -170,7 +170,7 @@ const NewAgenda = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={field_location}
+                      defaultValue={props.agenda.location}
                       onChange={e => setlocation(e.target.value)}
                       
                     />
@@ -185,7 +185,7 @@ const NewAgenda = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={field_country}
+                      defaultValue={props.agenda.country}
                       onChange={e => setCountry(e.target.value)}
                       
                     />
@@ -202,7 +202,7 @@ const NewAgenda = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={field_orchestra}
+                      defaultValue={props.agenda.orchestra}
                       onChange={e => setOrchestra(e.target.value)}
                       onBlur={e => setOrchestra(e.target.value)}
                     />
@@ -219,7 +219,7 @@ const NewAgenda = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={field_time}
+                      defaultValue={props.agenda.time}
                       onChange={e => setTime(e.target.value)}
                       onBlur={e => setTime(e.target.value)}
                     />
@@ -239,7 +239,7 @@ const NewAgenda = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={field_city}
+                      defaultValue={props.agenda.city}
                       onChange={e => setCity(e.target.value)}
                       
                     />
@@ -262,8 +262,8 @@ const NewAgenda = props => {
                       onBlur={e => setCd(e.target.value)}
                       defaultValue={field_cd}
                     >
-              {Object.values(_.orderBy(props.allPresentations,"cdName","asc")).map(CD=>{
-              if(CD.id === props.agenda.cd)
+              {Object.values(_.orderBy(props.allPresentations ? props.allPresentations:[],"cdName","asc")).map(CD=>{
+              if(CD.id === field_cd)
               return <option key={CD.id} value={CD.id} selected>{CD.cdName}</option>
               return <option key={CD.id} value={CD.id} >{CD.cdName}</option>
               })}
@@ -303,10 +303,10 @@ const NewAgenda = props => {
                       as="select"
                       onChange={e => setDay(e.target.value)}
                       onBlur={e => setDay(e.target.value)}
-                      defaultValue={field_day}
+                      defaultValue={props.agenda.day}
                     >
                    <option>-- Day --</option>
-                  <option value={field_day} selected>{field_day.replace(/^0+/, '')}</option>
+                  <option value={props.agenda.day} selected>{field_day.replace(/^0+/, '')}</option>
 <option value="01">1</option>
 <option value="02">2</option>
 <option value="03">3</option>
@@ -350,10 +350,10 @@ const NewAgenda = props => {
                       as="select"
                       onChange={e => setYear(e.target.value)}
                       onBlur={e => setYear(e.target.value)}
-                      defaultValue={field_year}
+                      defaultValue={props.agenda.year}
                     >
                    <option>-- Year --</option>
-                   <option value={field_year} selected>{field_year}</option>
+                   <option value={props.agenda.year} selected>{props.agenda.year}</option>
 <option value="2020">2020</option>
 <option value="2021">2021</option>
 <option value="2022">2022</option>
@@ -367,7 +367,7 @@ const NewAgenda = props => {
                   <Form.Group as={Col} controlId="synopsis">
                     <CKEditor
                         editor={ ClassicEditor }
-                        data={field_synopsis}
+                        data={props.agenda.synopsis}
                         toolbar= {'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' }
                         onInit={ editor => {
                             // You can store the "editor" and use when it is needed.

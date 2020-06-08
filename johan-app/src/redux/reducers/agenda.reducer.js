@@ -87,12 +87,13 @@ export default function agendaReducer (state = initialState, action) {
     return state
     }
     case ACTIONS.LOAD_AGENDA:{
+      console.log(action)
 
-
-    var agendaRef = database.ref('agendas')
-     agendaRef.child(action.payload).on('value',(snap,i)=>{
+    var agendaRef = database.ref('agendas').orderByChild('id').startAt(action.payload).endAt(action.payload)
+     agendaRef.on('child_added',(snap,i)=>{
     const data = snap.val()
-    setTimeout(() =>action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA_SUCCESS,data)), 0);
+    console.log({...data})
+    action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA_SUCCESS,{...data}))
       
     })
     return state
