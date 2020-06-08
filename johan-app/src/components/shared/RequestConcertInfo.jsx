@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
 import { Container,Col,Row,Form,Button} from "react-bootstrap"
+import dayjs from "dayjs"
 const RequestConcertInfo = (props) => {
     const [orchestraEnsemble, setOrchestraEnsemble] = useState();
     const [conductor, setConductor] = useState();
@@ -14,8 +15,10 @@ const RequestConcertInfo = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        
+        let d = new Date()
+       
         let concertItem = {
+          id:dayjs(d).format('YYYYMMDDHHmmss'),
             orchestraEnsemble,
             conductor,
             nameOfPiece,
@@ -27,7 +30,6 @@ const RequestConcertInfo = (props) => {
         if (form.checkValidity() === false) {
           event.stopPropagation();
         }
-      
        props.actions.mainAction(ACTIONS.SUBMIT_CONCERT_INFORMATION,concertItem)
        setValidated(true);
         

@@ -12,25 +12,22 @@ import _ from "lodash"
 
 const NewAgenda = props => {
   const [validated, setValidated] = useState(false);
-  const [field_orchestra,setOrchestra] = useState("")
-  const [field_conductor,setConductor] = useState("")
-  const [field_country,setCountry] = useState("")
+  const [field_orchestra,setOrchestra] = useState(props.agenda?props.agenda.orchestra:"")
+  const [field_conductor,setConductor] = useState(props.agenda?props.agenda.conductor:"")
+  const [field_country,setCountry] = useState(props.agenda?props.agenda.countrt:"")
   const [field_synopsis,setSynopsis] = useState("")
-  const [field_time,setTime] = useState("")
-  const [field_location,setlocation] = useState("")
-  const [field_cd,setCd] = useState("")
-  const [field_city,setCity] = useState("")
-  const [field_showAgenda,setShowAgenda] = useState()
+  const [field_time,setTime] = useState(props.agenda?props.agenda.time:"")
+  const [field_location,setlocation] = useState(props.agenda?props.agenda.location:"")
+  const [field_cd,setCd] = useState(props.agenda?props.agenda.cd:"")
+  const [field_city,setCity] = useState(props.agenda?props.agenda.city:"")
+  const [field_showAgenda,setShowAgenda] = useState(props.agenda ? props.agenda.ON_OFF:"")
+  const [field_category,setCategory]=useState(props.agenda ?props.agenda.category:'')
   const [field_month,setMonth] = useState("12")
   const [field_day,setDay] = useState("12")
   const [field_year,setYear] = useState("2020")
-  // const agendaRef = database.ref('agendas').orderByChild('id').limitToFirst()
-  // agendaRef.on('value',(snap)=>{
-  //   const data = snap.val()
-  //   console.log(data)
-  //   return data
-  // })
-  const id = (+Object.keys(props.allAgendas)[Object.keys(props.allAgendas).length-1]+3882).toString()
+  let lastId = _.orderBy(props.allAgendas,'id','desc')
+
+  const id = lastId[0] ? (lastId[0].id+1):""
   useEffect(() => {
     // Update the document title using the browser API
     window.scrollTo(0,0)
@@ -103,7 +100,9 @@ const NewAgenda = props => {
     }
     setValidated(true);
     props.actions.mainAction(ACTIONS.UPDATE_AGENDA,agendaItem)
-
+    setTimeout(()=>{ 
+      window.location.reload()
+     }, 1);
   }
   
   const renderMonths = () => {
@@ -111,7 +110,7 @@ const NewAgenda = props => {
     "August","September","October","November","December"]
    return months.map((month,i)=>{
       i=i+1;
-    if(i === +props.agenda.month)
+    if(i === +field_month)
     return <option key={i} value={i} selected>{month}</option>
     return <option key={i} value={i}>{month}</option>
     })
@@ -126,17 +125,17 @@ const NewAgenda = props => {
           <Col lg={{span:"10" }}> 
             <section id="product">
             <Form.Row><Col lg="6" style={{padding:"0 0 30px 20px"}}>id:{id}</Col></Form.Row>
-              <Form noValidate validated={validated} onSubmit={Object.keys(props.agenda).length > 0 ?handleUpdate :handleSubmit}>
+              <Form noValidate validated={validated} onSubmit={Object.keys(props.agenda ? props.agenda:[]).length > 0 ?handleUpdate :handleSubmit}>
               <Form.Row><Col lg="6"> 
                             <Form.Group as={Col} controlId="showpost">
-                              <Form.Label>Show Agenda {props.agenda.ON_OFF}</Form.Label>
+                              <Form.Label>Show Agenda {field_showAgenda}</Form.Label>
                              
                               <Form.Control
                                 as="select"
                                 custom
                                 onChange={e => setShowAgenda(e.target.value)}
                               >
-                                <option value={props.agenda.ON_OFF}>{parseInt(props.agenda.ON_OFF,10) === 1 ? "ON":"OFF"}</option>
+                                <option value={field_showAgenda}>{parseInt(field_showAgenda,10) === 1 ? "ON":"OFF"}</option>
                                 <option value="1">ON</option>
                                 <option value="2">OFF</option>
                               </Form.Control>
@@ -153,7 +152,7 @@ const NewAgenda = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={props.agenda.conductor}
+                      defaultValue={field_conductor}
                       onChange={e => setConductor(e.target.value)}
                       
                     />
@@ -171,7 +170,7 @@ const NewAgenda = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={props.agenda.location}
+                      defaultValue={field_location}
                       onChange={e => setlocation(e.target.value)}
                       
                     />
@@ -186,7 +185,7 @@ const NewAgenda = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={props.agenda.country}
+                      defaultValue={field_country}
                       onChange={e => setCountry(e.target.value)}
                       
                     />
@@ -203,7 +202,7 @@ const NewAgenda = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={props.agenda.orchestra}
+                      defaultValue={field_orchestra}
                       onChange={e => setOrchestra(e.target.value)}
                       onBlur={e => setOrchestra(e.target.value)}
                     />
@@ -220,7 +219,7 @@ const NewAgenda = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={props.agenda.time}
+                      defaultValue={field_time}
                       onChange={e => setTime(e.target.value)}
                       onBlur={e => setTime(e.target.value)}
                     />
@@ -240,7 +239,7 @@ const NewAgenda = props => {
                       required
                       type="text"
                       placeholder=""
-                      defaultValue={props.agenda.city}
+                      defaultValue={field_city}
                       onChange={e => setCity(e.target.value)}
                       
                     />
@@ -261,7 +260,7 @@ const NewAgenda = props => {
                       as="select"
                       onChange={e => setCd(e.target.value)}
                       onBlur={e => setCd(e.target.value)}
-                      defaultValue={props.agenda.cd}
+                      defaultValue={field_cd}
                     >
               {Object.values(_.orderBy(props.allPresentations,"cdName","asc")).map(CD=>{
               if(CD.id === props.agenda.cd)
@@ -288,7 +287,7 @@ const NewAgenda = props => {
                       as="select"
                       onChange={e => setMonth(e.target.value)}
                       onBlur={e => setMonth(e.target.value)}
-                      value={props.agenda.category}
+                      value={field_month}
                     >
                     <option value=''>--Select Month--</option>
                     {renderMonths()}
@@ -304,10 +303,10 @@ const NewAgenda = props => {
                       as="select"
                       onChange={e => setDay(e.target.value)}
                       onBlur={e => setDay(e.target.value)}
-                      defaultValue={props.agenda.category}
+                      defaultValue={field_day}
                     >
                    <option>-- Day --</option>
-                  <option value={props.agenda.day} selected>{props.agenda.day ? props.agenda.day.replace(/^0+/, ''):''}</option>
+                  <option value={field_day} selected>{field_day.replace(/^0+/, '')}</option>
 <option value="01">1</option>
 <option value="02">2</option>
 <option value="03">3</option>
@@ -351,10 +350,10 @@ const NewAgenda = props => {
                       as="select"
                       onChange={e => setYear(e.target.value)}
                       onBlur={e => setYear(e.target.value)}
-                      defaultValue={props.agenda.category}
+                      defaultValue={field_year}
                     >
                    <option>-- Year --</option>
-                   <option value={props.agenda.year} selected>{props.agenda.year}</option>
+                   <option value={field_year} selected>{field_year}</option>
 <option value="2020">2020</option>
 <option value="2021">2021</option>
 <option value="2022">2022</option>
@@ -368,7 +367,7 @@ const NewAgenda = props => {
                   <Form.Group as={Col} controlId="synopsis">
                     <CKEditor
                         editor={ ClassicEditor }
-                        data={props.agenda.synopsis ? props.agenda.synopsis: field_synopsis}
+                        data={field_synopsis}
                         toolbar= {'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' }
                         onInit={ editor => {
                             // You can store the "editor" and use when it is needed.
@@ -393,7 +392,7 @@ const NewAgenda = props => {
                   </Form.Row>
                         <Form.Row>
                         <Col lg={12}>
-                          <Button type="submit">{Object.keys(props.agenda).length > 0 ?"Update Agenda" :"Create Agenda"}</Button>
+                          <Button type="submit">{Object.keys(props.agenda ? props.agenda:[] ).length > 0 ?"Update Agenda" :"Create Agenda"}</Button>
                           </Col>
                         </Form.Row>
               </Form> 

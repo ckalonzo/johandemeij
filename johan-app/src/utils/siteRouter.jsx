@@ -30,55 +30,60 @@ import NewPublication from "components/dashboard/NewPublication"
 import NewCd from "components/dashboard/NewCd"
 import Submissions from "components/dashboard/Submissions";
 import NewAgenda from "components/dashboard/NewAgenda";
-//import Maintenance from "components/Maintenance"
+import Login from "components/dashboard/Login"
+import Submission from "components/dashboard/EditSubmission"
+import Contacts from "components/dashboard/Contacts"
+import EditContact from "components/dashboard/EditContact"
 const history = createBrowserHistory();
-const SiteRouter = () => {
-
-         return(
-            <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
-             <Switch>
-                 
-                 <Route path="/dashboard/events/edit/:id" component={EditEvent} />
-                 <Route path="/dashboard/events" component={DashboardEvents} />
-                 <Route path="/dashboard/agenda/:id" component={NewAgenda} />
-                 <Route path="/dashboard/agenda/new" component={NewAgenda} />
-                 <Route path="/dashboard/agenda" component={Agendas} />
-                 <Route path="/dashboard/catalogue" component={MusicCatalogue} />
-                 
-                 <Route path="/dashboard/cds/edit/:id" component={NewCd} />
-                 <Route path="/dashboard/cds/new" component={NewCd} />
-                 <Route path="/dashboard/cds" component={Cds} />
-
-                 <Route path="/dashboard/publications/edit/:id" component={NewPublication} />
-                 <Route path="/dashboard/publications/new" component={NewPublication} />
-                 <Route path="/dashboard/publications" component={Publications} />
-
-                 <Route path="/dashboard/news/new" component={NewPost} />
-                 <Route path="/dashboard/news/edit/:id" component={EditPost} />
-                 <Route path="/dashboard/news" component={Posts} />
-
-                 <Route path="/dashboard/submissions" component={Submissions} />
-                 <Route path="/dashboard/" component={dashboard} />
-                 
-                 <Route path="/order" component={Order} />
-                 <Route path="/rentalcatalogue" component={RentalCatalogue} />
-                 <Route path="/biography" component={Biography} />
-                 <Route path="/music/profile/:id" component={MusicProfile} />
-                 <Route path="/music" component={Music} />
-                 <Route path="/events" component={Events} />
-                 <Route path="/post/:id" component={Post} />
-                 <Route path="/agenda" component={AgendaList} />
-                 <Route path="/news" component={News} history={history} />
-                 <Route path="/cd/profile/:id" component={CdProfile} />
-                 <Route path="/" component={Home} history={history} />
-             </Switch>
-            </Router>
-         )
+const SiteRouter = (props) => {
+const loggedInUser = localStorage.getItem('user')
+const isLoggedIn = loggedInUser.length > 0 ? true:false
+return(
+<Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
+<Switch>
+  
+  <Route path="/dashboard/events/edit/:id" component={!isLoggedIn ? Login:EditEvent} />
+  <Route path="/dashboard/events" component={!isLoggedIn ? Login:DashboardEvents} />
+  <Route path="/dashboard/agenda/:id" component={!isLoggedIn ? Login:NewAgenda} />
+  <Route path="/dashboard/agenda/new" component={!isLoggedIn ? Login:NewAgenda} />
+  <Route path="/dashboard/agenda" component={!isLoggedIn ? Login:Agendas} />
+  <Route path="/dashboard/contact/:id" component={EditContact} />
+  <Route path="/dashboard/contact" component={!isLoggedIn ? Contacts:Contacts} />
+  <Route path="/dashboard/catalogue" component={!isLoggedIn ? Login:MusicCatalogue} />
+  <Route path="/dashboard/cds/edit/:id" component={!isLoggedIn ? Login:NewCd} />
+  <Route path="/dashboard/cds/new" component={!isLoggedIn ? Login:NewCd} />
+  <Route path="/dashboard/cds" component={!isLoggedIn ? Login:Cds} />
+  <Route path="/dashboard/publications/edit/:id" component={!isLoggedIn ? Login:NewPublication} />
+  <Route path="/dashboard/publications/new" component={!isLoggedIn ? Login:NewPublication} />
+  <Route path="/dashboard/publications" component={!isLoggedIn ? Login:Publications} />
+  <Route path="/dashboard/news/new" component={!isLoggedIn ? Login:NewPost} />
+  <Route path="/dashboard/news/edit/:id" component={!isLoggedIn ? Login:EditPost} />
+  <Route path="/dashboard/news" component={!isLoggedIn ? Login:Posts} />
+  <Route path="/dashboard/submissions/edit/:id" component={!isLoggedIn ? Login:Submission} />
+  <Route path="/dashboard/submissions" component={!isLoggedIn ? Login:Submissions} />
+  <Route path="/dashboard/login" component={Login} />
+  <Route path="/dashboard/" component={dashboard} />
+  <Route path="/order" component={Order} />
+  <Route path="/rentalcatalogue" component={RentalCatalogue} />
+  <Route path="/biography" component={Biography} />
+  <Route path="/music/profile/:id" component={MusicProfile} />
+  <Route path="/music" component={Music} />
+  <Route path="/events" component={Events} />
+  <Route path="/post/:id" component={Post} />
+  <Route path="/agenda" component={AgendaList} />
+  <Route path="/news" component={News} history={history} />
+  <Route path="/cd/profile/:id" component={CdProfile} />
+  <Route path="/" component={Home} history={history} />
+</Switch>
+</Router>
+)
  
  }
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    user:state.userReducer
+  };
 };
 
 const mapDispatchToProps = dispatch => {

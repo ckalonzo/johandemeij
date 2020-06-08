@@ -11,7 +11,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "concurrently": "^5.1.0",
-    "dayjs": "^1.8.24",
+    "dayjs": "^1.8.28",
     "dotenv": "^8.2.0",
     "firebase": "^7.14.3",
     "firebase-admin": "^8.12.1",

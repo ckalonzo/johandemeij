@@ -19,10 +19,11 @@ const firebaseApp = firebase.initializeApp(config);
 const storageRef = firebase.storage().ref();
 const storage = firebase.storage()
 const ref= firebase.database().ref("Uploads");
+const auth = firebase.auth()
 
 const database = firebaseApp.database()
 const db = firebaseApp.firestore();
 
 
 //=======================================================================
-export {database,db,storageRef,storage};
+export {database,db,storageRef,storage,auth};

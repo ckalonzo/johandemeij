@@ -4,30 +4,37 @@ import { ACTIONS } from "redux/actions/types"
 import { mainAction } from "redux/actions/index.actions"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-
+import dayjs from "dayjs"
 const Footer = (props) => {
   const [contactName,setContactName] = useState()
   const [contactEmail,setContactEmail] = useState()
   const [contactSubject,setContactSubject] = useState()
   const [contactMessage,setContactMessage] = useState()
+  const [validation,setValidation] = useState()
   const [validated, setValidated] = useState(false);
   const handleSubmit = event => {
     event.preventDefault();
-    
+    let d = new Date()
     let message = {
+      id:dayjs(d).format('YYYYMMDDHHmmss'),
       contactName,
       contactEmail,
       contactSubject,
-      contactMessage
+      contactMessage,
+      date:dayjs(d).format('MM-DD-YYYY'),
+      time:dayjs(d).format('HH:mm:ss A')
     }
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
-
-   props.actions.mainAction(ACTIONS.SUBMIT_CONTACT_INFO,message)
-   setValidated(true);
-    
+ if(validation === "7"){    
+setValidated(true);
+  props.actions.mainAction(ACTIONS.SUBMIT_CONTACT_INFO,message)
+   console.log(message)
+   setTimeout(()=>{ 
+     window.location.reload()
+    }, 1);}
   };
     useEffect(() => {
         // Update the document title using the browser API
@@ -74,6 +81,17 @@ const Footer = (props) => {
                   <Form.Control as="textarea" rows="3" placeholder="message"  onChange={(e)=> setContactMessage(e.target.value)} />
                     <Form.Control.Feedback type="invalid">
                         Please provide a title.
+                      </Form.Control.Feedback>
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  </Form.Group>
+                  </Form.Row>
+                  <Form.Row>
+                  
+                  <Form.Label>Please add these numbers 3 + 4</Form.Label>
+                  <Form.Group as={Col}  controlId="subject">
+                  <Form.Control type="text" placeholder="" size="sm" onChange={(e)=> setValidation(e.target.value)}/>
+                    <Form.Control.Feedback type="invalid">
+                        Please provide a valid answer.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                   </Form.Group>

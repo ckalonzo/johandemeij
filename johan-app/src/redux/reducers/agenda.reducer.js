@@ -43,7 +43,6 @@ export default function agendaReducer (state = initialState, action) {
     const data = snap.val()
     Object.values(data).map(agenda=>{
       agenda.date = `${agenda.month}-${agenda.day}-${agenda.year}`
-      console.log(agenda.id,agenda.conductor)
       if(agenda.month >= month || agenda.month >= +month  && agenda.id > 0)
       return agendas.push(agenda)
     })
