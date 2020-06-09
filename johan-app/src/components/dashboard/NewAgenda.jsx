@@ -18,16 +18,16 @@ const NewAgenda = props => {
   const [field_synopsis,setSynopsis] = useState("")
   const [field_time,setTime] = useState(props.agenda?props.agenda.time:"")
   const [field_location,setlocation] = useState(props.agenda?props.agenda.location:"")
-  const [field_cd,setCd] = useState(props.agenda?props.agenda.cd:"")
+  const [field_cd,setCd] = useState(props.agenda?props.agenda.cd:"1050")
   const [field_city,setCity] = useState(props.agenda?props.agenda.city:"")
   const [field_showAgenda,setShowAgenda] = useState(props.agenda ? props.agenda.ON_OFF:"")
   const [field_category,setCategory]=useState(props.agenda ?props.agenda.category:'')
-  const [field_month,setMonth] = useState("")
-  const [field_day,setDay] = useState("")
-  const [field_year,setYear] = useState("")
+  const [field_month,setMonth] = useState("12")
+  const [field_day,setDay] = useState("12")
+  const [field_year,setYear] = useState("2020")
   let lastId = _.orderBy(props.allAgendas,'id','desc')
 
-  const id = lastId[0] ? (lastId[0].id+1):""
+  const id = lastId[0] ? (+lastId[0].id+1):""
   useEffect(() => {
     // Update the document title using the browser API
     window.scrollTo(0,0)
@@ -35,6 +35,7 @@ const NewAgenda = props => {
     let agendaId = props.match.params.id.toString()
     if(agendaId)
     props.actions.mainAction(ACTIONS.LOAD_AGENDA,agendaId)
+    if(!id)
     props.actions.mainAction(ACTIONS.LOAD_ALL_AGENDAS,"2020")
   
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -99,6 +100,7 @@ const NewAgenda = props => {
       event.stopPropagation();
     }
     setValidated(true);
+    console.log(agendaItem)
     props.actions.mainAction(ACTIONS.UPDATE_AGENDA,agendaItem)
     setTimeout(()=>{ 
       window.location.reload()
@@ -115,7 +117,6 @@ const NewAgenda = props => {
     return <option key={i} value={i}>{month}</option>
     })
   }
- console.log(props.agenda)
   return (
     <>
       <Container className="dashboard">
@@ -124,7 +125,7 @@ const NewAgenda = props => {
           <Col lg={{ span: 2 }}><SideNav /></Col>
           <Col lg={{span:"10" }}> 
             <section id="product">
-            <Form.Row><Col lg="6" style={{padding:"0 0 30px 20px"}}>{/*`id:${id}`*/}</Col></Form.Row>
+            <Form.Row><Col lg="6" style={{padding:"0 0 30px 20px"}}>{`id:${id}`}</Col></Form.Row>
               <Form noValidate validated={validated} onSubmit={Object.keys(props.agenda ? props.agenda:[]).length > 0 ?handleUpdate :handleSubmit}>
               <Form.Row><Col lg="6"> 
                             <Form.Group as={Col} controlId="showpost">

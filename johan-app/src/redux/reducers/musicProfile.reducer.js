@@ -16,7 +16,7 @@ export default function musicProfileReducer (state = initialState, action) {
            action.asyncDispatch(mainAction(ACTIONS.LOAD_MUSIC_PROFILE_SUCCESS,...data))
          });
      
-        return action.payload
+        return state
       }
       case ACTIONS.LOAD_MUSIC_PROFILE_BY_ID:{
         db.collection("presentations")

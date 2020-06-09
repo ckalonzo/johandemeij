@@ -7,17 +7,17 @@ const initialState = {
 export default function agendaReducer (state = initialState, action) {
   switch (action.type) {
     case ACTIONS.CREATE_NEW_AGENDA:{
+      console.log(action)
      
-     let stateCopy = _.cloneDeep(action.payload)
-    const agendaRef = database.ref('agendas')
-    agendaRef.child(stateCopy.id).set(stateCopy).then(()=>{
-      action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_AGENDA_SUCCESS,stateCopy))
+     const agendaRef = database.ref('agendas/'+action.payload.id)
+    agendaRef.set(action.payload).then(()=>{
+      action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_AGENDA_SUCCESS,action.payload))
     })
     .catch(()=>{
       action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_AGENDA_FAIL,{error:"could not creat agenda"}))
     });
    
-    return stateCopy
+    return state
     }
     case ACTIONS.CREATE_NEW_AGENDA_SUCCESS:{
     return action.payload
@@ -46,6 +46,7 @@ export default function agendaReducer (state = initialState, action) {
       if(agenda.month >= month || agenda.month >= +month  && agenda.id > 0)
       return agendas.push(agenda)
     })
+    
      action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_SUCCESS,agendas))
     })
 
@@ -87,12 +88,19 @@ export default function agendaReducer (state = initialState, action) {
     return state
     }
     case ACTIONS.LOAD_AGENDA:{
-      console.log(action)
 
+    var agendaRef = database.ref('agendas/'+action.payload)
+     agendaRef.on('value',(snap,i)=>{
+    const data = snap.val()
+    if(data)
+    action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA_SUCCESS,{...data}))
+      
+    })
     var agendaRef = database.ref('agendas').orderByChild('id').startAt(action.payload).endAt(action.payload)
      agendaRef.on('child_added',(snap,i)=>{
     const data = snap.val()
-    console.log({...data})
+    
+    if(data)
     action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA_SUCCESS,{...data}))
       
     })

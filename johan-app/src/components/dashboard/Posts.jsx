@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap"
 import { ACTIONS } from "redux/actions/types"
 import { Container,Row,Col } from "react-bootstrap"
 import SideNav from "components/dashboard/SideNav"
-//import { Link } from "react-router-dom";
+import Loading from "components/shared/Loading"
 import EditPost from "components/dashboard/EditPost"
 
 const Posts = (props) => {
@@ -48,9 +48,7 @@ const Posts = (props) => {
           </tr> )
         })
       } else {
-        return (<tr>
-          <td  colSpan="3">Loading....</td>
-        </tr>)
+        return <tr><td colspan={3}><Loading /></td></tr>
       }
     }
     

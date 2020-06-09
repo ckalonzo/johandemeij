@@ -45,7 +45,7 @@ const renderProfile = () => {
                <Col lg={{span:8}}>
         <h1>{props.profile.cdName}</h1>
         <h3>{props.profile.subTitle}</h3>
-        <h5>{`Composer: ${props.profile.subTitle}`}</h5>
+        <h5>{`Composer: ${props.profile.composer}`}</h5>
         <p>{ReactHtmlParser(props.profile.synopsis ? CleanUpSynopsis(props.profile.synopsis):"props.profile.synopsis")}</p>
                    </Col>
                    <Col lg={{span:4}}>

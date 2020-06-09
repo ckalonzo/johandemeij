@@ -34,6 +34,10 @@ const renderImage = (image,caption) => {
     </>)
 }
 
+const renderCodes = (codes) =>{
+    if(codes)
+    return codes.toString().replace("<br>","")
+}
 const renderComposerLink = (composer) =>{
     return  ReactHtmlParser(composer.toLowerCase().replace(/johan de meij|johan de  meij/g,"<a href='/biography'>Johan de Meij</a>"))
   } 
@@ -63,7 +67,7 @@ const renderProfile = () => {
                        <td><a href={"/music/profile/"+track.track_title}>{track.title}</a></td>
                        <td>{track.grade[0]}</td>
                        <td>{ReactHtmlParser(track.duration)}</td>
-                       <td>{track.codes}</td>
+                       <td>{renderCodes(track.codes)}</td>
                        <td>{renderComposerLink(track.composer)}</td>
                        <td>{ReactHtmlParser(track.addInfo)}</td>
                        </tr>)

@@ -96,13 +96,25 @@ export default function presentationReducer (state = initialState, action) {
             return state
         }
         
-        case ACTIONS.UPDATE_PUBLICATION:{
-      console.log(action)
+        case ACTIONS.UPDATE_PUBLICATION:{   
+      db.collection("presentations").where("id","==",action.payload.id).get()
+      .then((querySnapshot)=>{
+        const _id=''
+        const data = querySnapshot.docs.map(doc =>{
+         return  _id = doc.ref.id
+        })
+        action.payload._id = _id
         db.collection("presentations")
-        .doc(action.payload._id)
+        .doc(_id)
         .update(action.payload).then(()=>{
+          
           action.asyncDispatch(mainAction(ACTIONS.UPDATE_PUBLICATION_SUCCESS,action.payload))
         });
+       })
+      .catch(()=>{
+
+      })
+       
         return state
         }
         case ACTIONS.UPDATE_PUBLICATION_SUCCESS:{

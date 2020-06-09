@@ -77,6 +77,7 @@ const NewPublication = props => {
     event.preventDefault();
     let publicationItem = {
         _id:props.presentation._id,
+        id:props.presentation.id,
         cdName:document.getElementById('cdName').value,
         subTitle:document.getElementById('subtitle').value,
         composer:document.getElementById('composer').value,

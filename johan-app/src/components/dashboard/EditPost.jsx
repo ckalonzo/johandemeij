@@ -47,7 +47,6 @@ const EditPost = props => {
    props.actions.mainAction(ACTIONS.UPDATE_POST,newsItem)
    window.scrollTo(0,0)
   };
-  console.log(props)
   return (
     <>
     <Container className="dashboard">
