@@ -27,12 +27,16 @@ const AgendaList  = (props) => {
     <div className="container">
         
     {Object.values(props.agendas).map(agenda => {
+      console.log(agenda)
+            let title = props.CDS.filter(CD=>CD.id===agenda.cd).map(CD=>CD.cdName),
+                title1 = props.CDS.filter(CD=>CD.id===agenda.cd1).map(CD=>CD.cdName),
+                title2 = props.CDS.filter(CD=>CD.id===agenda.cd2).map(CD=>CD.cdName),
+                title3 = props.CDS.filter(CD=>CD.id===agenda.cd3).map(CD=>CD.cdName)
 
-            let title = props.CDS.filter(CD=>CD.id===agenda.cd).map(CD=>CD.cdName)
             agenda.title = title[0]
-          //  if(agenda.ON_OFF === /2)
-          console.log(agenda.ON_OFF)
-          
+            agenda.title1 = title1[0]
+            agenda.title2 = title2[0]
+            agenda.title3 = title3[0]
             return +agenda.ON_OFF  === 1 ? <List key={agenda.id} {...agenda}/>:""
         })}
         

@@ -1,4 +1,8 @@
 import React from "react"
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { mainAction } from 'redux/actions/index.actions'
+import { ACTIONS } from "redux/actions/types"
 import {Col, Row} from "react-bootstrap"
 import {Link } from "react-router-dom"
 import dayjs from "dayjs"
@@ -16,9 +20,11 @@ const List = (props) => {
     
         <div>
             <div className="orchestra">{props.orchestra}</div>
-            {props.conductor ?ReactHtmlParser(`<div class="conductor">Conductor: ${props.conductor}</div>`):''}
-            <div className="title"><Link to={"/music/profile/"+props.cd}>{props.title}</Link></div>
-            
+{props.conductor ?ReactHtmlParser(`<div class="conductor">Conductor: ${props.conductor}</div>`):''}
+{props.title  ? <div className="title"><Link to={"/music/profile/"+props.cd}>{props.title}</Link></div>:""}
+{props.title1 ? <div className="title"><Link to={"/music/profile/"+props.cd1}>{props.title1}</Link></div>:""}
+{props.title2 ? <div className="title"><Link to={"/music/profile/"+props.cd2}>{props.title2}</Link></div>:""}
+{props.title3 ? <div className="title"><Link to={"/music/profile/"+props.cd3}>{props.title3}</Link></div>:""}
             <div className="location">{`${returnMonth(props.month)} ${props.day} ${props.year} ${props.time}`} {`${props.city} ${props.country}`}</div>
         </div>
     
@@ -35,4 +41,24 @@ const List = (props) => {
    }
    return props.orchestra ? renderList(props):null
 }
-export default List
+function mapStateToProps(state) {
+    return {
+        presentations:state.musicReducer.allPresentations
+    };
+  }
+  
+  function mapDispatchToProps(dispatch) {
+    return {
+      actions: bindActionCreators(
+        {
+            mainAction
+        },
+        dispatch
+      )
+    };
+  }
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(List);

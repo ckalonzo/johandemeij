@@ -19,7 +19,6 @@ const NewPublication = props => {
   const [field_totalTime,setTotalTime] = useState()
   const [field_category,setCategory] = useState()
   const [field_codes,setCodes] = useState()
-  const [field_duration,setDuration] = useState()
   const [field_grade,setGrade] = useState()
   const [field_cd,setCd] = useState()
   const [field_otherCd,setOtherCd] = useState()
@@ -44,7 +43,6 @@ const NewPublication = props => {
        
         return testArray.push({id:parseInt(item.id,10)})
     })
-    console.log(_.orderBy(testArray,'id','desc')[0].id)
     
     let publicationItem = {
         id:(_.orderBy(testArray,'id','desc')[0].id + 1).toString(),
@@ -56,7 +54,6 @@ const NewPublication = props => {
         totalTime:field_totalTime ? field_totalTime:"",
         category:field_category ? field_category:"",
         codes:field_codes ? field_codes:"",
-        duration:field_duration ? field_duration:"",
         grade:field_grade ? field_grade:"",
         cd:field_cd ? field_cd:"",
         otherCd:field_otherCd ? field_otherCd:"",
@@ -86,7 +83,6 @@ const NewPublication = props => {
         totalTime:document.getElementById('totalTime').value,
         category:document.getElementById('category').value,
         codes:document.getElementById('codes').value,
-        duration:document.getElementById('duration').value,
         grade:document.getElementById('grade').value,
         cd:document.getElementById('cd').value,
         otherCd:document.getElementById('otherCD').value,
@@ -109,7 +105,7 @@ const NewPublication = props => {
     }
     setValidated(true);
     props.actions.mainAction(ACTIONS.UPDATE_PUBLICATION,publicationItem)
-  }
+  } 
   const renderPublicationImage = () => {
     return (<>
     <PublicationImage docId={props.presentation._id} ID={props.presentation.id} image={props.presentation.frontCover} caption={props.presentation.frontCaption} type="front" />
@@ -227,21 +223,28 @@ const NewPublication = props => {
                   </Col>
                 </Form.Row>
                 <Form.Row>
-                <Col lg="6"><Form.Group as={Col} controlId="duration">
-                    <Form.Label>Duration</Form.Label>
+                <Col lg="12"><Form.Group as={Col} controlId="cd">
+                    <Form.Label>CD</Form.Label>
                     <Form.Control
-                     
-                      type="text"
-                      placeholder=""
-                      defaultValue={props.presentation.duration}
-                      onChange={e => setDuration(e.target.value)}
-                      
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a duration.
+                      required
+                      as="select"
+                      onChange={e => setCd(e.target.value)}
+                      onBlur={e => setCd(e.target.value)}
+                      defaultValue={field_cd}
+                    >
+              {Object.values(_.orderBy(props.allPresentations ? props.allPresentations:[],"cdName","asc")).map(CD=>{
+              if(CD.id === field_cd)
+              return <option key={CD.id} value={CD.id} selected>{CD.cdName}</option>
+              return <option key={CD.id} value={CD.id} >{CD.cdName}</option>
+              })}
+                        
+                    </Form.Control>                    <Form.Control.Feedback type="invalid">
+                        Please provide a CD.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                   </Form.Group></Col>
+                </Form.Row>
+                <Form.Row>
                 <Col lg="6"><Form.Group as={Col} controlId="grade">
                     <Form.Label>Grade</Form.Label>
                     <Form.Control
@@ -254,23 +257,6 @@ const NewPublication = props => {
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a grade.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group></Col>
-                </Form.Row>
-                <Form.Row>
-                <Col lg="6"> <Form.Group as={Col} controlId="cd">
-                    <Form.Label>CD</Form.Label>
-                    <Form.Control
-                     
-                      type="text"
-                      placeholder=""
-                      defaultValue={props.presentation.cd}
-                      onChange={e => setCd(e.target.value)}
-                      
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a CD.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                   </Form.Group></Col>
@@ -398,7 +384,7 @@ const NewPublication = props => {
 function mapStateToProps(state) {
     
   return {
-    allPresentations:state.AllPresentationsReducer,
+    allPresentations:_.orderBy(state.AllPresentationsReducer,"id","asc"),
     categories:state.musicReducer.categories,
     presentation:state.presentationReducer,
     presentationImages:state.postImagesReducer

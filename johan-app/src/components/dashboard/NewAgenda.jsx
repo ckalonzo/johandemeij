@@ -7,7 +7,7 @@ import SideNav from "components/dashboard/SideNav";
 import { mainAction } from "redux/actions/index.actions"
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { database} from "../../firebase";
+import Loading from "components/shared/Loading"
 import _ from "lodash"
 
 const NewAgenda = props => {
@@ -18,16 +18,18 @@ const NewAgenda = props => {
   const [field_synopsis,setSynopsis] = useState("")
   const [field_time,setTime] = useState(props.agenda?props.agenda.time:"")
   const [field_location,setlocation] = useState(props.agenda?props.agenda.location:"")
-  const [field_cd,setCd] = useState(props.agenda?props.agenda.cd:"1050")
+  const [field_cd,setCd] = useState(props.agenda.cd ? props.agenda.cd:"")
+  const [field_cd1,setCd1] = useState(props.agenda.cd1?props.agenda.cd1:"")
+  const [field_cd2,setCd2] = useState(props.agenda.cd2?props.agenda.cd2:"")
+  const [field_cd3,setCd3] = useState(props.agenda.cd3?props.agenda.cd3:"")
   const [field_city,setCity] = useState(props.agenda?props.agenda.city:"")
   const [field_showAgenda,setShowAgenda] = useState(props.agenda ? props.agenda.ON_OFF:"")
-  const [field_category,setCategory]=useState(props.agenda ?props.agenda.category:'')
   const [field_month,setMonth] = useState("12")
   const [field_day,setDay] = useState("12")
   const [field_year,setYear] = useState("2020")
   let lastId = _.orderBy(props.allAgendas,'id','desc')
 
-  const id = lastId[0] ? (+lastId[0].id+1):""
+  const id = lastId[0] ? (+lastId[0].id+11):""
   useEffect(() => {
     // Update the document title using the browser API
     window.scrollTo(0,0)
@@ -52,6 +54,9 @@ const NewAgenda = props => {
         country:field_country,
         location:field_location,
         cd:field_cd,
+        cd1:field_cd1,
+        cd2:field_cd2,
+        cd3:field_cd3,
         city:field_city,
         ON_OFF:field_showAgenda ? field_showAgenda.toString():document.getElementById('showpost').value.toString(),
         month:field_month,
@@ -63,10 +68,12 @@ const NewAgenda = props => {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
-    console.log(agendaItem)
     setValidated(true);
    props.actions.mainAction(ACTIONS.CREATE_NEW_AGENDA,agendaItem)
-   props.history.push('/dashboard/agenda/edit/'+id)
+   props.history.push('/dashboard/agenda/'+id)
+   setTimeout(()=>{ 
+    window.location.reload()
+   }, 1);
   };
   const handleUpdate = async event => {
     event.preventDefault();
@@ -79,6 +86,9 @@ const NewAgenda = props => {
         location:document.getElementById('location').value,
         country:document.getElementById('country').value,
         cd:document.getElementById('cd').value,
+        cd1:document.getElementById('cd1').value,
+        cd2:document.getElementById('cd2').value,
+        cd3:document.getElementById('cd3').value,
         city:document.getElementById('city').value,
         ON_OFF:document.getElementById('showpost').value,
         month:document.getElementById('month').value,
@@ -100,11 +110,10 @@ const NewAgenda = props => {
       event.stopPropagation();
     }
     setValidated(true);
-    console.log(agendaItem)
     props.actions.mainAction(ACTIONS.UPDATE_AGENDA,agendaItem)
     setTimeout(()=>{ 
       window.location.reload()
-     }, 1);
+     }, 0);
   }
   const months= ["January","February","March","April","May","June","July",
     "August","September","October","November","December"]
@@ -117,6 +126,7 @@ const NewAgenda = props => {
     return <option key={i} value={i}>{month}</option>
     })
   }
+  console.log(props)
   return (
     <>
       <Container className="dashboard">
@@ -124,8 +134,8 @@ const NewAgenda = props => {
         <Row>
           <Col lg={{ span: 2 }}><SideNav /></Col>
           <Col lg={{span:"10" }}> 
-            <section id="product">
-            <Form.Row><Col lg="6" style={{padding:"0 0 30px 20px"}}>{`id:${id}`}</Col></Form.Row>
+            {props.agenda.ON_OFF || props.match.params.id ? <section id="product">
+            <Form.Row><Col lg="6" style={{padding:"0 0 30px 20px"}}>{!props.agenda.ON_OFF ? `id:${id}`:""}</Col></Form.Row>
               <Form noValidate validated={validated} onSubmit={Object.keys(props.agenda ? props.agenda:[]).length > 0 ?handleUpdate :handleSubmit}>
               <Form.Row><Col lg="6"> 
                             <Form.Group as={Col} controlId="showpost">
@@ -254,19 +264,20 @@ const NewAgenda = props => {
                 <Form.Row>
                 <Col lg="12">
                 <Form.Group as={Col} controlId="cd">
-                    <Form.Label>CD</Form.Label>
+  <Form.Label>CD {props.agenda.cd}</Form.Label>
 
                     <Form.Control
                       required
                       as="select"
                       onChange={e => setCd(e.target.value)}
                       onBlur={e => setCd(e.target.value)}
-                      defaultValue={field_cd}
+                      defaultValue={props.agenda.cd}
                     >
-              {Object.values(_.orderBy(props.allPresentations ? props.allPresentations:[],"cdName","asc")).map(CD=>{
-              if(CD.id === field_cd)
-              return <option key={CD.id} value={CD.id} selected>{CD.cdName}</option>
-              return <option key={CD.id} value={CD.id} >{CD.cdName}</option>
+              <option value="" >SELECT A CD</option>
+              {Object.values(_.orderBy(props.allPresentations ? props.allPresentations:[],"cdName","asc")).map
+              (CD=>{
+              return +CD.id === +props.agenda.cd ? <option key={CD.id} value={CD.id} selected>{CD.cdName}</option>
+              : <option key={CD.id} value={CD.id} >{CD.cdName}</option>
               })}
                         
                     </Form.Control>
@@ -275,9 +286,83 @@ const NewAgenda = props => {
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                   </Form.Group></Col>
-                <Col lg="6">
-                </Col>
+                </Form.Row>
+                <Form.Row>
+                <Col lg="12">
+                <Form.Group as={Col} controlId="cd1">
+            <Form.Label>CD #1 {props.agenda.cd1}</Form.Label>
 
+                    <Form.Control
+                      required
+                      as="select"
+                      onChange={e => setCd1(e.target.value)}
+                      onBlur={e => setCd1(e.target.value)}
+                      defaultValue={props.agenda.cd1}
+                    > 
+
+              <option value="" >SELECT A CD</option>
+              {Object.values(_.orderBy(props.allPresentations ? props.allPresentations:[],"cdName","asc")).map
+              (CD=>{
+              return CD.id === props.agenda.cd1 ? <option key={CD.id} value={CD.id} selected>{CD.cdName}</option>
+              : <option key={CD.id} value={CD.id} >{CD.cdName}</option>
+              })}
+                        
+                    </Form.Control>
+                    <Form.Control.Feedback type="invalid">
+                        Please provide a CD #1.
+                      </Form.Control.Feedback>
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  </Form.Group></Col>
+                </Form.Row>
+                <Form.Row>
+                <Col lg="12">
+                <Form.Group as={Col} controlId="cd2">
+                    <Form.Label>CD #2</Form.Label>
+
+                    <Form.Control
+                      required
+                      as="select"
+                      onChange={e => setCd2(e.target.value)}
+                      onBlur={e => setCd2(e.target.value)}
+                      defaultValue={props.agenda.cd2}
+                    >
+                      <option value="" >SELECT A CD</option>
+              {Object.values(_.orderBy(props.allPresentations ? props.allPresentations:[],"cdName","asc")).map(CD=>{
+              return CD.id === props.agenda.cd2 ? <option key={CD.id} value={CD.id} selected>{CD.cdName}</option>
+              : <option key={CD.id} value={CD.id} >{CD.cdName}</option>
+              })}
+                        
+                    </Form.Control>
+                    <Form.Control.Feedback type="invalid">
+                        Please provide a CD.
+                      </Form.Control.Feedback>
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  </Form.Group></Col>
+                </Form.Row>
+                <Form.Row>
+                <Col lg="12">
+                <Form.Group as={Col} controlId="cd3">
+                    <Form.Label>CD #3</Form.Label>
+
+                    <Form.Control
+                      required
+                      as="select"
+                      onChange={e => setCd3(e.target.value)}
+                      onBlur={e => setCd3(e.target.value)}
+                      defaultValue={props.agenda.cd3}
+                    >
+                     <option value="" >SELECT A CD</option>
+              {Object.values(_.orderBy(props.allPresentations ? props.allPresentations:[],"cdName","asc")).map(CD=>{
+              return CD.id === props.agenda.cd3 ? <option key={CD.id} value={CD.id} selected>{CD.cdName}</option>
+              : <option key={CD.id} value={CD.id} >{CD.cdName}</option>
+              })}
+                        
+                    </Form.Control>
+                    <Form.Control.Feedback type="invalid">
+                        Please provide a CD.
+                      </Form.Control.Feedback>
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  </Form.Group></Col>
                 </Form.Row>
                 <Form.Row>
                   <Col lg={4}>
@@ -402,7 +487,7 @@ const NewAgenda = props => {
                           </Col>
                         </Form.Row>
               </Form> 
-            </section>
+            </section> : <Loading />}
           </Col>
         </Row> 
       </Container>

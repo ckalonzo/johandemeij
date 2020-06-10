@@ -29,7 +29,6 @@ export default function musicReducer (state = initialState, action) {
         });
         return state
       }
-      
       case ACTIONS.LOAD_MUSIC_SUCCESS: {
           let stateCopy = _.cloneDeep(state)
           stateCopy.allPresentations = action.payload

@@ -25,8 +25,10 @@ const CleanUpSynopsis = (text)  => {
     return text.replace(/(\r\n|\n|\r)/gm, "")
 }
 const renderImage = (image,caption) => {
+    console.log(image,caption)
     return (<>
-    <Row><div style={{backgroundImage:`url(https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${image}?alt=media)`,backgroundPosition:"50% 50%",backgroundSize:"cover",width:"100%",minHeight:"450px",backgroundRepeat:"no-repeat"}} />
+    <Row>
+    <img src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${image}?alt=media`} style={{maxWidth:"320px"}} alt="media"/>
         <div  style={{fontSize:".9rem",margin:"15px 0"}}>{caption}</div></Row>
     </>)
 }

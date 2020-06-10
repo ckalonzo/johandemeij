@@ -15,7 +15,6 @@ const Dashboard = (props) => {
        // props.actions.mainAction(ACTIONS.LOAD_POST_IMAGE,{})
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-console.log(Object.values(props.user).length)
     return(<>
     <Container className="dashboard">
         <Row>

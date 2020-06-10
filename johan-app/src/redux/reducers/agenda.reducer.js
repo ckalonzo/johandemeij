@@ -61,23 +61,22 @@ export default function agendaReducer (state = initialState, action) {
     }
     case ACTIONS.LOAD_AGENDAS: {
     let d = new Date();
-    let day = d.getDay();
     let month = (d.getMonth() + 1).toString()
     let year = d.getFullYear().toString();
 
-    const agendaYearRef = database.ref('agendas').orderByChild('year').startAt('2020').endAt('2021')
+    const agendaYearRef = database.ref('agendas').orderByChild('year').startAt(year).endAt('2021')
     agendaYearRef.on('value',(snap,i)=>{
-   
-   let agendas = []
-   const data = snap.val()
-   Object.values(data).map(agenda=>{
-     agenda.date = `${agenda.month}-${agenda.day}-${agenda.year}`
-     agenda.month = +agenda.month
-     if(agenda.month >= month && agenda.cd !='')
-      return agendas.push(agenda)
-   })
-    action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,_.orderBy(agendas,['month','day'],['asc','asc'])))
-   })
+
+    let agendas = []
+    const data = snap.val()
+      Object.values(data).map(agenda=>{
+        agenda.date = `${agenda.month}-${agenda.day}-${agenda.year}`
+        agenda.month = +agenda.month
+        if(agenda.month >= month && agenda.cd !='')
+        return agendas.push(agenda)
+      })
+      action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,_.orderBy(agendas,['month','day'],['asc','asc'])))
+    })
     return state
     }
     case ACTIONS.LOAD_AGENDAS_SUCCESS:{
@@ -88,23 +87,23 @@ export default function agendaReducer (state = initialState, action) {
     return state
     }
     case ACTIONS.LOAD_AGENDA:{
-
+    let stateCopy = []
     var agendaRef = database.ref('agendas/'+action.payload)
      agendaRef.on('value',(snap,i)=>{
     const data = snap.val()
-    if(data)
+    if(data) 
     action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA_SUCCESS,{...data}))
       
     })
     var agendaRef = database.ref('agendas').orderByChild('id').startAt(action.payload).endAt(action.payload)
      agendaRef.on('child_added',(snap,i)=>{
     const data = snap.val()
-    
-    if(data)
-    action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA_SUCCESS,{...data}))
+    stateCopy = data
+    if(stateCopy)
+    action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA_SUCCESS,{...stateCopy}))
       
     })
-    return state
+    return {...stateCopy}
     }
     case ACTIONS.LOAD_AGENDA_SUCCESS:{
     return action.payload
@@ -124,7 +123,7 @@ export default function agendaReducer (state = initialState, action) {
     }
     case ACTIONS.UPDATE_AGENDA_SUCCESS:{
     let stateCopy = _.cloneDeep(action.payload)
-    action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA,stateCopy.id))
+   // action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA,stateCopy.id))
     return stateCopy
     }
     case ACTIONS.UPDATE_AGENDA_FAIL:{

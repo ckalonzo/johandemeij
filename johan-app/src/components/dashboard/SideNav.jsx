@@ -15,7 +15,7 @@ const Navbar = (props) => {
     //"biography",
     "catalogue","cds","contact","events","news",
     //"misc",
-    //"order",
+     "order",
      "publications",
      "submissions"
     ]

@@ -34,6 +34,10 @@ import Login from "components/dashboard/Login"
 import Submission from "components/dashboard/EditSubmission"
 import Contacts from "components/dashboard/Contacts"
 import EditContact from "components/dashboard/EditContact"
+import NewMusicCatalogue from "components/dashboard/NewMusicCatalogue"
+import Locations from "components/dashboard/OrderLocations"
+import NewOrderLocation from "components/dashboard/NewOrderLocation"
+
 const history = createBrowserHistory();
 const SiteRouter = (props) => {
 const loggedInUser = localStorage.getItem('user')
@@ -45,11 +49,17 @@ return(
   <Route path="/dashboard/events/edit/:id" component={!isLoggedIn ? Login:EditEvent} />
   <Route path="/dashboard/events" component={!isLoggedIn ? Login:DashboardEvents} />
   <Route path="/dashboard/agenda/:id" component={!isLoggedIn ? Login:NewAgenda} />
-  <Route path="/dashboard/agenda/new" component={!isLoggedIn ? Login:NewAgenda} />
   <Route path="/dashboard/agenda" component={!isLoggedIn ? Login:Agendas} />
   <Route path="/dashboard/contact/:id" component={EditContact} />
   <Route path="/dashboard/contact" component={!isLoggedIn ? Contacts:Contacts} />
+  
+  <Route path="/dashboard/catalogue/:id" component={!isLoggedIn ? Login:NewMusicCatalogue} />
+  <Route path="/dashboard/catalogue/new" component={!isLoggedIn ? Login:NewMusicCatalogue} />
   <Route path="/dashboard/catalogue" component={!isLoggedIn ? Login:MusicCatalogue} />
+  
+  <Route path="/dashboard/order/:id" component={!isLoggedIn ? Login:NewOrderLocation} />
+  <Route path="/dashboard/order" component={!isLoggedIn ? Login:Locations} />
+
   <Route path="/dashboard/cds/edit/:id" component={!isLoggedIn ? Login:NewCd} />
   <Route path="/dashboard/cds/new" component={!isLoggedIn ? Login:NewCd} />
   <Route path="/dashboard/cds" component={!isLoggedIn ? Login:Cds} />
@@ -62,7 +72,7 @@ return(
   <Route path="/dashboard/submissions/edit/:id" component={!isLoggedIn ? Login:Submission} />
   <Route path="/dashboard/submissions" component={!isLoggedIn ? Login:Submissions} />
   <Route path="/dashboard/login" component={Login} />
-  <Route path="/dashboard/" component={dashboard} />
+  <Route path="/dashboard" component={dashboard} />
   <Route path="/order" component={Order} />
   <Route path="/rentalcatalogue" component={RentalCatalogue} />
   <Route path="/biography" component={Biography} />

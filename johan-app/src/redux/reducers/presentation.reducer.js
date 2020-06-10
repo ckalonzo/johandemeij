@@ -72,6 +72,26 @@ export default function presentationReducer (state = initialState, action) {
         case ACTIONS.CREATE_NEW_PUBLICATION_FAIL: {
         return state
         }
+        case  ACTIONS.DELETE_PRESENTATION:{
+          db.collection("presentations")
+          .where("id","==",action.payload)
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc)=>{
+               console.log(doc.ref.id,doc.ref.parent,doc.ref.path)
+              doc.ref.delete()
+              })
+            action.asyncDispatch(mainAction(ACTIONS.DELETE_PRESENTATION_SUCCESS,action.payload))
+           });
+          return state
+        }
+        case  ACTIONS.DELETE_PRESENTATION_SUCCESS:{
+          action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATIONS,[]))
+          return state
+        }
+        case  ACTIONS.DELETE_PRESENTATION_FAIL:{
+          return state
+        }
         case ACTIONS.LOAD_PRESENTATION: {
         let stateCopy = _.cloneDeep(state)
         let _id = ''
@@ -96,31 +116,36 @@ export default function presentationReducer (state = initialState, action) {
             return state
         }
         
-        case ACTIONS.UPDATE_PUBLICATION:{   
-      db.collection("presentations").where("id","==",action.payload.id).get()
+        case ACTIONS.UPDATE_PUBLICATION:{  
+       console.log(action)
+      let stateCopy = _.cloneDeep(action.payload)
+      db.collection("presentations")
+      .where("id", "==", stateCopy.id).get()
       .then((querySnapshot)=>{
-        const _id=''
+        let _id=''
         const data = querySnapshot.docs.map(doc =>{
-         return  _id = doc.ref.id
+         _id = doc.ref.id
+          return  doc.data()
         })
-        action.payload._id = _id
+        stateCopy._id = _id
+        console.log(stateCopy)
         db.collection("presentations")
         .doc(_id)
-        .update(action.payload).then(()=>{
-          
-          action.asyncDispatch(mainAction(ACTIONS.UPDATE_PUBLICATION_SUCCESS,action.payload))
+        .update(stateCopy).then((snapshot)=>{
+          console.log(snapshot)
+          action.asyncDispatch(mainAction(ACTIONS.UPDATE_PUBLICATION_SUCCESS,stateCopy))
         });
        })
-      .catch(()=>{
-
+      .catch((err)=>{
+        action.asyncDispatch(mainAction(ACTIONS.UPDATE_PUBLICATION_FAIL,err))
       })
        
         return state
         }
         case ACTIONS.UPDATE_PUBLICATION_SUCCESS:{
-        let stateCopy = _.cloneDeep(state)
+        let stateCopy = _.cloneDeep(action.payload)
         action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION,stateCopy.id))
-        return {state,...action.payload}
+        return {state,...stateCopy.payload}
         }
         case ACTIONS.UPDATE_PUBLICATION_FAIL:{
         return state
@@ -158,7 +183,7 @@ export default function presentationReducer (state = initialState, action) {
             return state
         }
         case ACTIONS.UPLOAD_PRESENTATION_IMAGE:{
-         console.log(action)
+         let stateCopy = _.cloneDeep(action.payload)
           let image = {
             albumID: action.payload.albumID,
             caption: action.payload.caption ? action.payload.caption :"",
@@ -177,8 +202,17 @@ export default function presentationReducer (state = initialState, action) {
               backCaption:action.payload.caption ? action.payload.caption :"",
             }
           }
+          db.collection("presentations")
+      .where("id", "==", stateCopy.albumID).get()
+      .then((querySnapshot)=>{
+        let _id=''
+        const data = querySnapshot.docs.map(doc =>{
+         _id = doc.ref.id
+          return  doc.data()
+        })
+        stateCopy._id = _id
 
-        db.collection("presentations").doc(action.payload.docId)
+        db.collection("presentations").doc(_id)
         .update(presentation).then(()=>{   
             db.collection("postimages")
             .doc()
@@ -189,6 +223,11 @@ export default function presentationReducer (state = initialState, action) {
 
 
         });
+       })
+      .catch((err)=>{
+        action.asyncDispatch(mainAction(ACTIONS.UPDATE_PUBLICATION_FAIL,err))
+      })
+        
 
         
          

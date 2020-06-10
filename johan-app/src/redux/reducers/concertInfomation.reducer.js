@@ -32,7 +32,7 @@ export default function concertInformationReducer (state = initialState, action)
     
       const data = snap.val()
       let submissions =[]
-      Object.values(data).map(submission=>{
+      Object.values(data ? data : []).map(submission=>{
         submissions.push(submission)
       })
       action.asyncDispatch(mainAction(ACTIONS.LOAD_SUBMISSIONS_SUCCESS,submissions))
