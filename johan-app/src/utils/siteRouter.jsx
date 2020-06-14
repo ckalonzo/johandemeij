@@ -40,7 +40,7 @@ import NewOrderLocation from "components/dashboard/NewOrderLocation"
 
 const history = createBrowserHistory();
 const SiteRouter = (props) => {
-const loggedInUser = localStorage.getItem('user')
+const loggedInUser = localStorage.getItem('user') ? localStorage.getItem('user'):[]
 const isLoggedIn = loggedInUser.length > 0 ? true:false
 return(
 <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>

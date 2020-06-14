@@ -101,7 +101,7 @@ const RequestConcertInfo = (props) => {
                 <Container>
                     <Row className="text-center">
                         <Col>
-                        <h4>Your form has been submitted.
+                        <h4>Your concert information has been submitted.
                         Thank you!</h4>
                         </Col>
                     </Row>

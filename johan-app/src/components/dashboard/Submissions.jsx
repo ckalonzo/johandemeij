@@ -25,6 +25,9 @@ const Submissions = (props) => {
     }
     const deleteSubmission = (ID) => {
       props.actions.mainAction(ACTIONS.DELETE_SUBMISSION,ID)
+      setTimeout(()=>{ 
+        window.location.reload()
+       }, 0);
     }
     
     const PresentationList = () => {

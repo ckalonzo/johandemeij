@@ -9,6 +9,7 @@ import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import _ from "lodash"
 import CdImage from "components/dashboard/CdImage"
+import AdditionalInfo from "components/dashboard/AdditionalInfo"
 const NewCd = props => {
   const [validated, setValidated] = useState(false);
   const [field_cd_name,setcd_name] = useState(props.cd.cd_name)
@@ -17,13 +18,13 @@ const NewCd = props => {
   const [field_category,setCategory] = useState(props.cd.category)
   const [field_addInfo,setAddInfo] = useState(props.cd.add_info)
 
-
+ let cdId = props.match.params.id
 
   useEffect(() => {
     // Update the document title using the browser API
     window.scrollTo(0,0)
     props.actions.mainAction(ACTIONS.LOAD_ALL_PRESENTATIONS,[])
-   let cdId = props.match.params.id
+  
     if(cdId)
     props.actions.mainAction(ACTIONS.LOAD_CD,cdId)
     props.actions.mainAction(ACTIONS.LOAD_CDS,[])
@@ -150,23 +151,9 @@ const NewCd = props => {
                 </Form.Row>
                 <Form.Row>
                     
-                    <Col lg="12"><Form.Group as={Col} controlId="add-info">
-                    <Form.Label>Additional info</Form.Label>
-                   
-                     <Form.Control
-                      required
-                      type="textarea"
-                      rows="3"
-                      placeholder=""
-                      defaultValue={props.cd.add_info}
-                      onChange={e => setAddInfo(e.target.value)}
-                      onBlur={e => setAddInfo(e.target.value)}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a video.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group></Col>
+                    <Col lg="12">
+                  {cdId ? <AdditionalInfo cdId={cdId} match={props.match}/>:""}
+                  </Col>
                   
                   
                 </Form.Row>

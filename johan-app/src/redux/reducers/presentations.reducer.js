@@ -14,7 +14,7 @@ export default function presentationsReducer (state = initialState, action) {
         .then(querySnapshot => {
           const data = querySnapshot.docs.map(doc => doc.data());
           data.map((newData,i)=>{
-            if(i < action.payload.limit && i > action.payload.skip)
+          //  if(i < action.payload.limit && i > action.payload.skip)
             stateCopy.push(newData)
           })
           action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATIONS_SUCCESS,stateCopy))

@@ -111,9 +111,9 @@ const NewAgenda = props => {
     }
     setValidated(true);
     props.actions.mainAction(ACTIONS.UPDATE_AGENDA,agendaItem)
-    setTimeout(()=>{ 
-      window.location.reload()
-     }, 0);
+    // setTimeout(()=>{ 
+    //   window.location.reload()
+    //  }, 0);
   }
   const months= ["January","February","March","April","May","June","July",
     "August","September","October","November","December"]
@@ -126,7 +126,6 @@ const NewAgenda = props => {
     return <option key={i} value={i}>{month}</option>
     })
   }
-  console.log(props)
   return (
     <>
       <Container className="dashboard">

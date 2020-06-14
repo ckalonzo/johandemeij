@@ -13,7 +13,7 @@ const Login = props => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [validated, setValidated] = useState(null);
-    const [user,setUser] = useState(localStorage.getItem("user"))
+    const [user,setUser] = useState()
   
   useEffect(() => {
     // Update the document title using the browser API

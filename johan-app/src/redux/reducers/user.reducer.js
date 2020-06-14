@@ -18,7 +18,7 @@ export default function userReducer (state = initialState, action) {
         return state
       }
       case  ACTIONS.LOGIN_USER_SUCCESS: {
-      
+       localStorage.setItem('user',action.payload.user);
         return action.payload.user
       }
       case  ACTIONS.LOGIN_USER_FAIL: {

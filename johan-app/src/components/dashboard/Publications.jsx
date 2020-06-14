@@ -9,6 +9,7 @@ import EditPost from "components/dashboard/EditPost"
 import { Container,Row,Col } from "react-bootstrap"
 import SideNav from "components/dashboard/SideNav"
 import Paginate from "components/shared/Paginate"
+import Loading from "components/shared/Loading"
 const Posts = (props) => {
     const [section,setSection] = useState("list")
     useEffect(() => {
@@ -70,7 +71,7 @@ const Posts = (props) => {
            <PresentationList />
           </tbody>
         </table>
-        <Paginate items={props.allpresentations} action={"LOAD_PRESENTATIONS"} limit={10}/>
+        {/* {<Paginate items={props.allpresentations} action={"LOAD_PRESENTATIONS"} limit={10}/>} */}
             </Col>
         </Row>
     </Container>

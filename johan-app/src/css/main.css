@@ -288,6 +288,9 @@ table a {
 .logout {
   margin: 15px 15px 0; }
 
+.additional-info {
+  margin: 25px 15px; }
+
 section.agenda {
   border-top: 1px solid #eaeaea;
   padding-top: 25px; }
@@ -345,6 +348,22 @@ section.agenda-full {
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(174, 174, 162, 0.3); }
+
+.archive ul {
+  display: table;
+  margin-bottom: 35px; }
+
+.archive li {
+  display: table-cell;
+  padding: 0 25px 0 0;
+  color: #9a0000;
+  font: 900 24px/26px 'Montserrat', sans-serif; }
+
+.archive li.active {
+  color: #000; }
+
+.archive li:hover {
+  cursor: pointer; }
 
 section.about {
   border-top: 1px solid #eaeaea;

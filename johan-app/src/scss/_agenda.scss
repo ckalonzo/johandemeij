@@ -74,3 +74,21 @@ section.agenda-full {
    // margin-bottom:15px;
     
 }
+.archive {
+    ul {
+        display: table;
+        margin-bottom:35px;
+    }
+    li {
+        display: table-cell;
+        padding:0 25px 0 0;
+        color: #9a0000;
+        font: 900 24px/26px 'Montserrat', sans-serif;
+    }
+    li.active {
+        color: #000;
+    }
+    li:hover {
+        cursor: pointer;
+    }
+}

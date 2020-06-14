@@ -65,6 +65,16 @@ export default function concertInformationReducer (state = initialState, action)
 
         return state
       }
+      case ACTIONS.DELETE_SUBMISSION:{
+        const submissionRef = database.ref('submissions/'+action.payload)
+        submissionRef.remove()
+        action.asyncDispatch(mainAction(ACTIONS.DELETE_SUBMISSION_SUCCESS,[]))
+        return state
+      }
+      case ACTIONS.DELETE_SUBMISSION_SUCCESS:{
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_SUBMISSIONS,[]))
+        return state
+      }
       
       default: 
         return {

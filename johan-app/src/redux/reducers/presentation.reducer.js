@@ -150,20 +150,6 @@ export default function presentationReducer (state = initialState, action) {
         case ACTIONS.UPDATE_PUBLICATION_FAIL:{
         return state
         }
-        case ACTIONS.UPDATE_PRESENTATION_IMAGE:{
-            let stateCopy = _.cloneDeep(action.payload)
-             let image = stateCopy.image
-             updatePresentationImage(image).then((json)=>{
-    
-              if(json.status!==404 || json.status!==500) {
-                action.asyncDispatch(mainAction(ACTIONS.UPDATE_PRESENTATION_IMAGE_SUCCESS,{submitted:stateCopy,json}))
-              } else {
-                action.asyncDispatch(mainAction(ACTIONS.UPDATE_PRESENTATION_IMAGE_FAIL,json.response.message))
-              }
-            }).catch(err => action.asyncDispatch(mainAction(ACTIONS.UPDATE_PRESENTATION_IMAGE_FAIL,err)))
-          
-            return state
-        }
         case ACTIONS.UPDATE_PRESENTATION_IMAGE_SUCCESS:{
               let stateCopy = _.cloneDeep(state)
               

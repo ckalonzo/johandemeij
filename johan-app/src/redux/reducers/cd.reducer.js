@@ -104,6 +104,7 @@ export default function cdReducer (state = initialState, action) {
                 _id = doc.id
                return  doc.data()});
                stateCopy = data
+               if(data)
                stateCopy[0]._id = _id
               action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_SUCCESS,stateCopy))
             });

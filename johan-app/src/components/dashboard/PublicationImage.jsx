@@ -69,7 +69,7 @@ const ProfileImage = (props) => {
         return <Button variant="dark" onClick={()=>uploadImage()}>upload</Button>
         return (<>
         <Button variant="primary" onClick={(e)=>selecteImageToUpload(e)} >Change</Button>
-        <Button variant="danger" onClick={()=>deletePresentationImage(_id)} >Delete</Button>
+        <Button variant="danger" onClick={()=>{if(window.confirm("Delete this item?"))deletePresentationImage(_id)}} >Delete</Button>
         </>)
       }
       const renderInsertButtons = () => {
@@ -78,7 +78,7 @@ const ProfileImage = (props) => {
         } else {
            return (<>
            <Button variant="primary" style={{marginRight:"15px"}}onClick={(e)=>selecteImageToUpload(e)} >Change</Button>
-           <Button variant="danger" onClick={(e)=>deletePresentationImage(e)} >Delete</Button>
+           <Button variant="danger" onClick={(e)=>{if(window.confirm("Delete this item?"))deletePresentationImage(e)}} >Delete</Button>
            </>)
         }
        
