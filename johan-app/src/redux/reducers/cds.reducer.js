@@ -8,6 +8,7 @@ export default function cdsReducer (state = initialState, action) {
       case ACTIONS.LOAD_CDS: {
      
         db.collection("cds")
+        .orderBy("cd_name","asc")
           .get()
           .then(querySnapshot => {
             const data = querySnapshot.docs.map(doc => doc.data());

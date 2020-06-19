@@ -20,6 +20,7 @@ const Cds = (props) => {
         <Col>
         <ul>
         {Object.values(props.cds).map((cd)=>{
+          console.log(cd.cd_name,cd.id)
             let styles={
                 width:"100px",
             backgroundImage:`url(https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/music_catalogue%2F${cd.cdImage}?alt=media)`,

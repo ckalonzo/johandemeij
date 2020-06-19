@@ -71,9 +71,9 @@ const NewAgenda = props => {
     setValidated(true);
    props.actions.mainAction(ACTIONS.CREATE_NEW_AGENDA,agendaItem)
    props.history.push('/dashboard/agenda/'+id)
-   setTimeout(()=>{ 
-    window.location.reload()
-   }, 1);
+  //  setTimeout(()=>{ 
+  //   window.location.reload()
+  //  }, 1);
   };
   const handleUpdate = async event => {
     event.preventDefault();

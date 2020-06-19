@@ -13,6 +13,20 @@ const returnMonth = (month) => {
     return months[month]
 }
 const List = (props) => {
+const Encode = (string) => { 
+    var i = string.length, 
+        a = []; 
+
+    while (i--) { 
+        var iC = string[i].charCodeAt(); 
+        if (iC < 65 || iC > 127 || (iC > 90 && iC < 97)) { 
+            a[i] = '&#' + iC + ';'; 
+        } else { 
+            a[i] = string[i]; 
+        } 
+    } 
+    return a.join(''); 
+} 
    const renderList = (props) => {
     return (<>
         <Row className="agenda-list">
@@ -25,12 +39,14 @@ const List = (props) => {
 {props.title1 ? <div className="title"><Link to={"/music/profile/"+props.cd1}>{props.title1}</Link></div>:""}
 {props.title2 ? <div className="title"><Link to={"/music/profile/"+props.cd2}>{props.title2}</Link></div>:""}
 {props.title3 ? <div className="title"><Link to={"/music/profile/"+props.cd3}>{props.title3}</Link></div>:""}
-            <div className="location">{`${returnMonth(props.month)} ${props.day} ${props.year} ${props.time}`} {`${props.city} ${props.country}`}</div>
+<div className="time">{`${returnMonth(props.month)} ${props.day} ${props.year} ${props.time}`}</div>
+            <div className="venue">{`${props.location}`}</div>
+            <div className="location">{`${props.city} ${props.country}`}</div>
         </div>
     
         </Col>
-        <Col md={{span:2}} lg={{span:1}} className="date">
-        <div >
+        <Col md={{span:2}} lg={{span:1}} className="date"  style={{position:"relative"}}>
+        <div style={{width:"40%",position:"absolute",left:"25%",top:"25%"}}>
             <div className="day">{`${props.day}`}</div>
             <div className="month">{`${returnMonth(props.month)}`}</div>
             <div className="year">{`${props.year}`}</div>

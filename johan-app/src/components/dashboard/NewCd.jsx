@@ -152,7 +152,7 @@ const NewCd = props => {
                 <Form.Row>
                     
                     <Col lg="12">
-                  {cdId ? <AdditionalInfo cdId={cdId} match={props.match}/>:""}
+                  <AdditionalInfo cdId={cdId} match={props.match}/>
                   </Col>
                   
                   

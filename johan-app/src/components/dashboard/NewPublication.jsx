@@ -31,6 +31,7 @@ const NewPublication = props => {
     // Update the document title using the browser API
     window.scrollTo(0,0)
     props.actions.mainAction(ACTIONS.LOAD_ALL_PRESENTATIONS,[])
+    props.actions.mainAction(ACTIONS.LOAD_CDS,[])
    let publicationId = props.match.params.id
     if(publicationId)
     props.actions.mainAction(ACTIONS.LOAD_PRESENTATION,publicationId)
@@ -232,11 +233,12 @@ const NewPublication = props => {
                       onBlur={e => setCd(e.target.value)}
                       defaultValue={field_cd}
                     >
-              {Object.values(_.orderBy(props.allPresentations ? props.allPresentations:[],"cdName","asc")).map(CD=>{
-              if(CD.id === field_cd)
-              return <option key={CD.id} value={CD.id} selected>{CD.cdName}</option>
-              return <option key={CD.id} value={CD.id} >{CD.cdName}</option>
-              })}
+                       <option value="" >SELECT A CD</option>
+                       {Object.values(_.orderBy(props.allCds ? props.allCds:[],"cd_name","asc")).map(CD=>{
+            if(CD.id === props.presentation.cd)
+            return <option key={CD.id} value={CD.id} selected>{CD.cd_name}</option>
+            return <option key={CD.id} value={CD.id} >{CD.cd_name}</option>
+            })}
                         
                     </Form.Control>                    <Form.Control.Feedback type="invalid">
                         Please provide a CD.
@@ -263,13 +265,20 @@ const NewPublication = props => {
                 <Col lg="6"><Form.Group as={Col} controlId="otherCD">
                     <Form.Label>otherCD</Form.Label>
                     <Form.Control
-                     
-                      type="text"
-                      placeholder=""
-                      defaultValue={props.presentation.otherCd}
-                      onChange={e => setOtherCd(e.target.value)}
+                    required
+                    as="select"
+                    onChange={e => setOtherCd(e.target.value)}
+                    onBlur={e => setOtherCd(e.target.value)}
+                    defaultValue={field_otherCd}
+                  >
+                     <option value="" >SELECT A CD</option>
+            {Object.values(_.orderBy(props.allCds ? props.allCds:[],"cd_name","asc")).map(CD=>{
+            if(CD.id === props.presentation.otherCd)
+            return <option key={CD.id} value={CD.id} selected>{CD.cd_name}</option>
+            return <option key={CD.id} value={CD.id} >{CD.cd_name}</option>
+            })}
                       
-                    />
+                  </Form.Control>
                     <Form.Control.Feedback type="invalid">
                         Please provide a cd.
                       </Form.Control.Feedback>
@@ -387,7 +396,8 @@ function mapStateToProps(state) {
     allPresentations:_.orderBy(state.AllPresentationsReducer,"id","asc"),
     categories:state.musicReducer.categories,
     presentation:state.presentationReducer,
-    presentationImages:state.postImagesReducer
+    presentationImages:state.postImagesReducer,
+    allCds:state.cdsReducer
   };
 }
 

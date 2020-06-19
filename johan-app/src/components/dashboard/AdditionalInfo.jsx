@@ -114,7 +114,7 @@ const AdditionalInfo = (props) => {
               <td>{info.grade}</td>
               <td>{info.composer}</td>
               <td>{info.addInfo}</td>
-              <td>{displayButtons(info.id)}</td>
+              <td style={{textAlign:"center"}}>{displayButtons(info.id)}</td>
               </tr>)
                 return (<tr className={info.id === status ? "active":""} key={info.id} >
                     <td> <Form.Group controlId="title"><Form.Control
@@ -168,7 +168,7 @@ const AdditionalInfo = (props) => {
                 <th>grade</th>
                 <th>composer</th>
                 <th>additional info</th>
-                <th><Button  variant="primary" onClick={()=>setNewInfo(true)}>ADD INFO</Button></th>
+                <th style={{textAlign:"center"}}><Button  variant="primary" onClick={()=>setNewInfo(true)}>ADD INFO</Button></th>
               </tr>
             </thead>
             <tbody>

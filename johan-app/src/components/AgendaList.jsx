@@ -7,13 +7,13 @@ import Paginate from "components/shared/Paginate"
 import List from "components/shared/List"
 import Loading from "components/shared/Loading"
 const AgendaList  = (props) => {
-     let d = new Date();
-    let day = d.getDate();
-    let month = (d.getMonth() + 1).toString()
-    let year = d.getFullYear().toString();
-    const [listYear,setListYear] = useState(year)
-    const [activeLink,setActiveLink]=useState("")
-    useEffect(() => {
+      let d = new Date();
+      let day = d.getDate();
+      let month = (d.getMonth() + 1).toString()
+      let year = d.getFullYear().toString();
+      const [listYear,setListYear] = useState(year)
+      const [activeLink,setActiveLink]=useState("")
+      useEffect(() => {
         window.scrollTo(0,0)
         document.title = "JohanDeMeij.com | Agenda"
         props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
@@ -21,7 +21,6 @@ const AgendaList  = (props) => {
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
      const loadYear = (selectedYear) =>{
-        
         props.actions.mainAction(ACTIONS.LOAD_AGENDAS_FILTERED,{limit:100,skip:0,year:selectedYear})
       }
     const ArchiveLinks = () =>{

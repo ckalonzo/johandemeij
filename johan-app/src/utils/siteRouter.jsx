@@ -37,11 +37,19 @@ import EditContact from "components/dashboard/EditContact"
 import NewMusicCatalogue from "components/dashboard/NewMusicCatalogue"
 import Locations from "components/dashboard/OrderLocations"
 import NewOrderLocation from "components/dashboard/NewOrderLocation"
+import ReactGA from 'react-ga';
+const trackingId = 'UA-21994018-1'
+ReactGA.initialize(trackingId);
 
 const history = createBrowserHistory();
 const SiteRouter = (props) => {
 const loggedInUser = localStorage.getItem('user') ? localStorage.getItem('user'):[]
 const isLoggedIn = loggedInUser.length > 0 ? true:false
+
+history.listen(location => {
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
 return(
 <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
 <Switch>

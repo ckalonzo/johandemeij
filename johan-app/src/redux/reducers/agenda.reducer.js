@@ -8,20 +8,19 @@ let d = new Date();
 let day = d.getDate();
 let month = d.getMonth()+1;
 let year = d.getFullYear()
-console.log(day)
 export default function agendaReducer (state = initialState, action) {
   switch (action.type) {
     case ACTIONS.CREATE_NEW_AGENDA:{
-      console.log(action)
-     
-     const agendaRef = database.ref('agendas/'+action.payload.id)
-    agendaRef.set(action.payload).then(()=>{
-      action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_AGENDA_SUCCESS,action.payload))
-    })
-    .catch(()=>{
-      action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_AGENDA_FAIL,{error:"could not creat agenda"}))
-    });
-   
+
+    let stateCopy = _.cloneDeep(action.payload)
+      
+        db.collection("agendas")
+          .add(stateCopy)
+          .then(function(docRef){
+            console.log(docRef)
+            stateCopy._id = docRef.id
+            action.asyncDispatch(mainAction(ACTIONS.CREATE_NEW_AGENDA_SUCCESS,stateCopy))
+          });
     return state
     }
     case ACTIONS.CREATE_NEW_AGENDA_SUCCESS:{
@@ -53,8 +52,6 @@ export default function agendaReducer (state = initialState, action) {
       const data = snapshot.docs.map(doc => {return doc.data()});
       action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_SUCCESS,data))
     })
-      
-
     return state
     }
     case ACTIONS.LOAD_CD_AGENDA_SUCCESS: {
@@ -92,23 +89,6 @@ export default function agendaReducer (state = initialState, action) {
     return state
     }
     case ACTIONS.LOAD_AGENDAS_FILTERED:{
-    //   let d = new Date();
-    // let month = (d.getMonth() + 1).toString()
-    // let year = d.getFullYear().toString();
-
-    // const agendaYearRef = database.ref('agendas').orderByChild('year').startAt(action.payload.year).endAt(action.payload.year)
-    // agendaYearRef.on('value',(snap,i)=>{
-
-    // let agendas = []
-    // const data = snap.val()
-    //   Object.values(data).map(agenda=>{
-    //     agenda.date = `${agenda.month}-${agenda.day}-${agenda.year}`
-    //     agenda.month = +agenda.month
-    //     return agendas.push(agenda)
-    //   })
-    //   action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,_.orderBy(agendas,['month','day'],['asc','asc'])))
-    // })
-
     db.collection("agendas")
     .where("year","==",action.payload.year.toString())
     .orderBy("month","asc")
@@ -154,14 +134,6 @@ export default function agendaReducer (state = initialState, action) {
     return state
     }
     case ACTIONS.UPDATE_AGENDA:{
-      // const agendaRef = database.ref('agendas')
-      // agendaRef.child(action.payload.id).update(action.payload)
-      // .then(()=>{
-      //   action.asyncDispatch(mainAction(ACTIONS.UPDATE_AGENDA_SUCCESS,action.payload))
-      // }).catch(()=>{
-      //   action.asyncDispatch(mainAction(ACTIONS.UPDATE_AGENDA_FAIL,{error:"failed to update agenda"}))
-      // })
-      console.log(action)
       let _id =''
       db.collection("agendas")
     .where("id","==",action.payload.id)
@@ -170,7 +142,6 @@ export default function agendaReducer (state = initialState, action) {
       const data = snapshot.docs.map(doc => {
         _id = doc.id
         return doc.data()});
-        console.log(_id)
         db.collection("agendas").doc(_id)
         .update(action.payload).then(()=>{
           console.log("success")

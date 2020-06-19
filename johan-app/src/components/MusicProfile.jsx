@@ -11,6 +11,7 @@ const MusicProfile= (props)=>{
     useEffect(() => {
         window.scrollTo(0,0)
         document.title = "JohanDeMeij.com | Music Profile"
+        props.actions.mainAction(ACTIONS.LOAD_PRESENTATIONS,{})
         props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
         props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE,props.match.params.id)
         props.actions.mainAction(ACTIONS. LOAD_CDS,{})
@@ -25,7 +26,6 @@ const CleanUpSynopsis = (text)  => {
     return text.replace(/(\r\n|\n|\r)/gm, "")
 }
 const renderImage = (image,caption) => {
-    console.log(image,caption)
     return (<>
     <Row>
     <img src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${image}?alt=media`} style={{maxWidth:"320px"}} alt="media"/>
@@ -34,8 +34,11 @@ const renderImage = (image,caption) => {
 }
 
 const renderCdTitle = (ID) =>{
-    let cdTitle = Object.values(props.allCds).filter(cd=>cd.id === ID).map(cd=>cd.cd_name)
-    return cdTitle[0]
+    console.log(ID)
+    console.log(Object.values(props.allCds).filter(cd => cd.id === ID))
+   let title = Object.values(props.allCds).filter(cd => cd.id === ID)
+   let titleObject = {...title}
+    return titleObject[0] ? titleObject[0].cd_name:""
 }
 
 
@@ -59,7 +62,8 @@ const renderProfile = () => {
                                <ul>
     {props.profile.totalTime ?  <li><span>Duration:</span>  {ReactHtmlParser(props.profile.totalTime)}</li>:""}
     {props.profile.instrumentation ?  <li><span>Instrumentation:</span>  {ReactHtmlParser(props.profile.instrumentation)}</li>:""}
-    {props.profile.cd ?  <li><span>Cd:</span>  <a href={"/cd/profile/"+props.profile.cd}>{renderCdTitle(props.profile.cd)}</a></li>:""}
+    {renderCdTitle(props.profile.cd) ? <li><span>Cd:</span>  <a href={"/cd/profile/"+props.profile.cd}>{renderCdTitle(props.profile.cd)}</a></li>:""}
+    {props.profile.otherCd ? <li><span>Cd:</span>  <a href={"/cd/profile/"+props.profile.otherCd}>{renderCdTitle(props.profile.otherCd)}</a></li>:""}
     {props.profile.codes ?  <li><span>Catalogue/Order number:</span>  {ReactHtmlParser(props.profile.codes)}</li>:""}
                                </ul>
                            </div>

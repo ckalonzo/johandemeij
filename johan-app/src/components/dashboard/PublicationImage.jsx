@@ -24,6 +24,15 @@ const ProfileImage = (props) => {
     const handleImageSubmit = (e) => {
      // console.log(props)
     }
+    const updateCaption = () =>{
+      let caption = {
+        docId:props.docId,
+        albumID:props.ID,
+        caption:props.type === "front" ? frontCaption:backCaption,
+        cover:props.type === "front" ? "frontCover":"backCover"
+      }
+       mainProps.actions.mainAction(ACTIONS.UPDATE_CAPTION,caption)
+    }
     const uploadImage = () => {
     
       let image = {

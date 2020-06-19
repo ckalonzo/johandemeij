@@ -68,7 +68,7 @@ const renderProfile = () => {
                        <td>{track.grade[0]}</td>
                        <td>{ReactHtmlParser(track.duration)}</td>
                        <td>{renderCodes(track.codes)}</td>
-                       <td>{renderComposerLink(track.composer)}</td>
+                       <td >{renderComposerLink(track.composer)}</td>
                        <td>{ReactHtmlParser(track.addInfo)}</td>
                        </tr>)
                        return null

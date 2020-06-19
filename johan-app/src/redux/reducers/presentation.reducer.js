@@ -255,6 +255,48 @@ export default function presentationReducer (state = initialState, action) {
           action.asyncDispatch(mainAction( ACTIONS.UPDATE_PUBLICATION,image))
           return state
         }
+      case ACTIONS.UPDATE_CAPTION:{
+        let stateCopy = _.cloneDeep(action.payload)
+        let image = {
+          albumID: action.payload.albumID,
+          caption: action.payload.caption ? action.payload.caption :"",
+          cover: action.payload.cover ? action.payload.cover:"",
+        }
+        let presentation= {}
+        if(action.payload.cover === "frontCover"){
+         presentation = {
+           frontCover : action.payload.image.name,
+           frontCaption:action.payload.caption ? action.payload.caption :"",
+         }
+        } else {
+          presentation = {
+            backCover : action.payload.image.name,
+            backCaption:action.payload.caption ? action.payload.caption :"",
+          }
+        }
+        db.collection("presentations")
+    .where("id", "==", stateCopy.albumID).get()
+    .then((querySnapshot)=>{
+      let _id=''
+      const data = querySnapshot.docs.map(doc =>{
+       _id = doc.ref.id
+        return  doc.data()
+      })
+      stateCopy._id = _id
+
+      db.collection("presentations").doc(_id)
+      .update(presentation).then(()=>{   
+        action.asyncDispatch(mainAction(ACTIONS.UPDATE_CAPTION_SUCCESS,action.payload))
+      });
+     })
+    .catch((err)=>{
+      action.asyncDispatch(mainAction(ACTIONS.UPDATE_CAPTION_FAIL,err))
+    })
+        return state
+      }
+      case ACTIONS.UPDATE_CAPTION_SUCCESS:{
+        return state
+      }
       default: 
         return {
           ...state
