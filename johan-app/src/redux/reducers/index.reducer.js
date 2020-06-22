@@ -21,6 +21,8 @@ import cdInfoReducer from "redux/reducers/cdInfo.reducer"
 import headerReducer from "redux/reducers/header.reducer"
 import contactUsReducer from "redux/reducers/contactUs.reducer"
 import userReducer from "redux/reducers/user.reducer"
+import { fromPairs } from 'lodash';
+import pageReducer from "redux/reducers/pages.reducer"
 
 const indexReducer = combineReducers({
   agendaReducer,
@@ -39,6 +41,7 @@ const indexReducer = combineReducers({
   musicReducer,
   musicProfileReducer,
   miscItemsReducer,
+  pageReducer,
   presentationReducer,
   postsReducer, 
   postImagesReducer,

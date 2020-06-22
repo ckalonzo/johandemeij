@@ -8,6 +8,7 @@ import { mainAction } from "redux/actions/index.actions"
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Loading from "components/shared/Loading"
+import dayjs from "dayjs"
 import _ from "lodash"
 
 const NewAgenda = props => {
@@ -27,13 +28,14 @@ const NewAgenda = props => {
   const [field_month,setMonth] = useState("12")
   const [field_day,setDay] = useState("12")
   const [field_year,setYear] = useState("2020")
-  let lastId = _.orderBy(props.allAgendas,'id','desc')
 
-  const id = lastId[0] ? (+lastId[0].id+11):""
+  let d = new Date()
+  const [id, setId] = useState(dayjs(d).format('YYYYMMDDHHmmss'));
   useEffect(() => {
     // Update the document title using the browser API
     window.scrollTo(0,0)
     props.actions.mainAction(ACTIONS.LOAD_ALL_PRESENTATIONS,[])
+    props.actions.mainAction(ACTIONS.LOAD_CDS,[])
     let agendaId = props.match.params.id.toString()
     if(agendaId)
     props.actions.mainAction(ACTIONS.LOAD_AGENDA,agendaId)
@@ -129,7 +131,6 @@ const NewAgenda = props => {
   return (
     <>
       <Container className="dashboard">
-  
         <Row>
           <Col lg={{ span: 2 }}><SideNav /></Col>
           <Col lg={{span:"10" }}> 
@@ -234,7 +235,7 @@ const NewAgenda = props => {
                       onBlur={e => setTime(e.target.value)}
                     />
                     <Form.Control.Feedback type="invalid">
-                        Please provide a product description.
+                        Please provide a time for this event.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                   </Form.Group>
@@ -500,7 +501,8 @@ function mapStateToProps(state) {
     categories:state.musicReducer.categories,
     presentation:state.presentationReducer,
     agenda:state.agendaReducer,
-    allAgendas:state.AllAgendasReducer
+    allAgendas:state.AllAgendasReducer,
+    allCds:state.cdsReducer,
   };
 }
 

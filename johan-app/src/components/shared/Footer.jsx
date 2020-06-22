@@ -4,6 +4,7 @@ import { ACTIONS } from "redux/actions/types"
 import { mainAction } from "redux/actions/index.actions"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import ReCAPTCHA from "react-google-recaptcha";
 import dayjs from "dayjs"
 const Footer = (props) => {
   const [contactName,setContactName] = useState()
@@ -12,6 +13,7 @@ const Footer = (props) => {
   const [contactMessage,setContactMessage] = useState()
   const [validation,setValidation] = useState()
   const [validated, setValidated] = useState(false);
+  const [robot,setRobot] = useState();
   const handleSubmit = event => {
     event.preventDefault();
     let d = new Date()
@@ -28,7 +30,7 @@ const Footer = (props) => {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
- if(validation === "7"){    
+ if(robot){    
 setValidated(true);
   props.actions.mainAction(ACTIONS.SUBMIT_CONTACT_INFO,message)
    console.log(message)
@@ -46,7 +48,10 @@ setValidated(true);
        return  navItems.map(item => {
         return <li key={item}><Nav.Link  href={`/${item.replace(/\s/g, '')}`} style={{textTransform:"capitalize"}}>{item}</Nav.Link></li>
     })}
-   
+    const onChange = (value) =>{
+      console.log("Captcha value:", value);
+      setRobot(value)
+    }
     const renderContactForm = () => {
       return (<>
        <h3>Contact</h3>
@@ -86,15 +91,10 @@ setValidated(true);
                   </Form.Group>
                   </Form.Row>
                   <Form.Row>
-                  
-                  <Form.Label>Please add these numbers 3 + 4</Form.Label>
-                  <Form.Group as={Col}  controlId="subject">
-                  <Form.Control type="text" placeholder="" size="sm" onChange={(e)=> setValidation(e.target.value)}/>
-                    <Form.Control.Feedback type="invalid">
-                        Please provide a valid answer.
-                      </Form.Control.Feedback>
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group>
+                 <Col style={{marginBottom:"15px"}}> <ReCAPTCHA
+    sitekey="6LfFgcQSAAAAAIuN7SwVwtVdB147chJV6kr1dIU_"
+    onChange={onChange}
+  /></Col>
                   </Form.Row>
           <Form.Row>
                   <Form.Group as={Col}  controlId="message">

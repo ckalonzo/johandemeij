@@ -37,6 +37,8 @@ import EditContact from "components/dashboard/EditContact"
 import NewMusicCatalogue from "components/dashboard/NewMusicCatalogue"
 import Locations from "components/dashboard/OrderLocations"
 import NewOrderLocation from "components/dashboard/NewOrderLocation"
+import ExtraPages from "components/dashboard/ExtraPages"
+import EditPage from "components/dashboard/EditPage"
 import ReactGA from 'react-ga';
 const trackingId = 'UA-21994018-1'
 ReactGA.initialize(trackingId);
@@ -58,6 +60,10 @@ return(
   <Route path="/dashboard/events" component={!isLoggedIn ? Login:DashboardEvents} />
   <Route path="/dashboard/agenda/:id" component={!isLoggedIn ? Login:NewAgenda} />
   <Route path="/dashboard/agenda" component={!isLoggedIn ? Login:Agendas} />
+  <Route path="/dashboard/biography/:id" component={!isLoggedIn ? Login:EditPage} />
+  <Route path="/dashboard/biography" component={!isLoggedIn ? Login:ExtraPages} />
+  <Route path="/dashboard/soren/:id" component={!isLoggedIn ? Login:EditPage} />
+  <Route path="/dashboard/misc" component={!isLoggedIn ? Login:ExtraPages} />
   <Route path="/dashboard/contact/:id" component={EditContact} />
   <Route path="/dashboard/contact" component={!isLoggedIn ? Contacts:Contacts} />
   

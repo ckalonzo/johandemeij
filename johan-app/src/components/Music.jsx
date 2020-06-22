@@ -23,9 +23,7 @@ const Music  = (props) => {
         props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE,profile)
         props.history.push('/music/profile/'+id)
     }
-    const reloadPage = ()=>{
-        props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
-    }
+    
     return (<>
     <section className="music">
     <Container>
@@ -39,14 +37,14 @@ const Music  = (props) => {
             </ul>
         </Col>
         </Row>
-        {categoryID === 0 ?   reloadPage(): ""}
+        {categoryID === 0 ?   window.location.reload(): ""}
         {categoryID === 5 ? <SorenHyldgaard /> : ""}
         {categoryID === 9 ? <Cds {...props} /> : ""}
         <Row>
             <Col lg={{span:6}}>
             <ul>
                 {props.allPresentations.map((presentation ,i)=>{
-                    if(i < 77 && presentation.cdName.indexOf("{{") === -1)
+                    if(i <= 77 && presentation.cdName.indexOf("{{") === -1)
                     return <li key={i}><span onClick={()=>loadProfile(presentation.id,presentation)}>{ReactHtmlParser(presentation.cdName)}</span></li>
                     return null
                 })}
