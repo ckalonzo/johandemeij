@@ -13,7 +13,6 @@ export default function agendaReducer (state = initialState, action) {
     case ACTIONS.CREATE_NEW_AGENDA:{
 
     let stateCopy = _.cloneDeep(action.payload)
-      
         db.collection("agendas")
           .add(stateCopy)
           .then(function(docRef){
@@ -42,10 +41,9 @@ export default function agendaReducer (state = initialState, action) {
     return state
     }  
     case ACTIONS.LOAD_CD_AGENDA: {
-
-
     db.collection("agendas")
-    .where("year","==",year.toString())
+    .where("year",">=",year.toString())
+    .orderBy("year","asc")
     .orderBy("month","asc")
     .get()
     .then(snapshot => {
@@ -54,9 +52,25 @@ export default function agendaReducer (state = initialState, action) {
     })
     return state
     }
+    case ACTIONS.LOAD_DASHBOARD_CD_AGENDA: {
+      db.collection("agendas")
+      .where("year",">=",year.toString())
+      .orderBy("year","desc")
+      .orderBy("month","desc")
+      .orderBy("day","desc")
+      .get()
+      .then(snapshot => {
+        const data = snapshot.docs.map(doc => {return doc.data()});
+        action.asyncDispatch(mainAction(ACTIONS.LOAD_DASHBOARD_CD_AGENDA_SUCCESS,data))
+      })
+    return state
+    }
     case ACTIONS.LOAD_CD_AGENDA_SUCCESS: {
     return _.orderBy(action.payload,['month','day'],['asc','asc'])
     }
+    case ACTIONS.LOAD_DASHBOARD_CD_AGENDA_SUCCESS: {
+      return action.payload
+      }
     case ACTIONS.LOAD_CD_AGENDA_FAIL: {
 
     return state
@@ -64,7 +78,8 @@ export default function agendaReducer (state = initialState, action) {
     case ACTIONS.LOAD_AGENDAS: {
 
     db.collection("agendas")
-    .where("year","==",year.toString())
+    .where("year",">=",year.toString())
+    .orderBy("year","asc")
     .orderBy("month","asc")
     .get()
     .then(snapshot => {
@@ -109,33 +124,20 @@ export default function agendaReducer (state = initialState, action) {
       return action.payload
     }
     case ACTIONS.LOAD_AGENDA:{
-    // let stateCopy = []
-    // var agendaRef = database.ref('agendas/'+action.payload)
-    //  agendaRef.on('value',(snap,i)=>{
-    // const data = snap.val()
-    // if(data) 
-    // action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA_SUCCESS,{...data}))
-      
-    // })
-    // var agendaRef = database.ref('agendas').orderByChild('id').startAt(action.payload).endAt(action.payload)
-    //  agendaRef.on('child_added',(snap,i)=>{
-    // const data = snap.val()
-    // stateCopy = data
-    // if(stateCopy)
-    // action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA_SUCCESS,{...stateCopy}))
-      
-    // })
     db.collection("agendas")
     .where("id","==",action.payload)
     .get()
     .then(snapshot => {
       const data = snapshot.docs.map(doc => doc.data());
+      if(data.length > 0)
       action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDA_SUCCESS,{...data}))
     })
     return state
     }
     case ACTIONS.LOAD_AGENDA_SUCCESS:{
-    return action.payload[0]
+
+     return action.payload ? action.payload[0] : state
+
     }
     case ACTIONS.LOAD_AGENDA_FAIL:{
     return state

@@ -18,7 +18,7 @@ const Agendas = (props) => {
         //if(props.categories.length === 0)
        
      // props.actions.mainAction(ACTIONS.LOAD_ALL_AGENDAS,"2020")
-       props.actions.mainAction(ACTIONS.LOAD_CD_AGENDA,{skip:0,limit:20,year:"2020"})
+       props.actions.mainAction(ACTIONS.LOAD_DASHBOARD_CD_AGENDA,{})
      // props.actions.mainAction(ACTIONS.LOAD_PRESENTATIONS,{limit:10,skip:0})
        
        // eslint-disable-next-line react-hooks/exhaustive-deps

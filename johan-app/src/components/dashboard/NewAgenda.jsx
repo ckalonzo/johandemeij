@@ -17,7 +17,7 @@ const NewAgenda = props => {
   const [field_conductor,setConductor] = useState(props.agenda?props.agenda.conductor:"")
   const [field_country,setCountry] = useState(props.agenda?props.agenda.countrt:"")
   const [field_synopsis,setSynopsis] = useState("")
-  const [field_time,setTime] = useState(props.agenda?props.agenda.time:"")
+  const [field_time,setTime] = useState(props.agenda.time ?props.agenda.time:"")
   const [field_location,setlocation] = useState(props.agenda?props.agenda.location:"")
   const [field_cd,setCd] = useState(props.agenda.cd ? props.agenda.cd:"")
   const [field_cd1,setCd1] = useState(props.agenda.cd1?props.agenda.cd1:"")
@@ -73,9 +73,6 @@ const NewAgenda = props => {
     setValidated(true);
    props.actions.mainAction(ACTIONS.CREATE_NEW_AGENDA,agendaItem)
    props.history.push('/dashboard/agenda/'+id)
-  //  setTimeout(()=>{ 
-  //   window.location.reload()
-  //  }, 1);
   };
   const handleUpdate = async event => {
     event.preventDefault();

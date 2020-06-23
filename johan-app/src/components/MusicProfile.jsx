@@ -27,7 +27,7 @@ const MusicProfile = (props) => {
     }
     const renderImage = (image, caption) => {
         return (<>
-            <Row style={{margin: "0 0 15px 0" }}>
+            <Row style={{margin: "0 0 15px -15px" }}>
                 <img src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${image}?alt=media`} style={{ maxWidth: "350px" }} alt="media" />
                 <div style={{ fontSize: ".9rem", margin: "15px 0" }}>{caption}</div>
             </Row>

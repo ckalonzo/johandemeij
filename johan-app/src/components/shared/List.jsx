@@ -42,6 +42,7 @@ const Encode = (string) => {
 <div className="time">{`${returnMonth(props.month)} ${props.day} ${props.year} ${props.time}`}</div>
             <div className="venue">{`${props.location}`}</div>
             <div className="location">{`${props.city} ${props.country}`}</div>
+            <div className="orchestra">{props.synopsis}</div>
         </div>
     
         </Col>
