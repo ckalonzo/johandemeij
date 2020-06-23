@@ -10,15 +10,17 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import _ from "lodash"
 import CdImage from "components/dashboard/CdImage"
 import AdditionalInfo from "components/dashboard/AdditionalInfo"
+import dayjs from "dayjs"
 const NewCd = props => {
   const [validated, setValidated] = useState(false);
-  const [field_cd_name,setcd_name] = useState(props.cd.cd_name)
-  const [field_synopsis,setSynopsis] = useState(props.cd.synopsis)
-  const [field_totalTime,setTotalTime] = useState(props.cd.totalTime)
-  const [field_category,setCategory] = useState(props.cd.category)
-  const [field_addInfo,setAddInfo] = useState(props.cd.add_info)
-
- let cdId = props.match.params.id
+  const [field_cd_name,setcd_name] = useState(props.cd.cd_name ? props.cd.cd_name:"")
+  const [field_synopsis,setSynopsis] = useState(props.cd.synopsis ? props.cd.synopsis:"")
+  const [field_totalTime,setTotalTime] = useState(props.cd.totalTime ? props.cd.totalTime:"")
+  const [field_category,setCategory] = useState(props.cd.category ? props.cd.category:"")
+  const [field_addInfo,setAddInfo] = useState(props.cd.add_info ? props.cd.add_info:"")
+  let d = new Date()
+  const [id, setId] = useState(dayjs(d).format('YYYYMMDDHHmmss'));
+ let cdId = props.match.params.id  ? props.match.params.id : ""
 
   useEffect(() => {
     // Update the document title using the browser API
@@ -34,7 +36,6 @@ const NewCd = props => {
     event.preventDefault();
     let testArray = []
    
-    let id = (+props.lastCdId[0].id+1).toString()
     let cdItem = {
         id,
         cd_name:field_cd_name,

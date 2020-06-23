@@ -23,12 +23,10 @@ const Cds = (props) => {
           console.log(cd.cd_name,cd.id)
             let styles={
                 width:"100px",
-            backgroundImage:`url(https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/music_catalogue%2F${cd.cdImage}?alt=media)`,
-            backgroundSize:"contain",
-            backgroundRepeat: "no-repeat",
             padding:"115px 0 0 0"
         }
             return <li key={cd.id} style={styles} onClick={()=>{loadCdProfile(cd.id)}}>
+            <img src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/music_catalogue%2F${cd.cdImage}?alt=media`} alt="media" />
                 <div className="title"><Link to={`/cd/profile/${cd.id}`}>{cd.cd_name}</Link></div>
             </li>
         })}
