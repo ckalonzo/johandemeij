@@ -28,6 +28,7 @@
     "react-ga": "^3.0.0",
     "react-google-recaptcha": "^2.1.0",
     "react-html-parser": "^2.0.2",
+    "react-mp3-player": "^0.8.2",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",

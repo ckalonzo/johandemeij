@@ -26,7 +26,7 @@ export default function cdReducer (state = initialState, action) {
         return action.payload
         }
         case ACTIONS.CREATE_NEW_CD_FAIL: {
-        return state
+          return state
         }
         case ACTIONS.DELETE_CD_IMAGE:{
           let image = {},
@@ -110,11 +110,11 @@ export default function cdReducer (state = initialState, action) {
             });
             return state
         }
-        case  ACTIONS.LOAD_CD_SUCCESS:{
+        case ACTIONS.LOAD_CD_SUCCESS:{
             
             return action.payload.length > 0 ? action.payload[0]:[]
         }
-        case  ACTIONS.LOAD_CD_FAIL:{
+        case ACTIONS.LOAD_CD_FAIL:{
             return state
         }
         case ACTIONS.UPDATE_CD:{

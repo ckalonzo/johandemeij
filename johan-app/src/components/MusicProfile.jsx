@@ -6,6 +6,7 @@ import { ACTIONS } from "redux/actions/types"
 import { Row, Container, Col } from "react-bootstrap"
 import ReactHtmlParser from 'react-html-parser';
 import { loadfilteredAgendas } from "API/indexAPI";
+//import Playlist from 'react-mp3-player';
 
 const MusicProfile = (props) => {
     useEffect(() => {
@@ -13,8 +14,8 @@ const MusicProfile = (props) => {
         document.title = "JohanDeMeij.com | Music Profile"
         props.actions.mainAction(ACTIONS.LOAD_PRESENTATIONS, {})
         props.actions.mainAction(ACTIONS.LOAD_MUSIC, {})
-        props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE, props.match.params.id)
         props.actions.mainAction(ACTIONS.LOAD_CDS, {})
+        props.actions.mainAction(ACTIONS.LOAD_MUSIC_PROFILE, props.match.params.id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -40,6 +41,25 @@ const MusicProfile = (props) => {
         return titleObject[0] ? titleObject[0].cd_name : ""
     }
 
+    const renderMusicTracks = () => {
+        const tracks = props.profile.music ? props.profile.music : [] 
+        console.log(props)
+        
+       return  Object.values(tracks).map(track=>{
+            return (<>
+                <li>
+             <figcaption>{`Listen to ${track.musicName}`}</figcaption>
+             <audio
+                 controls
+                 src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/music%2F${track.musicName}?alt=media`}>
+                     Your browser does not support the
+                     <code>audio</code> element.
+             </audio>
+         </li>
+                </>)
+        })
+       
+    }
 
     const renderProfile = () => {
         return (<>{renderCdTitle()}
@@ -64,6 +84,13 @@ const MusicProfile = (props) => {
                                         {renderCdTitle(props.profile.cd) ? <li><span>Cd:</span>  <a href={"/cd/profile/" + props.profile.cd}>{renderCdTitle(props.profile.cd)}</a></li> : ""}
                                         {props.profile.otherCd ? <li><span>Cd:</span>  <a href={"/cd/profile/" + props.profile.otherCd}>{renderCdTitle(props.profile.otherCd)}</a></li> : ""}
                                         {props.profile.codes ? <li><span>Catalogue/Order number:</span>  {ReactHtmlParser(props.profile.codes)}</li> : ""}
+                                    </ul>
+                                </div>
+                            </Row>
+                            <Row>
+                                <div className="music-tracks">
+                                    <ul>
+                                        {renderMusicTracks()}
                                     </ul>
                                 </div>
                             </Row>
