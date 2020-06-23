@@ -61,8 +61,7 @@ const NewCd = props => {
         cd_name:document.getElementById('cd_name').value,
         synopsis:field_synopsis,
         totalTime:document.getElementById('totalTime').value,
-        category:document.getElementById('category').value,
-        add_info:document.getElementById('add-info').value
+        category:document.getElementById('category').value
     }
 
     const form = event.currentTarget;
@@ -160,7 +159,7 @@ const NewCd = props => {
                 </Form.Row>
                 <Form.Row>
                   <Col>
-                  <Form.Group as={Col} controlId="synopsis">
+                  <Form.Group as={Col} controlId="add-info">
                     <CKEditor
                         editor={ ClassicEditor }
                         data={props.cd.synopsis ? props.cd.synopsis: field_synopsis}
