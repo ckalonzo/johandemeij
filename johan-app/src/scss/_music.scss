@@ -91,12 +91,12 @@ section.music {
         color:#a90000;
     }
 }
-.details {
+.details { 
     background:#eaeaea; 
     font: 400 14px/16px 'Work Sans', sans-serif;
     padding:15px;
     margin: 25px 0 25px;
-    width:100%;
+    max-width:350px;
     span{
         color:#000;
         text-transform:capitalize;

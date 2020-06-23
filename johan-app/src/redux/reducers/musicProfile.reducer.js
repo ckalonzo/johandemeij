@@ -30,7 +30,7 @@ export default function musicProfileReducer (state = initialState, action) {
       }
       
       case ACTIONS.LOAD_MUSIC_PROFILE_SUCCESS: {
-        return action.payload
+        return action.payload ? action.payload : state
       }
       case ACTIONS.LOAD_MUSIC_PROFILE_FAIL: {
 
