@@ -39,7 +39,7 @@ const renderCodes = (codes) =>{
     return codes.toString().replace("<br>","")
 }
 const renderComposerLink = (composer) =>{
-    return  ReactHtmlParser(composer.toLowerCase().replace(/johan de meij|johan de  meij/g,"<a href='/biography'>Johan de Meij</a>"))
+    return  ReactHtmlParser(composer.toLowerCase().replace(/johan de meij|johan de  meij/g,"<a href='/biography'>Johan <span style={{textTransform:'capitalize'}}>de</span> Meij</a>"))
   } 
 const renderProfile = () => {
     return(<>
@@ -68,7 +68,7 @@ const renderProfile = () => {
                        <td>{track.grade[0]}</td>
                        <td>{ReactHtmlParser(track.duration)}</td>
                        <td>{renderCodes(track.codes)}</td>
-                       <td >{renderComposerLink(track.composer)}</td>
+                       <td class="composer">{renderComposerLink(track.composer)}</td>
                        <td>{ReactHtmlParser(track.addInfo)}</td>
                        </tr>)
                        return null

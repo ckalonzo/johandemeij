@@ -87,8 +87,15 @@ section.music {
         font: 400 16px/18px 'Work Sans', sans-serif;
         //color:#fe5c56;
     }
-    a {
+     
+    }
+    .composer{
+        text-transform: capitalize;
+        a {
         color:#a90000;
+        span {
+            text-transform: lowercase !important;
+        }
     }
 }
 .details { 
