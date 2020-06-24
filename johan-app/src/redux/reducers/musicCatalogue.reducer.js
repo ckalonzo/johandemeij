@@ -8,6 +8,7 @@ export default function catalogueReducer (state = initialState, action) {
   
       case ACTIONS.LOAD_MUSIC_CATALOGUE: {
       db.collection("musicalbums")
+      .orderBy("catalogueNumber","asc")
       .get()
       .then(querySnapshot => {
         const data = querySnapshot.docs.map(doc => doc.data());

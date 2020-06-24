@@ -70,6 +70,9 @@ const NewCd = props => {
     }
     setValidated(true);
     props.actions.mainAction(ACTIONS.UPDATE_CD,cdItem)
+    setTimeout(()=>{ 
+      window.location.reload()
+     }, 1);
   }
   const renderCdImage = () => {
       return (<>
