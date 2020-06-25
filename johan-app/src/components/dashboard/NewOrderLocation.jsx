@@ -60,7 +60,7 @@ const NewOrderLocation = props => {
     setValidated(true);
 
    props.actions.mainAction(ACTIONS.CREATE_ORDER_LOCATION,catalogueOrder)
-   props.history.push('/dashboard/catalogue/'+id)
+   props.history.push('/dashboard/order/'+id)
   };
   
   const handleUpdate = event => {
@@ -91,9 +91,6 @@ const NewOrderLocation = props => {
    props.history.push('/dashboard/order/'+props.catalogue.id)
   };
   
-  const getLastItem = () => {
-    return
-  }
   return (
     <> 
       <Container  className="dashboard">

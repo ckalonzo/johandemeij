@@ -55,7 +55,7 @@ export default function agendaReducer (state = initialState, action) {
     case ACTIONS.LOAD_DASHBOARD_CD_AGENDA: {
       db.collection("agendas")
       .where("year",">=",year.toString())
-      .orderBy("year","desc")
+      .orderBy("year","asc")
       .orderBy("month","desc")
       .orderBy("day","desc")
       .get()
@@ -66,7 +66,7 @@ export default function agendaReducer (state = initialState, action) {
     return state
     }
     case ACTIONS.LOAD_CD_AGENDA_SUCCESS: {
-    return _.orderBy(action.payload,['month','day'],['asc','asc'])
+    return _.orderBy(action.payload,['year','month','day'],['asc','asc','asc'])
     }
     case ACTIONS.LOAD_DASHBOARD_CD_AGENDA_SUCCESS: {
       return action.payload
@@ -88,7 +88,6 @@ export default function agendaReducer (state = initialState, action) {
       Object.values(data).map(agenda=>{
         agenda.date = `${agenda.month}-${agenda.day}-${agenda.year}`
         agenda.month = +agenda.month
-       // console.log(agenda.month ,">=", month ,"&&", +agenda.day.replace(/^0+/, '') ,">", day)
        if(+agenda.month >= +month )
         return agendas.push(agenda)
       })

@@ -30,7 +30,7 @@ const MusicProfile = (props) => {
         return (<>
             <Row style={{margin: "0 0 15px -15px" }}>
                 <img src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F${image}?alt=media`} style={{ maxWidth: "350px" }} alt="media" />
-                <div style={{ fontSize: ".9rem", margin: "15px 0" }}>{caption}</div>
+                <div style={{ fontSize: ".9rem", margin: "15px 0", width:"100%" }}>{caption}</div>
             </Row>
         </>)
     }
@@ -43,7 +43,6 @@ const MusicProfile = (props) => {
 
     const renderMusicTracks = () => {
         const tracks = props.profile.music ? props.profile.music : [] 
-        console.log(props)
         
        return  Object.values(tracks).map(track=>{
             return (<>
@@ -69,8 +68,8 @@ const MusicProfile = (props) => {
                         <Col lg={{ span: 8 }}>
                             <h1>{props.profile.cdName}</h1>
                             <h3>{props.profile.subTitle}</h3>
-                            <h5>{`Composer: ${props.profile.composer}`}</h5>
-                            <p>{ReactHtmlParser(props.profile.synopsis ? CleanUpSynopsis(props.profile.synopsis) : "props.profile.synopsis")}</p>
+                            <h5>{`${props.profile.composer? "Composer: "+ props.profile.composer:""}`}</h5>
+                            <p>{ReactHtmlParser(props.profile.synopsis ? CleanUpSynopsis(props.profile.synopsis) : "")}</p>
                         </Col>
                         <Col lg={{ span: 4 }}>
                             {props.profile.frontCover ? renderImage(props.profile.frontCover, props.profile.frontCaption) : ""}

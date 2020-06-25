@@ -607,15 +607,20 @@ section.music {
     color: #fe5c56; }
   .music-profile h5 {
     font: 400 16px/18px 'Work Sans', sans-serif; }
-  .music-profile a {
+
+.composer {
+  text-transform: capitalize; }
+  .composer a {
     color: #a90000; }
+    .composer a span {
+      text-transform: lowercase !important; }
 
 .details {
   background: #eaeaea;
   font: 400 14px/16px 'Work Sans', sans-serif;
   padding: 15px;
   margin: 25px 0 25px;
-  width: 350px; }
+  max-width: 350px; }
   .details span {
     color: #000;
     text-transform: capitalize; }
@@ -644,3 +649,17 @@ section.contact-us {
   border: 5px solid #aeaeae;
   margin: 25% auto;
   text-align: center; }
+
+.video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden; }
+  .video iframe,
+  .video object, .video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
