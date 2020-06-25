@@ -7,20 +7,14 @@ import { ACTIONS } from "redux/actions/types"
 import { Container,Row,Col } from "react-bootstrap"
 import SideNav from "components/dashboard/SideNav"
 import Loading from "components/shared/Loading"
-import Paginate from "components/shared/Paginate"
 import EditPost from "components/dashboard/EditPost"
-
+import CleanUpText from "utils/helperFunctions"
 const Agendas = (props) => {
     const [section,setSection] = useState("list")
     useEffect(() => {
         // Update the document title using the browser API
         document.title = `JDM Dashboard | posts`;
-        //if(props.categories.length === 0)
-       
-     // props.actions.mainAction(ACTIONS.LOAD_ALL_AGENDAS,"2020")
        props.actions.mainAction(ACTIONS.LOAD_DASHBOARD_CD_AGENDA,{})
-     // props.actions.mainAction(ACTIONS.LOAD_PRESENTATIONS,{limit:10,skip:0})
-       
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
@@ -32,17 +26,14 @@ const Agendas = (props) => {
     }
     const deleteAgenda = (id) => {
       props.actions.mainAction(ACTIONS.DELETE_AGENDA,id)
-      // setTimeout(()=>{ 
-      //   window.location.reload()
-      //  }, 1);
     }
     const PostList = (props) => {
      if(Object.values(props).length >0)
     return Object.values(props).map(agenda =>{
           return ( <tr key={agenda.id}>
-            <td className="post-title" onClick={()=>loadAgenda(agenda)}>{agenda.orchestra}</td>
-            <td className="post-conductor">{agenda.conductor}</td>
-            <td className="post-city">{agenda.city}</td>
+            <td className="post-title" onClick={()=>loadAgenda(agenda)}>{CleanUpText(agenda.orchestra)}</td>
+            <td className="post-conductor">{CleanUpText(agenda.conductor)}</td>
+            <td className="post-city">{CleanUpText(agenda.city)}</td>
             <td className="post-date">{`${agenda.month} / ${agenda.day} / ${agenda.year}`}</td>
             <td className="post-actions">
               <Button  onClick={()=>loadAgenda(agenda.id)} className="btn btn-datatable btn-icon btn-transparent-dark mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></Button> 
@@ -74,8 +65,6 @@ const Agendas = (props) => {
            <PostList {...props.agendas}/>
           </tbody>
         </table>
-  
-        <Paginate items={props.allAgendas} action={"LOAD_CD_AGENDA"} limit={20} year={"2020"}/>
             </Col>
         </Row>
     </Container>

@@ -9,7 +9,9 @@ import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import _ from "lodash"
 import PublicationImage from "components/dashboard/PublicationImage"
+import Loading from "components/shared/Loading"
 const NewPublication = props => {
+  const [loading,setLoading] = useState(false)
   const [validated, setValidated] = useState(false);
   const [field_cdName,setCdName] = useState()
   const [field_subTitle,setSubTitle] = useState()
@@ -18,7 +20,7 @@ const NewPublication = props => {
   const [field_synopsis,setSynopsis] = useState()
   const [field_totalTime,setTotalTime] = useState()
   const [field_category,setCategory] = useState()
-  const [field_codes,setCodes] = useState()
+  const [field_codes,setCodes] = useState(props.presentation.synopsis)
   const [field_grade,setGrade] = useState()
   const [field_cd,setCd] = useState()
   const [field_otherCd,setOtherCd] = useState()
@@ -80,7 +82,7 @@ const NewPublication = props => {
         subTitle:document.getElementById('subtitle').value,
         composer:document.getElementById('composer').value,
         instrumentation:document.getElementById('instrumentation').value,
-        synopsis:field_synopsis,
+        synopsis:props.presentation.synopsis,
         totalTime:document.getElementById('totalTime').value,
         category:document.getElementById('category').value,
         codes:document.getElementById('codes').value,
@@ -104,8 +106,15 @@ const NewPublication = props => {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
+    window.scrollTo(0,0)
     setValidated(true);
+    setLoading(true)
     props.actions.mainAction(ACTIONS.UPDATE_PUBLICATION,publicationItem)
+    props.history.push('/dashboard/publications/edit/'+props.presentation.id)
+    setTimeout(()=>{
+     
+      setLoading(false)
+    },0)
   } 
   const renderPublicationImage = () => {
     return (<>
@@ -120,7 +129,7 @@ const NewPublication = props => {
           <Col lg={{ span: 2 }}><SideNav /></Col>
           <Col lg={{span:"10" }}> 
           {Object.keys(props.presentation).length > 0 ? renderPublicationImage():''}
-            <section id="product">
+          {loading ? <Loading /> :<section id="product">
               <Form noValidate validated={validated} onSubmit={Object.keys(props.presentation).length > 0 ?handleUpdate :handleSubmit}>
               <Form.Row><Col lg="6">
                   <Form.Group as={Col}  controlId="cdName">
@@ -368,12 +377,12 @@ const NewPublication = props => {
                         onChange={ ( event, editor ) => {
                             const data = editor.getData();
                            // console.log( { event, editor, data } );
-                           setSynopsis(data)
+                           setSynopsis(data ? data : props.presentation.synopsis)
                         } }
                         onBlur={ ( event, editor ) => {
                           const data = editor.getData();
                             console.log( 'Blur.', editor );
-                            setSynopsis(data)
+                            setSynopsis(data ? data : props.presentation.synopsis)
                         } }
                         onFocus={ ( event, editor ) => {
                             console.log( 'Focus.', editor );
@@ -383,7 +392,7 @@ const NewPublication = props => {
                   </Form.Row>
                 <Button type="submit">{Object.keys(props.presentation).length > 0 ?"Update Publication" :"Create Publication"}</Button>
               </Form> 
-            </section>
+            </section>  }
           </Col>
         </Row> 
       </Container>

@@ -20,5 +20,6 @@ export default function CleanUpText (text){
     text =  text.toString().replace('Â°', 'ð')
     text =  text.toString().replace('Ã§', 'ç')
     text =  text.toString().replace('Ã«', 'ë')
+    text =  text.toString().replace('Å³', 'ó')
     return text
 }

@@ -10,12 +10,13 @@ import Footer from "components/shared/Footer"
 
 const App = (props) => {
   useEffect(() => { 
-    document.title = "JohanDeMeij.com"
+    document.title = "The music of Johan de Meij | JohanDeMeij.com"
+    console.log(props)
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
   return (
     <>
-    <Navbar {...props} />
+    {props.history.location.pathname.includes("dashboard") ? "" : <Navbar {...props} />}
     <SiteRouter />
     <Footer />
     </>
