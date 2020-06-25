@@ -12,21 +12,29 @@ const returnMonth = (month) => {
 }
 const List = (props) => {
     const CleanUpSynopsis = (text) => {
-        return text.toString().replace(/(\r\n|\n|\r)/gm, "")
+        text =  text.toString().replace(/(\r\n|\n|\r)/gm, "")
+        text =  text.toString().replace('Ã³', 'ó')
+        text =  text.toString().replace('Ã¶', 'ö')
+        text =  text.toString().replace('Ã£', 'ã')
+        text =  text.toString().replace('Ãº', 'ú')
+        text =  text.toString().replace('\r\n', '')
+        text =  text.toString().replace('Ã¡', 'á')
+        text =  text.toString().replace('Ã¡', 'á')
+        return text
     }
    const renderList = (props) => {
     return (<>
         <Row id={props.id} className="agenda-list">
         <Col md={{span:10}} lg={{span:11}} className="agenda-info">
         <div>
-            <div className="orchestra">{ReactHtmlParser(props.orchestra)}</div>
-{props.conductor ? ReactHtmlParser(`<div class="conductor">Conductor: ${props.conductor}</div>`):''}
+            <div className="orchestra">{ReactHtmlParser(CleanUpSynopsis(props.orchestra))}</div>
+{props.conductor ? ReactHtmlParser(`<div class="conductor">Conductor: ${CleanUpSynopsis(props.conductor)}</div>`):''}
 {props.title  ? <div className="title"><Link to={"/music/profile/"+props.cd}>{props.title}</Link></div>:""}
 {props.title1 ? <div className="title"><Link to={"/music/profile/"+props.cd1}>{props.title1}</Link></div>:""}
 {props.title2 ? <div className="title"><Link to={"/music/profile/"+props.cd2}>{props.title2}</Link></div>:""}
 {props.title3 ? <div className="title"><Link to={"/music/profile/"+props.cd3}>{props.title3}</Link></div>:""}
 <div className="time">{`${returnMonth(props.month)} ${props.day} ${props.year} ${props.time}`}</div>
-            <div className="venue">{`${props.location}`}</div>
+            <div className="venue">{`${CleanUpSynopsis(props.location)}`}</div>
             <div className="location">{`${props.city} ${props.country}`}</div>
             <div className="orchestra">{ReactHtmlParser(CleanUpSynopsis(props.synopsis))}</div>
         </div>
