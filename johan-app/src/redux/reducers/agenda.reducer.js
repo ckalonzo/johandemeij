@@ -56,7 +56,7 @@ export default function agendaReducer (state = initialState, action) {
       db.collection("agendas")
       .where("year",">=",year.toString())
       .orderBy("year","asc")
-      .orderBy("month","desc")
+      .orderBy("month","asc")
       .orderBy("day","desc")
       .get()
       .then(snapshot => {
@@ -69,7 +69,7 @@ export default function agendaReducer (state = initialState, action) {
     return _.orderBy(action.payload,['year','month','day'],['asc','asc','asc'])
     }
     case ACTIONS.LOAD_DASHBOARD_CD_AGENDA_SUCCESS: {
-      return action.payload
+      return _.orderBy(action.payload,['year','month','day'],['asc','asc','asc'])
       }
     case ACTIONS.LOAD_CD_AGENDA_FAIL: {
 
