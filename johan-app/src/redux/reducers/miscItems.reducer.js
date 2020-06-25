@@ -17,7 +17,7 @@ export default function miscItemsReducer (state = initialState, action) {
       }
       case "GET_MISC_ITEMS_SUCCESS":{
        
-          return action.payload[0]
+          return action.payload[0] ? action.payload[0] : state
       }
       
       default: 

@@ -5,38 +5,29 @@ import { mainAction } from 'redux/actions/index.actions'
 import {Col, Row} from "react-bootstrap"
 import {Link } from "react-router-dom"
 import ReactHtmlParser from 'react-html-parser';
+import CleanUpText from "utils/helperFunctions"
 const returnMonth = (month) => {
     month = (month -1);
    let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
     return months[month]
 }
 const List = (props) => {
-    const CleanUpSynopsis = (text) => {
-        text =  text.toString().replace(/(\r\n|\n|\r)/gm, "")
-        text =  text.toString().replace('Ã³', 'ó')
-        text =  text.toString().replace('Ã¶', 'ö')
-        text =  text.toString().replace('Ã£', 'ã')
-        text =  text.toString().replace('Ãº', 'ú')
-        text =  text.toString().replace('\r\n', '')
-        text =  text.toString().replace('Ã¡', 'á')
-        text =  text.toString().replace('Ã¡', 'á')
-        return text
-    }
+    
    const renderList = (props) => {
     return (<>
         <Row id={props.id} className="agenda-list">
         <Col md={{span:10}} lg={{span:11}} className="agenda-info">
         <div>
-            <div className="orchestra">{ReactHtmlParser(CleanUpSynopsis(props.orchestra))}</div>
-{props.conductor ? ReactHtmlParser(`<div class="conductor">Conductor: ${CleanUpSynopsis(props.conductor)}</div>`):''}
+            <div className="orchestra">{ReactHtmlParser(CleanUpText(props.orchestra))}</div>
+{props.conductor ? ReactHtmlParser(`<div class="conductor">Conductor: ${CleanUpText(props.conductor)}</div>`):''}
 {props.title  ? <div className="title"><Link to={"/music/profile/"+props.cd}>{props.title}</Link></div>:""}
 {props.title1 ? <div className="title"><Link to={"/music/profile/"+props.cd1}>{props.title1}</Link></div>:""}
 {props.title2 ? <div className="title"><Link to={"/music/profile/"+props.cd2}>{props.title2}</Link></div>:""}
 {props.title3 ? <div className="title"><Link to={"/music/profile/"+props.cd3}>{props.title3}</Link></div>:""}
 <div className="time">{`${returnMonth(props.month)} ${props.day} ${props.year} ${props.time}`}</div>
-            <div className="venue">{`${CleanUpSynopsis(props.location)}`}</div>
-            <div className="location">{`${props.city} ${props.country}`}</div>
-            <div className="orchestra">{ReactHtmlParser(CleanUpSynopsis(props.synopsis))}</div>
+            <div className="venue">{`${CleanUpText(props.location)}`}</div>
+            <div className="location">{`${CleanUpText(props.city)} ${CleanUpText    (props.country)}`}</div>
+            <div className="orchestra">{ReactHtmlParser(CleanUpText(props.synopsis))}</div>
         </div>
         </Col>
         <Col md={{span:2}} lg={{span:1}} className="date"  style={{position:"relative"}}>
