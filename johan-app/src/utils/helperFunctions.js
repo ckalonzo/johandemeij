@@ -6,7 +6,6 @@ export default function CleanUpText (text){
     text =  text.toString().replace('Ãº', 'ú')
     text =  text.toString().replace('\r\n','')
     text =  text.toString().replace('Ã¡','á')
-    text =  text.toString().replace('Ã¡','á')
     text =  text.toString().replace('â€™','"')
     text =  text.toString().replace('â€˜','"')
     text =  text.toString().replace('Ã±', 'ñ')
@@ -21,6 +20,7 @@ export default function CleanUpText (text){
     text =  text.toString().replace('Ã§', 'ç')
     text =  text.toString().replace('Ã«', 'ë')
     text =  text.toString().replace('Å³', 'ó')
+    text =  text.toString().replace('Ð', 'á')
 
 
 
@@ -28,7 +28,7 @@ export default function CleanUpText (text){
 
 
 
-text =  text.toString().replace('Ã', 'Ð');
+text =  text.toString().replace('Ã', 'ó');
 text =  text.toString().replace('Ã‘', 'Ñ');
 text =  text.toString().replace('Ã’', 'Ò');
 text =  text.toString().replace('Ã“', 'Ó');
@@ -76,5 +76,8 @@ text =  text.toString().replace('Ã¼', 'ü');
 text =  text.toString().replace('Ã½', 'ý');
 text =  text.toString().replace('Ã¾', 'þ');
 text =  text.toString().replace('Ã¿', 'ÿ');
+text =  text.toString().replace('â', 'ä');
+text =  text.toString().replace('ø', 'ó');
+text =  text.toString().replace('Ýƒ', 'á');
     return text
 }
