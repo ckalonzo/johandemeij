@@ -1,5 +1,5 @@
 export default function CleanUpText (text){
-    text =  text.toString().replace(/(\r\n|\n|\r)/gm, "")
+    if(text){text =  text.toString().replace(/(\r\n|\n|\r)/gm, "")
     text =  text.toString().replace('Ã³', 'ó')
     text =  text.toString().replace('Ã¶', 'ö')
     text =  text.toString().replace('Ã£', 'ã')
@@ -80,4 +80,7 @@ text =  text.toString().replace('â', 'ä');
 text =  text.toString().replace('ø', 'ó');
 text =  text.toString().replace('Ýƒ', 'á');
     return text
+    } else {
+        return
+    }
 }
