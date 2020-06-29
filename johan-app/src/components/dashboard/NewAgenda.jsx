@@ -16,7 +16,7 @@ const NewAgenda = props => {
   const [field_orchestra,setOrchestra] = useState(props.agenda?props.agenda.orchestra:"")
   const [field_conductor,setConductor] = useState(props.agenda?props.agenda.conductor:"")
   const [field_country,setCountry] = useState(props.agenda?props.agenda.countrt:"")
-  const [field_synopsis,setSynopsis] = useState("")
+  const [field_synopsis,setSynopsis] = useState(props.agenda?props.agenda.synopsis:"")
   const [field_time,setTime] = useState(props.agenda.time ?props.agenda.time:"")
   const [field_location,setlocation] = useState(props.agenda?props.agenda.location:"")
   const [field_cd,setCd] = useState(props.agenda.cd ? props.agenda.cd:"")
@@ -73,7 +73,8 @@ const NewAgenda = props => {
     setValidated(true);
    props.actions.mainAction(ACTIONS.CREATE_NEW_AGENDA,agendaItem)
    props.history.push('/dashboard/agenda/'+id)
-  };
+  }
+
   const handleUpdate = async event => {
     event.preventDefault();
     let agendaItem = {
@@ -95,15 +96,8 @@ const NewAgenda = props => {
         year:document.getElementById('year').value,
         date:`${document.getElementById('month').value}-${document.getElementById('day').value}-${document.getElementById('year').value}`
     }
-   const input = document.querySelector("form:first-child input");
-   const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-      window.HTMLInputElement.prototype,
-      "value"
-    ).set;
-    nativeInputValueSetter.call(input, "");
-
-   const inputEvent = new Event("input", { bubbles: true });
-    input.dispatchEvent(inputEvent);
+   
+    console.log(field_synopsis)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
@@ -453,9 +447,9 @@ const NewAgenda = props => {
                 <Form.Row>
                   <Col lg={12}>
                   <Form.Group as={Col} controlId="synopsis">
-                    <CKEditor
+                  <CKEditor
                         editor={ ClassicEditor }
-                        data={props.agenda.synopsis}
+                        data={props.agenda.synopsis ? props.agenda.synopsis : ""}
                         toolbar= {'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' }
                         onInit={ editor => {
                             // You can store the "editor" and use when it is needed.
@@ -463,7 +457,7 @@ const NewAgenda = props => {
                         } }
                         onChange={ ( event, editor ) => {
                             const data = editor.getData();
-                           // console.log( { event, editor, data } );
+                            console.log( { event, editor, data } );
                            setSynopsis(data)
                         } }
                         onBlur={ ( event, editor ) => {

@@ -82,7 +82,7 @@ const NewPublication = props => {
         subTitle:document.getElementById('subtitle').value,
         composer:document.getElementById('composer').value,
         instrumentation:document.getElementById('instrumentation').value,
-        synopsis:props.presentation.synopsis,
+        synopsis:field_synopsis,
         totalTime:document.getElementById('totalTime').value,
         category:document.getElementById('category').value,
         codes:document.getElementById('codes').value,

@@ -5,7 +5,7 @@ import { Container,Col,Row} from "react-bootstrap"
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
 const NavigationBar = (props) => {
-    const [navLocation,setNavLocation]=useState("home")
+    
     useEffect(() => {
         window.scrollTo(0,0)
         props.actions.mainAction(ACTIONS. LOAD_HEADER,props.history.location.pathname.replace('/', ''))

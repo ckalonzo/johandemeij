@@ -40,7 +40,7 @@ const List = (props) => {
         </Row>
         </>)
    }
-   return props.orchestra ? renderList(props):null
+   return  renderList(props)
 }
 function mapStateToProps(state) {
     return {

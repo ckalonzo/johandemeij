@@ -77,18 +77,19 @@ export default function catalogueReducer (state = initialState, action) {
       }
       case ACTIONS.UPDATE_CATALOGUE:{
         let stateCopy = _.cloneDeep(action.payload)
-        let _id = 
-        console.log(stateCopy.id)
+        
         if(stateCopy.id)
         db.collection("musicalbums")
         .where("id",'==',stateCopy.id)
           .get()
           .then(querySnapshot => {
+            let _id = ''
             const data = querySnapshot.docs.map(doc => {
               _id = doc.id
               return doc.data()});
            db.collection("musicalbums").doc(_id)
             .update(stateCopy).then(()=>{
+              console.log(data)
               action.asyncDispatch(mainAction(ACTIONS.UPDATE_CATALOGUE_SUCCESS,stateCopy))
             });
           });

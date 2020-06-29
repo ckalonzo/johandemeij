@@ -5,7 +5,6 @@ import { Container,Row,Col} from "react-bootstrap"
 import { mainAction } from "redux/actions/index.actions"
 import SideNav from "components/dashboard/SideNav"
 import Login from "components/dashboard/Login"
-import Logout from "components/dashboard/Logout"
 
 
 const Dashboard = (props) => {

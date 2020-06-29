@@ -52,6 +52,7 @@ const AgendaList  = (props) => {
       agenda.title1 = title1[0]
       agenda.title2 = title2[0]
       agenda.title3 = title3[0]
+      console.log(listYear ,"===", year ,"&&",+agenda.month ,">=", month ,"&&", agenda.day.replace(/^0+/, '') ,">=", day)
       return +agenda.ON_OFF  === 1 ? <List key={agenda.id} {...agenda}/>:""
   })
    }
