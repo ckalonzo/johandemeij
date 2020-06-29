@@ -91,7 +91,9 @@ const NewPublication = props => {
         otherCd:document.getElementById('otherCD').value,
         score:document.getElementById('score').value,
         audio:document.getElementById('audio').value,
-        video:document.getElementById('video').value
+        video:document.getElementById('video').value,
+        frontCaption:document.getElementById('frontCaption').value,
+        backCaption:document.getElementById('backCaption').value,
     }
    const input = document.querySelector("form:first-child input");
    const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
@@ -111,10 +113,6 @@ const NewPublication = props => {
     setLoading(true)
     props.actions.mainAction(ACTIONS.UPDATE_PUBLICATION,publicationItem)
     props.history.push('/dashboard/publications/edit/'+props.presentation.id)
-    setTimeout(()=>{
-     
-      setLoading(false)
-    },0)
   } 
   const renderPublicationImage = () => {
     return (<>

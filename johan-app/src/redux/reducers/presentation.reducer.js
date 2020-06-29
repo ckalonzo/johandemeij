@@ -145,6 +145,7 @@ export default function presentationReducer (state = initialState, action) {
         case ACTIONS.UPDATE_PUBLICATION_SUCCESS:{
         let stateCopy = _.cloneDeep(action.payload)
         action.asyncDispatch(mainAction(ACTIONS.LOAD_PRESENTATION,stateCopy.id))
+        window.location.reload(true);
         return {state,...stateCopy.payload}
         }
         case ACTIONS.UPDATE_PUBLICATION_FAIL:{

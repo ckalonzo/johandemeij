@@ -119,7 +119,7 @@ const ProfileImage = (props) => {
             </Col>
              <Col lg={{span:6}} className="caption">
              <div><Form.Row>
-              <Form.Group controlId="showpost">
+              <Form.Group controlId={props.type === "front" ? "frontCaption":"backCaption"}>
               <Form.Label>{props.type === "front" ? "Front Cover ":"Back Cover "}Caption</Form.Label>
               <Form.Control
                       required
