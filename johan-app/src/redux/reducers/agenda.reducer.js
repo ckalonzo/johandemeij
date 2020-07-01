@@ -1,6 +1,6 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
-import { database,db} from "../../firebase";
+import { db} from "../../firebase";
 import _ from 'lodash'
 const initialState = {
 };
@@ -11,7 +11,7 @@ let year = d.getFullYear()
 export default function agendaReducer (state = initialState, action) {
   switch (action.type) {
     case ACTIONS.CREATE_NEW_AGENDA:{
-
+console.log(action)
     let stateCopy = _.cloneDeep(action.payload)
         db.collection("agendas")
           .add(stateCopy)
@@ -23,6 +23,7 @@ export default function agendaReducer (state = initialState, action) {
     return state
     }
     case ACTIONS.CREATE_NEW_AGENDA_SUCCESS:{
+    window.location.reload(true)
     return action.payload
     }
     case ACTIONS.DELETE_AGENDA:{

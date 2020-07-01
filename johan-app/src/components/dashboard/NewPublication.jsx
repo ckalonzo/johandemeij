@@ -10,6 +10,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import _ from "lodash"
 import PublicationImage from "components/dashboard/PublicationImage"
 import Loading from "components/shared/Loading"
+import PresentationMusic from "components/dashboard/PresentationMusic"
 const NewPublication = props => {
   const [loading,setLoading] = useState(false)
   const [validated, setValidated] = useState(false);
@@ -127,6 +128,7 @@ const NewPublication = props => {
           <Col lg={{ span: 2 }}><SideNav /></Col>
           <Col lg={{span:"10" }}> 
           {Object.keys(props.presentation).length > 0 ? renderPublicationImage():''}
+          <PresentationMusic />
           {loading ? <Loading /> :<section id="product">
               <Form noValidate validated={validated} onSubmit={Object.keys(props.presentation).length > 0 ?handleUpdate :handleSubmit}>
               <Form.Row><Col lg="6">

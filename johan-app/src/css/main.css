@@ -47,7 +47,7 @@ h1, h3, h3, h4, h5 {
   margin-bottom: 50px;
   min-height: 100%; }
 
-#images, #product {
+#images, #product, #music {
   margin-bottom: 50px;
   background: #FFF;
   padding: 25px 35px;
@@ -649,3 +649,8 @@ section.contact-us {
   border: 5px solid #aeaeae;
   margin: 25% auto;
   text-align: center; }
+
+select.on {
+  border-color: #28a745;
+  background-color: #28a745;
+  color: #FFF; }

@@ -45,7 +45,7 @@ h1,h3,h3,h4,h5 {
    margin-bottom:50px;
     min-height: 100%;
 }
-#images,#product{
+#images,#product,#music{
     margin-bottom:50px;
     background:#FFF;
     padding:25px 35px;
@@ -212,18 +212,8 @@ table {
     margin:25% auto;
     text-align:center;
 } 
-// .video {
-//     position:relative;
-// 	padding-bottom:56.25%;
-// 	padding-top:30px;
-// 	height:0;
-//     overflow:hidden;
-//     iframe, 
-//     object, embed {
-//         position:absolute;
-//         top:0;
-//         left:0;
-//         width:100%;
-//         height:100%;
-//     }
-// }
+select.on{
+    border-color: #28a745;
+    background-color: #28a745;
+    color:#FFF;
+}
