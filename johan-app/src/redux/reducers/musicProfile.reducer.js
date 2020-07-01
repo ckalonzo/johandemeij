@@ -18,7 +18,7 @@ export default function musicProfileReducer (state = initialState, action) {
            const data = querySnapshot.docs.map(doc => doc.data());
            mainData = {...data}
 
-           db.collection("presentationmuic")
+           db.collection("presentationmusic")
            .where("pres_id",'==',mainData[0].id)
              .get()
              .then(querySnapshot => {
