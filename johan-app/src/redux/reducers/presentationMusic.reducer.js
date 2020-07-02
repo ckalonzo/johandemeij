@@ -61,7 +61,7 @@ export default function presentationMusicReducer (state = initialState, action) 
       let postImageRef = storage.ref('music/'+action.payload.name)
       postImageRef.delete().then(()=>console.log("file deleted"));
       action.asyncDispatch(mainAction(ACTIONS.LOAD_PUBLICATION_MUSIC,action.payload.ID))
-      window.location.reload()
+      //window.location.reload()
       return state
      }
      case ACTIONS.DELETE_PUBLICATION_MUSIC_FAIL : {

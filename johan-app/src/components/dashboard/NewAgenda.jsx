@@ -194,7 +194,7 @@ const NewAgenda = props => {
                 <Form.Row>
                   <Col lg="6">
                     <Form.Group as={Col} controlId="cd">
-                      <Form.Label>CD #1</Form.Label>
+                      <Form.Label>Track #1</Form.Label>
 
                       <Form.Control
                         required
@@ -219,7 +219,7 @@ const NewAgenda = props => {
                 
                   <Col lg="6">
                     <Form.Group as={Col} controlId="cd1">
-                      <Form.Label>CD #2 {props.agenda.cd1}</Form.Label>
+                      <Form.Label>Track #2 </Form.Label>
 
                       <Form.Control
                         required
@@ -246,7 +246,7 @@ const NewAgenda = props => {
                 <Form.Row>
                   <Col lg="6">
                     <Form.Group as={Col} controlId="cd2">
-                      <Form.Label>CD #3</Form.Label>
+                      <Form.Label>Track #3</Form.Label>
 
                       <Form.Control
                         required
@@ -270,7 +270,7 @@ const NewAgenda = props => {
                 
                   <Col lg="6">
                     <Form.Group as={Col} controlId="cd3">
-                      <Form.Label>CD #4</Form.Label>
+                      <Form.Label>Track #4</Form.Label>
 
                       <Form.Control
                         required
@@ -374,6 +374,14 @@ const NewAgenda = props => {
                         <option>-- Year --</option>
                         <option value={props.agenda.year} selected>{props.agenda.year}</option>
                         <option value="2011">2011</option>
+                        <option value="2011">2012</option>
+                        <option value="2011">2013</option>
+                        <option value="2011">2014</option>
+                        <option value="2011">2015</option>
+                        <option value="2011">2016</option>
+                        <option value="2011">2017</option>
+                        <option value="2011">2018</option>
+                        <option value="2011">2019</option>
                         <option value="2020">2020</option>
                         <option value="2021">2021</option>
                         <option value="2022">2022</option>

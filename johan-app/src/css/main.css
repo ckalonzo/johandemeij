@@ -227,6 +227,16 @@ header.agenda {
 .nav-row {
   background-color: #a90000; }
 
+header ul {
+  display: table;
+  margin: 15px auto 15px; }
+  header ul li {
+    display: inline;
+    margin-right: 25px;
+    text-transform: uppercase; }
+    header ul li a {
+      color: #FFF; }
+
 ul {
   margin: 0;
   padding: 0; }
