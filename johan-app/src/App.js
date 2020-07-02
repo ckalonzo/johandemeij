@@ -11,7 +11,6 @@ import Footer from "components/shared/Footer"
 const App = (props) => {
   useEffect(() => { 
     document.title = "The music of Johan de Meij | JohanDeMeij.com"
-    console.log(props)
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
   return (

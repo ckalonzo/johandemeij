@@ -11,7 +11,7 @@ const Article = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
     const stripHtml = require("string-strip-html")
-    const {postTitle,postContent,image,_id,postDate} = props
+    const {postTitle,postContent,image,postDate} = props
     const truncateString = (str, num) => {
         if (str.length <= num) {
             return str

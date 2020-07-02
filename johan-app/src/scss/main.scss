@@ -46,10 +46,11 @@ h1,h3,h3,h4,h5 {
     min-height: 100%;
 }
 #images,#product,#music{
-    margin-bottom:50px;
+   // margin-bottom:50px;
     background:#FFF;
     padding:25px 35px;
     border: 1px solid rgba(111, 116, 149, 0.25);
+    border-bottom: none;
 }
 #images {
     
@@ -78,7 +79,8 @@ table {
 #post-image,
 #post-image-main,
 #post-image-front,
-#post-image-back{
+#post-image-back,
+#mp3-file{
     display:none;
 }
 .action-button,.caption{

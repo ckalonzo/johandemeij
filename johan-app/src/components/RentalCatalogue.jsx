@@ -1,4 +1,4 @@
-import React,{ useEffect , useState} from "react";
+import React,{ useEffect } from "react";
 import {Table,Row,Col,Container} from "react-bootstrap"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -10,8 +10,8 @@ import { render } from "@testing-library/react";
 const RentalCatalogue  = (props) => {
   //const [selectedPresentation,setSelectedPresentation]= useState()
     useEffect(() => {
-        window.scrollTo(0,0)
-        document.title = "JohanDeMeij.com | Music"
+      window.scrollTo(0,0)
+      document.title = "JohanDeMeij.com | Music"
        props.actions.mainAction(ACTIONS.LOAD_MUSIC_CATALOGUE,{})
        props.actions.mainAction(ACTIONS.LOAD_MUSIC,{})
        props.actions.mainAction("GET_MISC_ITEMS",{})

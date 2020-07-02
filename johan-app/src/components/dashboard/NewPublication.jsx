@@ -113,7 +113,7 @@ const NewPublication = props => {
     setValidated(true);
     setLoading(true)
     props.actions.mainAction(ACTIONS.UPDATE_PUBLICATION,publicationItem)
-    props.history.push('/dashboard/publications/edit/'+props.presentation.id)
+    //props.history.push('/dashboard/publications/edit/'+props.presentation.id)
   } 
   const renderPublicationImage = () => {
     return (<>
@@ -128,7 +128,7 @@ const NewPublication = props => {
           <Col lg={{ span: 2 }}><SideNav /></Col>
           <Col lg={{span:"10" }}> 
           {Object.keys(props.presentation).length > 0 ? renderPublicationImage():''}
-          <PresentationMusic />
+          <PresentationMusic ID={props.match.params.id}  />
           {loading ? <Loading /> :<section id="product">
               <Form noValidate validated={validated} onSubmit={Object.keys(props.presentation).length > 0 ?handleUpdate :handleSubmit}>
               <Form.Row><Col lg="6">

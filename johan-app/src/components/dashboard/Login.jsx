@@ -3,11 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Form, Container, Row, Col, Button} from "react-bootstrap";
 import { ACTIONS } from "redux/actions/types";
-import SideNav from "components/dashboard/SideNav";
 import { mainAction } from "redux/actions/index.actions"
-import CKEditor from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import PostImage from "components/dashboard/PostImage"
 
 const Login = props => {
     const [email, setEmail] = useState('');
@@ -19,8 +15,6 @@ const Login = props => {
     // Update the document title using the browser API
     window.scrollTo(0,0)
     document.title = `Johan De Meij | Login`;
-   // if(user)
-   //props.actions.mainAction(ACTIONS.LOGIN_CHECK,user ? user:localStorage.getItem("user"))
    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

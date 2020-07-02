@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react"
+import React,{useEffect} from "react"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Container,Col,Row} from "react-bootstrap"
@@ -12,9 +12,9 @@ const NavigationBar = (props) => {
             // eslint-disable-next-line react-hooks/exhaustive-deps
           }, []);
     
-    
+    const navItems = ["home","events","agenda","music","biography","rental catalogue","order"];
     const NavList = () => {
-        const navItems = ["home","events","agenda","music","biography","rental catalogue","order"];
+        
        return  navItems.map(item => {
         return <li key={item}><a href={`/${item.replace(/\s/g, '')}`}>{item}</a></li>
     })}
@@ -27,7 +27,7 @@ const NavigationBar = (props) => {
     const renderHeader = () => {
       
         return (<>
-            <header className={props.header.name+" navigation"}> 
+            <header className={navItems.includes(props.header.name) ? props.header.name : "music" +" navigation"}> 
                 
                      <Row> <Container> 
                          <Col lg={{span:"12" }} className="headline">
