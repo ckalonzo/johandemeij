@@ -97,6 +97,66 @@ header.agenda {
              a {
                  color:#FFF;
              }
+             a:hover {
+                 color:#000;
+                 text-decoration: none;
+             }
             }
+            
+        }
+    }
+    header.home {
+        li.home{
+            a {
+                color:#000;
+                font-weight:bold;
+            }
+            
+        }
+    }
+    header.events {
+        li.events{
+            a {
+                color:#000;
+                font-weight:bold;
+            }
+            
+        }
+    }
+    header.agenda {
+        li.agenda{
+            a {
+                color:#000;
+                font-weight:bold;
+            }
+            
+        }
+    }
+    header.music {
+        li.music{
+            a {
+                color:#000;
+                font-weight:bold;
+            }
+            
+        }
+    }
+
+    header.rentalcatalogue {
+        li.rental{
+            a {
+                color:#000;
+                font-weight:bold;
+            }
+            
+        }
+    }
+    header.order {
+        li.order{
+            a {
+                color:#000;
+                font-weight:bold;
+            }
+            
         }
     }

@@ -16,7 +16,7 @@ const NavigationBar = (props) => {
     const NavList = () => {
         
        return  navItems.map(item => {
-        return <li key={item}><a href={`/${item.replace(/\s/g, '')}`}>{item}</a></li>
+        return <li key={item} className={item}><a href={`/${item.replace(/\s/g, '')}`}>{item}</a></li>
     })}
 
     const handleClick = (location) => {
@@ -27,7 +27,7 @@ const NavigationBar = (props) => {
     const renderHeader = () => {
       
         return (<>
-            <header className={navItems.includes(props.header.name) ? props.header.name : "music" +" navigation"}> 
+            <header className={navItems.includes(props.header.name) || navItems.includes("rental catalogue")? props.header.name : "music" +" navigation"}> 
                 
                      <Row> <Container> 
                          <Col lg={{span:"12" }} className="headline">
