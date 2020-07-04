@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
-import {Col, Row} from "react-bootstrap"
+import {Col, Row,Button} from "react-bootstrap"
 import {Link } from "react-router-dom"
 import ReactHtmlParser from 'react-html-parser';
 import CleanUpText from "utils/helperFunctions"
@@ -14,11 +14,13 @@ const returnMonth = (month) => {
 const List = (props) => {
     
    const renderList = (props) => {
+    const loggedInUser = localStorage.getItem('user') ? localStorage.getItem('user'):[]
+    const isLoggedIn = loggedInUser.length > 0 ? true:false
     return (<>
         <Row id={props.id} className="agenda-list">
         <Col md={{span:10}} lg={{span:11}} className="agenda-info">
         <div>
-            <div className="orchestra">{ReactHtmlParser(CleanUpText(props.orchestra))}</div>
+            <div className="orchestra">{ReactHtmlParser(CleanUpText(props.orchestra))} {!isLoggedIn ? "":<a className="btn btn-datatable btn-icon btn-transparent-dark" href={"/dashboard/agenda/"+props.id}>[ edit ]</a>} </div>
 {props.conductor ? ReactHtmlParser(`<div class="conductor">Conductor: ${CleanUpText(props.conductor)}</div>`):''}
 {props.title  ? <div className="title"><Link to={"/music/profile/"+props.cd}>{props.title}</Link></div>:""}
 {props.title1 ? <div className="title"><Link to={"/music/profile/"+props.cd1}>{props.title1}</Link></div>:""}

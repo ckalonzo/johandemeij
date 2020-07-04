@@ -48,10 +48,10 @@ h1, h3, h3, h4, h5 {
   min-height: 100%; }
 
 #images, #product, #music {
-  margin-bottom: 50px;
   background: #FFF;
   padding: 25px 35px;
-  border: 1px solid rgba(111, 116, 149, 0.25); }
+  border: 1px solid rgba(111, 116, 149, 0.25);
+  border-bottom: none; }
 
 #images .caption div {
   width: 100%; }
@@ -73,7 +73,8 @@ table .post-title {
 #post-image,
 #post-image-main,
 #post-image-front,
-#post-image-back {
+#post-image-back,
+#mp3-file {
   display: none; }
 
 .action-button, .caption {
@@ -225,6 +226,47 @@ header.agenda {
 
 .nav-row {
   background-color: #a90000; }
+
+header ul {
+  display: table;
+  margin: 15px auto 15px; }
+  header ul li {
+    display: inline;
+    margin-right: 25px;
+    text-transform: uppercase; }
+    header ul li a {
+      color: #FFF; }
+    header ul li a:hover {
+      color: #000;
+      text-decoration: none; }
+
+header.home li.home a {
+  color: #000;
+  font-weight: bold; }
+
+header.events li.events a {
+  color: #000;
+  font-weight: bold; }
+
+header.agenda li.agenda a {
+  color: #000;
+  font-weight: bold; }
+
+header.music li.music a {
+  color: #000;
+  font-weight: bold; }
+
+header.rentalcatalogue li.rental a {
+  color: #000;
+  font-weight: bold; }
+
+header.order li.order a {
+  color: #000;
+  font-weight: bold; }
+
+header.biography li.biography a {
+  color: #000;
+  font-weight: bold; }
 
 ul {
   margin: 0;

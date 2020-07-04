@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
 import { Row, Container, Col } from "react-bootstrap"
 import ReactHtmlParser from 'react-html-parser';
-import { loadfilteredAgendas } from "API/indexAPI";
-//import Playlist from 'react-mp3-player';
+
 
 const MusicProfile = (props) => {
     useEffect(() => {

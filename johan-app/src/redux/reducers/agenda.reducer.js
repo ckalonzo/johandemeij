@@ -5,7 +5,7 @@ import _ from 'lodash'
 const initialState = {
 };
 let d = new Date();
-let day = d.getDate();
+//let day = d.getDate();
 let month = d.getMonth()+1;
 let year = d.getFullYear()
 export default function agendaReducer (state = initialState, action) {
@@ -119,9 +119,6 @@ console.log(action)
       action.asyncDispatch(mainAction(ACTIONS.LOAD_AGENDAS_SUCCESS,_.orderBy(agendas,['month','day'],['asc','asc'])))
     })
     return state
-    }
-    case ACTIONS.LOAD_AGENDAS_FILTERED:{
-      return action.payload
     }
     case ACTIONS.LOAD_AGENDA:{
     db.collection("agendas")

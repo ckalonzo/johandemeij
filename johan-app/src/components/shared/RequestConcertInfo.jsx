@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React,{useState} from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
