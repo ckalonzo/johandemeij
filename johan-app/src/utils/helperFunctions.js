@@ -79,6 +79,8 @@ text =  text.toString().replace('Ã¿', 'ÿ');
 text =  text.toString().replace('â', 'ä');
 text =  text.toString().replace('ø', 'ó');
 text =  text.toString().replace('Ýƒ', 'á');
+text =  text.toString().replace('Ã', 'í');
+text =  text.toString().replace('Å‚', 'â');
     return text
     } else {
         return

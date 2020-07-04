@@ -127,8 +127,14 @@ const NewAgenda = props => {
           <Col lg={{ span: 2 }}><SideNav /></Col>
           <Col lg={{ span: "10" }}>
             {props.agenda.ON_OFF || props.match.params.id ? <section id="product">
-              <Form.Row><Col lg="6" style={{ padding: "0 0 30px 20px" }}>{!props.agenda.ON_OFF ? `id:${id}` : ""}</Col></Form.Row>
-              <Form noValidate validated={validated} onSubmit={Object.keys(props.agenda ? props.agenda : []).length > 0 ? handleUpdate : handleSubmit}>
+            <Form noValidate validated={validated} onSubmit={Object.keys(props.agenda ? props.agenda : []).length > 0 ? handleUpdate : handleSubmit}>
+              <Form.Row>
+                <Col lg="6" style={{ padding: "0 0 30px 20px" }}>{!props.agenda.ON_OFF ? `id:${id}` : ""}</Col>
+                <Col lg={{span:"2",offset:"2"}}>
+                <a href="/dashboard/agenda/new" className="btn btn-primary">New Agenda</a>
+                </Col>
+              </Form.Row>
+              
                 <Form.Row><Col lg="2">
                   <Form.Group as={Col} controlId="showpost" >
                     <Form.Label>Show Agenda</Form.Label>
@@ -374,14 +380,14 @@ const NewAgenda = props => {
                         <option>-- Year --</option>
                         <option value={props.agenda.year} selected>{props.agenda.year}</option>
                         <option value="2011">2011</option>
-                        <option value="2011">2012</option>
-                        <option value="2011">2013</option>
-                        <option value="2011">2014</option>
-                        <option value="2011">2015</option>
-                        <option value="2011">2016</option>
-                        <option value="2011">2017</option>
-                        <option value="2011">2018</option>
-                        <option value="2011">2019</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
                         <option value="2020">2020</option>
                         <option value="2021">2021</option>
                         <option value="2022">2022</option>

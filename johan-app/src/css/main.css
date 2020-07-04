@@ -264,6 +264,10 @@ header.order li.order a {
   color: #000;
   font-weight: bold; }
 
+header.biography li.biography a {
+  color: #000;
+  font-weight: bold; }
+
 ul {
   margin: 0;
   padding: 0; }
