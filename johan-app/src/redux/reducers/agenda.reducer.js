@@ -77,7 +77,7 @@ console.log(action)
     return state
     }
     case ACTIONS.LOAD_AGENDAS: {
-
+console.log(action)
     db.collection("agendas")
     .where("year",">=",year.toString())
     .orderBy("year","asc")
@@ -89,8 +89,10 @@ console.log(action)
       Object.values(data).map(agenda=>{
         agenda.date = `${agenda.month}-${agenda.day}-${agenda.year}`
         agenda.month = +agenda.month
-       if(+agenda.month >= +month )
+      if(+agenda.month >= +month || +agenda.year > +year)
         return agendas.push(agenda)
+        // if(+agenda.year > +year )
+        // return agendas.push(agenda)
       })
       action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_SUCCESS,agendas))
     })

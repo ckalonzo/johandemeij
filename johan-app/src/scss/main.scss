@@ -111,7 +111,7 @@ table {
    }
 }
 .RentalCatalogue {
-    margin-top:50px;
+    margin-top:350px;
     th {
         color: #000;
         vertical-align: middle!important;
@@ -141,6 +141,7 @@ table {
     }
 }
 .order {
+    
     .location {
         font: 400 14px/16px 'Work Sans', sans-serif;
         padding:15px;
@@ -154,6 +155,9 @@ table {
             font-weight: bold;
         }
     }
+}
+section.order {
+    margin-top:295px;
 }
 .pagination {
     .page-link {

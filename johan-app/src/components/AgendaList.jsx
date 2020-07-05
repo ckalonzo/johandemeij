@@ -6,6 +6,7 @@ import { ACTIONS } from "redux/actions/types"
 import Paginate from "components/shared/Paginate"
 import List from "components/shared/List"
 import Loading from "components/shared/Loading"
+import {Dropdown,DropdownButton} from "react-bootstrap"
 const AgendaList  = (props) => {
       let d = new Date();
       let day = d.getDate();
@@ -23,24 +24,7 @@ const AgendaList  = (props) => {
      const loadYear = (selectedYear) =>{
         props.actions.mainAction(ACTIONS.LOAD_AGENDAS_FILTERED,{limit:100,skip:0,year:selectedYear})
       }
-    const ArchiveLinks = () =>{
-      let lastYear = "2011"
-      let yearsArray = [year.toString(),
-        (+year-1).toString(),
-        (+year-2).toString(),
-        (+year-3).toString(),
-        (+year-4).toString(),
-        (+year-5).toString(),
-        (+year-6).toString(),
-        (+year-7).toString(),
-        (+year-8).toString(),
-        (+year-9).toString(),
-      ]
-
-      return yearsArray.map(yearItem=>{
-        return <li className={"archive-link "} onClick={()=>{loadYear(yearItem)}}>{yearItem}</li>
-      })
-    }
+  
    const list = () =>{
      return Object.values(props.agendas).map(agenda => {
       let title = props.CDS.filter(CD=>CD.id===agenda.cd).map(CD=>CD.cdName),
@@ -52,9 +36,26 @@ const AgendaList  = (props) => {
       agenda.title1 = title1[0]
       agenda.title2 = title2[0]
       agenda.title3 = title3[0]
-      console.log(listYear ,"===", year ,"&&",+agenda.month ,">=", month ,"&&", agenda.day.replace(/^0+/, '') ,">=", day)
+     // console.log(listYear ,"===", year ,"&&",+agenda.month ,">=", month ,"&&", agenda.day.replace(/^0+/, '') ,">=", day)
       return +agenda.ON_OFF  === 1 ? <List key={agenda.id} {...agenda}/>:""
   })
+   }
+   const RenderDropdown = () => {
+     const years = []
+     const DropDownList = () => {
+       let beginYear = 2011
+       for (let i = beginYear; i <= +year; i++) {
+          years.push(i)
+        }
+        return years.map(archiveYear => {
+          return <Dropdown.Item as="button" onClick={()=>{loadYear(archiveYear)}}>{archiveYear}</Dropdown.Item>
+        })
+     }
+     return (<>
+     <DropdownButton id="dropdown-item-button" title="Archive" variant="outline-secondary">
+     <DropDownList />
+</DropdownButton>
+     </>)
    }
     
     return (<>
@@ -64,7 +65,7 @@ const AgendaList  = (props) => {
        <div className="archive">
           <ul>
           <li className={"archive-link "+activeLink} onClick={()=>{window.location.reload()}}>Current</li>
-            <ArchiveLinks />
+           <RenderDropdown />
           </ul>
          </div> 
     {list()}

@@ -20,42 +20,50 @@
     height:322px;
     overflow: hidden;
 }
+header {
+    position:absolute;
+    width:100%;
+    top:0;
+    background-color: #FFF;
+    color:#000;
+}
 header.home {
-    background-image: url(/images/header-home.jpg);
+    background-image: url(/images/header-home2.jpg);
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: 90% 10%;
     background-repeat: no-repeat;
 }
 header.events {
-    background-image: url(/images/header-events.jpg);
+    background-image: url(/images/header-events2.jpg);
     background-repeat: no-repeat;
-    background-position: right;
+     background-position: 90% 0%;
 }
 header.music {
-    background-image: url(/images/header-music.jpg);
+    background-image: url(/images/header-music2.jpg);
     background-repeat: no-repeat;
-    background-position: right;
+     background-position: 90% 0%;
 }
 header.rentalcatalogue {
-    background-image: url(/images/header-rentalcatalogue.jpg);
+    background-image: url(/images/header-rentalcatalogue2.jpg);
     background-repeat: no-repeat;
-    background-position: right;
+     background-position: 90% 0%;
 }
 header.order {
-    background-image: url(/images/header-order.jpg);
+    background-image: url(/images/header-order2.jpg);
     background-repeat: no-repeat;
-    background-position: right;
+     background-position: 90% 0%;
 }
 header.biography {
     background-image: url(/images/header-biography2.jpg);
     background-repeat: no-repeat;
-    background-position: right;
+     background-position: 90% 10%;
 }
 header.agenda {
-    background-image: url(/images/header-agenda.jpg);
+    background-image: url(/images/header-agenda2.jpg);
     background-repeat: no-repeat;
-    background-position: right;
+     background-position: 90% 0%;
 }
+
 
 
 .navigation ul {
@@ -73,7 +81,7 @@ header.agenda {
 
     .headline {
         text-align:left;
-        margin:100px 0 100px;
+        margin: 150px 0 150px 100px;
         color:#000;
         font: 900 18px/20px 'Montserrat', sans-serif;
    
@@ -81,10 +89,48 @@ header.agenda {
             font: 900 46px/48px 'Montserrat', sans-serif; 
             margin-bottom:15px;
             display: block;
+            color:#a90000
+        }
+    }
+    .events {
+        .headline {
+            text-align:left;
+            margin: 100px 0 100px 100px;
+        }
+    }
+    .agenda {
+        .headline {
+            text-align:left;
+            margin: 87px 0 87px 100px;
+        }
+    }
+    .music {
+        .headline {
+            text-align:left;
+            margin: 87px 0 87px 100px;
+        }
+    }
+    .biography {
+        .headline {
+            text-align:left;
+            margin: 87px 0 87px 100px;
+        }
+    }
+    .rentalcatalogue {
+        .headline {
+            text-align:left;
+            margin: 87px 0 87px 100px;
+        }
+    }
+    .order {
+        .headline {
+            text-align:left;
+            margin: 87px 0 87px 100px;
         }
     }
     .nav-row {
-        background-color: #a90000;
+         background-color:rgba($color:  #a90000, $alpha: 0.9);
+         
     }
     header {
         ul {
@@ -167,5 +213,40 @@ header.agenda {
                 font-weight:bold;
             }
             
+        }
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 778px){/*Large*/
+        header.home {
+            background-image: url(/images/header-home2.jpg);
+            background-repeat: no-repeat;
+            background-position: 30% 10%;
+            background-repeat: no-repeat;
+        }
+        .headline {
+            color:#FFF;
+            -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+        span {
+            color:#a90000!important;
+        }
+    }
+   
+    }
+    @media screen and (min-width: 1200px) and (max-width: 1599px){/*XLarge*/
+        header.home {
+            background-image: url(/images/header-home2.jpg);
+            background-repeat: no-repeat;
+            background-position: 80% 10%;
+            background-repeat: no-repeat;
+        }
+    }
+    @media screen and (min-width: 1600px) {/*XXLarge*/
+        header.home {
+            background-image: url(/images/header-home2.jpg);
+            background-repeat: no-repeat;
+            background-position: 70% 10%;
+            background-repeat: no-repeat;
         }
     }

@@ -135,7 +135,6 @@ const NewPublication = props => {
                   <Form.Group as={Col}  controlId="cdName">
                      <Form.Label>Name</Form.Label>
                     <Form.Control
-                     
                       type="text"
                       placeholder=""
                       defaultValue={props.presentation.cdName}
@@ -146,8 +145,6 @@ const NewPublication = props => {
                         Please provide a name.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                     
-                    
                   </Form.Group> </Col>
                  <Col lg="6">
                   <Form.Group as={Col}   controlId="subtitle">
@@ -164,19 +161,17 @@ const NewPublication = props => {
                         Please provide a Sub title.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                    
-                    
-                  </Form.Group></Col>
-                  </Form.Row> <Form.Row>
+                  </Form.Group>
+                  </Col>
+                  </Form.Row> 
+                  <Form.Row>
                   <Col lg="6"><Form.Group as={Col}  controlId="composer">
                     <Form.Label>Composer</Form.Label>
                     <Form.Control
-                     
                       type="text"
                       placeholder=""
                       defaultValue={props.presentation.composer}
                       onChange={e => setComposer(e.target.value)}
-                      
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a composer.
@@ -186,7 +181,6 @@ const NewPublication = props => {
                   <Col lg="6"> <Form.Group as={Col}  controlId="instrumentation">
                     <Form.Label>Instrumentaion</Form.Label>
                     <Form.Control
-                     
                       type="text"
                       placeholder=""
                       defaultValue={props.presentation.instrumentation}
@@ -344,7 +338,7 @@ const NewPublication = props => {
                         
                     </Form.Control>
                     <Form.Control.Feedback type="invalid">
-                        Please provide a video.
+                        Please select a category.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                   </Form.Group></Col>
