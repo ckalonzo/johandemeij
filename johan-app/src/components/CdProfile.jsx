@@ -43,7 +43,7 @@ const renderComposerLink = (composer) =>{
   } 
 const renderProfile = () => {
     return(<>
-        <section className="music-profile" style={{marginTop:"50px"}}>
+        <section className="music-profile">
            <Container>
                <Row>
                <Col lg={{span:8}}>

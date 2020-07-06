@@ -711,6 +711,7 @@ section.music {
     margin-bottom: 10px; }
 
 .music-profile {
+  margin-top: 475px;
   margin-bottom: 50px; }
   .music-profile h1 {
     font: 400 32px/34px 'Work Sans', sans-serif;

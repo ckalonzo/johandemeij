@@ -61,7 +61,7 @@ const MusicProfile = (props) => {
 
     const renderProfile = () => {
         return (<>{renderCdTitle()}
-            <section className="music-profile" style={{ marginTop: "50px" }}>
+            <section className="music-profile" >
                 <Container>
                     <Row>
                         <Col lg={{ span: 8 }}>
