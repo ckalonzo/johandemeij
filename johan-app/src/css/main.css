@@ -184,7 +184,7 @@ header {
 header.home {
   background-image: url(/images/header-home2.jpg);
   background-repeat: no-repeat;
-  background-position: 90% 10%;
+  background-position: 90% 0%;
   background-repeat: no-repeat; }
 
 header.events {
@@ -200,7 +200,7 @@ header.music {
 header.rentalcatalogue {
   background-image: url(/images/header-rentalcatalogue2.jpg);
   background-repeat: no-repeat;
-  background-position: 90% 0%; }
+  background-position: 90% -118%; }
 
 header.order {
   background-image: url(/images/header-order2.jpg);
@@ -210,7 +210,7 @@ header.order {
 header.biography {
   background-image: url(/images/header-biography2.jpg);
   background-repeat: no-repeat;
-  background-position: 90% 10%; }
+  background-position: 90% 0%; }
 
 header.agenda {
   background-image: url(/images/header-agenda2.jpg);
@@ -229,7 +229,7 @@ header.agenda {
 
 .headline {
   text-align: left;
-  margin: 87px 0 87px 100px;
+  margin: 113px 0 113px 100px;
   color: #000;
   font: 900 18px/20px 'Montserrat', sans-serif; }
   .headline span {
@@ -240,27 +240,27 @@ header.agenda {
 
 .events .headline {
   text-align: left;
-  margin: 87px 0 87px 100px; }
+  margin: 113px 0 113px 100px; }
 
 .agenda .headline {
   text-align: left;
-  margin: 87px 0 87px 100px; }
+  margin: 113px 0 113px 100px; }
 
 .music .headline {
   text-align: left;
-  margin: 87px 0 87px 100px; }
+  margin: 113px 0 113px 100px; }
 
 .biography .headline {
   text-align: left;
-  margin: 87px 0 87px 100px; }
+  margin: 113px 0 113px 100px; }
 
 .rentalcatalogue .headline {
   text-align: left;
-  margin: 87px 0 87px 100px; }
+  margin: 113px 0 113px 100px; }
 
 .order .headline {
   text-align: left;
-  margin: 87px 0 87px 100px; }
+  margin: 113px 0 113px 100px; }
 
 .nav-row {
   background-color: rgba(169, 0, 0, 0.9); }
@@ -500,7 +500,7 @@ section.about-full {
     margin: 35px 0 50px; }
 
 section.about-full {
-  margin-top: 350px; }
+  margin-top: 415px; }
   section.about-full h5 {
     font-size: .9rem;
     text-transform: uppercase;
@@ -511,7 +511,7 @@ section.about-full {
     margin-right: 10px; }
 
 section.news {
-  margin-top: 330px;
+  margin-top: 400px;
   background: #FFF;
   padding: 25px 0 0;
   min-height: calc(100vh - 660px); }
@@ -779,3 +779,6 @@ select.on {
 
 .card-body {
   padding-top: 0; }
+
+section.order {
+  margin-top: 350px; }
