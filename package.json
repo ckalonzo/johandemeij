@@ -21,7 +21,7 @@
     "gulp-uglify": "^3.0.1",
     "node-minify": "^3.6.0",
     "nodemon": "^1.18.9",
-    "npm": "^6.5.0",
+    "npm": "^6.14.6",
     "react-bootstrap-date-picker": "^5.1.0",
     "rename": "^1.0.4",
     "replace-in-file": "^3.4.2",
