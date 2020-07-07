@@ -26,6 +26,9 @@ header {
     top:0;
     background-color: #FFF;
     color:#000;
+    background-image: url(/images/header-music2.jpg);
+    background-repeat: no-repeat;
+     background-position: 90% 0%;
 }
 header.home {
     background-image: url(/images/header-home2.jpg);
@@ -81,7 +84,7 @@ header.agenda {
 
     .headline {
         text-align:left;
-        margin: 150px 0 150px 100px;
+        margin: 87px 0 87px 100px;
         color:#000;
         font: 900 18px/20px 'Montserrat', sans-serif;
    
@@ -95,7 +98,7 @@ header.agenda {
     .events {
         .headline {
             text-align:left;
-            margin: 100px 0 100px 100px;
+            margin: 87px 0 87px 100px;
         }
     }
     .agenda {
