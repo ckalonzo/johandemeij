@@ -58,7 +58,7 @@ console.log(action)
       .where("year",">=",year.toString())
       .orderBy("year","asc")
       .orderBy("month","asc")
-      .orderBy("day","desc")
+      .orderBy("day","asc")
       .get()
       .then(snapshot => {
         const data = snapshot.docs.map(doc => {return doc.data()});
@@ -70,7 +70,7 @@ console.log(action)
     return _.orderBy(action.payload,['year','month','day'],['asc','asc','asc'])
     }
     case ACTIONS.LOAD_DASHBOARD_CD_AGENDA_SUCCESS: {
-      return _.orderBy(action.payload,['year','month','day'],['asc','asc','asc'])
+      return _.orderBy(action.payload,['month','day','year'],['asc','asc','asc'])
       }
     case ACTIONS.LOAD_CD_AGENDA_FAIL: {
 

@@ -26,20 +26,20 @@ const Article = (props) => {
           
         return <a href={`/post/${props.ID}`}><img src={"https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/posts%2F"+props.image[0].imageName+"?alt=media"} width="100%" max-height="180px" /></a>}
         //setLoadeImage("/images/posts/"+props.image[0].imageName)
-        return <img src={loadedImage} width="100%" height="180px" />
+        return <img src={loadedImage} width="100%"  />
       }
     const renderArticle = (props,mainProps) => {
       let date = dayjs(postDate)
         return (<>
         <Row style={{marginBottom:"25px"}}>
-          <Col  lg={{span:"3" }}className="card-image" style={{height:"180px",overflow:"hidden",width:"150px"}}>
+          <Col sm={12} md={6} lg={4} xl={3}className="card-image" style={{overflow:"hidden"}}>
 {renderImage(props)}
 
           </Col>
-          <Col  lg={{span:"9" }} className="card-body">
+          <Col sm={12} md={6}  lg={8} xl={9} className="card-body">
             <div className="card-date">{date.format('MMMM DD YYYY')}</div> 
             <div className="card-title">{truncateString(postTitle,147)}</div>
-            <div className="card-text">{truncateString(stripHtml(postContent),70)}</div>
+            <div className="card-text">{truncateString(stripHtml(postContent),500)}</div>
             <div className="card-link"><a href={`/post/${props.ID}`}>More...</a></div>
           </Col>
         </Row>

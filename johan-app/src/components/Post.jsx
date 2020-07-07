@@ -36,7 +36,7 @@ const Post = (props) => {
 
     return (<>
         <Container>
-            <section className="article" style={{marginTop:"50px"}}>
+            <section className="article" style={{marginTop:"475px"}}>
                 <Row>
                     <Col>{props.post.length > 0 ? <LeadImage  {...props}/> : ""}
                     

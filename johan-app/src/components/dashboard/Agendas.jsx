@@ -33,7 +33,7 @@ const Agendas = (props) => {
           return ( <tr key={agenda.id}>
             <td className="post-title" onClick={()=>loadAgenda(agenda)}>{CleanUpText(agenda.orchestra)}</td>
             <td className="post-conductor">{CleanUpText(agenda.conductor)}</td>
-            <td className="post-city">{CleanUpText(agenda.city)}</td>
+            {/* <td className="post-city">{CleanUpText(agenda.city)}</td> */}
             <td className="post-date">{`${agenda.month} / ${agenda.day} / ${agenda.year}`}</td>
             <td className="post-actions">
               <Button variant="secondary" onClick={()=>loadAgenda(agenda.id)} className="btn btn-datatable btn-icon btn-transparent-dark mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></Button> 
@@ -56,7 +56,7 @@ const Agendas = (props) => {
             <tr>
               <th scope="col" style={{"textAlign":"center"}}>Orchestra</th>
               <th scope="col" style={{"textAlign":"center"}}>Conductor</th>
-              <th scope="col" style={{"textAlign":"center"}}>City</th>
+              {/* <th scope="col" style={{"textAlign":"center"}}>City</th> */}
               <th scope="col" style={{"textAlign":"center"}}>Date</th>
               <th scope="col" style={{"textAlign":"center"}}><a href="/dashboard/agenda/new" className="btn btn-primary">New Agenda</a></th>
             </tr>

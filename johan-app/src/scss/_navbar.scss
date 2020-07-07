@@ -134,10 +134,10 @@ header.agenda {
     }
     header {
         ul {
-            display:table;
+            
             margin: 15px auto 15px;
             li {
-                display: inline;
+                display: inline-block;
                 margin-right:25px;
                 text-transform: uppercase;
              a {
@@ -149,6 +149,10 @@ header.agenda {
              }
             }
             
+        }
+        .nav-row .container .col-lg-12 {
+            display: flex;
+            justify-content: center;
         }
     }
     header.home {
