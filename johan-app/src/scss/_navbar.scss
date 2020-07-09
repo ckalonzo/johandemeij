@@ -28,43 +28,29 @@ header {
     color:#000;
     background-image: url(/images/header-music2.jpg);
     background-repeat: no-repeat;
-     background-position: 90% 0%;
+    background-position: 90% 0%;
 }
 header.home {
     background-image: url(/images/header-home2.jpg);
-    background-repeat: no-repeat;
-    background-position: 90% 0%;
-    background-repeat: no-repeat;
 }
 header.events {
     background-image: url(/images/header-events2.jpg);
-    background-repeat: no-repeat;
-     background-position: 90% 0%;
 }
 header.music {
     background-image: url(/images/header-music2.jpg);
-    background-repeat: no-repeat;
-     background-position: 90% 0%;
 }
 header.rentalcatalogue {
     background-image: url(/images/header-rentalcatalogue2.jpg);
-    background-repeat: no-repeat;
-     background-position: 90% -118%;
+    background-position: 90% -118%;
 }
 header.order {
     background-image: url(/images/header-order2.jpg);
-    background-repeat: no-repeat;
-     background-position: 90% 0%;
 }
 header.biography {
     background-image: url(/images/header-biography2.jpg);
-    background-repeat: no-repeat;
-     background-position: 90% 0%;
 }
 header.agenda {
     background-image: url(/images/header-agenda2.jpg);
-    background-repeat: no-repeat;
-     background-position: 90% 0%;
 }
 
 
@@ -132,7 +118,7 @@ header.agenda {
         }
     }
     .nav-row {
-         background-color:rgba($color:  #a90000, $alpha: 0.9);
+         background-color:rgba($color:  #a90000, $alpha: 1);
          
     }
     header {

@@ -12,6 +12,7 @@ export default function cdInfoReducer (state = initialState, action) {
         //=======================================================
         db.collection("cd_info")
         .where("cdId","==",action.payload)
+        .orderBy("id","asc")
        .get()
        .then(querySnapshot => {
          const data = querySnapshot.docs.map(doc => doc.data());
@@ -26,8 +27,7 @@ export default function cdInfoReducer (state = initialState, action) {
              stateCopy.map((post,i)=>{
               post.title =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.cdName) 
               post.duration  =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.totalTime) 
-              post.codes =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.codes) 
-             // post.grade =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.grade) 
+              post.codes =data.filter(track => track.id === stateCopy[i].track_title).map(title=>title.codes)
              
              return post
              })
