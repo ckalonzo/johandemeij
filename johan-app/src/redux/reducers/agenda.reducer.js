@@ -70,7 +70,14 @@ console.log(action)
     return _.orderBy(action.payload,['year','month','day'],['asc','asc','asc'])
     }
     case ACTIONS.LOAD_DASHBOARD_CD_AGENDA_SUCCESS: {
-      return _.orderBy(action.payload,['month','day','year'],['asc','asc','asc'])
+      let successData = _.orderBy(action.payload,['month','day','year'],['asc','asc','asc'])
+      let dataArray = []
+      let extendedArray = []
+      successData.map(newData=>{
+        newData.month < 9 && +newData.year === +year ?  dataArray.push(newData) : extendedArray.push(newData)
+      })
+      dataArray.push(...extendedArray)
+      return dataArray
       }
     case ACTIONS.LOAD_CD_AGENDA_FAIL: {
 
