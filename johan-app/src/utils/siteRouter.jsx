@@ -49,6 +49,7 @@ const loggedInUser = localStorage.getItem('user') ? localStorage.getItem('user')
 const isLoggedIn = loggedInUser.length > 0 ? true:false
 
 history.listen(location => {
+  console.log(location)
   ReactGA.set({ page: location.pathname }); // Update the user's current page
   ReactGA.pageview(location.pathname); // Record a pageview for the given page
 });

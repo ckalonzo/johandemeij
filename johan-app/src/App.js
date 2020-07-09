@@ -6,11 +6,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "scss/main.scss"
 import Navbar from "components/shared/Navbar";
 import Footer from "components/shared/Footer"
-
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from "history";
+const trackingId = 'G-FGSDZN8CVV'
+ReactGA.initialize(trackingId);
+const history = createBrowserHistory();
 
 const App = (props) => {
   useEffect(() => { 
     document.title = "The music of Johan de Meij | JohanDeMeij.com"
+    console.log(history)
+history.listen(location => {
+  console.log(location)
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
   return (

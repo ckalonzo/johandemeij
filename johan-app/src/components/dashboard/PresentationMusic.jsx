@@ -63,7 +63,6 @@ const PresentationMusicUpload = (props) => {
         e.preventDefault()
         document.querySelector('input#mp3-file').click()
     }
-    console.log(props,props.music.length)
     return (
         <section id="music">
             <Form >

@@ -22,6 +22,7 @@ const AgendaList  = (props) => {
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
      const loadYear = (selectedYear) =>{
+      setActiveLink(selectedYear)
         props.actions.mainAction(ACTIONS.LOAD_AGENDAS_FILTERED,{limit:100,skip:0,year:selectedYear})
       }
   
@@ -47,12 +48,15 @@ const AgendaList  = (props) => {
        for (let i = beginYear; i <= +year; i++) {
           years.push(i)
         }
+        
         return years.map(archiveYear => {
-          return <Dropdown.Item as="button" onClick={()=>{loadYear(archiveYear)}}>{archiveYear}</Dropdown.Item>
+          let selectedLink = activeLink === archiveYear ? "selected":""
+          return <Dropdown.Item as="button" selectedLink onClick={()=>{loadYear(archiveYear)}}>{archiveYear}</Dropdown.Item>
         })
      }
      return (<>
      <DropdownButton id="dropdown-item-button" title="Archive" variant="outline-secondary">
+     
      <DropDownList />
 </DropdownButton>
      </>)
@@ -64,7 +68,7 @@ const AgendaList  = (props) => {
     <div className="container">
        <div className="archive">
           <ul>
-          <li className={"archive-link "+activeLink} onClick={()=>{window.location.reload()}}>Current</li>
+          <li  onClick={()=>{window.location.reload()}}>Current</li>
            <RenderDropdown />
           </ul>
          </div> 
