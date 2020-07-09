@@ -128,7 +128,7 @@ const NewPublication = props => {
           <Col lg={{ span: 2 }}><SideNav /></Col>
           <Col lg={{span:"10" }}> 
           {Object.keys(props.presentation).length > 0 ? renderPublicationImage():''}
-          <PresentationMusic ID={props.match.params.id}  />
+          { props.match.params.id > 0 ? <PresentationMusic ID={props.match.params.id} />: "" }
           {loading ? <Loading /> :<section id="product">
               <Form noValidate validated={validated} onSubmit={Object.keys(props.presentation).length > 0 ?handleUpdate :handleSubmit}>
               <Form.Row><Col lg="6">
@@ -331,6 +331,7 @@ const NewPublication = props => {
                       onBlur={e => setCategory(e.target.value)}
                       defaultValue={parseInt(props.presentation.category,10)}
                     >
+                      <option value="" >SELECT A CATEGORY</option>
                     {props.presentation.category > 0 ? <option defaultValue={props.presentation.category} selected>{props.categories.filter(category => category.id === parseInt(props.presentation.category,10)).map(category => category.name)}</option> : ""}
                     {props.categories.map(category=>{
                         return <option value={category.id}>{category.name}</option>
