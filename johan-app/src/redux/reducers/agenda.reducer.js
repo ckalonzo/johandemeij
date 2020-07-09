@@ -98,8 +98,6 @@ console.log(action)
         agenda.month = +agenda.month
       if(+agenda.month >= +month || +agenda.year > +year)
         return agendas.push(agenda)
-        // if(+agenda.year > +year )
-        // return agendas.push(agenda)
       })
       action.asyncDispatch(mainAction(ACTIONS.LOAD_CD_AGENDA_SUCCESS,agendas))
     })

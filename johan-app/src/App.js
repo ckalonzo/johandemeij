@@ -15,7 +15,6 @@ const history = createBrowserHistory();
 const App = (props) => {
   useEffect(() => { 
     document.title = "The music of Johan de Meij | JohanDeMeij.com"
-    console.log(history)
 history.listen(location => {
   console.log(location)
   ReactGA.set({ page: location.pathname }); // Update the user's current page

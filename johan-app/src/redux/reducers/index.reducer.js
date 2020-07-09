@@ -23,6 +23,7 @@ import contactUsReducer from "redux/reducers/contactUs.reducer"
 import userReducer from "redux/reducers/user.reducer"
 import pageReducer from "redux/reducers/pages.reducer"
 import presentationMusicReducer from "redux/reducers/presentationMusic.reducer"
+import galleryReducer from "redux/reducers/gallery.reducer"
 
 const indexReducer = combineReducers({
   agendaReducer,
@@ -35,6 +36,7 @@ const indexReducer = combineReducers({
   contactUsReducer,
   concertInformationReducer,
   eventsReducer,
+  galleryReducer,
   headerReducer,
   userReducer,
   orderReducer, 
