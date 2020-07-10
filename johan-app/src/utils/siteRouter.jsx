@@ -40,6 +40,7 @@ import NewOrderLocation from "components/dashboard/NewOrderLocation"
 import ExtraPages from "components/dashboard/ExtraPages"
 import EditPage from "components/dashboard/EditPage"
 import PhotoGallery from "components/Gallery"
+import GalleryImage from "components/dashboard/NewGalleryImage"
 import ReactGA from 'react-ga';
 const trackingId = 'UA-21994018-1'
 ReactGA.initialize(trackingId);
@@ -59,6 +60,8 @@ return(
 <Switch>
   <Route path="/gallery/:id" component={PhotoGallery} />
   <Route path="/gallery" component={PhotoGallery} />
+  <Route path="/dashboard/gallery/:id" component={!isLoggedIn ? Login:GalleryImage} />
+  <Route path="/dashboard/gallery" component={!isLoggedIn ? Login:GalleryImage} />
   <Route path="/dashboard/events/edit/:id" component={!isLoggedIn ? Login:EditEvent} />
   <Route path="/dashboard/events" component={!isLoggedIn ? Login:DashboardEvents} />
   <Route path="/dashboard/agenda/:id" component={!isLoggedIn ? Login:NewAgenda} />
