@@ -322,10 +322,14 @@ header.biography li.biography a {
 
 @media screen and (min-width: 1600px) {
   /*XXLarge*/
-  header.home {
-    background-image: url(/images/header-home2.jpg);
-    background-repeat: no-repeat;
-    background-position: 70% 10%;
+  header.home,
+  header.biography,
+  header.order,
+  header.rentalcatalogue,
+  header.music,
+  header.agenda,
+  header.events {
+    background-position: 70% 0%;
     background-repeat: no-repeat; } }
 
 ul {
@@ -745,8 +749,37 @@ section.photo-gallery {
     height: 600px; }
   section.photo-gallery .alice-carousel__prev-btn {
     text-align: center !important; }
-  section.photo-gallery .gallery-images li {
+  section.photo-gallery .gallery-images table ul li {
     margin-bottom: 15px; }
+
+.gallery-images table ul li {
+  margin-bottom: 15px; }
+  .gallery-images table ul li span {
+    font-weight: bold; }
+
+#images #date {
+  display: none; }
+
+.clearfix {
+  overflow: auto; }
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table; }
+
+.gallery-image {
+  margin-bottom: 35px; }
+
+.alice-carousel__dots {
+  margin-top: 0; }
+
+.thumbnails {
+  display: table;
+  margin: 0 auto; }
+  .thumbnails li {
+    display: table-cell;
+    padding-right: 15px; }
 
 .sidebar ul {
   margin-bottom: 100px; }

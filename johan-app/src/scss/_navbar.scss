@@ -236,10 +236,15 @@ header.agenda {
         }
     }
     @media screen and (min-width: 1600px) {/*XXLarge*/
-        header.home {
-            background-image: url(/images/header-home2.jpg);
-            background-repeat: no-repeat;
-            background-position: 70% 10%;
+        header.home,
+        header.biography,
+        header.order,
+        header.rentalcatalogue,
+        header.music,
+        header.agenda,
+        header.events
+         {
+            background-position: 70% 0%;
             background-repeat: no-repeat;
         }
     }
