@@ -7,4 +7,45 @@ section.photo-gallery{
     .alice-carousel__prev-btn {
         text-align: center!important;
     }
+   
+    .gallery-images {
+       table ul li {
+            margin-bottom:15px;
+        }
+    }
 }
+.gallery-images {
+    table ul li {
+         margin-bottom:15px;
+         span {
+             font-weight: bold;
+         }
+     }
+ }
+ #images {
+     #date{
+        display:none;
+     }
+ }
+ .clearfix {
+    overflow: auto;
+  }
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .gallery-image {
+      margin-bottom: 35px;
+  }
+  .alice-carousel__dots {
+      margin-top: 0;
+  }
+  .thumbnails {
+      display: table;
+      margin:0 auto;
+      li {
+          display: table-cell;
+          padding-right:15px;
+      }
+  }

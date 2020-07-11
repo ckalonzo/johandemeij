@@ -74,6 +74,7 @@ table .post-title {
 #post-image-main,
 #post-image-front,
 #post-image-back,
+#gallery-image,
 #mp3-file {
   display: none; }
 
@@ -737,6 +738,15 @@ section.contact-us {
   padding: 100px 0;
   background: #aeaeae;
   color: #FFF; }
+
+section.photo-gallery {
+  margin-top: 375px; }
+  section.photo-gallery .alice-carousel li.alice-carousel__stage-item {
+    height: 600px; }
+  section.photo-gallery .alice-carousel__prev-btn {
+    text-align: center !important; }
+  section.photo-gallery .gallery-images li {
+    margin-bottom: 15px; }
 
 .sidebar ul {
   margin-bottom: 100px; }
