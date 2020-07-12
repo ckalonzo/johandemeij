@@ -44,7 +44,7 @@ setValidated(true);
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
     const FooterList = () => {
-        let navItems = ["news","events","agenda","music","biography","rental catalogue","order"]
+        let navItems = ["news","events","agenda","gallery","music","biography","rental catalogue","order"]
        return  navItems.map(item => {
         return <li key={item}><Nav.Link  href={`/${item.replace(/\s/g, '')}`} style={{textTransform:"capitalize"}}>{item}</Nav.Link></li>
     })}
