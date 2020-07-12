@@ -24,16 +24,11 @@ const PhotoGallery = (props) => {
 
   const renderImages = () => {
    return Object.values(props.photos).map(photo=>{
-      console.log(`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/gallery%2F${photo.name}?alt=media`)
-      return <img key={photo.id} src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/gallery%2F${photo.name}?alt=media`} width="100%"  object-fit="cover"  onDragStart={handleOnDragStart} className="gallery-image" />
+      return ( <div><img src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/gallery%2F${photo.name}?alt=media`} width="100%" height="100%" object-fit="cover"/>
+      {photo.caption ? <p className="legend">{photo.caption}</p>:""}</div>)
     })
   }
-  const renderThumbs = () =>{
-     return( <ul className="thumbnails">{Object.values(props.photos).map((photo, i) =>{
-     return(<li key={i} onClick={() => slideTo(i)}>{<img key={photo.id} src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/gallery%2F${photo.name}?alt=media`} width="100px"  object-fit="cover"  onDragStart={handleOnDragStart} className="gallery-image" />}</li>)
-       })}
-      </ul>)}
-      
+
   const renderGallery =(data)=> {
     return (<>
     </>);
@@ -44,22 +39,8 @@ const PhotoGallery = (props) => {
     <div className="container">
       <div className="row">
       <div className="col-10 offset-1 text-center">
-     
-        <h1>Gallery</h1>
-        <Carousel autoPlay interval="5000" transitionTime="1000">
-                    <div>
-                        <img src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/gallery%2Fimage1.jpg?alt=media`} width="100%" height="100%" object-fit="cover"/>
-                        <p className="legend">My Classic Still 1</p>
-                    </div>
-                    <div>
-                        <img src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/gallery%2Fimage2.jpg?alt=media`} width="100%" height="100%" object-fit="cover"/>
-                        <p className="legend">My Classic Still 2</p>
-                    </div>
-                    <div>
-                        <img src={`https://firebasestorage.googleapis.com/v0/b/johandemeij-513b2.appspot.com/o/gallery%2Fimage3.jpg?alt=media`}  width="100%" height="100%" object-fit="cover"/>
-                        <p className="legend">My Classic Still 3</p>
-                    </div>
-                </Carousel>
+        <h1 style={{color: "rgb(0, 0, 0)", textAlign:"center", marginBottom: "25px"}}>Gallery</h1>
+  <Carousel autoPlay interval="5000" transitionTime="1000">{renderImages()}</Carousel>
       </div>
       </div>
     </div>

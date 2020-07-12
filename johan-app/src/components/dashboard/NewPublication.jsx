@@ -331,7 +331,7 @@ const NewPublication = props => {
                       onBlur={e => setCategory(e.target.value)}
                       defaultValue={parseInt(props.presentation.category,10)}
                     >
-                      <option value="" >SELECT A CATEGORY</option>
+                      <option value="" ></option>
                     {props.presentation.category > 0 ? <option defaultValue={props.presentation.category} selected>{props.categories.filter(category => category.id === parseInt(props.presentation.category,10)).map(category => category.name)}</option> : ""}
                     {props.categories.map(category=>{
                         return <option value={category.id}>{category.name}</option>

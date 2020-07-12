@@ -80,7 +80,7 @@ console.log(props)
     <li><Button
         variant="danger"
         size="lg" block
-        onClick={(e) => deleteGalleryImage(image.id,image.name)} 
+        onClick={(e) => {if(window.confirm("Delete this item?"))deleteGalleryImage(image.id,image.name)}} 
         >Delete
         </Button>
     </li>

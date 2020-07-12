@@ -13,7 +13,7 @@ const Navbar = (props) => {
     const navLinks = [
     "agenda",
     "biography",
-    "catalogue","cds","contact","events",
+    "catalogue","cds","contact","events","gallery",
     "misc",
     "news",
     "order",
@@ -42,6 +42,7 @@ const Navbar = (props) => {
     <li  className={active ===  "cds" ? "active-nav-item":"nav-item"} onClick={()=>setActive("cds")}><Link to={`/dashboard/cds`} ><List  style={{marginRight:"5px"}} />{"cds"}</Link></li>
     <li  className={active ===  "contact" ? "active-nav-item":"nav-item"} onClick={()=>setActive("contact")}><Link to={`/dashboard/contact`} ><List  style={{marginRight:"5px"}} />{"contact"}</Link></li>
     <li  className={active ===  "events" ? "active-nav-item":"nav-item"} onClick={()=>setActive("events")}><Link to={`/dashboard/events`} ><List  style={{marginRight:"5px"}} />{"events"}</Link></li>
+    <li  className={active ===  "gallery" ? "active-nav-item":"nav-item"} onClick={()=>setActive("gallery")}><Link to={`/dashboard/gallery`} ><List  style={{marginRight:"5px"}} />{"gallery"}</Link></li>
     <li  className={active ===  "misc" ? "active-nav-item":"nav-item"} onClick={()=>setActive("misc")}><Link to={`/dashboard/soren/waPG0PdWkY6GFPHglIKN`} ><List  style={{marginRight:"5px"}} />{"misc"}</Link></li>
     <li  className={active ===  "news" ? "active-nav-item":"nav-item"} onClick={()=>setActive("news")}><Link to={`/dashboard/news`} ><List  style={{marginRight:"5px"}} />{"news"}</Link></li>
     <li  className={active ===  "order" ? "active-nav-item":"nav-item"} onClick={()=>setActive("order")}><Link to={`/dashboard/order`} ><List  style={{marginRight:"5px"}} />{"order"}</Link></li>
