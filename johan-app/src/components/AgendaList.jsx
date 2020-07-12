@@ -3,16 +3,14 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
-import Paginate from "components/shared/Paginate"
 import List from "components/shared/List"
 import Loading from "components/shared/Loading"
 import { Dropdown, DropdownButton } from "react-bootstrap"
 const AgendaList = (props) => {
   let d = new Date();
-  let day = d.getDate();
-  let month = (d.getMonth() + 1).toString()
   let year = d.getFullYear().toString();
   const [listYear, setListYear] = useState(year)
+  const [selYear,setSelYear ]=useState()
   const [activeLink, setActiveLink] = useState("")
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -23,6 +21,7 @@ const AgendaList = (props) => {
   }, [])
   const loadYear = (selectedYear) => {
     props.actions.mainAction(ACTIONS.LOAD_AGENDAS_FILTERED, { limit: 100, skip: 0, year: selectedYear })
+    setSelYear(selectedYear)
   }
 
   const list = () => {
@@ -36,7 +35,6 @@ const AgendaList = (props) => {
       agenda.title1 = title1[0]
       agenda.title2 = title2[0]
       agenda.title3 = title3[0]
-      // console.log(listYear ,"===", year ,"&&",+agenda.month ,">=", month ,"&&", agenda.day.replace(/^0+/, '') ,">=", day)
       return +agenda.ON_OFF === 1 ? <List key={agenda.id} {...agenda} /> : ""
     })
   }
@@ -65,7 +63,8 @@ const AgendaList = (props) => {
         <div className="archive">
           <ul>
             <li className={"archive-link " + activeLink} onClick={() => { window.location.reload() }}>Current</li>
-            <RenderDropdown />
+            <li><RenderDropdown /> </li>
+            <li><div style={{display:"inline-block"}}>{selYear}</div></li>
           </ul>
         </div>
         {list()}

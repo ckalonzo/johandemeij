@@ -49,3 +49,15 @@ section.photo-gallery{
           padding-right:15px;
       }
   }
+  .carousel .thumbs-wrapper {
+    margin: 20px;
+ overflow: visible!important;
+ display: flex;
+    justify-content: center;
+}
+.carousel .slide {
+    max-height: 615px;
+}
+.carousel .thumb {
+    float:left;
+}

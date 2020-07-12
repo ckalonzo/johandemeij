@@ -296,6 +296,10 @@ header.biography li.biography a {
   color: #000;
   font-weight: bold; }
 
+header.gallery li.gallery a {
+  color: #000;
+  font-weight: bold; }
+
 @media screen and (min-width: 320px) and (max-width: 778px) {
   /*Large*/
   header.home {
@@ -780,6 +784,18 @@ section.photo-gallery {
   .thumbnails li {
     display: table-cell;
     padding-right: 15px; }
+
+.carousel .thumbs-wrapper {
+  margin: 20px;
+  overflow: visible !important;
+  display: flex;
+  justify-content: center; }
+
+.carousel .slide {
+  max-height: 615px; }
+
+.carousel .thumb {
+  float: left; }
 
 .sidebar ul {
   margin-bottom: 100px; }

@@ -42,7 +42,7 @@ import EditPage from "components/dashboard/EditPage"
 import PhotoGallery from "components/Gallery"
 import GalleryImage from "components/dashboard/NewGalleryImage"
 import ReactGA from 'react-ga';
-const trackingId = 'UA-21994018-1'
+const trackingId = 'UA-161965728-1'
 ReactGA.initialize(trackingId);
 
 const history = createBrowserHistory();

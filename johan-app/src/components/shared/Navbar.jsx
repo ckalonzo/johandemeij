@@ -12,7 +12,7 @@ const NavigationBar = (props) => {
             // eslint-disable-next-line react-hooks/exhaustive-deps
           }, []);
     
-    const navItems = ["home","events","agenda","music","biography","rental catalogue","order"];
+    const navItems = ["home","events","agenda","gallery", "music","biography","rental catalogue","order"];
     const NavList = () => {
         
        return  navItems.map(item => {

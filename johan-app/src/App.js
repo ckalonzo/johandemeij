@@ -8,7 +8,7 @@ import Navbar from "components/shared/Navbar";
 import Footer from "components/shared/Footer"
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from "history";
-const trackingId = 'G-FGSDZN8CVV'
+const trackingId = 'UA-161965728-1'
 ReactGA.initialize(trackingId);
 const history = createBrowserHistory();
 
