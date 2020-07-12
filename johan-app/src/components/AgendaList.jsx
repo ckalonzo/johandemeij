@@ -4,7 +4,6 @@ import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
 import { ACTIONS } from "redux/actions/types"
 import List from "components/shared/List"
-import Loading from "components/shared/Loading"
 import { Dropdown, DropdownButton } from "react-bootstrap"
 const AgendaList = (props) => {
   let d = new Date();
@@ -46,11 +45,13 @@ const AgendaList = (props) => {
         years.push(i)
       }
       return years.map(archiveYear => {
+
         return <Dropdown.Item as="button" onClick={() => { loadYear(archiveYear) }}>{archiveYear}</Dropdown.Item>
       })
     }
     return (<>
-      <DropdownButton id="dropdown-item-button" title="Archive" variant="outline-secondary">
+      <DropdownButton id="dropdown-item-button" title={selYear ? selYear : "Archive"} variant="outline-secondary">
+      
         <DropDownList />
       </DropdownButton>
     </>)
@@ -64,7 +65,6 @@ const AgendaList = (props) => {
           <ul>
             <li className={"archive-link " + activeLink} onClick={() => { window.location.reload() }}>Current</li>
             <li><RenderDropdown /> </li>
-            <li><div style={{display:"inline-block"}}>{selYear}</div></li>
           </ul>
         </div>
         {list()}
