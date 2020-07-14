@@ -39,7 +39,7 @@ const PhotoGallery = (props) => {
     <div className="container">
       <div className="row">
       <div className="col-10 offset-1 text-center">
-        <h1 style={{color: "rgb(0, 0, 0)", textAlign:"center", marginBottom: "25px"}}>Gallery</h1>
+        <h1 style={{color: "rgb(0, 0, 0)", textAlign:"center", marginBottom: "25px", marginTop: "25px"}}>Gallery</h1>
   <Carousel autoPlay interval="5000" transitionTime="1000">{renderImages()}</Carousel>
       </div>
       </div>
