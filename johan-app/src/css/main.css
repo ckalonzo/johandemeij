@@ -808,6 +808,8 @@ section.photo-gallery {
     margin: 0;
     position: relative;
     text-align: center; }
+    .galleryContainer .slide img {
+      border: 1px solid #000; }
 
 .legend {
   background: black;
