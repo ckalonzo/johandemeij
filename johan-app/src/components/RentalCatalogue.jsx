@@ -67,8 +67,8 @@ const RentalCatalogue  = (props) => {
       <tr><td style={{whiteSpace: "nowrap"}}>Category B:</td><td>	
 Part-time or semi-prof. professional orchestras and ensembles, Conservatories.</td></tr>
       <tr><td style={{whiteSpace: "nowrap"}}>Category C:</td><td>Full-time Professional orchestras and ensembles.</td></tr>
-      <tr><td colSpan="2">2nd performance -20%</td></tr>
-      <tr><td colSpan="2">3rd and over -30%</td></tr>
+      <tr><td colSpan="2">2nd performance -40%</td></tr>
+      <tr><td colSpan="2">3rd and over -25%</td></tr>
       <tr><td colSpan="2">category B + 20%</td></tr>
       <tr><td colSpan="2">category C + 40%</td></tr>
       <tr><td colSpan="2">regional premiere + 50%</td></tr>
