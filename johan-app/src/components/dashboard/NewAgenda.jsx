@@ -73,7 +73,6 @@ const NewAgenda = props => {
     setValidated(true);
     props.actions.mainAction(ACTIONS.CREATE_NEW_AGENDA, agendaItem)
     props.history.push('/dashboard/agenda/' + id)
-    console.log(agendaItem)
   }
 
   const handleUpdate = async event => {
@@ -115,8 +114,8 @@ const NewAgenda = props => {
 
     return months.map((month, i) => {
       i = i + 1;
-      if (i === +field_month)
-        return <option key={i} value={i} selected>{month}</option>
+      //if (i === +field_month)
+      //  return <option key={i} value={i} selected>{month}</option>
       return <option key={i} value={i}>{month}</option>
     })
   }
@@ -307,14 +306,13 @@ const NewAgenda = props => {
                         as="select"
                         onChange={e => setMonth(e.target.value)}
                         onBlur={e => setMonth(e.target.value)}
-                        value={props.agenda.month}
                       >
-                        <option value=''>--Select Month--</option>
-                        <option value={props.agenda.month} selected>{months.map((month, i) => {
+                        {props.agenda.month ? <option value=''>--Select Month--</option> : ""}
+                        { <option value={props.agenda.month} >{months.map((month, i) => {
 
                           if (i === (+props.agenda.month - 1))
                             return month
-                        })}</option>
+                        })}</option> }
                         {renderMonths()}
                       </Form.Control>
 
@@ -330,8 +328,8 @@ const NewAgenda = props => {
                         onBlur={e => setDay(e.target.value)}
                         defaultValue={props.agenda.day}
                       >
-                        <option>-- Day --</option>
-                        <option value={props.agenda.day} selected>{props.agenda.day ? props.agenda.day.replace(/^0+/, '') : ""}</option>
+                        {!props.agenda.day ? <option>-- Day --</option>:""}
+                        <option value={props.agenda.day} >{props.agenda.day ? props.agenda.day.replace(/^0+/, '') : ""}</option>
                         <option value="01">1</option>
                         <option value="02">2</option>
                         <option value="03">3</option>

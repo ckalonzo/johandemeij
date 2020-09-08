@@ -231,3 +231,39 @@ select.on{
 section.order {
     margin-top:350px;
 }
+@media screen and (min-width:320px) and (max-width:374px){
+    .nav-row {
+        margin-top: -36px;
+    }
+    .headline{
+        margin-left:15px; 
+        span {
+            font: 900 40px/42px 'Montserrat', sans-serif;
+        }
+    }
+    section.news {
+        margin-top:365px;
+        padding-top:0;
+    }
+    header {
+        .home {
+        background-position: 58% 0%!important;
+        }
+     }
+}
+@media screen and (min-width:375px) and (max-width:410px){
+    .news-items, .concert-info, footer {
+        width:375px;
+    }
+    .headline{
+        margin-left:20px; 
+        span {
+            font: 900 45px/48px 'Montserrat', sans-serif;
+        }
+    }
+    header {
+        .home {
+        background-position: 58% 0%;
+        }
+     }
+}

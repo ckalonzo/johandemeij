@@ -15,7 +15,7 @@ const News  = (props) => {
     return (<>
      <section className="news">
     <div className="container">
-    <Row className="">
+    <Row className="news-items">
        {Object.values(props.posts).map(article => {
             return <Article key={article._id} {...article} history={props.history} />
         })}
