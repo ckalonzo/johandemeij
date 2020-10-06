@@ -11,7 +11,6 @@ const Footer = (props) => {
   const [contactEmail,setContactEmail] = useState()
   const [contactSubject,setContactSubject] = useState()
   const [contactMessage,setContactMessage] = useState()
-  const [validation,setValidation] = useState()
   const [validated, setValidated] = useState(false);
   const [robot,setRobot] = useState();
   const handleSubmit = event => {
