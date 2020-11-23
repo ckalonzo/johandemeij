@@ -118,9 +118,9 @@ export default function singlePostReducer (state = initialState, action) {
                     //    data[0]._id =  _id
                       return stateCopy[i].image = data
                     })
-                    if (snapshotChanges.size > 0) {
-                    action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_SUCCESS,stateCopy))} else {
-                    action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_FAIL,{error:"could not find this record"}))}
+                    if (snapshotChanges.size > 0) 
+                    action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_SUCCESS,stateCopy))
+                   // action.asyncDispatch(mainAction(ACTIONS.LOAD_POST_FAIL,{error:"could not find this record"}))
                   });
 
               //========================================================
@@ -204,11 +204,10 @@ export default function singlePostReducer (state = initialState, action) {
       case ACTIONS.UPLOAD_POST_IMAGE:{
         let image = {
           albumID: action.payload.albumID,
-          caption: action.payload.caption,
+          caption: action.payload.caption ? action.payload.caption:"",
           cover: action.payload.cover,
           imageName:action.payload.image.name
         }
-      
       db.collection("postimages")
        .doc()
        .set(image)
@@ -228,7 +227,8 @@ export default function singlePostReducer (state = initialState, action) {
         },()=>{
           //complete
           storage.ref('posts/').child(action.payload.image.name).getDownloadURL().then(url=>{
-            console.log(url)
+            console.log(action,url)
+            action.asyncDispatch(mainAction(ACTIONS.LOAD_POST,action.payload.albumID))
           })
         })
         return state

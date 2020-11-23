@@ -28,7 +28,7 @@ const ProfileImage = (props) => {
         image:file,
         path:selectedFile,
         albumID:props.currentPost,
-        caption,
+        caption:caption ? caption:"",
         cover:coverLocation
       }
      console.log(image)
@@ -47,6 +47,9 @@ const ProfileImage = (props) => {
       }
      // console.log(image)
        mainProps.actions.mainAction(ACTIONS.UPLOAD_POST_IMAGE,image)
+       setTimeout(()=>{
+        window.location.reload()
+       },100)
       }
       const deletePostImage = () => {
         let image = {
@@ -55,6 +58,9 @@ const ProfileImage = (props) => {
         }
 
        mainProps.actions.mainAction(ACTIONS.DELETE_POST_IMAGE,image)
+       setTimeout(()=>{
+        window.location.reload()
+       },1000)
       } 
       const onChangeHandler = (e) => {
         setSelectedFile(window.URL.createObjectURL(e.target.files[0]))
