@@ -58,9 +58,6 @@ const ProfileImage = (props) => {
         }
 
        mainProps.actions.mainAction(ACTIONS.DELETE_POST_IMAGE,image)
-       setTimeout(()=>{
-        window.location.reload()
-       },1000)
       } 
       const onChangeHandler = (e) => {
         setSelectedFile(window.URL.createObjectURL(e.target.files[0]))
