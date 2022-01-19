@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import SiteRouter from "utils/siteRouter"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "scss/main.scss"
+import "scss/main.css"
 import Navbar from "components/shared/Navbar";
 import Footer from "components/shared/Footer"
 import ReactGA from 'react-ga';
