@@ -49,7 +49,7 @@ const ProfileImage = (props) => {
        mainProps.actions.mainAction(ACTIONS.UPLOAD_POST_IMAGE,image)
        setTimeout(()=>{
         window.location.reload()
-       },100)
+       },1000)
       }
       const deletePostImage = () => {
         let image = {
