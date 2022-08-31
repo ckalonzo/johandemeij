@@ -109,7 +109,7 @@ const RentalCatalogue = (props) => {
                   <td>Full-time Professional orchestras and ensembles.</td>
                 </tr>
                 <tr>
-                  <td colSpan="2">2nd performance -40%</td>
+                  <td colSpan="2">2nd performance -50%</td>
                 </tr>
                 <tr>
                   <td colSpan="2">3rd and over -75%</td>
