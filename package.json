@@ -12,7 +12,7 @@
     "copy-files": "^0.1.0",
     "create-react-class": "^15.6.3",
     "download": "^3.3.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "forever": "^4.0.3",
     "fs-extra": "^7.0.0",
     "gulp-babel": "^8.0.0",
