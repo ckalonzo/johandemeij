@@ -121,10 +121,7 @@ const RentalCatalogue = (props) => {
                   <td colSpan="2">category C + 40%</td>
                 </tr>
                 <tr>
-                  <td colSpan="2">regional premiere + 50%</td>
-                </tr>
-                <tr>
-                  <td colSpan="2">world premiere + 100%</td>
+                  <td colSpan="2">world premiere + 50%</td>
                 </tr>
               </Table>
             </Col>
