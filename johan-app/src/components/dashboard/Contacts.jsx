@@ -4,10 +4,8 @@ import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
 import { Button } from "react-bootstrap"
 import { ACTIONS } from "redux/actions/types"
-import Parser from 'html-react-parser';
 import { Container,Row,Col } from "react-bootstrap"
 import SideNav from "components/dashboard/SideNav"
-//import { Link } from "react-router-dom";
 import EditPost from "components/dashboard/EditPost"
 const Contacts = (props) => {
     const [section,setSection] = useState("list")

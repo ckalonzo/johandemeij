@@ -1,6 +1,6 @@
 import { ACTIONS } from 'redux/actions/types.js'
 import { mainAction } from "redux/actions/index.actions"
-import { database,db } from "../../firebase";
+import { database } from "../../firebase";
 import _ from "lodash"
 const initialState = {
 };

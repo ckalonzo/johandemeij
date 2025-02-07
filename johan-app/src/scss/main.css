@@ -7,7 +7,7 @@ html, body {
 
 body {
   background: #fff;
-  font-family: "Work Sans",sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -34,7 +34,7 @@ ul {
 }
 
 h1, h3, h3, h4, h5 {
-  font: 900 18px/20px 'Montserrat', sans-serif;
+  font: 900 18px/20px "Montserrat", sans-serif;
 }
 
 .h2, h2 {
@@ -69,19 +69,16 @@ h1, h3, h3, h4, h5 {
 }
 
 table th {
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
-
 table .btn {
-  padding: .175rem .475em;
-  font-size: .8rem;
+  padding: 0.175rem 0.475em;
+  font-size: 0.8rem;
   text-transform: capitalize;
 }
-
 table td {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
-
 table .post-title {
   width: 33%;
 }
@@ -96,21 +93,14 @@ table .post-title {
 }
 
 .action-button, .caption {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .post-image {
   text-align: "center";
 }
-
 .post-image img {
   width: 100px;
 }
@@ -133,32 +123,27 @@ table .post-title {
 .RentalCatalogue {
   margin-top: 390px;
 }
-
 .RentalCatalogue th {
   color: #000;
   vertical-align: middle !important;
-  font: 900 14px/16px 'Montserrat', sans-serif;
+  font: 900 14px/16px "Montserrat", sans-serif;
   text-align: center;
 }
-
 .RentalCatalogue td.catalogue-composer {
   text-transform: capitalize;
 }
-
 .RentalCatalogue td.catalogue-title,
 .RentalCatalogue td.catalogue-number,
 .RentalCatalogue td.catalogue-composer a {
   color: #9a0000;
   text-transform: none;
 }
-
 .RentalCatalogue td.catalogue-title:hover,
 .RentalCatalogue td.catalogue-number:hover,
 .RentalCatalogue td.catalogue-composer a :hover {
   text-decoration: underline;
   cursor: pointer;
 }
-
 .RentalCatalogue thead tr:hover,
 .RentalCatalogue tr:hover {
   text-decoration: none;
@@ -167,16 +152,14 @@ table .post-title {
 }
 
 .order .location {
-  font: 400 14px/16px 'Work Sans', sans-serif;
+  font: 400 14px/16px "Work Sans", sans-serif;
   padding: 15px;
   background: rgba(234, 234, 234, 0.3);
   margin-bottom: 25px;
 }
-
 .order .location li {
   margin-bottom: 5px;
 }
-
 .order .location .country {
   color: #000;
   font-weight: bold;
@@ -189,15 +172,12 @@ section.order {
 .pagination .page-link {
   color: #6f7495 !important;
 }
-
 .pagination .active-page .page-link {
   color: #fff !important;
 }
-
 .pagination .active-page .page-link, .pagination .active-page .page-item:hover {
   background: #9a0000;
 }
-
 .pagination .active-page a {
   color: #fff;
 }
@@ -210,18 +190,15 @@ section.order {
   background-color: #FFF !important;
   color: #000 !important;
 }
-
 .navbar a {
   text-transform: capitalize;
   white-space: nowrap;
   color: #000 !important;
 }
-
 .navbar .navbar-brand {
   font-size: 2rem;
   color: #000;
 }
-
 .navbar .navbar-nav {
   padding-top: 10px;
   color: #000;
@@ -238,51 +215,49 @@ header {
   top: 0;
   background-color: #FFF;
   color: #000;
-  background-image: url(/images/header-music2.jpg);
+  background-image: url(/public/images/header-music2.jpg);
   background-repeat: no-repeat;
   background-position: 90% 0%;
 }
 
 header.home {
-  background-image: url(/images/header-home2.jpg);
+  background-image: url(/public/images/header-home2.jpg);
 }
 
 header.events {
-  background-image: url(/images/header-events2.jpg);
+  background-image: url(/public/images/header-events2.jpg);
 }
 
 header.music {
-  background-image: url(/images/header-music2.jpg);
+  background-image: url(/public/images/header-music2.jpg);
 }
 
 header.rentalcatalogue {
-  background-image: url(/images/header-rentalcatalogue2.jpg);
+  background-image: url(/public/images/header-rentalcatalogue2.jpg);
   background-position: 90% -118%;
 }
 
 header.order {
-  background-image: url(/images/header-order2.jpg);
+  background-image: url(/public/images/header-order2.jpg);
 }
 
 header.biography {
-  background-image: url(/images/header-biography2.jpg);
+  background-image: url(/public/images/header-biography2.jpg);
 }
 
 header.agenda {
-  background-image: url(/images/header-agenda2.jpg);
+  background-image: url(/public/images/header-agenda2.jpg);
 }
 
 .navigation ul {
   display: table;
   margin: 15px auto 15px;
 }
-
 .navigation ul li {
   display: inline;
   margin-right: 25px;
   text-transform: uppercase;
 }
-
 .navigation ul li a {
   color: #FFF;
 }
@@ -291,11 +266,10 @@ header.agenda {
   text-align: left;
   margin: 113px 0 113px 100px;
   color: #000;
-  font: 900 18px/20px 'Montserrat', sans-serif;
+  font: 900 18px/20px "Montserrat", sans-serif;
 }
-
 .headline span {
-  font: 900 46px/48px 'Montserrat', sans-serif;
+  font: 900 46px/48px "Montserrat", sans-serif;
   margin-bottom: 15px;
   display: block;
   color: #a90000;
@@ -338,29 +312,22 @@ header.agenda {
 header ul {
   margin: 15px auto 15px;
 }
-
 header ul li {
   display: inline-block;
   margin-right: 25px;
   text-transform: uppercase;
 }
-
 header ul li a {
   color: #FFF;
+  text-decoration: none;
 }
-
 header ul li a:hover {
   color: #000;
   text-decoration: none;
 }
-
 header .nav-row .container .col-lg-12 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 header.home li.home a {
@@ -403,18 +370,16 @@ header.gallery li.gallery a {
   font-weight: bold;
 }
 
-@media screen and (min-width: 320px) and (max-width: 778px) {
-  /*Large*/
+@media screen and (min-width: 320px) and (max-width: 778px) { /*Large*/
   header.home {
-    background-image: url(/images/header-home2.jpg);
+    background-image: url(/public/images/header-home2.jpg);
     background-repeat: no-repeat;
     background-position: 30% 0%;
     background-repeat: no-repeat;
   }
   .headline {
     color: #FFF;
-    -webkit-text-fill-color: white;
-    /* Will override color (regardless of order) */
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
   }
@@ -422,19 +387,15 @@ header.gallery li.gallery a {
     color: #a90000 !important;
   }
 }
-
-@media screen and (min-width: 1200px) and (max-width: 1599px) {
-  /*XLarge*/
+@media screen and (min-width: 1200px) and (max-width: 1599px) { /*XLarge*/
   header.home {
-    background-image: url(/images/header-home2.jpg);
+    background-image: url(/public/images/header-home2.jpg);
     background-repeat: no-repeat;
     background-position: 90% 0%;
     background-repeat: no-repeat;
   }
 }
-
-@media screen and (min-width: 1600px) {
-  /*XXLarge*/
+@media screen and (min-width: 1600px) { /*XXLarge*/
   header.home,
   header.biography,
   header.order,
@@ -445,6 +406,20 @@ header.gallery li.gallery a {
     background-position: 66% 0%;
     background-repeat: no-repeat;
   }
+}
+.form-row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+  margin-bottom: 10px;
+}
+
+.form-group {
+  padding: 10px;
 }
 
 ul {
@@ -460,15 +435,12 @@ ul {
 .sidebar li {
   padding: 5px;
 }
-
 .sidebar a {
   text-transform: capitalize;
 }
 
 .post-title {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .post-actions {
@@ -490,26 +462,21 @@ table a {
   margin: 50px 0;
   margin-bottom: 100px;
 }
-
 #dashboard .col-lg-10 {
   background: #FFF;
 }
-
 #dashboard h1 {
   margin-top: 25px;
   margin-bottom: 50px;
 }
-
 #dashboard ul.sidebar {
   border: 1px solid rgba(111, 116, 149, 0.25);
   padding: 15px 35px 15px 10px;
   border-radius: 5px;
 }
-
 #dashboard ul.sidebar li {
   white-space: nowrap;
 }
-
 #dashboard ul.sidebar li.active-nav-item {
   color: #000;
   font-weight: bold;
@@ -518,17 +485,14 @@ table a {
 .dashboard {
   padding: 50px 0;
 }
-
 .dashboard ul.sidebar {
   background: #fff;
   border: 1px solid rgba(111, 116, 149, 0.25);
   padding: 15px 35px 15px 10px;
 }
-
 .dashboard ul.sidebar li {
   white-space: nowrap;
 }
-
 .dashboard ul.sidebar li.active-nav-item {
   color: #000;
   font-weight: bold;
@@ -552,55 +516,46 @@ section.agenda-full {
   margin-top: 320px;
   padding-top: 50px;
   padding-bottom: 100px;
-  font-size: .75rem;
+  font-size: 0.75rem;
   text-align: left;
   color: #000;
 }
-
 section.agenda h3, section.agenda h3 a,
 section.agenda-full h3,
 section.agenda-full h3 a {
-  font: 900 14px/16px 'Roboto', sans-serif;
+  font: 900 14px/16px "Roboto", sans-serif;
   color: #9a0000 !important;
   margin: 0 0 50px 0;
 }
-
 section.agenda .agenda-card,
 section.agenda-full .agenda-card {
   margin: 15px 0;
   background: rgba(234, 234, 234, 0.3);
   min-height: 215px;
 }
-
 section.agenda .conductor,
 section.agenda-full .conductor {
   font-style: italic;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
-
 section.agenda .orchestra,
 section.agenda-full .orchestra {
   font-size: 1.2rem;
 }
-
 section.agenda .title,
 section.agenda-full .title {
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
-
 .agenda-list {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
-
 .agenda-list .title {
-  font: 900 14px/16px 'Montserrat', sans-serif;
+  font: 900 14px/16px "Montserrat", sans-serif;
 }
-
 .agenda-list .time, .agenda-list .momth {
   color: #000;
-  font: 900 14px/16px 'Montserrat', sans-serif;
+  font: 900 14px/16px "Montserrat", sans-serif;
 }
-
 .agenda-list .date {
   padding: 10px 0 5px 0;
   text-align: center;
@@ -608,19 +563,16 @@ section.agenda-full .title {
   outline: 1px solid #fff;
   color: #9a0000;
 }
-
 .agenda-list .date .day {
-  font: 900 38px/40px 'Montserrat', sans-serif;
+  font: 900 38px/40px "Montserrat", sans-serif;
   line-height: 2rem;
   color: #000;
   font-weight: lighter;
 }
-
 .agenda-list .date .year {
   color: #000;
   font-size: 1rem;
 }
-
 .agenda-list .agenda-info {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -631,18 +583,15 @@ section.agenda-full .title {
   display: table;
   margin-bottom: 35px;
 }
-
 .archive li {
   display: table-cell;
   padding: 0 25px 0 0;
   color: #9a0000;
-  font: 900 24px/26px 'Montserrat', sans-serif;
+  font: 900 24px/26px "Montserrat", sans-serif;
 }
-
 .archive li.active {
   color: #000;
 }
-
 .archive li:hover {
   cursor: pointer;
 }
@@ -657,14 +606,12 @@ section.about-full {
   background: #FFF;
   color: #000;
 }
-
 section.about h3,
 section.about-full h3 {
   font-size: 2rem !important;
   color: #9a0000 !important;
   margin-bottom: 25px;
 }
-
 section.about button,
 section.about-full button {
   margin: 35px 0 50px;
@@ -673,14 +620,12 @@ section.about-full button {
 section.about-full {
   margin-top: 415px;
 }
-
 section.about-full h5 {
-  font-size: .9rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   margin-top: 25px;
   color: #000;
 }
-
 section.about-full ul li {
   display: inline;
   margin-right: 10px;
@@ -692,7 +637,6 @@ section.news {
   padding: 25px 0 0;
   min-height: calc(100vh - 660px);
 }
-
 section.news h2 {
   color: #000 !important;
   text-align: center;
@@ -701,9 +645,8 @@ section.news h2 {
   line-height: 1.3;
   letter-spacing: -0.01em;
   font-weight: 700;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-
 section.news h3 {
   text-align: center !important;
   margin: 50px 0;
@@ -711,7 +654,7 @@ section.news h3 {
   line-height: 1.3;
   letter-spacing: -0.01em;
   font-weight: 700;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .news-card {
@@ -720,13 +663,11 @@ section.news h3 {
   position: relative;
   margin-bottom: 25px;
 }
-
 .news-card .card-text {
   min-height: 47px;
   max-height: 47px;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
-
 .news-card .card-body {
   position: absolute;
   top: 0;
@@ -745,7 +686,7 @@ section.news h3 {
   font-size: 1.5rem;
   color: #000;
   font-weight: 700;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   margin-bottom: 25px;
 }
@@ -757,23 +698,19 @@ section.news h3 {
 .concert-info {
   background: rgba(73, 80, 87, 0.1);
 }
-
 .concert-info h4 {
-  font: 400 24px/26px 'Work Sans', sans-serif;
+  font: 400 24px/26px "Work Sans", sans-serif;
   color: #000;
   margin-bottom: 50px;
 }
-
 .concert-info button {
   margin-top: 50px;
 }
-
 .concert-info .container {
   padding-top: 100px;
   margin-top: 50px;
   padding-bottom: 100px;
 }
-
 .concert-info .container .form-control {
   background-color: #fff;
   border-color: rgba(73, 80, 87, 0.1);
@@ -784,7 +721,6 @@ section.events {
   margin-top: 330px;
   font-size: 1rem;
 }
-
 section.events h3 {
   margin-bottom: 25px;
   color: #fe5c56;
@@ -795,11 +731,9 @@ footer {
   background-color: #FFF;
   color: #495057;
 }
-
 footer h5 {
   margin-bottom: 25px;
 }
-
 footer .social-media ul li {
   margin: 0;
   padding: 0;
@@ -807,27 +741,22 @@ footer .social-media ul li {
   float: left;
   margin-right: 5px;
 }
-
 footer ul {
   margin: 0 0 50px;
   padding: 0;
 }
-
 footer .fa-facebook {
   background: #3B5998;
   color: white;
 }
-
 footer .fa-twitter {
   background: #55ACEE;
   color: white;
 }
-
 footer .fa-linkedin {
   background: #007bb5;
   color: white;
 }
-
 footer .fa {
   padding: 5px;
   font-size: 20px;
@@ -837,51 +766,41 @@ footer .fa {
   margin: 5px 2px;
   border-radius: 50%;
 }
-
 footer .fa:hover {
   opacity: 0.7;
 }
-
 footer .footer-copyright {
   color: #495057;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
-
 footer .footer-copyright a {
   color: #495057;
 }
-
 footer .footer-copyright .fa {
   margin-right: 10px;
   color: #FFF;
 }
-
 footer .footer-copyright ul {
   margin: 0;
 }
-
 footer .footer-copyright ul li {
   margin-right: 10px;
-  font-size: .8rem;
+  font-size: 0.8rem;
   white-space: nowrap;
   text-align: left;
 }
-
 footer .footer-copyright .bottom-row {
   padding-top: 25px;
   border-top: 1px solid rgba(73, 80, 87, 0.3);
 }
-
 footer .footer-copyright .form-control {
   background-color: #fff;
   border-color: #495057;
   color: #495057;
 }
-
 footer .nav-link {
   padding: 0;
 }
-
 footer button {
   margin-bottom: 50px;
 }
@@ -889,11 +808,9 @@ footer button {
 section.article {
   color: #000;
 }
-
 section.article h1 {
   color: #9a0000;
 }
-
 section.article .lead-image {
   margin-bottom: 50px;
   max-height: auto;
@@ -905,61 +822,50 @@ section.article .lead-image {
 section.music {
   margin: 375px 0 50px;
 }
-
 section.music h3 {
-  font: 900 18px/20px 'Montserrat', sans-serif;
+  font: 900 18px/20px "Montserrat", sans-serif;
   margin-bottom: 25px;
 }
-
 section.music li {
-  font: 400 14px/16px 'Work Sans', sans-serif;
+  font: 400 14px/16px "Work Sans", sans-serif;
   margin-bottom: 5px;
 }
-
 section.music li span {
   color: #a90000;
 }
-
 section.music li span:hover {
   text-decoration: underline;
   cursor: pointer;
 }
-
 section.music ul.categories {
   padding: 0;
   margin-bottom: 25px;
   background: rgba(234, 234, 234, 0.3);
   padding: 15px;
 }
-
 section.music ul.categories li {
   display: inline;
   margin-right: 10px;
-  font: 400 12.5px/14px 'Montserrat', sans-serif;
+  font: 400 12.5px/14px "Montserrat", sans-serif;
   padding-right: 10px;
   border-right: 1px solid #000;
   color: #a90000;
 }
-
 section.music ul.categories li:hover {
   cursor: pointer;
   text-decoration: underline;
 }
-
 section.music ul.categories li:nth-child(8) {
   margin-right: 0;
   border: none;
 }
-
 section.music ul.categories li.active {
   color: #000;
   font-weight: bold;
 }
-
 section.music .soren {
   margin-bottom: 25px;
 }
-
 section.music .cds li {
   float: left;
   width: 100px;
@@ -968,20 +874,17 @@ section.music .cds li {
   position: relative;
   margin-bottom: 35px;
 }
-
 section.music .cds li img {
   width: 100px;
   height: 100px;
   position: absolute;
   top: 0;
 }
-
 section.music .cds li .title {
   text-align: center;
-  font: 400 12px/13px 'Work Sans', sans-serif;
+  font: 400 12px/13px "Work Sans", sans-serif;
   color: #a90000;
 }
-
 section.music .cds li span {
   display: block;
   height: 100px;
@@ -992,41 +895,35 @@ section.music .cds li span {
   margin-top: 390px;
   margin-bottom: 50px;
 }
-
 .music-profile h1 {
-  font: 400 32px/34px 'Work Sans', sans-serif;
+  font: 400 32px/34px "Work Sans", sans-serif;
   color: #000;
 }
-
 .music-profile h3 {
-  font: 400 22px/24px 'Work Sans', sans-serif;
+  font: 400 22px/24px "Work Sans", sans-serif;
   color: #fe5c56;
 }
-
 .music-profile h5 {
-  font: 400 16px/18px 'Work Sans', sans-serif;
+  font: 400 16px/18px "Work Sans", sans-serif;
 }
 
 .composer {
   text-transform: capitalize;
 }
-
 .composer a {
   color: #a90000;
 }
-
 .composer a span {
   text-transform: lowercase !important;
 }
 
 .details {
   background: #eaeaea;
-  font: 400 14px/16px 'Work Sans', sans-serif;
+  font: 400 14px/16px "Work Sans", sans-serif;
   padding: 15px;
   margin: 25px 0 25px;
   max-width: 350px;
 }
-
 .details span {
   color: #000;
   text-transform: capitalize;
@@ -1041,15 +938,12 @@ section.contact-us {
 section.photo-gallery {
   margin-top: 375px;
 }
-
 section.photo-gallery .alice-carousel li.alice-carousel__stage-item {
   height: 600px;
 }
-
 section.photo-gallery .alice-carousel__prev-btn {
   text-align: center !important;
 }
-
 section.photo-gallery .gallery-images table ul li {
   margin-bottom: 15px;
 }
@@ -1057,7 +951,6 @@ section.photo-gallery .gallery-images table ul li {
 .gallery-images table ul li {
   margin-bottom: 15px;
 }
-
 .gallery-images table ul li span {
   font-weight: bold;
 }
@@ -1088,7 +981,6 @@ section.photo-gallery .gallery-images table ul li {
   display: table;
   margin: 0 auto;
 }
-
 .thumbnails li {
   display: table-cell;
   padding-right: 15px;
@@ -1097,12 +989,8 @@ section.photo-gallery .gallery-images table ul li {
 .carousel .thumbs-wrapper {
   margin: 20px;
   overflow: visible !important;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .thumb {
@@ -1110,7 +998,6 @@ section.photo-gallery .gallery-images table ul li {
   margin-right: 15px;
   margin-top: 15px;
 }
-
 .thumb img:hover {
   cursor: pointer;
 }
@@ -1121,33 +1008,28 @@ section.photo-gallery .gallery-images table ul li {
   overflow: hidden;
   position: relative;
 }
-
 .galleryContainer ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .galleryContainer .slide {
   min-width: 100%;
   margin: 0;
   position: relative;
   text-align: center;
 }
-
 .galleryContainer .slide img {
   border: 1px solid #000;
 }
 
 .legend {
-  background: black;
+  background: rgb(0, 0, 0);
   padding: 10px;
   color: #FFF;
   position: absolute;
   bottom: 50%;
   width: 80%;
   left: 10%;
-  font: 400 12px/14px 'Montserrat', sans-serif;
+  font: 400 12px/14px "Montserrat", sans-serif;
   border-radius: 5px;
 }
 
@@ -1176,16 +1058,6 @@ section.photo-gallery .gallery-images table ul li {
     opacity: 1;
   }
 }
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .fade-out {
   animation: fadeOut ease 8s;
   -webkit-animation: fadeOut ease 8s;
@@ -1202,43 +1074,26 @@ section.photo-gallery .gallery-images table ul li {
     opacity: 0;
   }
 }
-
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@media screen and (min-width: 320px) and (max-width: 778px) {
-  /*Large*/
+@media screen and (min-width: 320px) and (max-width: 778px) { /*Large*/
   .galleryContainer {
     max-height: 294px;
   }
 }
-
-@media screen and (min-width: 779px) and (max-width: 991px) {
-  /*Large*/
+@media screen and (min-width: 779px) and (max-width: 991px) { /*Large*/
   .galleryContainer {
     max-height: 441px;
   }
 }
-
 .sidebar ul {
   margin-bottom: 100px;
 }
-
 .sidebar li {
   padding: 0 !important;
 }
-
 .sidebar li a {
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: #6f7495;
 }
-
 .sidebar li a:hover {
   color: #9a0000;
 }
@@ -1276,7 +1131,7 @@ section.order {
     margin-left: 15px;
   }
   .headline span {
-    font: 900 40px/42px 'Montserrat', sans-serif;
+    font: 900 40px/42px "Montserrat", sans-serif;
   }
   section.news {
     margin-top: 365px;
@@ -1286,7 +1141,6 @@ section.order {
     background-position: 58% 0% !important;
   }
 }
-
 @media screen and (min-width: 375px) and (max-width: 410px) {
   .news-items, .concert-info, footer {
     width: 375px;
@@ -1295,10 +1149,9 @@ section.order {
     margin-left: 20px;
   }
   .headline span {
-    font: 900 45px/48px 'Montserrat', sans-serif;
+    font: 900 45px/48px "Montserrat", sans-serif;
   }
   header .home {
     background-position: 58% 0%;
   }
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

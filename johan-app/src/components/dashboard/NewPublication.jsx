@@ -118,7 +118,7 @@ const NewPublication = (props) => {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
-    console.warn(ACTIONS.UPDATE_PUBLICATION, publicationItem);
+    
     props.actions.mainAction(ACTIONS.UPDATE_PUBLICATION, publicationItem);
     window.scrollTo(0, 0);
     setValidated(true);

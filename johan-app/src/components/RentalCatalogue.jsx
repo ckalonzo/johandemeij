@@ -5,10 +5,10 @@ import { bindActionCreators } from "redux";
 import { mainAction } from "redux/actions/index.actions";
 import { ACTIONS } from "redux/actions/types";
 import ReactHtmlParser from "react-html-parser";
-import { render } from "@testing-library/react";
 
 const RentalCatalogue = (props) => {
-  //const [selectedPresentation,setSelectedPresentation]= useState()
+console.log("🚀 ~ RentalCatalogue ~ props:", props)
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "JohanDeMeij.com | Music";
@@ -17,17 +17,22 @@ const RentalCatalogue = (props) => {
     props.actions.mainAction("GET_MISC_ITEMS", {});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   const loadProfile = (id) => {
     props.history.push("/music/profile/" + id);
   };
+
   const renderComposerLink = (composer) => {
+    // Check if composer is defined before calling .replace
+    if (!composer) {
+      return ""; // Return an empty string or a fallback value
+    }
+
     return ReactHtmlParser(
-      composer
-        .toLowerCase()
-        .replace(
-          /johan de meij|johan de  meij/g,
-          "<a href='/biography'>Johan de Meij</a>"
-        )
+      composer.replace(
+        /johan de meij|johan de  meij/g,
+        "<a href='/biography'>Johan de Meij</a>"
+      )
     );
   };
 
@@ -51,9 +56,9 @@ const RentalCatalogue = (props) => {
                 </thead>
                 <tbody>
                   {props.catalogue
-                    ? Object.values(props.catalogue).map((catalogue) => {
+                    ? Object.values(props.catalogue).map((catalogue, index) => {
                         return (
-                          <tr>
+                          <tr key={index}>
                             <td
                               className="catalogue-number"
                               onClick={() => loadProfile(catalogue.link)}
@@ -93,39 +98,38 @@ const RentalCatalogue = (props) => {
             <Col>{ReactHtmlParser(props.miscItems.main_text)}</Col>
             <Col>
               <Table style={{ marginTop: "15px" }}>
-                <tr>
-                  <td style={{ whiteSpace: "nowrap" }}>Category A:</td>
-                  <td>Non-Professional orchestras and ensembles.</td>
-                </tr>
-                <tr>
-                  <td style={{ whiteSpace: "nowrap" }}>Category B:</td>
-                  <td>
-                    Part-time or semi-prof. professional orchestras and
-                    ensembles, Conservatories.
-                  </td>
-                </tr>
-                <tr>
-                  <td style={{ whiteSpace: "nowrap" }}>Category C:</td>
-                  <td>Full-time Professional orchestras and ensembles.</td>
-                </tr>
-                <tr>
-                  <td colSpan="2">2nd performance -40%</td>
-                </tr>
-                <tr>
-                  <td colSpan="2">3rd and over -75%</td>
-                </tr>
-                <tr>
-                  <td colSpan="2">category B + 20%</td>
-                </tr>
-                <tr>
-                  <td colSpan="2">category C + 40%</td>
-                </tr>
-                <tr>
-                  <td colSpan="2">regional premiere + 50%</td>
-                </tr>
-                <tr>
-                  <td colSpan="2">world premiere + 100%</td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td style={{ whiteSpace: "nowrap" }}>Category A:</td>
+                    <td>Non-Professional orchestras and ensembles.</td>
+                  </tr>
+                  <tr>
+                    <td style={{ whiteSpace: "nowrap" }}>Category B:</td>
+                    <td>
+                      Part-time or semi-prof. professional orchestras and
+                      ensembles, Conservatories.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style={{ whiteSpace: "nowrap" }}>Category C:</td>
+                    <td>Full-time Professional orchestras and ensembles.</td>
+                  </tr>
+                  <tr>
+                    <td colSpan="2">2nd performance -50%</td>
+                  </tr>
+                  <tr>
+                    <td colSpan="2">3rd and over -75%</td>
+                  </tr>
+                  <tr>
+                    <td colSpan="2">category B + 20%</td>
+                  </tr>
+                  <tr>
+                    <td colSpan="2">category C + 40%</td>
+                  </tr>
+                  <tr>
+                    <td colSpan="2">world premiere + 50%</td>
+                  </tr>
+                </tbody>
               </Table>
             </Col>
           </Row>
@@ -134,7 +138,9 @@ const RentalCatalogue = (props) => {
     </>
   );
 };
+
 function mapStateToProps(state) {
+
   return {
     catalogue: state.catalogueReducer,
     presentations: state.musicReducer.allPresentations,

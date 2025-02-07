@@ -10,6 +10,7 @@ import Loading from "components/shared/Loading"
 import EditPost from "components/dashboard/EditPost"
 import CleanUpText from "utils/helperFunctions"
 const Agendas = (props) => {
+  
   const [section, setSection] = useState("list")
   useEffect(() => {
     // Update the document title using the browser API
@@ -18,9 +19,7 @@ const Agendas = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const handleClick = () => {
-    props.history.push('/dashboard/agenda/new')
-  }
+
   const loadAgenda = (id) => {
     props.history.push('/dashboard/agenda/' + id)
   }
@@ -30,8 +29,8 @@ const Agendas = (props) => {
   const PostList = (props) => {
     if (Object.values(props).length > 0)
       return Object.values(props).map(agenda => {
-        return (<tr key={agenda.id}>
-          <td className="post-title" onClick={() => loadAgenda(agenda)}>{CleanUpText(agenda.orchestra)}</td>
+        return (<tr key={agenda.id} onClick={() => loadAgenda(agenda.id)}>
+          <td className="post-title">{CleanUpText(agenda.orchestra)}</td>
           <td className="post-conductor">{CleanUpText(agenda.conductor)}</td>
           <td className="post-date">{`${agenda.month} / ${agenda.day} / ${agenda.year}`}</td>
           <td className="post-actions">

@@ -7,6 +7,7 @@ import {Row,Container,Col,Table} from "react-bootstrap"
 import ReactHtmlParser from 'react-html-parser';
 
 const CdProfile= (props)=>{
+    console.log("🚀 ~ CdProfile ~ props:", props)
     useEffect(() => {
         window.scrollTo(0,0)
         document.title = "JohanDeMeij.com | Music Profile"

@@ -4,8 +4,7 @@ import { bindActionCreators } from "redux";
 import { ACTIONS } from "redux/actions/types";
 import { mainAction } from "redux/actions/index.actions";
 import Article from "components/shared/Article";
-import { Row, Col } from "react-bootstrap";
-import RequestConcertInfo from "components/shared/RequestConcertInfo";
+import { Row } from "react-bootstrap";
 const News = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);

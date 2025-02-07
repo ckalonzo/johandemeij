@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2017 Google Inc.
+ * Copyright 2017 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import { FirebaseApp, FirebaseNamespace } from '@firebase/app-types';
+import { EmulatorMockTokenOptions } from '@firebase/util';
 
 export type DocumentData = { [field: string]: any };
 
@@ -26,22 +26,32 @@ export const CACHE_SIZE_UNLIMITED: number;
 export interface Settings {
   host?: string;
   ssl?: boolean;
-  timestampsInSnapshots?: boolean;
   cacheSizeBytes?: number;
   experimentalForceLongPolling?: boolean;
+  experimentalAutoDetectLongPolling?: boolean;
+  ignoreUndefinedProperties?: boolean;
+  merge?: boolean;
 }
 
 export interface PersistenceSettings {
   synchronizeTabs?: boolean;
   experimentalTabSynchronization?: boolean;
+  experimentalForceOwningTab?: boolean;
 }
 
-export type LogLevel = 'debug' | 'error' | 'silent';
+export type LogLevel =
+  | 'debug'
+  | 'error'
+  | 'silent'
+  | 'warn'
+  | 'info'
+  | 'verbose';
 
 export function setLogLevel(logLevel: LogLevel): void;
 
 export interface FirestoreDataConverter<T> {
   toFirestore(modelObject: T): DocumentData;
+  toFirestore(modelObject: Partial<T>, options: SetOptions): DocumentData;
 
   fromFirestore(snapshot: QueryDocumentSnapshot, options: SnapshotOptions): T;
 }
@@ -50,6 +60,14 @@ export class FirebaseFirestore {
   private constructor();
 
   settings(settings: Settings): void;
+
+  useEmulator(
+    host: string,
+    port: number,
+    options?: {
+      mockUserToken?: EmulatorMockTokenOptions | string;
+    }
+  ): void;
 
   enablePersistence(settings?: PersistenceSettings): Promise<void>;
 
@@ -77,15 +95,48 @@ export class FirebaseFirestore {
 
   onSnapshotsInSync(observer: {
     next?: (value: void) => void;
-    error?: (error: Error) => void;
+    error?: (error: FirestoreError) => void;
     complete?: () => void;
   }): () => void;
   onSnapshotsInSync(onSync: () => void): () => void;
 
   terminate(): Promise<void>;
 
+  loadBundle(
+    bundleData: ArrayBuffer | ReadableStream<Uint8Array> | string
+  ): LoadBundleTask;
+
+  namedQuery(name: string): Promise<Query<DocumentData> | null>;
+
   INTERNAL: { delete: () => Promise<void> };
 }
+
+export interface LoadBundleTask extends PromiseLike<LoadBundleTaskProgress> {
+  onProgress(
+    next?: (progress: LoadBundleTaskProgress) => any,
+    error?: (error: Error) => any,
+    complete?: () => void
+  ): void;
+
+  then<T, R>(
+    onFulfilled?: (a: LoadBundleTaskProgress) => T | PromiseLike<T>,
+    onRejected?: (a: Error) => R | PromiseLike<R>
+  ): Promise<T | R>;
+
+  catch<R>(
+    onRejected: (a: Error) => R | PromiseLike<R>
+  ): Promise<R | LoadBundleTaskProgress>;
+}
+
+export interface LoadBundleTaskProgress {
+  documentsLoaded: number;
+  totalDocuments: number;
+  bytesLoaded: number;
+  totalBytes: number;
+  taskState: TaskState;
+}
+
+export type TaskState = 'Error' | 'Running' | 'Success';
 
 export class GeoPoint {
   constructor(latitude: number, longitude: number);
@@ -138,9 +189,10 @@ export class Transaction {
 
   set<T>(
     documentRef: DocumentReference<T>,
-    data: T,
-    options?: SetOptions
+    data: Partial<T>,
+    options: SetOptions
   ): Transaction;
+  set<T>(documentRef: DocumentReference<T>, data: T): Transaction;
 
   update(documentRef: DocumentReference<any>, data: UpdateData): Transaction;
   update(
@@ -158,9 +210,10 @@ export class WriteBatch {
 
   set<T>(
     documentRef: DocumentReference<T>,
-    data: T,
-    options?: SetOptions
+    data: Partial<T>,
+    options: SetOptions
   ): WriteBatch;
+  set<T>(documentRef: DocumentReference<T>, data: T): WriteBatch;
 
   update(documentRef: DocumentReference<any>, data: UpdateData): WriteBatch;
   update(
@@ -188,7 +241,10 @@ export interface GetOptions {
   readonly source?: 'default' | 'server' | 'cache';
 }
 
-export class DocumentReference<T = DocumentData> {
+export class DocumentReference<
+  T = DocumentData,
+  T2 extends DocumentData = DocumentData
+> {
   private constructor();
 
   readonly id: string;
@@ -200,7 +256,8 @@ export class DocumentReference<T = DocumentData> {
 
   isEqual(other: DocumentReference<T>): boolean;
 
-  set(data: T, options?: SetOptions): Promise<void>;
+  set(data: Partial<T>, options: SetOptions): Promise<void>;
+  set(data: T): Promise<void>;
 
   update(data: UpdateData): Promise<void>;
   update(
@@ -222,22 +279,23 @@ export class DocumentReference<T = DocumentData> {
     options: SnapshotListenOptions,
     observer: {
       next?: (snapshot: DocumentSnapshot<T>) => void;
-      error?: (error: Error) => void;
+      error?: (error: FirestoreError) => void;
       complete?: () => void;
     }
   ): () => void;
   onSnapshot(
     onNext: (snapshot: DocumentSnapshot<T>) => void,
-    onError?: (error: Error) => void,
+    onError?: (error: FirestoreError) => void,
     onCompletion?: () => void
   ): () => void;
   onSnapshot(
     options: SnapshotListenOptions,
     onNext: (snapshot: DocumentSnapshot<T>) => void,
-    onError?: (error: Error) => void,
+    onError?: (error: FirestoreError) => void,
     onCompletion?: () => void
   ): () => void;
 
+  withConverter(converter: null): DocumentReference<DocumentData>;
   withConverter<U>(converter: FirestoreDataConverter<U>): DocumentReference<U>;
 }
 
@@ -252,7 +310,10 @@ export interface SnapshotMetadata {
   isEqual(other: SnapshotMetadata): boolean;
 }
 
-export class DocumentSnapshot<T = DocumentData> {
+export class DocumentSnapshot<
+  T = DocumentData,
+  T2 extends DocumentData = DocumentData
+> {
   protected constructor();
 
   readonly exists: boolean;
@@ -267,9 +328,10 @@ export class DocumentSnapshot<T = DocumentData> {
   isEqual(other: DocumentSnapshot<T>): boolean;
 }
 
-export class QueryDocumentSnapshot<T = DocumentData> extends DocumentSnapshot<
-  T
-> {
+export class QueryDocumentSnapshot<
+  T = DocumentData,
+  T2 extends DocumentData = DocumentData
+> extends DocumentSnapshot<T, T2> {
   private constructor();
 
   data(options?: SnapshotOptions): T;
@@ -281,13 +343,15 @@ export type WhereFilterOp =
   | '<'
   | '<='
   | '=='
+  | '!='
   | '>='
   | '>'
   | 'array-contains'
   | 'in'
-  | 'array-contains-any';
+  | 'array-contains-any'
+  | 'not-in';
 
-export class Query<T = DocumentData> {
+export class Query<T = DocumentData, T2 extends DocumentData = DocumentData> {
   protected constructor();
 
   readonly firestore: FirebaseFirestore;
@@ -325,33 +389,37 @@ export class Query<T = DocumentData> {
 
   onSnapshot(observer: {
     next?: (snapshot: QuerySnapshot<T>) => void;
-    error?: (error: Error) => void;
+    error?: (error: FirestoreError) => void;
     complete?: () => void;
   }): () => void;
   onSnapshot(
     options: SnapshotListenOptions,
     observer: {
       next?: (snapshot: QuerySnapshot<T>) => void;
-      error?: (error: Error) => void;
+      error?: (error: FirestoreError) => void;
       complete?: () => void;
     }
   ): () => void;
   onSnapshot(
     onNext: (snapshot: QuerySnapshot<T>) => void,
-    onError?: (error: Error) => void,
+    onError?: (error: FirestoreError) => void,
     onCompletion?: () => void
   ): () => void;
   onSnapshot(
     options: SnapshotListenOptions,
     onNext: (snapshot: QuerySnapshot<T>) => void,
-    onError?: (error: Error) => void,
+    onError?: (error: FirestoreError) => void,
     onCompletion?: () => void
   ): () => void;
 
+  withConverter(converter: null): Query<DocumentData>;
   withConverter<U>(converter: FirestoreDataConverter<U>): Query<U>;
 }
 
-export class QuerySnapshot<T = DocumentData> {
+export class QuerySnapshot<
+  T = DocumentData,
+  T2 extends DocumentData = DocumentData
+> {
   private constructor();
 
   readonly query: Query<T>;
@@ -372,14 +440,20 @@ export class QuerySnapshot<T = DocumentData> {
 
 export type DocumentChangeType = 'added' | 'removed' | 'modified';
 
-export interface DocumentChange<T = DocumentData> {
+export interface DocumentChange<
+  T = DocumentData,
+  T2 extends DocumentData = DocumentData
+> {
   readonly type: DocumentChangeType;
   readonly doc: QueryDocumentSnapshot<T>;
   readonly oldIndex: number;
   readonly newIndex: number;
 }
 
-export class CollectionReference<T = DocumentData> extends Query<T> {
+export class CollectionReference<
+  T = DocumentData,
+  T2 extends DocumentData = DocumentData
+> extends Query<T, T2> {
   private constructor();
 
   readonly id: string;
@@ -392,6 +466,7 @@ export class CollectionReference<T = DocumentData> extends Query<T> {
 
   isEqual(other: CollectionReference<T>): boolean;
 
+  withConverter(converter: null): CollectionReference<DocumentData>;
   withConverter<U>(
     converter: FirestoreDataConverter<U>
   ): CollectionReference<U>;
@@ -448,6 +523,6 @@ export interface FirestoreError {
 
 declare module '@firebase/component' {
   interface NameServiceMapping {
-    'firestore': FirebaseFirestore;
+    'firestore-compat': FirebaseFirestore;
   }
 }

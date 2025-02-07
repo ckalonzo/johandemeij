@@ -8,6 +8,7 @@ import ReactHtmlParser from 'react-html-parser';
 
 
 const MusicProfile = (props) => {
+    console.log("🚀 ~ MusicProfile ~ props:", props)
     useEffect(() => {
         window.scrollTo(0, 0)
         document.title = "JohanDeMeij.com | Music Profile"

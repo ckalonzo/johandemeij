@@ -13,7 +13,6 @@ const CdImage = (props) => {
     const [frontCaption,setFrontCaption] = useState()
     const [backCaption,setBackCaption] = useState()
     const [validated, setValidated] = useState(false);
-    const [coverLocation,setCoverLocation]= useState("frontCover")
     const [file,setFile] = useState()
    //const {ID,images} = props
     useEffect(() => {
@@ -89,9 +88,7 @@ const CdImage = (props) => {
         document.querySelector('input#post-image-back').click() :
         document.querySelector('input#post-image-main').click()
       }
-      let postImage = Object.values(props.postImage?props.postImage:[]).map(image => {
-        return image
-      })
+
       const renderImage = () => {
         let URL = ""
         if(props.type === "front" || props.type === "back"){

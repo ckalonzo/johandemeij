@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Form, Container, Row, Col, Button} from "react-bootstrap";
+import { Container, Row, Col} from "react-bootstrap";
 import { ACTIONS } from "redux/actions/types";
 import SideNav from "components/dashboard/SideNav";
 import { mainAction } from "redux/actions/index.actions"
-import CKEditor from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 const EditContact = props => {
- 
-  const [title, setFieldTitle] = useState();
-  const [content, setContent] = useState(props.event ? props.event.synopsis:'');
-  const [validated, setValidated] = useState(false);
-
 
   useEffect(() => {
     window.scrollTo(0,0)

@@ -32,10 +32,7 @@ const Footer = (props) => {
  if(robot){    
 setValidated(true);
   props.actions.mainAction(ACTIONS.SUBMIT_CONTACT_INFO,message)
-   console.log(message)
-   setTimeout(()=>{ 
-     window.location.reload()
-    }, 1);}
+   }
   };
     useEffect(() => {
         // Update the document title using the browser API
@@ -55,47 +52,47 @@ setValidated(true);
       return (<>
        <h3>Contact</h3>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        <Form.Row>
-                  <Form.Group as={Col}  controlId="name">
+          <div className="row mb-3"> 
+            <div className="col-6"><Form.Group as={Col}  controlId="name">
                   <Form.Control type="text" placeholder="Name" onChange={(e)=> setContactName(e.target.value)}/>
                     <Form.Control.Feedback type="invalid">
                         Please provide a title.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group>
-                  <Form.Group as={Col}  controlId="email">
+                  </Form.Group></div>
+            <div className="col-6"><Form.Group as={Col}  controlId="email">
                   <Form.Control type="email" placeholder="Email"  onChange={(e)=> setContactEmail(e.target.value)}/>
                     <Form.Control.Feedback type="invalid">
                         Please provide a title.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group>
-          </Form.Row>
-          <Form.Row>
-                  <Form.Group as={Col}  controlId="subject">
+                  </Form.Group></div> 
+          </div>
+       <div className="row mb-3">
+           <div className="col"><Form.Group as={Col}  controlId="subject">
                   <Form.Control type="text" placeholder="subject"  onChange={(e)=> setContactSubject(e.target.value)}/>
                     <Form.Control.Feedback type="invalid">
                         Please provide a title.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group>
-                  </Form.Row>
-          <Form.Row>
-                  <Form.Group as={Col}  controlId="message">
+                  </Form.Group></div>
+       </div>
+       <div className="row mb-3">
+           <div className="col"><Form.Group as={Col}  controlId="message">
                   <Form.Control as="textarea" rows="3" placeholder="message"  onChange={(e)=> setContactMessage(e.target.value)} />
                     <Form.Control.Feedback type="invalid">
                         Please provide a title.
                       </Form.Control.Feedback>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group>
-                  </Form.Row>
-                  <Form.Row>
-                 <Col style={{marginBottom:"15px"}}> <ReCAPTCHA
+                  </Form.Group></div>
+       </div>
+       <div className="row">
+        <div className="col"><ReCAPTCHA
     sitekey="6LfFgcQSAAAAAIuN7SwVwtVdB147chJV6kr1dIU_"
     onChange={onChange}
-  /></Col>
-                  </Form.Row>
-          <Form.Row>
+  /></div>
+       </div>
+                  <Form.Row>
                   <Form.Group as={Col}  controlId="message">
                       <Button variant="dark"  type="submit">Submit</Button>
                   </Form.Group>
