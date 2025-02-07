@@ -1,176 +1,156 @@
-import {
-    ACTIONS
-} from 'redux/actions/types.js'
-import {
-    mainAction
-} from "redux/actions/index.actions"
-import {
-    db,
-    storage
-} from "../../firebase";
+import { ACTIONS } from 'redux/actions/types.js';
+import { mainAction } from "redux/actions/index.actions";
+import { db, storage } from "../../firebase";
+import { collection, getDocs, query, where, doc, setDoc, deleteDoc } from "firebase/firestore"; // Firebase v9 imports
+import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage"; // Firebase Storage v9
+import _ from 'lodash';
+
 const initialState = {
     gallery: {},
-    galleries:[],
+    galleries: [],
     photos: []
 };
+
 export default function galleryReducer(state = initialState, action) {
     switch (action.type) {
+
         case ACTIONS.LOAD_GALLERY: {
-            db.collection("photoGalleryImages")
-               // .where("galleryId", "==", action.payload)
-                .get()
-                .then(querySnapshot => {
+            (async () => {
+                try {
+                    const galleryQuery = collection(db, "photoGalleryImages");
+                    const querySnapshot = await getDocs(galleryQuery);
                     const data = querySnapshot.docs.map(doc => doc.data());
-                    action.asyncDispatch(mainAction(ACTIONS.LOAD_GALLERY_SUCCESS, data))
-                });
-            return state
+                    action.asyncDispatch(mainAction(ACTIONS.LOAD_GALLERY_SUCCESS, data));
+                } catch (error) {
+                    action.asyncDispatch(mainAction(ACTIONS.LOAD_GALLERY_FAIL, error.message));
+                }
+            })();
+            return state;
         }
+
         case ACTIONS.LOAD_GALLERY_SUCCESS: {
-            state.gallery = action.payload
-            return state
+            let stateCopy = _.cloneDeep(state);
+            stateCopy.gallery = action.payload;
+            return stateCopy;
         }
 
         case ACTIONS.LOAD_GALLERY_FAIL: {
+            return state;
+        }
 
-            return state
-        }
         case ACTIONS.LOAD_GALLERIES: {
-            db.collection("photoGallery")
-                .get()
-                .then(querySnapshot => {
+            (async () => {
+                try {
+                    const galleriesQuery = collection(db, "photoGallery");
+                    const querySnapshot = await getDocs(galleriesQuery);
                     const data = querySnapshot.docs.map(doc => doc.data());
-                    console.log(data)
-                    action.asyncDispatch(mainAction(ACTIONS.LOAD_GALLERIES_SUCCESS, data))
-                });
-            return state
+                    console.log(data);
+                    action.asyncDispatch(mainAction(ACTIONS.LOAD_GALLERIES_SUCCESS, data));
+                } catch (error) {
+                    action.asyncDispatch(mainAction(ACTIONS.LOAD_GALLERIES_FAIL, error.message));
+                }
+            })();
+            return state;
         }
+
         case ACTIONS.LOAD_GALLERIES_SUCCESS: {
-            state.gallery = {...action.payload[0]}
-            return state
+            let stateCopy = _.cloneDeep(state);
+            stateCopy.gallery = { ...action.payload[0] };
+            return stateCopy;
         }
 
         case ACTIONS.LOAD_GALLERIES_FAIL: {
-
-            return state
+            return state;
         }
-
-        case ACTIONS.DELETE_GALLERY: {
-
-            return state
-        }
-
-        case ACTIONS.DELETE_GALLERY_SUCCESS: {
-
-            return state
-        }
-
-        case ACTIONS.DELETE_GALLERY_FAIL: {
-
-            return state
-        }
-
-
-        case ACTIONS.UPDATE_GALLERY: {
-
-            return state
-        }
-
-        case ACTIONS.UPDATE_GALLERY_SUCCESS: {
-
-            return state
-        }
-
-        case ACTIONS.UPDATE_GALLERY_FAIL: {
-
-            return state
-        }
-
 
         case ACTIONS.INSERT_GALLERY_IMAGE: {
+            (async () => {
+                try {
+                    const imageRef = ref(storage, `gallery/${action.payload.name}`);
+                    const uploadTask = uploadBytesResumable(imageRef, action.payload.file);
 
-            
-              let postImageRef = storage.ref('gallery/'+action.payload.name).put(action.payload.file);
-              postImageRef.on('state_changed',(snapshot)=>{
-                //progress function
-              },(error)=>{
-                //error
-                console.log(error)
-              },()=>{
-                //complete
-                storage.ref('gallery/').child(action.payload.name).getDownloadURL().then(url=>{
-                  console.log(url)
-                  action.asyncDispatch(mainAction(ACTIONS.INSERT_GALLERY_IMAGE_SUCCESS,action.payload))
-                })
-              })
-       
-            return state
+                    uploadTask.on(
+                        "state_changed",
+                        (snapshot) => {
+                            // Progress function (optional)
+                        },
+                        (error) => {
+                            console.log(error);
+                        },
+                        async () => {
+                            const url = await getDownloadURL(uploadTask.snapshot.ref);
+                            console.log(url);
+                            action.asyncDispatch(mainAction(ACTIONS.INSERT_GALLERY_IMAGE_SUCCESS, action.payload));
+                        }
+                    );
+                } catch (error) {
+                    action.asyncDispatch(mainAction(ACTIONS.INSERT_GALLERY_IMAGE_FAIL, error.message));
+                }
+            })();
+            return state;
         }
 
         case ACTIONS.INSERT_GALLERY_IMAGE_SUCCESS: {
-            let image = {
-                id: action.payload.id,
-                date:action.payload.date,
-                caption: action.payload.caption,
-               // file: action.payload.path,
-                name:action.payload.name
-              }
-            db.collection("photoGalleryImages")
-            .doc()
-            .set(image)
-            .then(() => {
-                action.asyncDispatch(mainAction(ACTIONS.LOAD_GALLERY,[]))
-            });
-            return state
+            (async () => {
+                try {
+                    const image = {
+                        id: action.payload.id,
+                        date: action.payload.date,
+                        caption: action.payload.caption,
+                        name: action.payload.name
+                    };
+
+                    await setDoc(doc(collection(db, "photoGalleryImages")), image);
+                    action.asyncDispatch(mainAction(ACTIONS.LOAD_GALLERY, []));
+                } catch (error) {
+                    action.asyncDispatch(mainAction(ACTIONS.INSERT_GALLERY_IMAGE_FAIL, error.message));
+                }
+            })();
+            return state;
         }
 
         case ACTIONS.INSERT_GALLERY_IMAGE_FAIL: {
-
-            return state
+            return state;
         }
 
         case ACTIONS.DELETE_GALLERY_IMAGE: {
-        let postImageRef = storage.ref('gallery/'+action.payload.name)
-        postImageRef.delete().then(()=>console.log("file deleted"));
-        action.asyncDispatch(mainAction(ACTIONS.DELETE_GALLERY_IMAGE_SUCCESS, action.payload))  
-            return state
+            (async () => {
+                try {
+                    const imageRef = ref(storage, `gallery/${action.payload.name}`);
+                    await deleteObject(imageRef);
+                    console.log("File deleted");
+
+                    action.asyncDispatch(mainAction(ACTIONS.DELETE_GALLERY_IMAGE_SUCCESS, action.payload));
+                } catch (error) {
+                    action.asyncDispatch(mainAction(ACTIONS.DELETE_GALLERY_IMAGE_FAIL, error.message));
+                }
+            })();
+            return state;
         }
 
         case ACTIONS.DELETE_GALLERY_IMAGE_SUCCESS: {
-            db.collection("photoGalleryImages")
-            .where("id","==",action.payload.ID)
-            .get()
-            .then((querySnapshot)=>{
-                querySnapshot.forEach((doc)=> doc.ref.delete())
-                action.asyncDispatch(mainAction(ACTIONS.LOAD_GALLERY,[]))
-            })
+            (async () => {
+                try {
+                    const imageQuery = query(collection(db, "photoGalleryImages"), where("id", "==", action.payload.ID));
+                    const querySnapshot = await getDocs(imageQuery);
 
-            return state
+                    querySnapshot.forEach(async (docSnapshot) => {
+                        await deleteDoc(docSnapshot.ref);
+                    });
+
+                    action.asyncDispatch(mainAction(ACTIONS.LOAD_GALLERY, []));
+                } catch (error) {
+                    action.asyncDispatch(mainAction(ACTIONS.DELETE_GALLERY_IMAGE_FAIL, error.message));
+                }
+            })();
+            return state;
         }
 
         case ACTIONS.DELETE_GALLERY_IMAGE_FAIL: {
-
-            return state
+            return state;
         }
-
-
-        case ACTIONS.UPDATE_GALLERY_IMAGE: {
-
-            return state
-        }
-
-        case ACTIONS.UPDATE_GALLERY_IMAGE_SUCCESS: {
-
-            return state
-        }
-
-        case ACTIONS.UPDATE_GALLERY_IMAGE_FAIL: {
-
-            return state
-        }
-
 
         default:
-            return state
-
+            return state;
     }
 }

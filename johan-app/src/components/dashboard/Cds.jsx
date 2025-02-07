@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect} from 'react'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
@@ -8,10 +8,9 @@ import Parser from 'html-react-parser';
 import { Container,Row,Col } from "react-bootstrap"
 import SideNav from "components/dashboard/SideNav"
 import Loading from "components/shared/Loading"
-//import { Link } from "react-router-dom";
-import EditPost from "components/dashboard/EditPost"
+
 const Posts = (props) => {
-    const [section,setSection] = useState("list")
+    
     useEffect(() => {
         // Update the document title using the browser API
         document.title = `JDM Dashboard | Presentations`;

@@ -13,7 +13,6 @@ const ProfileImage = (props) => {
   const [frontCaption, setFrontCaption] = useState();
   const [backCaption, setBackCaption] = useState();
   const [validated, setValidated] = useState(false);
-  const [coverLocation, setCoverLocation] = useState("frontCover");
   const [file, setFile] = useState();
   //const {ID,images} = props
   useEffect(() => {
@@ -24,15 +23,7 @@ const ProfileImage = (props) => {
   const handleImageSubmit = (e) => {
     // console.log(props)
   };
-  const updateCaption = () => {
-    let caption = {
-      docId: props.docId,
-      albumID: props.ID,
-      caption: props.type === "front" ? frontCaption : backCaption,
-      cover: props.type === "front" ? "frontCover" : "backCover",
-    };
-    mainProps.actions.mainAction(ACTIONS.UPDATE_CAPTION, caption);
-  };
+ 
   const uploadImage = () => {
     let image = {
       docId: props.docId,

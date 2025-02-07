@@ -5,12 +5,13 @@ import { bindActionCreators } from "redux";
 import { ACTIONS } from "redux/actions/types"
 import { mainAction } from "redux/actions/index.actions"
 import dayjs from "dayjs"
+import ReactHtmlParser from 'react-html-parser'
 const Article = (props) => {
     useEffect(() => {
        
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
-    const stripHtml = require("string-strip-html")
+
     const {postTitle,postContent,image,postDate} = props
     const truncateString = (str, num) => {
         if (str.length <= num) {
@@ -41,7 +42,7 @@ const Article = (props) => {
           <div className="card-body">
             <div className="card-date">{date.format('MMMM DD YYYY')}</div> 
             <div className="card-title">{truncateString(postTitle,47)}</div>
-            <div className="card-text" style={{marginBottom:"10px"}}>{truncateString(stripHtml(postContent),70)}</div>
+            <div className="card-text" style={{marginBottom:"10px",height:"90px",overflow:"hidden"}}>{truncateString(ReactHtmlParser(postContent),70)}</div>
             <div className="card-link"><a href={"/post/"+props.ID}>More...</a></div>
           </div>
         </div>

@@ -51,7 +51,6 @@ const loggedInUser = localStorage.getItem('user') ? localStorage.getItem('user')
 const isLoggedIn = loggedInUser.length > 0 ? true:false
 
 history.listen(location => {
-  console.log(location)
   ReactGA.set({ page: location.pathname }); // Update the user's current page
   ReactGA.pageview(location.pathname); // Record a pageview for the given page
 });
@@ -72,14 +71,11 @@ return(
   <Route path="/dashboard/misc" component={!isLoggedIn ? Login:ExtraPages} />
   <Route path="/dashboard/contact/:id" component={EditContact} />
   <Route path="/dashboard/contact" component={!isLoggedIn ? Contacts:Contacts} />
-  
   <Route path="/dashboard/catalogue/:id" component={!isLoggedIn ? Login:NewMusicCatalogue} />
   <Route path="/dashboard/catalogue/new" component={!isLoggedIn ? Login:NewMusicCatalogue} />
   <Route path="/dashboard/catalogue" component={!isLoggedIn ? Login:MusicCatalogue} />
-  
   <Route path="/dashboard/order/:id" component={!isLoggedIn ? Login:NewOrderLocation} />
   <Route path="/dashboard/order" component={!isLoggedIn ? Login:Locations} />
-
   <Route path="/dashboard/cds/edit/:id" component={!isLoggedIn ? Login:NewCd} />
   <Route path="/dashboard/cds/new" component={!isLoggedIn ? Login:NewCd} />
   <Route path="/dashboard/cds" component={!isLoggedIn ? Login:Cds} />

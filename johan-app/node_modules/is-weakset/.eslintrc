@@ -3,8 +3,11 @@
 
 	"extends": "@ljharb",
 
-	"globals": {
-		"WeakMap": false,
-		"WeakSet": false,
+	"rules": {
+		"new-cap": ["error", {
+			"capIsNewExceptions": [
+				"GetIntrinsic",
+			],
+		}],
 	},
 }

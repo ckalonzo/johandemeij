@@ -4,11 +4,9 @@ import { bindActionCreators } from "redux";
 import { mainAction } from 'redux/actions/index.actions'
 import { Button } from "react-bootstrap"
 import { ACTIONS } from "redux/actions/types"
-import Parser from 'html-react-parser';
 import { Container,Row,Col } from "react-bootstrap"
 import SideNav from "components/dashboard/SideNav"
 import Loading from "components/shared/Loading"
-import EditPost from "components/dashboard/EditPost"
 const Locations = (props) => {
     const [section,setSection] = useState("list")
     useEffect(() => {
